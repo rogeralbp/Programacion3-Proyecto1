@@ -90,4 +90,26 @@ namespace CapaDatos
             return contraseña;
         }
     }
+
+
+    public void InsertarDatosVehiculos(int placa, string marca, string modelo, string tipo_vehiculo, double precio, int cantidad_personas)
+    {
+        Conexion();
+        conexion.Open();
+        cmd = new NpgsqlCommand("INSERT INTO vehiculos (placa, marca, modelo , tipo_vehiculo, precio , cantidad_personas) VALUES ('" + placa + "', '" + marca + "', '" + modelo + "', '" + tipo_vehiculo + "', '" + precio + "', '" + cantidad_personas + "')", conexion);
+        cmd.ExecuteNonQuery();
+        conexion.Close();
+    }
+
+    public void ModificarDatosVehiculo(int placa, string marca, string modelo, string tipo_vehiculo, double precio, int cantidad_personas)
+    {
+        Conexion();
+        conexion.Open();
+        NpgsqlCommand cmd = new NpgsqlCommand("UPDATE vehiculos SET marca = '" + marca + "', modelo = '" + modelo + "', tipo_vehiculo = '" + tipo_vehiculo + "', precio ='" + precio + "', cantidad_personas = '" + cantidad_personas + "' WHERE placa = '" + placa + "'", conexion);
+        cmd.ExecuteNonQuery();
+        conexion.Close();
+    }
+
+
 }
+
