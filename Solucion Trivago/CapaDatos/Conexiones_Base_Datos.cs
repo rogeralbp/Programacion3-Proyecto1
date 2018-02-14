@@ -23,5 +23,14 @@ namespace CapaDatos
             string cadenaConexion = "Server=" + servidor + ";" + "Port=" + puerto + ";" + "User Id=" + usuario + ";" + "Password=" + clave + ";" + "Database=" + baseDatos;
             conexion = new NpgsqlConnection(cadenaConexion);
         }
+
+        public void InsertarDatosUsuarios(int cedula, string nombre, string contraseña, string tipo_usuario)
+        {
+            Conexion();
+            conexion.Open();
+            cmd = new NpgsqlCommand("INSERT usuarios (cedula, nombre, contraseña , tipo_usuario) VALUES ('" + cedula + "', '" + nombre + "', '" + contraseña + "', '" + tipo_usuario + "')", conexion);
+            cmd.ExecuteNonQuery();
+            conexion.Close();
+        }
     }
 }

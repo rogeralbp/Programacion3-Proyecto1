@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Windows.Forms;
 using CapaNegocios;
+using CapaDatos;
 
 namespace CapaPresentacion
 {
     public partial class Form1 : Form
     {
         Validaciones validaciones = new Validaciones();
+        Conexiones_Base_Datos conexiones = new Conexiones_Base_Datos();
 
         public Form1()
         {
@@ -26,8 +28,8 @@ namespace CapaPresentacion
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            comboBox1.Items.Add("Cliente");
-            comboBox1.Items.Add("Administrador");
+            comboTipoUsuario.Items.Add("Cliente");
+            comboTipoUsuario.Items.Add("Administrador");
         }
 
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
@@ -47,6 +49,24 @@ namespace CapaPresentacion
         private void textBox4_KeyPress(object sender, KeyPressEventArgs e)
         {
             validaciones.validarSoloLetras(e);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            int cedula = int.Parse(txtCedula.Text);
+            string nombre = txtNombre.Text;
+            string contraseña = txtContraseña.Text;
+            string combo = comboTipoUsuario.Text;
+
+            conexiones.InsertarDatosUsuarios(cedula, nombre, contraseña, combo);
+            MessageBox.Show("Usuario registrado");
+
+
+        }
+
+        private void txtCedula_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
