@@ -61,7 +61,7 @@ namespace CapaPresentacion
                 int cedula = int.Parse(txtCedula.Text);
                 string nombre = txtNombre.Text;
                 string contraseña = txtContraseña.Text;
-                //string combo = comboTipoUsuario.Text;
+        
 
                 conexiones.InsertarDatosUsuarios(cedula, nombre, contraseña, "Cliente");
                 MessageBox.Show("Usuario registrado");
