@@ -110,8 +110,48 @@ namespace CapaDatos
             conexion.Close();
         }
 
+        public void EliminarDatosVehiculos(int placa)
+        {
+            Conexion();
+            conexion.Open();
+            NpgsqlCommand cmd = new NpgsqlCommand("DELETE FROM vehiculos WHERE placa = '" + placa + "'", conexion);
+            cmd.ExecuteNonQuery();
+            conexion.Close();
+        }
+
+
+        public void InsertarDatosAeropuerto(int identificador_aeropuerto, string nombre_aerpuerto, string lugar_aeropuerto, int codigo_aeropuerto)
+        {
+            Conexion();
+            conexion.Open();
+            cmd = new NpgsqlCommand("INSERT INTO aeropuerto (identificador_aeropuerto, nombre_aeropuerto, lugar_aeropuerto , codigo_aeropuerto) VALUES ('" + identificador_aeropuerto + "', '" + nombre_aerpuerto + "', '" + lugar_aeropuerto + "', '" + codigo_aeropuerto +"')", conexion);
+            cmd.ExecuteNonQuery();
+            conexion.Close();
+        }
+
+        public void ModificarDatosAeropuerto(int identificador_aeropuerto, string nombre_aerpuerto, string lugar_aeropuerto, int codigo_aeropuerto)
+        {
+            Conexion();
+            conexion.Open();
+            NpgsqlCommand cmd = new NpgsqlCommand("UPDATE aeropuerto SET nombre_aeropuerto = '" + nombre_aerpuerto  + "', lugar_aeropuerto = '" + lugar_aeropuerto + "', codigo_aeropuerto ='" + codigo_aeropuerto + "' WHERE identificador_aeropuerto = '" + identificador_aeropuerto + "'", conexion);
+            cmd.ExecuteNonQuery();
+            conexion.Close();
+        }
+
+
+        public void EliminarDatosAeropuerto(int identificador_aeropuerto)
+        {
+            Conexion();
+            conexion.Open();
+            NpgsqlCommand cmd = new NpgsqlCommand("DELETE FROM aeropuerto WHERE identificador_aeropuerto = '" + identificador_aeropuerto + "'", conexion);
+            cmd.ExecuteNonQuery();
+            conexion.Close();
+        }
 
     }
 
+
 }
+
+
 
