@@ -51,6 +51,14 @@ namespace CapaPresentacion
             validaciones.validarSoloLetras(e);
         }
 
+        public void LimpiarDatos()
+        {
+            txtCedula.Clear();
+            txtNombre.Clear();
+            txtContraseña.Clear();
+
+        }
+
         private void button2_Click(object sender, EventArgs e)
         {
             int cedula = int.Parse(txtCedula.Text);
@@ -60,6 +68,8 @@ namespace CapaPresentacion
 
             conexiones.InsertarDatosUsuarios(cedula, nombre, contraseña, combo);
             MessageBox.Show("Usuario registrado");
+            LimpiarDatos();
+
 
 
         }
