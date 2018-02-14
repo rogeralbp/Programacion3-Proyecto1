@@ -45,5 +45,12 @@ namespace CapaDatos
             cmd.ExecuteNonQuery();
             conexion.Close();
         }
+
+        public String TipoDeUsuario() {
+
+            String tipoUsuario="";
+
+            return tipoUsuario;
+        }
     }
 }

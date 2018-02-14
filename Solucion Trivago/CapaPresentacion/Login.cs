@@ -50,27 +50,28 @@ namespace CapaPresentacion
             validaciones.validarSoloLetras(e);
         }
 
-        public void LimpiarDatos()
-        {
-            txtCedula.Clear();
-            txtNombre.Clear();
-            txtContraseña.Clear();
-
-        }
-
         private void button2_Click(object sender, EventArgs e)
         {
-            int cedula = int.Parse(txtCedula.Text);
-            string nombre = txtNombre.Text;
-            string contraseña = txtContraseña.Text;
-            //string combo = comboTipoUsuario.Text;
-
-            conexiones.InsertarDatosUsuarios(cedula, nombre, contraseña,"Cliente");
-            MessageBox.Show("Usuario registrado");
-            LimpiarDatos();
+            if (txtCedula.Text == "" || (txtNombre.Text == "" || txtContraseña.Text == ""){
 
 
+                MessageBox.Show("Debe de llenar todos los campos.");
+            }
+            else {
 
+                int cedula = int.Parse(txtCedula.Text);
+                string nombre = txtNombre.Text;
+                string contraseña = txtContraseña.Text;
+        
+
+                conexiones.InsertarDatosUsuarios(cedula, nombre, contraseña, "Cliente");
+                MessageBox.Show("Usuario registrado");
+
+                txtCedula.Text = "";
+                txtNombre.Text = "";
+                txtContraseña.Text = "";
+
+            }
         }
 
         private void txtCedula_TextChanged(object sender, EventArgs e)
