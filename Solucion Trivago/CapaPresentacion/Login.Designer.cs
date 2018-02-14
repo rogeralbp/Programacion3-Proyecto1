@@ -39,9 +39,7 @@
             this.txtContraseña = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.txtCedula = new System.Windows.Forms.TextBox();
-            this.comboTipoUsuario = new System.Windows.Forms.ComboBox();
             this.btnRegistrarse = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -125,9 +123,7 @@
             this.tabPage2.Controls.Add(this.txtContraseña);
             this.tabPage2.Controls.Add(this.txtNombre);
             this.tabPage2.Controls.Add(this.txtCedula);
-            this.tabPage2.Controls.Add(this.comboTipoUsuario);
             this.tabPage2.Controls.Add(this.btnRegistrarse);
-            this.tabPage2.Controls.Add(this.label6);
             this.tabPage2.Controls.Add(this.label5);
             this.tabPage2.Controls.Add(this.label4);
             this.tabPage2.Controls.Add(this.label3);
@@ -142,54 +138,38 @@
             // 
             // txtContraseña
             // 
-            this.txtContraseña.Location = new System.Drawing.Point(162, 89);
+            this.txtContraseña.Location = new System.Drawing.Point(127, 89);
             this.txtContraseña.Name = "txtContraseña";
-            this.txtContraseña.Size = new System.Drawing.Size(224, 20);
+            this.txtContraseña.Size = new System.Drawing.Size(244, 20);
             this.txtContraseña.TabIndex = 8;
+            this.txtContraseña.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtContraseña_KeyPress);
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(162, 47);
+            this.txtNombre.Location = new System.Drawing.Point(127, 51);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(224, 20);
+            this.txtNombre.Size = new System.Drawing.Size(244, 20);
             this.txtNombre.TabIndex = 7;
             this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox4_KeyPress);
             // 
             // txtCedula
             // 
-            this.txtCedula.Location = new System.Drawing.Point(162, 12);
+            this.txtCedula.Location = new System.Drawing.Point(127, 12);
             this.txtCedula.Name = "txtCedula";
-            this.txtCedula.Size = new System.Drawing.Size(224, 20);
+            this.txtCedula.Size = new System.Drawing.Size(244, 20);
             this.txtCedula.TabIndex = 6;
             this.txtCedula.TextChanged += new System.EventHandler(this.txtCedula_TextChanged);
             this.txtCedula.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox3_KeyPress);
             // 
-            // comboTipoUsuario
-            // 
-            this.comboTipoUsuario.FormattingEnabled = true;
-            this.comboTipoUsuario.Location = new System.Drawing.Point(162, 129);
-            this.comboTipoUsuario.Name = "comboTipoUsuario";
-            this.comboTipoUsuario.Size = new System.Drawing.Size(224, 21);
-            this.comboTipoUsuario.TabIndex = 5;
-            // 
             // btnRegistrarse
             // 
-            this.btnRegistrarse.Location = new System.Drawing.Point(162, 197);
+            this.btnRegistrarse.Location = new System.Drawing.Point(152, 173);
             this.btnRegistrarse.Name = "btnRegistrarse";
             this.btnRegistrarse.Size = new System.Drawing.Size(75, 23);
             this.btnRegistrarse.TabIndex = 4;
             this.btnRegistrarse.Text = "Registrarse";
             this.btnRegistrarse.UseVisualStyleBackColor = true;
             this.btnRegistrarse.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(43, 137);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(85, 13);
-            this.label6.TabIndex = 3;
-            this.label6.Text = "Tipo de Usuario:";
             // 
             // label5
             // 
@@ -218,13 +198,13 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "Cedula:";
             // 
-            // Form1
+            // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(402, 307);
             this.Controls.Add(this.tabControl1);
-            this.Name = "Form1";
+            this.Name = "Login";
             this.Text = "Login";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tabControl1.ResumeLayout(false);
@@ -249,9 +229,7 @@
         private System.Windows.Forms.TextBox txtContraseña;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.TextBox txtCedula;
-        private System.Windows.Forms.ComboBox comboTipoUsuario;
         private System.Windows.Forms.Button btnRegistrarse;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
