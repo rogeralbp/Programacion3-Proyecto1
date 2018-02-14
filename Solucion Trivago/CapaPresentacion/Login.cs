@@ -18,24 +18,32 @@ namespace CapaPresentacion
 
         private void button1_Click(object sender, EventArgs e)
         {
-            String usuario = conexiones.TipoDeUsuario(txtCedulaLogin.Text);
-            String contraseña = conexiones.ValidarContraseña(txtCedulaLogin.Text);
-
-            if (usuario.Equals("Administrador") && contraseña.Equals(txtCntraseñaLogin.Text))
+            if (txtCedulaLogin.Text.Length==0 || txtCntraseñaLogin.Text.Length==0)
             {
-                this.Hide();
-                Menu_Principal_Administrador v = new Menu_Principal_Administrador();
-                v.Show();
-            }
-            else if (usuario.Equals("Cliente") && contraseña.Equals(txtCntraseñaLogin.Text))
-            {
-
-                this.Hide();
-                Menu_Principal_Usuarios v = new Menu_Principal_Usuarios();
-                v.Show();
+                MessageBox.Show("Debe de llenar todos los datos.");
             }
             else {
-                MessageBox.Show("Usuario No Registrado en el Sistema");
+
+                String usuario = conexiones.TipoDeUsuario(txtCedulaLogin.Text);
+                String contraseña = conexiones.ValidarContraseña(txtCedulaLogin.Text);
+
+                if (usuario.Equals("Administrador") && contraseña.Equals(txtCntraseñaLogin.Text))
+                {
+                    this.Hide();
+                    Menu_Principal_Administrador v = new Menu_Principal_Administrador();
+                    v.Show();
+                }
+                else if (usuario.Equals("Cliente") && contraseña.Equals(txtCntraseñaLogin.Text))
+                {
+
+                    this.Hide();
+                    Menu_Principal_Usuarios v = new Menu_Principal_Usuarios();
+                    v.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Usuario No Registrado en el Sistema");
+                }
             }
         }
 
