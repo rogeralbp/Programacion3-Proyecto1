@@ -27,11 +27,15 @@ namespace CapaPresentacion
                 Menu_Principal_Administrador v = new Menu_Principal_Administrador();
                 v.Show();
             }
-            else {
+            else if (usuario.Equals("Cliente") && contraseña.Equals(txtCntraseñaLogin.Text))
+            {
 
                 this.Hide();
                 Menu_Principal_Usuarios v = new Menu_Principal_Usuarios();
                 v.Show();
+            }
+            else {
+                MessageBox.Show("Usuario No Registrado en el Sistema");
             }
         }
 
@@ -78,7 +82,7 @@ namespace CapaPresentacion
                 string contraseña = txtContraseña.Text;
         
 
-                conexiones.InsertarDatosUsuarios(cedula, nombre,Seguridad.EncriptarContraseña(contraseña), "Cliente");
+                conexiones.InsertarDatosUsuarios(cedula, nombre,Seguridad.EncriptarContraseña(contraseña),"Cliente");
                 MessageBox.Show("Usuario registrado");
 
                 txtCedula.Text = "";
