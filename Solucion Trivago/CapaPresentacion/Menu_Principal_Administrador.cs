@@ -16,5 +16,35 @@ namespace CapaPresentacion
         {
             InitializeComponent();
         }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Menu_Principal_Administrador_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCrud_Aeropuerto_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCrud_TarifasH_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
