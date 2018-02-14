@@ -18,11 +18,11 @@ namespace CapaDatos
             int puerto = 5432;
             string usuario = "postgres";
             string claveAnthonny = "1414250816ma";
-            // string claveRoger = "Saborio17";
+            string claveRoger = "Saborio17";
 
             string baseDatos = "gestion_vuelos";
 
-            string cadenaConexion = "Server=" + servidor + ";" + "Port=" + puerto + ";" + "User Id=" + usuario + ";" + "Password=" + claveAnthonny + ";" + "Database=" + baseDatos;
+            string cadenaConexion = "Server=" + servidor + ";" + "Port=" + puerto + ";" + "User Id=" + usuario + ";" + "Password=" + claveRoger+ ";" + "Database=" + baseDatos;
             conexion = new NpgsqlConnection(cadenaConexion);
 
             if (conexion != null)
@@ -66,6 +66,28 @@ namespace CapaDatos
 
 
             return tipoUsuario;
+        }
+
+        public String ValidarContraseña(String cedula)
+        {
+
+            String contraseña = String.Empty;
+
+            Conexion();
+            conexion.Open();
+            NpgsqlCommand consulta = new NpgsqlCommand("SELECT cedula,contraseña FROM usuarios WHERE cedula='" + cedula + "'", conexion);
+            NpgsqlDataReader lectorConsulta = consulta.ExecuteReader();
+            if (lectorConsulta.HasRows)
+            {
+                while (lectorConsulta.Read())
+                {
+                    contraseña = lectorConsulta.GetString(1);
+                }
+            }
+            conexion.Close();
+
+
+            return contraseña;
         }
     }
 }

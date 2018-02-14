@@ -19,7 +19,8 @@ namespace CapaPresentacion
         private void button1_Click(object sender, EventArgs e)
         {
             String usuario = conexiones.TipoDeUsuario(txtCedulaLogin.Text);
-            String contraseña=conexiones.ValidarContraseña(txtCedulaLogin.Text);
+            String contraseña = conexiones.ValidarContraseña(txtCedulaLogin.Text);
+
             if (usuario.Equals("Administrador") && contraseña.Equals(txtCntraseñaLogin.Text))
             {
                 this.Hide();
