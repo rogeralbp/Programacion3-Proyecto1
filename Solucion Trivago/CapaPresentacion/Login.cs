@@ -5,12 +5,12 @@ using CapaDatos;
 
 namespace CapaPresentacion
 {
-    public partial class Form1 : Form
+    public partial class Login : Form
     {
         Validaciones validaciones = new Validaciones();
         Conexiones_Base_Datos conexiones = new Conexiones_Base_Datos();
 
-        public Form1()
+        public Login()
         {
             InitializeComponent();
             this.CenterToScreen();
