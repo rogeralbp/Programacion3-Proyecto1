@@ -19,8 +19,8 @@ namespace CapaPresentacion
         private void button1_Click(object sender, EventArgs e)
         {
             String usuario = conexiones.TipoDeUsuario(txtCedulaLogin.Text);
-
-            if (usuario.Equals("Administrador"))
+            String contraseña=conexiones.ValidarContraseña(txtCedulaLogin.Text);
+            if (usuario.Equals("Administrador") && contraseña.Equals(txtCntraseñaLogin.Text))
             {
                 this.Hide();
                 Menu_Principal_Administrador v = new Menu_Principal_Administrador();
@@ -77,7 +77,7 @@ namespace CapaPresentacion
                 string contraseña = txtContraseña.Text;
         
 
-                conexiones.InsertarDatosUsuarios(cedula, nombre, contraseña, "Cliente");
+                conexiones.InsertarDatosUsuarios(cedula, nombre,Seguridad.EncriptarContraseña(contraseña), "Cliente");
                 MessageBox.Show("Usuario registrado");
 
                 txtCedula.Text = "";

@@ -66,5 +66,30 @@ namespace CapaDatos
 
             return tipoUsuario;
         }
+
+        public String ValidarContraseña(String cedula)
+        {
+
+            String contaseña = String.Empty;
+            String nombreUsuario;
+
+            Conexion();
+            conexion.Open();
+            NpgsqlCommand consulta = new NpgsqlCommand("SELECT cedula,contraseña FROM usuarios WHERE cedula='" + cedula + "'", conexion);
+            NpgsqlDataReader lectorConsulta = consulta.ExecuteReader();
+            if (lectorConsulta.HasRows)
+            {
+                while (lectorConsulta.Read())
+                {
+                    contaseña = lectorConsulta.GetString(1);
+                    nombreUsuario= lectorConsulta.GetString(1);
+                    Console.WriteLine(nombreUsuario);
+                }
+            }
+            conexion.Close();
+
+
+            return contaseña;
+        }
     }
 }
