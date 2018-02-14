@@ -45,6 +45,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Crud_Aerolineas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Crud_Aerolineas.Designer.cs">
+      <DependentUpon>Crud_Aerolineas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Crud_Aeropuertos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Crud_Aeropuertos.Designer.cs">
+      <DependentUpon>Crud_Aeropuertos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Crud_Lugares.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -77,6 +89,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Crud_Aerolineas.resx">
+      <DependentUpon>Crud_Aerolineas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Crud_Aeropuertos.resx">
+      <DependentUpon>Crud_Aeropuertos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Crud_Lugares.resx">
       <DependentUpon>Crud_Lugares.cs</DependentUpon>
     </EmbeddedResource>
