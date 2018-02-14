@@ -45,16 +45,52 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Crud_Lugares.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Crud_Lugares.Designer.cs">
+      <DependentUpon>Crud_Lugares.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Crud_Paises.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Crud_Paises.Designer.cs">
+      <DependentUpon>Crud_Paises.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Menu_Principal_Administrador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menu_Principal_Administrador.Designer.cs">
+      <DependentUpon>Menu_Principal_Administrador.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menu_Principal_Usuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menu_Principal_Usuarios.Designer.cs">
+      <DependentUpon>Menu_Principal_Usuarios.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Crud_Lugares.resx">
+      <DependentUpon>Crud_Lugares.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Crud_Paises.resx">
+      <DependentUpon>Crud_Paises.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu_Principal_Administrador.resx">
+      <DependentUpon>Menu_Principal_Administrador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu_Principal_Usuarios.resx">
+      <DependentUpon>Menu_Principal_Usuarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
