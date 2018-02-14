@@ -21,14 +21,16 @@ namespace CapaPresentacion
             String usuario = conexiones.TipoDeUsuario(txtCedulaLogin.Text);
 
             if (usuario.Equals("Administrador"))
-            { 
-                Menu_Principal_Administrador v = new Menu_Principal_Administrador();
+            {
                 this.Hide();
+                Menu_Principal_Administrador v = new Menu_Principal_Administrador();
+                v.Show();
             }
             else {
-               
-                Menu_Principal_Usuarios v = new Menu_Principal_Usuarios();
+
                 this.Hide();
+                Menu_Principal_Usuarios v = new Menu_Principal_Usuarios();
+                v.Show();
             }
         }
 

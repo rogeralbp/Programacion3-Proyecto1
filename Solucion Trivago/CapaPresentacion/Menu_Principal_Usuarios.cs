@@ -15,6 +15,7 @@ namespace CapaPresentacion
         public Menu_Principal_Usuarios()
         {
             InitializeComponent();
+            this.CenterToScreen();
         }
     }
 }
