@@ -24,6 +24,17 @@ namespace CapaDatos
 
             string cadenaConexion = "Server=" + servidor + ";" + "Port=" + puerto + ";" + "User Id=" + usuario + ";" + "Password=" + claveAnthonny + ";" + "Database=" + baseDatos;
             conexion = new NpgsqlConnection(cadenaConexion);
+
+            if (conexion != null)
+            {
+
+                Console.WriteLine("Conexion con la DB nombre : " + baseDatos + " , Exitosa!!");
+            }
+            else
+            {
+
+                Console.WriteLine("Error en la conexion con la DB");
+            }
         }
 
         public void InsertarDatosUsuarios(int cedula, string nombre, string contraseña, string tipo_usuario)
