@@ -57,6 +57,12 @@
     <Compile Include="Crud_Aeropuertos.Designer.cs">
       <DependentUpon>Crud_Aeropuertos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Crud_Hoteles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Crud_Hoteles.Designer.cs">
+      <DependentUpon>Crud_Hoteles.cs</DependentUpon>
+    </Compile>
     <Compile Include="Crud_Lugares.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -68,6 +74,30 @@
     </Compile>
     <Compile Include="Crud_Paises.Designer.cs">
       <DependentUpon>Crud_Paises.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Crud_Rutas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Crud_Rutas.Designer.cs">
+      <DependentUpon>Crud_Rutas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Crud_Tarifas_Hotel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Crud_Tarifas_Hotel.Designer.cs">
+      <DependentUpon>Crud_Tarifas_Hotel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Crud_Tarifas_Vuelo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Crud_Tarifas_Vuelo.Designer.cs">
+      <DependentUpon>Crud_Tarifas_Vuelo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Crud_Vehiculos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Crud_Vehiculos.Designer.cs">
+      <DependentUpon>Crud_Vehiculos.cs</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -95,11 +125,26 @@
     <EmbeddedResource Include="Crud_Aeropuertos.resx">
       <DependentUpon>Crud_Aeropuertos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Crud_Hoteles.resx">
+      <DependentUpon>Crud_Hoteles.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Crud_Lugares.resx">
       <DependentUpon>Crud_Lugares.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Crud_Paises.resx">
       <DependentUpon>Crud_Paises.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Crud_Rutas.resx">
+      <DependentUpon>Crud_Rutas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Crud_Tarifas_Hotel.resx">
+      <DependentUpon>Crud_Tarifas_Hotel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Crud_Tarifas_Vuelo.resx">
+      <DependentUpon>Crud_Tarifas_Vuelo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Crud_Vehiculos.resx">
+      <DependentUpon>Crud_Vehiculos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
