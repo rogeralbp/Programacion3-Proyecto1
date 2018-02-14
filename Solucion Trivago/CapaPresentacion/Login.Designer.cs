@@ -31,8 +31,8 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.button1 = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtCntraseñaLogin = new System.Windows.Forms.TextBox();
+            this.txtCedulaLogin = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -61,8 +61,8 @@
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.button1);
-            this.tabPage1.Controls.Add(this.textBox2);
-            this.tabPage1.Controls.Add(this.textBox1);
+            this.tabPage1.Controls.Add(this.txtCntraseñaLogin);
+            this.tabPage1.Controls.Add(this.txtCedulaLogin);
             this.tabPage1.Controls.Add(this.label2);
             this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
@@ -83,22 +83,22 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // textBox2
+            // txtCntraseñaLogin
             // 
-            this.textBox2.Location = new System.Drawing.Point(135, 88);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.PasswordChar = '*';
-            this.textBox2.Size = new System.Drawing.Size(232, 20);
-            this.textBox2.TabIndex = 3;
-            this.textBox2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox2_KeyPress);
+            this.txtCntraseñaLogin.Location = new System.Drawing.Point(135, 88);
+            this.txtCntraseñaLogin.Name = "txtCntraseñaLogin";
+            this.txtCntraseñaLogin.PasswordChar = '*';
+            this.txtCntraseñaLogin.Size = new System.Drawing.Size(232, 20);
+            this.txtCntraseñaLogin.TabIndex = 3;
+            this.txtCntraseñaLogin.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox2_KeyPress);
             // 
-            // textBox1
+            // txtCedulaLogin
             // 
-            this.textBox1.Location = new System.Drawing.Point(135, 25);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(232, 20);
-            this.textBox1.TabIndex = 2;
-            this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
+            this.txtCedulaLogin.Location = new System.Drawing.Point(135, 25);
+            this.txtCedulaLogin.Name = "txtCedulaLogin";
+            this.txtCedulaLogin.Size = new System.Drawing.Size(232, 20);
+            this.txtCedulaLogin.TabIndex = 2;
+            this.txtCedulaLogin.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
             // 
             // label2
             // 
@@ -221,8 +221,8 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtCntraseñaLogin;
+        private System.Windows.Forms.TextBox txtCedulaLogin;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TabPage tabPage2;

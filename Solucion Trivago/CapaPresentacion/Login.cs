@@ -18,7 +18,18 @@ namespace CapaPresentacion
 
         private void button1_Click(object sender, EventArgs e)
         {
+            String usuario = conexiones.TipoDeUsuario(txtCedulaLogin.Text);
 
+            if (usuario.Equals("Administrador"))
+            { 
+                Menu_Principal_Administrador v = new Menu_Principal_Administrador();
+                this.Hide();
+            }
+            else {
+               
+                Menu_Principal_Usuarios v = new Menu_Principal_Usuarios();
+                this.Hide();
+            }
         }
 
         private void tabPage2_Click(object sender, EventArgs e)
@@ -52,7 +63,7 @@ namespace CapaPresentacion
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (txtCedula.Text == "" || (txtNombre.Text == "" || txtContraseña.Text == ""){
+            if (txtCedula.Text == "" || txtNombre.Text == "" || txtContraseña.Text == ""){
 
 
                 MessageBox.Show("Debe de llenar todos los campos.");
