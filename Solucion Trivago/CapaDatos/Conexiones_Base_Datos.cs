@@ -17,12 +17,12 @@ namespace CapaDatos
             string servidor = "localhost";
             int puerto = 5432;
             string usuario = "postgres";
-            //string claveAnthonny = "1414250816ma";
-            string claveRoger = "Saborio17";
+            string claveAnthonny = "1414250816ma";
+            // string claveRoger = "Saborio17";
 
             string baseDatos = "gestion_vuelos";
 
-            string cadenaConexion = "Server=" + servidor + ";" + "Port=" + puerto + ";" + "User Id=" + usuario + ";" + "Password=" + claveRoger + ";" + "Database=" + baseDatos;
+            string cadenaConexion = "Server=" + servidor + ";" + "Port=" + puerto + ";" + "User Id=" + usuario + ";" + "Password=" + claveAnthonny + ";" + "Database=" + baseDatos;
             conexion = new NpgsqlConnection(cadenaConexion);
 
             if (conexion != null)
@@ -46,19 +46,20 @@ namespace CapaDatos
             conexion.Close();
         }
 
-        public String TipoDeUsuario(String cedula) {
+        public String TipoDeUsuario(String cedula)
+        {
 
-            String tipoUsuario=String.Empty;
+            String tipoUsuario = String.Empty;
 
             Conexion();
             conexion.Open();
-            NpgsqlCommand consulta = new NpgsqlCommand("SELECT cedula,tipo_usuario FROM usuarios WHERE cedula='"+cedula+"'", conexion);
+            NpgsqlCommand consulta = new NpgsqlCommand("SELECT cedula,tipo_usuario FROM usuarios WHERE cedula='" + cedula + "'", conexion);
             NpgsqlDataReader lectorConsulta = consulta.ExecuteReader();
             if (lectorConsulta.HasRows)
             {
                 while (lectorConsulta.Read())
                 {
-                    tipoUsuario=lectorConsulta.GetString(1);
+                    tipoUsuario = lectorConsulta.GetString(1);
                 }
             }
             conexion.Close();
@@ -66,5 +67,26 @@ namespace CapaDatos
 
             return tipoUsuario;
         }
+
+
+        public void InsertarDatosVehiculos(int placa, string marca, string modelo, string tipo_vehiculo, double precio, int cantidad_personas)
+        {
+            Conexion();
+            conexion.Open();
+            cmd = new NpgsqlCommand("INSERT INTO vehiculos (placa, marca, modelo , tipo_vehiculo, precio , cantidad_personas) VALUES ('" + placa + "', '" + marca + "', '" + modelo + "', '" + tipo_vehiculo + "', '" + precio + "', '" + cantidad_personas + "')" , conexion);
+            cmd.ExecuteNonQuery();
+            conexion.Close();
+        }
+
+        public void ModificarDatosVehiculo(int placa, string marca, string modelo, string tipo_vehiculo, double precio, int cantidad_personas)
+        {
+            Conexion();
+            conexion.Open();
+            NpgsqlCommand cmd = new NpgsqlCommand("UPDATE vehiculos SET marca = '" + marca + "', modelo = '" + modelo + "', tipo_vehiculo = '" + tipo_vehiculo + "', precio ='" + precio  + "', cantidad_personas = '" + cantidad_personas+ "' WHERE placa = '" + placa + "'", conexion);
+            cmd.ExecuteNonQuery();
+            conexion.Close();
+        }
+
+
     }
 }
