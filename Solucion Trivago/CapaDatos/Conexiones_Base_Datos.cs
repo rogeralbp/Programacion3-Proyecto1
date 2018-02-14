@@ -17,10 +17,12 @@ namespace CapaDatos
             string servidor = "localhost";
             int puerto = 5432;
             string usuario = "postgres";
-            string clave = "1414250816ma";
+            string claveAnthonny = "1414250816ma";
+            //string claveRoger = "Saborio17";
+
             string baseDatos = "gestion_vuelos";
 
-            string cadenaConexion = "Server=" + servidor + ";" + "Port=" + puerto + ";" + "User Id=" + usuario + ";" + "Password=" + clave + ";" + "Database=" + baseDatos;
+            string cadenaConexion = "Server=" + servidor + ";" + "Port=" + puerto + ";" + "User Id=" + usuario + ";" + "Password=" + claveAnthonny + ";" + "Database=" + baseDatos;
             conexion = new NpgsqlConnection(cadenaConexion);
         }
 
