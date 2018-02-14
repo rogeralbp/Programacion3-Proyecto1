@@ -140,7 +140,6 @@
             // 
             this.txtContraseña.Location = new System.Drawing.Point(127, 89);
             this.txtContraseña.Name = "txtContraseña";
-            this.txtContraseña.PasswordChar = '*';
             this.txtContraseña.Size = new System.Drawing.Size(244, 20);
             this.txtContraseña.TabIndex = 8;
             this.txtContraseña.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtContraseña_KeyPress);

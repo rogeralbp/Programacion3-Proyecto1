@@ -17,7 +17,7 @@ namespace CapaDatos
             string servidor = "localhost";
             int puerto = 5432;
             string usuario = "postgres";
-            string claveAnthonny = "1414250816ma";
+            //string claveAnthonny = "1414250816ma";
             string claveRoger = "Saborio17";
 
             string baseDatos = "gestion_vuelos";
