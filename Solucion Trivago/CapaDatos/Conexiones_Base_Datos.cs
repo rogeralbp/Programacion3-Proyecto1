@@ -148,10 +148,138 @@ namespace CapaDatos
             conexion.Close();
         }
 
+        public void InsertarDatosLugares(int identificador, string nombre)
+        {
+            Conexion();
+            conexion.Open();
+            cmd = new NpgsqlCommand("INSERT INTO lugares (identificador_lugar, nombre_lugar) VALUES ('" + identificador + "', '" + nombre +  "')", conexion);
+            cmd.ExecuteNonQuery();
+            conexion.Close();
+        }
+
+        public void ModificarDatosLugar( int identificador , string nombre)
+        {
+            Conexion();
+            conexion.Open();
+            NpgsqlCommand cmd = new NpgsqlCommand("UPDATE lugares SET nombre_lugar = '" + nombre +  "' WHERE identificador_lugar = '" + identificador + "'", conexion);
+            cmd.ExecuteNonQuery();
+            conexion.Close();
+                
+
+        }
+
+        public void EliminarDatosLugares( int identificador)
+        {
+            Conexion();
+            conexion.Open();
+            NpgsqlCommand cmd = new NpgsqlCommand("DELETE FROM lugares WHERE identificador_lugar = '" + identificador+ "'", conexion);
+            cmd.ExecuteNonQuery();
+            conexion.Close();
+
+        }
+
+        public void InsertarDatosRutas( int identificador , string pais_origen ,  string pais_destino , int duracion)
+        {
+            Conexion();
+            conexion.Open();
+            cmd = new NpgsqlCommand("INSERT INTO rutas (identificador_ruta, pais_origen , pais_destino , duracion) VALUES ('" + identificador + "', '" + pais_origen +  "', '" + pais_destino + "' ,'" + duracion +  "')", conexion);
+            cmd.ExecuteNonQuery();
+            conexion.Close();
+
+        }
+
+        public void ModificarDatosRuta(int identificador, string pais_origen, string pais_destino, int duracion)
+        {
+            Conexion();
+            conexion.Open();
+            NpgsqlCommand cmd = new NpgsqlCommand("UPDATE rutas SET pais_origen = '" + pais_origen + "', pais_destino = '" + pais_destino + "', duracion ='" + duracion + "' WHERE identificador_ruta = '" + identificador + "'", conexion);
+            cmd.ExecuteNonQuery();
+            conexion.Close();
+        }
+
+        public void EliminarDatosRuta(int identificador)
+        {
+            Conexion();
+            conexion.Open();
+            NpgsqlCommand cmd = new NpgsqlCommand("DELETE FROM rutas WHERE identificador_ruta = '" + identificador + "'", conexion);
+            cmd.ExecuteNonQuery();
+            conexion.Close();
+
+        }
+
+        public void InsertaTarifaHotel(int identificador_tarifa , int precio_tarifa)
+        {
+            Conexion();
+            conexion.Open();
+            cmd = new NpgsqlCommand("INSERT INTO tarifas_hoteles (identificador_tarifa, precio_tarifa) VALUES ('" + identificador_tarifa + "', '" + precio_tarifa + "')", conexion);
+            cmd.ExecuteNonQuery();
+            conexion.Close();
+
+        }
+
+        public void ModificarTarifaHotel(int identificador_tarifa, int precio_tarifa)
+        {
+            Conexion();
+            conexion.Open();
+            NpgsqlCommand cmd = new NpgsqlCommand("UPDATE  tarifas_hoteles SET precio_tarifa = '" + precio_tarifa + "' WHERE identificador_tarifa = '" + identificador_tarifa + "'", conexion);
+            cmd.ExecuteNonQuery();
+            conexion.Close();
+
+        }
+
+        public void EliminarDatosTarifa(int identificador)
+        {
+            Conexion();
+            conexion.Open();
+            NpgsqlCommand cmd = new NpgsqlCommand("DELETE FROM  tarifas_hoteles WHERE identificador_tarifa = '" + identificador + "'", conexion);
+            cmd.ExecuteNonQuery();
+            conexion.Close();
+
+        }
+        public void InsertarDatosVuelos(int identificador_tarifa, string ruta  , double precio)
+        {
+            Conexion();
+            conexion.Open();
+            cmd = new NpgsqlCommand("INSERT INTO tarifas_vuelos (identificador_tarifa, ruta, precio) VALUES ('" + identificador_tarifa + "', '" + ruta + "', '" + precio +  "')", conexion);
+            cmd.ExecuteNonQuery();
+            conexion.Close();
+        }
+
+
+        public void ModificarTarifaVuelo(int identificador_tarifa, string ruta, double precio)
+        {
+            Conexion();
+            conexion.Open();
+            NpgsqlCommand cmd = new NpgsqlCommand("UPDATE tarifas_vuelos SET ruta = '" + ruta + "', precio = '" + precio + "' WHERE identificador_tarifa = '" + identificador_tarifa + "'", conexion);
+            cmd.ExecuteNonQuery();
+            conexion.Close();
+        }
+
+
+
+        public void EliminarDatosTarifaVuelos(int identificador)
+        {
+            Conexion();
+            conexion.Open();
+            NpgsqlCommand cmd = new NpgsqlCommand("DELETE FROM  tarifas_vuelos WHERE identificador_tarifa = '" + identificador + "'", conexion);
+            cmd.ExecuteNonQuery();
+            conexion.Close();
+
+        }
+
+
+
+
+
     }
 
 
+
+
 }
+
+
+
 
 
 
