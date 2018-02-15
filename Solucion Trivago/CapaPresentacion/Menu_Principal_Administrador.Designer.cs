@@ -41,41 +41,41 @@
             // 
             // btnCrud_Vehiculos
             // 
-            this.btnCrud_Vehiculos.Location = new System.Drawing.Point(214, 92);
+            this.btnCrud_Vehiculos.Location = new System.Drawing.Point(189, 92);
             this.btnCrud_Vehiculos.Name = "btnCrud_Vehiculos";
-            this.btnCrud_Vehiculos.Size = new System.Drawing.Size(148, 23);
+            this.btnCrud_Vehiculos.Size = new System.Drawing.Size(173, 23);
             this.btnCrud_Vehiculos.TabIndex = 0;
-            this.btnCrud_Vehiculos.Text = "Crud Vehiculos";
+            this.btnCrud_Vehiculos.Text = "Mantenimiento Vehiculos";
             this.btnCrud_Vehiculos.UseVisualStyleBackColor = true;
             this.btnCrud_Vehiculos.Click += new System.EventHandler(this.btnCrud_Vehiculos_Click);
             // 
             // btnCrud_Aeropuerto
             // 
-            this.btnCrud_Aeropuerto.Location = new System.Drawing.Point(214, 144);
+            this.btnCrud_Aeropuerto.Location = new System.Drawing.Point(189, 144);
             this.btnCrud_Aeropuerto.Name = "btnCrud_Aeropuerto";
-            this.btnCrud_Aeropuerto.Size = new System.Drawing.Size(148, 23);
+            this.btnCrud_Aeropuerto.Size = new System.Drawing.Size(173, 23);
             this.btnCrud_Aeropuerto.TabIndex = 1;
-            this.btnCrud_Aeropuerto.Text = "Crud Aeropuerto";
+            this.btnCrud_Aeropuerto.Text = "Mantenimiento Aeropuerto";
             this.btnCrud_Aeropuerto.UseVisualStyleBackColor = true;
             this.btnCrud_Aeropuerto.Click += new System.EventHandler(this.btnCrud_Aeropuerto_Click);
             // 
             // btnCrud_Hoteles
             // 
-            this.btnCrud_Hoteles.Location = new System.Drawing.Point(214, 207);
+            this.btnCrud_Hoteles.Location = new System.Drawing.Point(189, 207);
             this.btnCrud_Hoteles.Name = "btnCrud_Hoteles";
-            this.btnCrud_Hoteles.Size = new System.Drawing.Size(148, 23);
+            this.btnCrud_Hoteles.Size = new System.Drawing.Size(173, 23);
             this.btnCrud_Hoteles.TabIndex = 2;
-            this.btnCrud_Hoteles.Text = "Crud Hoteles";
+            this.btnCrud_Hoteles.Text = "Mantenimiento Hoteles";
             this.btnCrud_Hoteles.UseVisualStyleBackColor = true;
             this.btnCrud_Hoteles.Click += new System.EventHandler(this.btnCrud_Hoteles_Click);
             // 
             // btnCrud_Paises
             // 
-            this.btnCrud_Paises.Location = new System.Drawing.Point(214, 260);
+            this.btnCrud_Paises.Location = new System.Drawing.Point(189, 260);
             this.btnCrud_Paises.Name = "btnCrud_Paises";
-            this.btnCrud_Paises.Size = new System.Drawing.Size(148, 23);
+            this.btnCrud_Paises.Size = new System.Drawing.Size(173, 23);
             this.btnCrud_Paises.TabIndex = 3;
-            this.btnCrud_Paises.Text = "Crud Países";
+            this.btnCrud_Paises.Text = "Mantenimiento Países";
             this.btnCrud_Paises.UseVisualStyleBackColor = true;
             this.btnCrud_Paises.Click += new System.EventHandler(this.btnCrud_Paises_Click);
             // 
@@ -83,9 +83,9 @@
             // 
             this.btnCrudLugares.Location = new System.Drawing.Point(387, 207);
             this.btnCrudLugares.Name = "btnCrudLugares";
-            this.btnCrudLugares.Size = new System.Drawing.Size(148, 23);
+            this.btnCrudLugares.Size = new System.Drawing.Size(179, 23);
             this.btnCrudLugares.TabIndex = 4;
-            this.btnCrudLugares.Text = "Crud Lugares";
+            this.btnCrudLugares.Text = "Mantenimiento Lugares";
             this.btnCrudLugares.UseVisualStyleBackColor = true;
             this.btnCrudLugares.Click += new System.EventHandler(this.button5_Click);
             // 
@@ -93,9 +93,9 @@
             // 
             this.btnCrudRutas.Location = new System.Drawing.Point(387, 260);
             this.btnCrudRutas.Name = "btnCrudRutas";
-            this.btnCrudRutas.Size = new System.Drawing.Size(148, 23);
+            this.btnCrudRutas.Size = new System.Drawing.Size(179, 23);
             this.btnCrudRutas.TabIndex = 6;
-            this.btnCrudRutas.Text = "Crud Rutas";
+            this.btnCrudRutas.Text = "MantenimientoRutas";
             this.btnCrudRutas.UseVisualStyleBackColor = true;
             this.btnCrudRutas.Click += new System.EventHandler(this.button7_Click);
             // 
@@ -103,9 +103,9 @@
             // 
             this.btnCrud_TarifasH.Location = new System.Drawing.Point(387, 144);
             this.btnCrud_TarifasH.Name = "btnCrud_TarifasH";
-            this.btnCrud_TarifasH.Size = new System.Drawing.Size(148, 23);
+            this.btnCrud_TarifasH.Size = new System.Drawing.Size(179, 23);
             this.btnCrud_TarifasH.TabIndex = 7;
-            this.btnCrud_TarifasH.Text = "Crud Tarifas de Hotel";
+            this.btnCrud_TarifasH.Text = "Mantenimiento Tarifas de Hotel";
             this.btnCrud_TarifasH.UseVisualStyleBackColor = true;
             this.btnCrud_TarifasH.Click += new System.EventHandler(this.btnCrud_TarifasH_Click);
             // 
@@ -113,15 +113,15 @@
             // 
             this.btnCrudTarifasV.Location = new System.Drawing.Point(387, 92);
             this.btnCrudTarifasV.Name = "btnCrudTarifasV";
-            this.btnCrudTarifasV.Size = new System.Drawing.Size(148, 23);
+            this.btnCrudTarifasV.Size = new System.Drawing.Size(179, 23);
             this.btnCrudTarifasV.TabIndex = 8;
-            this.btnCrudTarifasV.Text = "Crud de Tarifas de Vuelo";
+            this.btnCrudTarifasV.Text = "Mantenimiento Tarifas de Vuelo";
             this.btnCrudTarifasV.UseVisualStyleBackColor = true;
             this.btnCrudTarifasV.Click += new System.EventHandler(this.button9_Click);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(626, 358);
+            this.button1.Location = new System.Drawing.Point(657, 402);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(123, 23);
             this.button1.TabIndex = 9;
