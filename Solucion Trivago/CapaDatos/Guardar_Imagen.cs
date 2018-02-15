@@ -42,10 +42,7 @@ namespace CapaDatos
         }
 
 
-        public void Cargar(OpenFileDialog op)
-        {
-            
-        }
+       
 
         public void InsertarHotelFoto( int indentificador , string nombre , string filefoto , string pais , string lugar , int habitaciones)
         {
