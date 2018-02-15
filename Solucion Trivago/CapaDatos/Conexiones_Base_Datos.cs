@@ -178,6 +178,35 @@ namespace CapaDatos
 
         }
 
+        public void InsertarDatosRutas( int identificador , string pais_origen ,  string pais_destino , int duracion)
+        {
+            Conexion();
+            conexion.Open();
+            cmd = new NpgsqlCommand("INSERT INTO rutas (identificador_ruta, pais_origen , pais_destino , duracion) VALUES ('" + identificador + "', '" + pais_origen +  "', '" + pais_destino + "' ,'" + duracion +  "')", conexion);
+            cmd.ExecuteNonQuery();
+            conexion.Close();
+
+        }
+
+        public void ModificarDatosRuta(int identificador, string pais_origen, string pais_destino, int duracion)
+        {
+            Conexion();
+            conexion.Open();
+            NpgsqlCommand cmd = new NpgsqlCommand("UPDATE rutas SET pais_origen = '" + pais_origen + "', pais_destino = '" + pais_destino + "', duracion ='" + duracion + "' WHERE identificador_ruta = '" + identificador + "'", conexion);
+            cmd.ExecuteNonQuery();
+            conexion.Close();
+        }
+
+        public void EliminarDatosRuta(int identificador)
+        {
+            Conexion();
+            conexion.Open();
+            NpgsqlCommand cmd = new NpgsqlCommand("DELETE FROM rutas WHERE identificador_ruta = '" + identificador + "'", conexion);
+            cmd.ExecuteNonQuery();
+            conexion.Close();
+
+        }
+
 
 
     }
