@@ -148,10 +148,47 @@ namespace CapaDatos
             conexion.Close();
         }
 
+        public void InsertarDatosLugares(int identificador, string nombre)
+        {
+            Conexion();
+            conexion.Open();
+            cmd = new NpgsqlCommand("INSERT INTO lugares (identificador_lugar, nombre_lugar) VALUES ('" + identificador + "', '" + nombre +  "')", conexion);
+            cmd.ExecuteNonQuery();
+            conexion.Close();
+        }
+
+        public void ModificarDatosLugar( int identificador , string nombre)
+        {
+            Conexion();
+            conexion.Open();
+            NpgsqlCommand cmd = new NpgsqlCommand("UPDATE lugares SET nombre_lugar = '" + nombre +  "' WHERE identificador_lugar = '" + identificador + "'", conexion);
+            cmd.ExecuteNonQuery();
+            conexion.Close();
+                
+
+        }
+
+        public void EliminarDatosLugares( int identificador)
+        {
+            Conexion();
+            conexion.Open();
+            NpgsqlCommand cmd = new NpgsqlCommand("DELETE FROM lugares WHERE identificador_lugar = '" + identificador+ "'", conexion);
+            cmd.ExecuteNonQuery();
+            conexion.Close();
+
+        }
+
+
+
     }
 
 
-}
+
+
+    }
+
+
+
 
 
 
