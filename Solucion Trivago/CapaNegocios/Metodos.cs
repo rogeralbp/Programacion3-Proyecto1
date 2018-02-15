@@ -66,7 +66,8 @@ namespace CapaNegocios
         public void LlenarDtVehiculos(DataGridView Agregar_Vehiculo)
         {
 
-            try {
+            try
+            {
                 Conexion();
                 conexion.Open();
                 DataSet dataset = new DataSet();
@@ -83,14 +84,36 @@ namespace CapaNegocios
 
 
             }
-            catch(Exception error)
+            catch (Exception error)
             {
-                MessageBox.Show( "Error"  + error);
+                MessageBox.Show("Error" + error);
             }
+
+        }
+
+
+
+            public void LlenarDtRutas(DataGridView agregar_Rutas)
+        {
+            Conexion();
+            conexion.Open();
+            DataSet dataset = new DataSet();
+            NpgsqlDataAdapter adapter = new NpgsqlDataAdapter("SELECT identificador_ruta , pais_origen , pais_destino , duracion FROM rutas", conexion);
+            adapter.Fill(dataset, "rutas");
+            agregar_Rutas.DataSource = dataset.Tables[0];
+            agregar_Rutas.Columns[0].HeaderCell.Value = "identificador_ruta";
+            agregar_Rutas.Columns[1].HeaderCell.Value = "pais_origen";
+            agregar_Rutas.Columns[2].HeaderCell.Value = "pais_destino";
+            agregar_Rutas.Columns[3].HeaderCell.Value = "duracion";
+           
+            conexion.Close();
+
+
         }
     }
-
-
     }
+
+
+    
 
 
