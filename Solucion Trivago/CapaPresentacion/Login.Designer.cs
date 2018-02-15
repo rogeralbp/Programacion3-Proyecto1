@@ -30,6 +30,7 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.txtCntraseñaLogin = new System.Windows.Forms.TextBox();
             this.txtCedulaLogin = new System.Windows.Forms.TextBox();
@@ -43,7 +44,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -75,9 +75,19 @@
             this.tabPage1.Text = "Iniciar Sesion";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(311, 250);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 5;
+            this.button2.Text = "Salir";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click_1);
+            // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(158, 150);
+            this.button1.Location = new System.Drawing.Point(151, 180);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 4;
@@ -87,7 +97,7 @@
             // 
             // txtCntraseñaLogin
             // 
-            this.txtCntraseñaLogin.Location = new System.Drawing.Point(135, 88);
+            this.txtCntraseñaLogin.Location = new System.Drawing.Point(82, 138);
             this.txtCntraseñaLogin.Name = "txtCntraseñaLogin";
             this.txtCntraseñaLogin.PasswordChar = '*';
             this.txtCntraseñaLogin.Size = new System.Drawing.Size(232, 20);
@@ -96,7 +106,7 @@
             // 
             // txtCedulaLogin
             // 
-            this.txtCedulaLogin.Location = new System.Drawing.Point(135, 25);
+            this.txtCedulaLogin.Location = new System.Drawing.Point(82, 65);
             this.txtCedulaLogin.Name = "txtCedulaLogin";
             this.txtCedulaLogin.Size = new System.Drawing.Size(232, 20);
             this.txtCedulaLogin.TabIndex = 2;
@@ -105,7 +115,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(45, 95);
+            this.label2.Location = new System.Drawing.Point(177, 106);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(64, 13);
             this.label2.TabIndex = 1;
@@ -114,7 +124,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(45, 32);
+            this.label1.Location = new System.Drawing.Point(183, 23);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(43, 13);
             this.label1.TabIndex = 0;
@@ -199,16 +209,6 @@
             this.label3.Size = new System.Drawing.Size(43, 13);
             this.label3.TabIndex = 0;
             this.label3.Text = "Cedula:";
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(292, 216);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "Salir";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click_1);
             // 
             // Login
             // 
