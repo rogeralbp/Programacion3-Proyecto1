@@ -57,9 +57,40 @@ namespace CapaNegocios
 
             catch (Exception error)
             {
+                MessageBox.Show("Error" + error);
 
             }
         }
+
+
+        public void LlenarDtVehiculos(DataGridView Agregar_Vehiculo)
+        {
+
+            try {
+                Conexion();
+                conexion.Open();
+                DataSet dataset = new DataSet();
+                NpgsqlDataAdapter adapter = new NpgsqlDataAdapter("SELECT placa , marca , modelo , tipo_vehiculo, precio , cantidad_personas FROM vehiculos", conexion);
+                adapter.Fill(dataset, "vehiculos");
+                Agregar_Vehiculo.DataSource = dataset.Tables[0];
+                Agregar_Vehiculo.Columns[0].HeaderCell.Value = "placa";
+                Agregar_Vehiculo.Columns[1].HeaderCell.Value = "marca";
+                Agregar_Vehiculo.Columns[2].HeaderCell.Value = "modelo";
+                Agregar_Vehiculo.Columns[3].HeaderCell.Value = "tipo_vehiculo";
+                Agregar_Vehiculo.Columns[4].HeaderCell.Value = "precio";
+                Agregar_Vehiculo.Columns[5].HeaderCell.Value = "cantidad_personas";
+                conexion.Close();
+
+
+            }
+            catch(Exception error)
+            {
+                MessageBox.Show( "Error"  + error);
+            }
+        }
     }
-}
+
+
+    }
+
 
