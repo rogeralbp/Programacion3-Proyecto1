@@ -30,32 +30,32 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.button5 = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.button6 = new System.Windows.Forms.Button();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.button4 = new System.Windows.Forms.Button();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -93,6 +93,58 @@
             this.tabPage1.Text = "Agregar Aerolínea";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(248, 105);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(402, 35);
+            this.textBox2.TabIndex = 5;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(248, 31);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(402, 35);
+            this.textBox1.TabIndex = 4;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(221, 239);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(236, 39);
+            this.button2.TabIndex = 3;
+            this.button2.Text = "Registrar Aerolinea";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(559, 341);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(116, 40);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "Regresar";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(59, 111);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(95, 29);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Nombre:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(59, 37);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(138, 29);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Identificador:";
+            // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.button5);
@@ -114,6 +166,92 @@
             this.tabPage2.Text = "Modificar Aerolínea";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(241, 339);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(213, 35);
+            this.button5.TabIndex = 12;
+            this.button5.Text = "Guardar Cambios";
+            this.button5.UseVisualStyleBackColor = true;
+            // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(241, 233);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(392, 26);
+            this.textBox5.TabIndex = 11;
+            // 
+            // textBox4
+            // 
+            this.textBox4.Enabled = false;
+            this.textBox4.Location = new System.Drawing.Point(241, 159);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(392, 26);
+            this.textBox4.TabIndex = 10;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Enabled = false;
+            this.textBox3.Location = new System.Drawing.Point(241, 99);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(392, 26);
+            this.textBox3.TabIndex = 9;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(32, 105);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(134, 20);
+            this.label6.TabIndex = 8;
+            this.label6.Text = "Identificador Actual:";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(205, 29);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(428, 28);
+            this.comboBox1.TabIndex = 7;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(32, 239);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(105, 20);
+            this.label5.TabIndex = 6;
+            this.label5.Text = "Nuevo Nombre:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(32, 165);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(105, 20);
+            this.label4.TabIndex = 5;
+            this.label4.Text = "Nombre Actual:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(32, 37);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(91, 20);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Identificador:";
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(552, 378);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(116, 40);
+            this.button3.TabIndex = 3;
+            this.button3.Text = "Regresar";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.button6);
@@ -131,186 +269,22 @@
             this.tabPage3.Text = "Eliminar Aerolínea";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // label1
+            // button6
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(59, 37);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(138, 29);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Identificador:";
+            this.button6.Location = new System.Drawing.Point(275, 316);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(256, 38);
+            this.button6.TabIndex = 13;
+            this.button6.Text = "Eliminar Aerolinea";
+            this.button6.UseVisualStyleBackColor = true;
             // 
-            // label2
+            // textBox7
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(59, 111);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(95, 29);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Nombre:";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(559, 341);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(116, 40);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Regresar";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(221, 239);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(236, 39);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Registrar Aerolinea";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(552, 378);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(116, 40);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "Regresar";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(560, 382);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(116, 40);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "Regresar";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(248, 31);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(402, 35);
-            this.textBox1.TabIndex = 4;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(248, 105);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(402, 35);
-            this.textBox2.TabIndex = 5;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(32, 37);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(91, 20);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Identificador:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(32, 165);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(105, 20);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "Nombre Actual:";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(32, 239);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(105, 20);
-            this.label5.TabIndex = 6;
-            this.label5.Text = "Nuevo Nombre:";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(205, 29);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(428, 28);
-            this.comboBox1.TabIndex = 7;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(32, 105);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(134, 20);
-            this.label6.TabIndex = 8;
-            this.label6.Text = "Identificador Actual:";
-            // 
-            // textBox3
-            // 
-            this.textBox3.Enabled = false;
-            this.textBox3.Location = new System.Drawing.Point(241, 99);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(392, 26);
-            this.textBox3.TabIndex = 9;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Enabled = false;
-            this.textBox4.Location = new System.Drawing.Point(241, 159);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(392, 26);
-            this.textBox4.TabIndex = 10;
-            // 
-            // textBox5
-            // 
-            this.textBox5.Location = new System.Drawing.Point(241, 233);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(392, 26);
-            this.textBox5.TabIndex = 11;
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(241, 339);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(213, 35);
-            this.button5.TabIndex = 12;
-            this.button5.Text = "Guardar Cambios";
-            this.button5.UseVisualStyleBackColor = true;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(33, 45);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(138, 29);
-            this.label7.TabIndex = 5;
-            this.label7.Text = "Identificador:";
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(221, 37);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(428, 37);
-            this.comboBox2.TabIndex = 8;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(33, 123);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(203, 29);
-            this.label8.TabIndex = 9;
-            this.label8.Text = "Identificador Actual:";
-            // 
-            // textBox6
-            // 
-            this.textBox6.Enabled = false;
-            this.textBox6.Location = new System.Drawing.Point(257, 117);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(392, 35);
-            this.textBox6.TabIndex = 10;
+            this.textBox7.Enabled = false;
+            this.textBox7.Location = new System.Drawing.Point(257, 187);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(392, 35);
+            this.textBox7.TabIndex = 12;
             // 
             // label9
             // 
@@ -321,22 +295,49 @@
             this.label9.TabIndex = 11;
             this.label9.Text = "Nombre Actual:";
             // 
-            // textBox7
+            // textBox6
             // 
-            this.textBox7.Enabled = false;
-            this.textBox7.Location = new System.Drawing.Point(257, 187);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(392, 35);
-            this.textBox7.TabIndex = 12;
+            this.textBox6.Enabled = false;
+            this.textBox6.Location = new System.Drawing.Point(257, 117);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(392, 35);
+            this.textBox6.TabIndex = 10;
             // 
-            // button6
+            // label8
             // 
-            this.button6.Location = new System.Drawing.Point(275, 316);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(256, 38);
-            this.button6.TabIndex = 13;
-            this.button6.Text = "Eliminar Aerolinea";
-            this.button6.UseVisualStyleBackColor = true;
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(33, 123);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(203, 29);
+            this.label8.TabIndex = 9;
+            this.label8.Text = "Identificador Actual:";
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(221, 37);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(428, 37);
+            this.comboBox2.TabIndex = 8;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(33, 45);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(138, 29);
+            this.label7.TabIndex = 5;
+            this.label7.Text = "Identificador:";
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(560, 382);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(116, 40);
+            this.button4.TabIndex = 3;
+            this.button4.Text = "Regresar";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // tabPage4
             // 

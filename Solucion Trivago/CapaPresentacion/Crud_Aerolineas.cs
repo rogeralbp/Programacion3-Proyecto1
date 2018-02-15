@@ -15,6 +15,7 @@ namespace CapaPresentacion
         public Crud_Aerolineas()
         {
             InitializeComponent();
+            this.CenterToScreen();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -36,6 +37,11 @@ namespace CapaPresentacion
             this.Hide();
             Menu_Principal_Administrador v = new Menu_Principal_Administrador();
             v.Show();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

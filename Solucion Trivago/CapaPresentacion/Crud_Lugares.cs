@@ -15,6 +15,7 @@ namespace CapaPresentacion
         public Crud_Lugares()
         {
             InitializeComponent();
+            this.CenterToScreen();
         }
 
         private void Crud_Lugares_Load(object sender, EventArgs e)
@@ -44,6 +45,11 @@ namespace CapaPresentacion
         }
 
         private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
         {
 
         }

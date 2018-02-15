@@ -48,5 +48,10 @@ namespace CapaPresentacion
             Menu_Principal_Administrador v = new Menu_Principal_Administrador();
             v.Show();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -8,7 +8,8 @@ namespace CapaDatos
 {
     public static class Seguridad
     {
-        /// Encripta una cadena
+        /// Encripta la contraseña
+        /// que va a guardar en la DB
         public static string EncriptarContraseña(this string _cadenaAencriptar)
         {
             string result = string.Empty;
@@ -17,7 +18,7 @@ namespace CapaDatos
             return result;
         }
 
-        /// Esta función desencripta la cadena que le envíamos en el parámentro de entrada.
+        /// Esta función desencripta la contraseña que le envíamos en el parámentro de entrada.
         public static string DesEncriptarContraseña(this string _cadenaAdesencriptar)
         {
             string result = string.Empty;

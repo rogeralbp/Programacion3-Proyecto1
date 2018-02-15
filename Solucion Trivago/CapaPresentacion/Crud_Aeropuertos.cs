@@ -15,6 +15,7 @@ namespace CapaPresentacion
         public Crud_Aeropuertos()
         {
             InitializeComponent();
+            this.CenterToScreen();
         }
 
         private void textBox4_TextChanged(object sender, EventArgs e)
@@ -48,6 +49,11 @@ namespace CapaPresentacion
             this.Hide();
             Menu_Principal_Administrador v = new Menu_Principal_Administrador();
             v.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
