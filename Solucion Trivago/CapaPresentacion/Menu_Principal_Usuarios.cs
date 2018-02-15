@@ -24,5 +24,10 @@ namespace CapaPresentacion
             Login v = new Login();
             v.Show();
         }
+
+        private void Menu_Principal_Usuarios_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
