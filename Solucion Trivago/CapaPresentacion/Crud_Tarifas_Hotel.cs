@@ -15,6 +15,46 @@ namespace CapaPresentacion
         public Crud_Tarifas_Hotel()
         {
             InitializeComponent();
+            this.CenterToScreen();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+            this.Hide();
+            Menu_Principal_Administrador v = new Menu_Principal_Administrador();
+            v.Show();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+            this.Hide();
+            Menu_Principal_Administrador v = new Menu_Principal_Administrador();
+            v.Show();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+            this.Hide();
+            Menu_Principal_Administrador v = new Menu_Principal_Administrador();
+            v.Show();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabPage2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

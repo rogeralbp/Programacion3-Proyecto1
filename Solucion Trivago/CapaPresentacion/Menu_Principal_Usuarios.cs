@@ -17,5 +17,12 @@ namespace CapaPresentacion
             InitializeComponent();
             this.CenterToScreen();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Login v = new Login();
+            v.Show();
+        }
     }
 }

@@ -36,6 +36,7 @@
             this.btnCrudRutas = new System.Windows.Forms.Button();
             this.btnCrud_TarifasH = new System.Windows.Forms.Button();
             this.btnCrudTarifasV = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnCrud_Vehiculos
@@ -46,6 +47,7 @@
             this.btnCrud_Vehiculos.TabIndex = 0;
             this.btnCrud_Vehiculos.Text = "Crud Vehiculos";
             this.btnCrud_Vehiculos.UseVisualStyleBackColor = true;
+            this.btnCrud_Vehiculos.Click += new System.EventHandler(this.btnCrud_Vehiculos_Click);
             // 
             // btnCrud_Aeropuerto
             // 
@@ -65,6 +67,7 @@
             this.btnCrud_Hoteles.TabIndex = 2;
             this.btnCrud_Hoteles.Text = "Crud Hoteles";
             this.btnCrud_Hoteles.UseVisualStyleBackColor = true;
+            this.btnCrud_Hoteles.Click += new System.EventHandler(this.btnCrud_Hoteles_Click);
             // 
             // btnCrud_Paises
             // 
@@ -74,6 +77,7 @@
             this.btnCrud_Paises.TabIndex = 3;
             this.btnCrud_Paises.Text = "Crud Países";
             this.btnCrud_Paises.UseVisualStyleBackColor = true;
+            this.btnCrud_Paises.Click += new System.EventHandler(this.btnCrud_Paises_Click);
             // 
             // btnCrudLugares
             // 
@@ -115,11 +119,22 @@
             this.btnCrudTarifasV.UseVisualStyleBackColor = true;
             this.btnCrudTarifasV.Click += new System.EventHandler(this.button9_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(626, 358);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(123, 23);
+            this.button1.TabIndex = 9;
+            this.button1.Text = "Cerrar Sesion";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Menu_Principal_Administrador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(822, 451);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnCrudTarifasV);
             this.Controls.Add(this.btnCrud_TarifasH);
             this.Controls.Add(this.btnCrudRutas);
@@ -145,5 +160,6 @@
         private System.Windows.Forms.Button btnCrudRutas;
         private System.Windows.Forms.Button btnCrud_TarifasH;
         private System.Windows.Forms.Button btnCrudTarifasV;
+        private System.Windows.Forms.Button button1;
     }
 }

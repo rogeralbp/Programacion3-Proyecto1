@@ -43,6 +43,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -60,6 +61,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.button2);
             this.tabPage1.Controls.Add(this.button1);
             this.tabPage1.Controls.Add(this.txtCntraseñaLogin);
             this.tabPage1.Controls.Add(this.txtCedulaLogin);
@@ -198,6 +200,16 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "Cedula:";
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(292, 216);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 5;
+            this.button2.Text = "Salir";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click_1);
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -233,6 +245,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button button2;
     }
 }
 

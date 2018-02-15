@@ -16,5 +16,61 @@ namespace CapaPresentacion
         {
             InitializeComponent();
         }
+
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Menu_Principal_Administrador v = new Menu_Principal_Administrador();
+            v.Show();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Menu_Principal_Administrador v = new Menu_Principal_Administrador();
+            v.Show();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Menu_Principal_Administrador v = new Menu_Principal_Administrador();
+            v.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Crud_Rutas_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabPage2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox7_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
