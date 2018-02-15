@@ -267,14 +267,7 @@ namespace CapaDatos
 
         }
 
-
-
-
-
-    }
-
-
-
+    } 
 
 }
 
