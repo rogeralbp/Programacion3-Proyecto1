@@ -93,114 +93,126 @@ namespace CapaNegocios
 
 
 
-            public void LlenarDtRutas(DataGridView agregar_Rutas)
+        public void LlenarDtRutas(DataGridView agregar_Rutas)
         {
-            try{
+            try
+            {
 
-            Conexion();
-            conexion.Open();
-            DataSet dataset = new DataSet();
-            NpgsqlDataAdapter adapter = new NpgsqlDataAdapter("SELECT identificador_ruta , pais_origen , pais_destino , duracion FROM rutas", conexion);
-            adapter.Fill(dataset, "rutas");
-            agregar_Rutas.DataSource = dataset.Tables[0];
-            agregar_Rutas.Columns[0].HeaderCell.Value = "identificador_ruta";
-            agregar_Rutas.Columns[1].HeaderCell.Value = "pais_origen";
-            agregar_Rutas.Columns[2].HeaderCell.Value = "pais_destino";
-            agregar_Rutas.Columns[3].HeaderCell.Value = "duracion";
-           
-            conexion.Close();
+                Conexion();
+                conexion.Open();
+                DataSet dataset = new DataSet();
+                NpgsqlDataAdapter adapter = new NpgsqlDataAdapter("SELECT identificador_ruta , pais_origen , pais_destino , duracion FROM rutas", conexion);
+                adapter.Fill(dataset, "rutas");
+                agregar_Rutas.DataSource = dataset.Tables[0];
+                agregar_Rutas.Columns[0].HeaderCell.Value = "identificador_ruta";
+                agregar_Rutas.Columns[1].HeaderCell.Value = "pais_origen";
+                agregar_Rutas.Columns[2].HeaderCell.Value = "pais_destino";
+                agregar_Rutas.Columns[3].HeaderCell.Value = "duracion";
 
-                }
-            catch(Exception error)
-               {
-           MessageBox.Show("error" + error);
-                }
+                conexion.Close();
+
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("error" + error);
+            }
         }
+
+
+        public void LlenarDtLugar(DataGridView agregar_lugares)
+        {
+
+            try
+            {
+                Conexion();
+                conexion.Open();
+                DataSet dataset = new DataSet();
+                NpgsqlDataAdapter adapter = new NpgsqlDataAdapter("SELECT identificador_lugar , nombre  FROM lugares", conexion);
+                adapter.Fill(dataset, "lugares");
+                agregar_lugares.DataSource = dataset.Tables[0];
+                agregar_lugares.Columns[0].HeaderCell.Value = "identificador_lugar";
+                agregar_lugares.Columns[1].HeaderCell.Value = "nombre";
+                conexion.Close();
+
+
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("" + error);
+            }
+        }
+
+
+
+        public void LlenarDtarifaHotel(DataGridView agregar_tariHotel)
+        {
+
+            try
+            {
+                Conexion();
+                conexion.Open();
+                DataSet dataset = new DataSet();
+                NpgsqlDataAdapter adapter = new NpgsqlDataAdapter("SELECT identificador_tarifa , precio_tarifa  FROM tarifas_hoteles", conexion);
+                adapter.Fill(dataset, "tarifas_hoteles");
+                agregar_tariHotel.DataSource = dataset.Tables[0];
+                agregar_tariHotel.Columns[0].HeaderCell.Value = "identificador_tarifa";
+                agregar_tariHotel.Columns[1].HeaderCell.Value = "precio_tarifa";
+                conexion.Close();
+
+
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("" + error);
+            }
+
+
+        }
+
+
+
+
+        public void LlenarDtTarifaVuelo(DataGridView agregar_tariVuelo)
+        {
+            try
+            {
+                Conexion();
+                conexion.Open();
+                DataSet dataset = new DataSet();
+                NpgsqlDataAdapter adapter = new NpgsqlDataAdapter("SELECT identificador_tarifa , ruta ,  precio  FROM tarifas_vuelos", conexion);
+                adapter.Fill(dataset, "tarifas_vuelos");
+                agregar_tariVuelo.DataSource = dataset.Tables[0];
+                agregar_tariVuelo.Columns[0].HeaderCell.Value = "identificador_tarifa";
+                agregar_tariVuelo.Columns[1].HeaderCell.Value = "ruta";
+                agregar_tariVuelo.Columns[2].HeaderCell.Value = "precio";
+                conexion.Close();
+
+
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("" + error);
+            }
+
+
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 
-    public void LlenarDtLugar(DataGridView agregar_lugares){
 
-        try{
-        Conexion();
-        conexion.open();
-        DataSet dataset = new DataSet();
-        NpgsqlDataAdapter adapter = new NpgsqlDataAdapter("SELECT identificador_lugar , nombre  FROM lugares", conexion);
-        adapter.Fill(dataset, "lugares");
-        agregar_lugares.DataSource = dataset.Tables[0];
-        agregar_lugares.Columns[0].HeaderCell.Value = "identificador_lugar";
-        agregar_lugares.Columns[1].HeaderCell.Value = "nombre";
-        conexion.Close();
-
-
-            }
-          catch(Exception error)
-            {
-            MessageBox.Show("" + error);
-            }
-        }
-
-
-
-    public void LlenarDt(DataGridView agregar_tariHotel){
-
-        try{
-        Conexion();
-        conexion.open();
-        DataSet dataset = new DataSet();
-        NpgsqlDataAdapter adapter = new NpgsqlDataAdapter("SELECT identificador_tarifa , precio_tarifa  FROM tarifas_hoteles", conexion);
-        adapter.Fill(dataset, "tarifas_hoteles");
-        agregar_tariHotel.DataSource = dataset.Tables[0];
-        agregar_tariHotel.Columns[0].HeaderCell.Value = "identificador_tarifa";
-        agregar_tariHotel.Columns[1].HeaderCell.Value = "precio_tarifa";
-        conexion.Close();
-
-
-            }
-          catch(Exception error)
-            {
-            MessageBox.Show("" + error);
-            }
-
-
-
-
-        }
-
-    public void LlenarDt(DataGridView agregar_tariVuelo){
-         try{
-        Conexion();
-        conexion.open();
-        DataSet dataset = new DataSet();
-        NpgsqlDataAdapter adapter = new NpgsqlDataAdapter("SELECT identificador_tarifa , ruta ,  precio  FROM tarifas_vuelos", conexion);
-        adapter.Fill(dataset, "tarifas_vuelos");
-        agregar_tariVuelo.DataSource = dataset.Tables[0];
-        agregar_tariVuelo.Columns[0].HeaderCell.Value = "identificador_tarifa";
-        agregar_tariVuelo.Columns[1].HeaderCell.Value = "ruta";
-        agregar_tariVuelo.Columns[2].HeaderCell.Value = "precio";
-        conexion.Close();
-
-
-            }
-          catch(Exception error)
-            {
-            MessageBox.Show("" + error);
-            }
-
-
-
-
-
-        }
-
-        }
-
-
-
-
-
-
-
-
-    
+    }
 
 
