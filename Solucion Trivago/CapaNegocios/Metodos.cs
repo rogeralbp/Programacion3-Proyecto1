@@ -95,6 +95,8 @@ namespace CapaNegocios
 
             public void LlenarDtRutas(DataGridView agregar_Rutas)
         {
+            try{
+
             Conexion();
             conexion.Open();
             DataSet dataset = new DataSet();
@@ -108,10 +110,38 @@ namespace CapaNegocios
            
             conexion.Close();
 
-
+                }
+            catch(Exception error)
+               {
+           MessageBox.Show("error" + error);
+                }
         }
     }
-    }
+
+    public void LlenarDtLugar(DataGridView agregar_lugares){
+
+        try{
+        Conexion();
+        conexion.open();
+        DataSet dataset = new DataSet();
+        NpgsqlDataAdapter adapter = new NpgsqlDataAdapter("SELECT identificador_lugar , nombre  FROM lugares", conexion);
+        adapter.Fill(dataset, "lugares");
+        agregar_lugares.DataSource = dataset.Tables[0];
+        agregar_lugares.Columns[0].HeaderCell.Value = "identificador_lugar";
+        agregar_lugares.Columns[1].HeaderCell.Value = "nombre";
+        conexion.Close();
+
+
+            }
+          catch(Exception error)
+            {
+            MessageBox.Show("" + error);
+            }
+        }
+
+        }
+
+
 
 
     
