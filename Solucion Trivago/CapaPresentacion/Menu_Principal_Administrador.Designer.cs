@@ -37,6 +37,7 @@
             this.btnCrud_TarifasH = new System.Windows.Forms.Button();
             this.btnCrudTarifasV = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.nombreUsuarioVer = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnCrud_Vehiculos
@@ -129,11 +130,20 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // nombreUsuarioVer
+            // 
+            this.nombreUsuarioVer.AutoSize = true;
+            this.nombreUsuarioVer.Location = new System.Drawing.Point(308, 34);
+            this.nombreUsuarioVer.Name = "nombreUsuarioVer";
+            this.nombreUsuarioVer.Size = new System.Drawing.Size(0, 13);
+            this.nombreUsuarioVer.TabIndex = 10;
+            // 
             // Menu_Principal_Administrador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(822, 451);
+            this.Controls.Add(this.nombreUsuarioVer);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnCrudTarifasV);
             this.Controls.Add(this.btnCrud_TarifasH);
@@ -147,6 +157,7 @@
             this.Text = "Menu_Principal_Administrador";
             this.Load += new System.EventHandler(this.Menu_Principal_Administrador_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -161,5 +172,6 @@
         private System.Windows.Forms.Button btnCrud_TarifasH;
         private System.Windows.Forms.Button btnCrudTarifasV;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label nombreUsuarioVer;
     }
 }

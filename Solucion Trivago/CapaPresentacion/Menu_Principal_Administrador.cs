@@ -41,7 +41,7 @@ namespace CapaPresentacion
 
         private void Menu_Principal_Administrador_Load(object sender, EventArgs e)
         {
-
+            nombreUsuarioVer.Text = "Bienvenido Administrador ";
         }
 
         private void btnCrud_Aeropuerto_Click(object sender, EventArgs e)

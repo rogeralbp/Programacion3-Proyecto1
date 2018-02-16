@@ -264,7 +264,28 @@ namespace CapaDatos
             NpgsqlCommand cmd = new NpgsqlCommand("DELETE FROM  tarifas_vuelos WHERE identificador_tarifa = '" + identificador + "'", conexion);
             cmd.ExecuteNonQuery();
             conexion.Close();
+        }
 
+
+        public String ConsultarInformacionUsuario(String cedula)
+        {
+
+            String informacionUsuario = String.Empty;
+
+            Conexion();
+            conexion.Open();
+            NpgsqlCommand consulta = new NpgsqlCommand("SELECT * FROM usuarios WHERE cedula='" + cedula + "'", conexion);
+            NpgsqlDataReader lectorConsulta = consulta.ExecuteReader();
+            if (lectorConsulta.HasRows)
+            {
+                while (lectorConsulta.Read())
+                {
+                    informacionUsuario = lectorConsulta.GetString(0) + ";" + lectorConsulta.GetString(1) + ";" + lectorConsulta.GetString(2) + ";"+ lectorConsulta.GetString(3);            
+                }
+            }
+            conexion.Close();
+
+            return informacionUsuario;
         }
 
     } 

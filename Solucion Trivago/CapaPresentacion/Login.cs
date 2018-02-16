@@ -9,6 +9,7 @@ namespace CapaPresentacion
     {
         Validaciones validaciones = new Validaciones();
         Conexiones_Base_Datos conexiones = new Conexiones_Base_Datos();
+        
 
         public Login()
         {
@@ -32,6 +33,8 @@ namespace CapaPresentacion
                     this.Hide();
                     Menu_Principal_Administrador v = new Menu_Principal_Administrador();
                     v.Show();
+                    //Informacion = conexiones.ConsultarInformacionUsuario(txtCedulaLogin.Text);
+                    Console.WriteLine(conexiones.ConsultarInformacionUsuario(txtCedulaLogin.Text));
                 }
                 else if (usuario.Equals("Cliente") && contraseña.Equals(txtCntraseñaLogin.Text))
                 {
@@ -39,6 +42,9 @@ namespace CapaPresentacion
                     this.Hide();
                     Menu_Principal_Usuarios v = new Menu_Principal_Usuarios();
                     v.Show();
+                     //= conexiones.ConsultarInformacionUsuario(txtCedulaLogin.Text);
+                    Console.WriteLine(conexiones.ConsultarInformacionUsuario(txtCedulaLogin.Text));
+                  
                 }
                 else
                 {
@@ -81,6 +87,7 @@ namespace CapaPresentacion
                         this.Hide();
                         Menu_Principal_Administrador v = new Menu_Principal_Administrador();
                         v.Show();
+                        Console.WriteLine(conexiones.ConsultarInformacionUsuario(txtCedulaLogin.Text));
                     }
                     else if (usuario.Equals("Cliente") && contraseña.Equals(txtCntraseñaLogin.Text))
                     {
@@ -88,13 +95,14 @@ namespace CapaPresentacion
                         this.Hide();
                         Menu_Principal_Usuarios v = new Menu_Principal_Usuarios();
                         v.Show();
+                        Console.WriteLine(conexiones.ConsultarInformacionUsuario(txtCedulaLogin.Text));
+
                     }
                     else
                     {
                         MessageBox.Show("Usuario No Registrado en el Sistema");
                     }
                 }
-
             }
         }
 
