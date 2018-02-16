@@ -139,7 +139,31 @@ namespace CapaPresentacion
 
         private void txtContraseña_KeyPress(object sender, KeyPressEventArgs e)
         {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter)) {
 
+                if (txtCedula.Text == "" || txtNombre.Text == "" || txtContraseña.Text == "")
+                {
+
+
+                    MessageBox.Show("Debe de llenar todos los campos.");
+                }
+                else
+                {
+
+                    int cedula = int.Parse(txtCedula.Text);
+                    string nombre = txtNombre.Text;
+                    string contraseña = txtContraseña.Text;
+
+
+                    conexiones.InsertarDatosUsuarios(cedula, nombre, Seguridad.EncriptarContraseña(contraseña), "Cliente");
+                    MessageBox.Show("Usuario registrado");
+
+                    txtCedula.Text = "";
+                    txtNombre.Text = "";
+                    txtContraseña.Text = "";
+
+                }
+            }
         }
 
         private void button2_Click_1(object sender, EventArgs e)
