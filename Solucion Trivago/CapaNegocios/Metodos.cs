@@ -166,7 +166,35 @@ namespace CapaNegocios
 
         }
 
+    public void LlenarDt(DataGridView agregar_tariVuelo){
+         try{
+        Conexion();
+        conexion.open();
+        DataSet dataset = new DataSet();
+        NpgsqlDataAdapter adapter = new NpgsqlDataAdapter("SELECT identificador_tarifa , ruta ,  precio  FROM tarifas_vuelos", conexion);
+        adapter.Fill(dataset, "tarifas_vuelos");
+        agregar_tariVuelo.DataSource = dataset.Tables[0];
+        agregar_tariVuelo.Columns[0].HeaderCell.Value = "identificador_tarifa";
+        agregar_tariVuelo.Columns[1].HeaderCell.Value = "ruta";
+        agregar_tariVuelo.Columns[2].HeaderCell.Value = "precio";
+        conexion.Close();
+
+
+            }
+          catch(Exception error)
+            {
+            MessageBox.Show("" + error);
+            }
+
+
+
+
+
         }
+
+        }
+
+
 
 
 
