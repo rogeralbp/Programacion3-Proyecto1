@@ -216,5 +216,11 @@
       <Name>CapaNegocios</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\usuario-registrados.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\r.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
