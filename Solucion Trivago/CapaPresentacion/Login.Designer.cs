@@ -65,6 +65,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.BackColor = System.Drawing.Color.Aquamarine;
             this.tabPage1.Controls.Add(this.pictureBox1);
             this.tabPage1.Controls.Add(this.button2);
             this.tabPage1.Controls.Add(this.button1);
@@ -78,7 +79,6 @@
             this.tabPage1.Size = new System.Drawing.Size(560, 369);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Iniciar Sesion";
-            this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // pictureBox1
             // 
@@ -147,6 +147,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.BackColor = System.Drawing.Color.LightBlue;
             this.tabPage2.Controls.Add(this.pictureBox2);
             this.tabPage2.Controls.Add(this.txtContraseña);
             this.tabPage2.Controls.Add(this.txtNombre);
@@ -161,7 +162,6 @@
             this.tabPage2.Size = new System.Drawing.Size(560, 369);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Registrarse";
-            this.tabPage2.UseVisualStyleBackColor = true;
             this.tabPage2.Click += new System.EventHandler(this.tabPage2_Click);
             // 
             // pictureBox2
