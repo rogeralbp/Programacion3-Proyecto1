@@ -64,6 +64,38 @@ namespace CapaPresentacion
 
         private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
         {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter)) {
+
+                if (txtCedulaLogin.Text.Length == 0 || txtCntraseñaLogin.Text.Length == 0)
+                {
+                    MessageBox.Show("Debe de llenar todos los datos.");
+                }
+                else
+                {
+
+                    String usuario = conexiones.TipoDeUsuario(txtCedulaLogin.Text);
+                    String contraseña = conexiones.ValidarContraseña(txtCedulaLogin.Text);
+
+                    if (usuario.Equals("Administrador") && contraseña.Equals(txtCntraseñaLogin.Text))
+                    {
+                        this.Hide();
+                        Menu_Principal_Administrador v = new Menu_Principal_Administrador();
+                        v.Show();
+                    }
+                    else if (usuario.Equals("Cliente") && contraseña.Equals(txtCntraseñaLogin.Text))
+                    {
+
+                        this.Hide();
+                        Menu_Principal_Usuarios v = new Menu_Principal_Usuarios();
+                        v.Show();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Usuario No Registrado en el Sistema");
+                    }
+                }
+
+            }
         }
 
         private void textBox3_KeyPress(object sender, KeyPressEventArgs e)
