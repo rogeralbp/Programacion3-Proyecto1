@@ -139,7 +139,36 @@ namespace CapaNegocios
             }
         }
 
+
+
+    public void LlenarDt(DataGridView agregar_tariHotel){
+
+        try{
+        Conexion();
+        conexion.open();
+        DataSet dataset = new DataSet();
+        NpgsqlDataAdapter adapter = new NpgsqlDataAdapter("SELECT identificador_tarifa , precio_tarifa  FROM tarifas_hoteles", conexion);
+        adapter.Fill(dataset, "tarifas_hoteles");
+        agregar_tariHotel.DataSource = dataset.Tables[0];
+        agregar_tariHotel.Columns[0].HeaderCell.Value = "identificador_tarifa";
+        agregar_tariHotel.Columns[1].HeaderCell.Value = "precio_tarifa";
+        conexion.Close();
+
+
+            }
+          catch(Exception error)
+            {
+            MessageBox.Show("" + error);
+            }
+
+
+
+
         }
+
+        }
+
+
 
 
 
