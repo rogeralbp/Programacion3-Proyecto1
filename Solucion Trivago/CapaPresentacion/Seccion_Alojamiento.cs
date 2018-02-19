@@ -104,7 +104,7 @@ namespace CapaPresentacion
 
         private void btnBuscarHotel_MouseLeave(object sender, EventArgs e)
         {
-            MessageBox.Show("Dejaste  de pasar el Mouse sobre mi");
+            //MessageBox.Show("Dejaste  de pasar el Mouse sobre mi");
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -115,6 +115,26 @@ namespace CapaPresentacion
         private void button4_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button8_MouseHover(object sender, EventArgs e)
+        {
+            panelHabitacionesHotel.Visible = true;
+        }
+
+        private void panelHabitacionesHotel_MouseLeave(object sender, EventArgs e)
+        {
+            //panelHabitacionesHotel.Visible = false;
+        }
+
+        private void button8_MouseLeave(object sender, EventArgs e)
+        {
+            //panelHabitacionesHotel.Visible = true;
+        }
+
+        private void panelHabitacionesHotel_MouseHover(object sender, EventArgs e)
+        {
+            //panelHabitacionesHotel.Visible = true;
         }
     }
 }
