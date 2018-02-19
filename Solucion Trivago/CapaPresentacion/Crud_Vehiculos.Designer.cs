@@ -52,7 +52,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnGuardarCambios = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
@@ -83,10 +83,10 @@
             this.label18 = new System.Windows.Forms.Label();
             this.comboBox5 = new System.Windows.Forms.ComboBox();
             this.button6 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btnEliminarVehiculo = new System.Windows.Forms.Button();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.button7 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.button7 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -132,7 +132,7 @@
             this.tabPage1.Controls.Add(this.label10);
             this.tabPage1.Controls.Add(this.label9);
             this.tabPage1.Controls.Add(this.label7);
-            this.tabPage1.Controls.Add(this.button2);
+            this.tabPage1.Controls.Add(this.btnGuardarCambios);
             this.tabPage1.Controls.Add(this.button1);
             this.tabPage1.Font = new System.Drawing.Font("Arial Unicode MS", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
@@ -333,14 +333,15 @@
             this.label7.TabIndex = 3;
             this.label7.Text = "Identificador:";
             // 
-            // button2
+            // btnGuardarCambios
             // 
-            this.button2.Location = new System.Drawing.Point(333, 400);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(130, 23);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Guardar Cambios";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnGuardarCambios.Enabled = false;
+            this.btnGuardarCambios.Location = new System.Drawing.Point(333, 400);
+            this.btnGuardarCambios.Name = "btnGuardarCambios";
+            this.btnGuardarCambios.Size = new System.Drawing.Size(130, 23);
+            this.btnGuardarCambios.TabIndex = 1;
+            this.btnGuardarCambios.Text = "Guardar Cambios";
+            this.btnGuardarCambios.UseVisualStyleBackColor = true;
             // 
             // button1
             // 
@@ -379,6 +380,7 @@
             // 
             // comboBox3
             // 
+            this.comboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox3.FormattingEnabled = true;
             this.comboBox3.Location = new System.Drawing.Point(160, 177);
             this.comboBox3.Name = "comboBox3";
@@ -387,6 +389,7 @@
             // 
             // comboBox2
             // 
+            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Location = new System.Drawing.Point(160, 125);
             this.comboBox2.Name = "comboBox2";
@@ -395,6 +398,7 @@
             // 
             // comboBox1
             // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(160, 73);
             this.comboBox1.Name = "comboBox1";
@@ -511,7 +515,7 @@
             this.tabPage3.Controls.Add(this.label18);
             this.tabPage3.Controls.Add(this.comboBox5);
             this.tabPage3.Controls.Add(this.button6);
-            this.tabPage3.Controls.Add(this.button4);
+            this.tabPage3.Controls.Add(this.btnEliminarVehiculo);
             this.tabPage3.Location = new System.Drawing.Point(4, 25);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Size = new System.Drawing.Size(888, 473);
@@ -524,7 +528,7 @@
             this.textBox15.Enabled = false;
             this.textBox15.Location = new System.Drawing.Point(362, 326);
             this.textBox15.Name = "textBox15";
-            this.textBox15.Size = new System.Drawing.Size(179, 21);
+            this.textBox15.Size = new System.Drawing.Size(282, 21);
             this.textBox15.TabIndex = 23;
             // 
             // textBox14
@@ -532,7 +536,7 @@
             this.textBox14.Enabled = false;
             this.textBox14.Location = new System.Drawing.Point(362, 263);
             this.textBox14.Name = "textBox14";
-            this.textBox14.Size = new System.Drawing.Size(179, 21);
+            this.textBox14.Size = new System.Drawing.Size(282, 21);
             this.textBox14.TabIndex = 22;
             // 
             // textBox13
@@ -540,15 +544,16 @@
             this.textBox13.Enabled = false;
             this.textBox13.Location = new System.Drawing.Point(362, 145);
             this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(179, 21);
+            this.textBox13.Size = new System.Drawing.Size(282, 21);
             this.textBox13.TabIndex = 21;
+            this.textBox13.TextChanged += new System.EventHandler(this.textBox13_TextChanged);
             // 
             // textBox12
             // 
             this.textBox12.Enabled = false;
             this.textBox12.Location = new System.Drawing.Point(362, 202);
             this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(179, 21);
+            this.textBox12.Size = new System.Drawing.Size(282, 21);
             this.textBox12.TabIndex = 20;
             // 
             // textBox11
@@ -556,7 +561,7 @@
             this.textBox11.Enabled = false;
             this.textBox11.Location = new System.Drawing.Point(362, 95);
             this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(179, 21);
+            this.textBox11.Size = new System.Drawing.Size(282, 21);
             this.textBox11.TabIndex = 19;
             // 
             // label23
@@ -621,10 +626,11 @@
             this.comboBox5.Name = "comboBox5";
             this.comboBox5.Size = new System.Drawing.Size(291, 24);
             this.comboBox5.TabIndex = 12;
+            this.comboBox5.SelectedIndexChanged += new System.EventHandler(this.comboBox5_SelectedIndexChanged);
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(697, 425);
+            this.button6.Location = new System.Drawing.Point(688, 403);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(124, 38);
             this.button6.TabIndex = 1;
@@ -632,14 +638,15 @@
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
-            // button4
+            // btnEliminarVehiculo
             // 
-            this.button4.Location = new System.Drawing.Point(396, 440);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(117, 23);
-            this.button4.TabIndex = 0;
-            this.button4.Text = "Eliminar Vehiculo";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnEliminarVehiculo.Enabled = false;
+            this.btnEliminarVehiculo.Location = new System.Drawing.Point(353, 403);
+            this.btnEliminarVehiculo.Name = "btnEliminarVehiculo";
+            this.btnEliminarVehiculo.Size = new System.Drawing.Size(117, 23);
+            this.btnEliminarVehiculo.TabIndex = 0;
+            this.btnEliminarVehiculo.Text = "Eliminar Vehiculo";
+            this.btnEliminarVehiculo.UseVisualStyleBackColor = true;
             // 
             // tabPage4
             // 
@@ -652,6 +659,14 @@
             this.tabPage4.Text = "Consultar Vehiculos";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(8, 150);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(868, 313);
+            this.dataGridView1.TabIndex = 1;
+            // 
             // button7
             // 
             this.button7.Location = new System.Drawing.Point(760, 38);
@@ -661,14 +676,6 @@
             this.button7.Text = "Regresar";
             this.button7.UseVisualStyleBackColor = true;
             this.button7.Click += new System.EventHandler(this.button7_Click);
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(8, 150);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(868, 313);
-            this.dataGridView1.TabIndex = 1;
             // 
             // Crud_Vehiculos
             // 
@@ -698,9 +705,9 @@
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnGuardarCambios;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnEliminarVehiculo;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.ComboBox comboBox3;

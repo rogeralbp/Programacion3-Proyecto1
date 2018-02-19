@@ -43,18 +43,18 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.button5 = new System.Windows.Forms.Button();
+            this.btnGuardarCambios = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.button6 = new System.Windows.Forms.Button();
+            this.btnEliminarTarifa = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.button7 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.button7 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -86,7 +86,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(694, 354);
+            this.tabPage1.Size = new System.Drawing.Size(694, 361);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Agregar Tarifa";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -152,12 +152,12 @@
             this.tabPage2.Controls.Add(this.label5);
             this.tabPage2.Controls.Add(this.label4);
             this.tabPage2.Controls.Add(this.label3);
-            this.tabPage2.Controls.Add(this.button5);
+            this.tabPage2.Controls.Add(this.btnGuardarCambios);
             this.tabPage2.Controls.Add(this.button2);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(694, 354);
+            this.tabPage2.Size = new System.Drawing.Size(694, 361);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Modificar Tarifa";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -180,11 +180,13 @@
             // 
             // comboBox1
             // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(240, 39);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(271, 21);
             this.comboBox1.TabIndex = 6;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // label5
             // 
@@ -213,15 +215,16 @@
             this.label3.TabIndex = 3;
             this.label3.Text = "Identificador Tarifa:";
             // 
-            // button5
+            // btnGuardarCambios
             // 
-            this.button5.Location = new System.Drawing.Point(280, 236);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(158, 23);
-            this.button5.TabIndex = 2;
-            this.button5.Text = "Guardar Cambios";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.btnGuardarCambios.Enabled = false;
+            this.btnGuardarCambios.Location = new System.Drawing.Point(280, 236);
+            this.btnGuardarCambios.Name = "btnGuardarCambios";
+            this.btnGuardarCambios.Size = new System.Drawing.Size(158, 23);
+            this.btnGuardarCambios.TabIndex = 2;
+            this.btnGuardarCambios.Text = "Guardar Cambios";
+            this.btnGuardarCambios.UseVisualStyleBackColor = true;
+            this.btnGuardarCambios.Click += new System.EventHandler(this.button5_Click);
             // 
             // button2
             // 
@@ -239,11 +242,11 @@
             this.tabPage3.Controls.Add(this.comboBox2);
             this.tabPage3.Controls.Add(this.label7);
             this.tabPage3.Controls.Add(this.label6);
-            this.tabPage3.Controls.Add(this.button6);
+            this.tabPage3.Controls.Add(this.btnEliminarTarifa);
             this.tabPage3.Controls.Add(this.button3);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(694, 354);
+            this.tabPage3.Size = new System.Drawing.Size(694, 361);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Eliminar Tarifa";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -258,11 +261,13 @@
             // 
             // comboBox2
             // 
+            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Location = new System.Drawing.Point(266, 41);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(271, 21);
             this.comboBox2.TabIndex = 7;
+            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
             // label7
             // 
@@ -282,14 +287,15 @@
             this.label6.TabIndex = 4;
             this.label6.Text = "Identificador Tarifa:";
             // 
-            // button6
+            // btnEliminarTarifa
             // 
-            this.button6.Location = new System.Drawing.Point(279, 196);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(125, 23);
-            this.button6.TabIndex = 2;
-            this.button6.Text = "Eliminar Tarifa";
-            this.button6.UseVisualStyleBackColor = true;
+            this.btnEliminarTarifa.Enabled = false;
+            this.btnEliminarTarifa.Location = new System.Drawing.Point(279, 196);
+            this.btnEliminarTarifa.Name = "btnEliminarTarifa";
+            this.btnEliminarTarifa.Size = new System.Drawing.Size(125, 23);
+            this.btnEliminarTarifa.TabIndex = 2;
+            this.btnEliminarTarifa.Text = "Eliminar Tarifa";
+            this.btnEliminarTarifa.UseVisualStyleBackColor = true;
             // 
             // button3
             // 
@@ -312,6 +318,14 @@
             this.tabPage4.Text = "Consultar Tarifas Hoteles";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(10, 99);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(681, 251);
+            this.dataGridView1.TabIndex = 1;
+            // 
             // button7
             // 
             this.button7.Location = new System.Drawing.Point(531, 17);
@@ -321,14 +335,6 @@
             this.button7.Text = "Regresar";
             this.button7.UseVisualStyleBackColor = true;
             this.button7.Click += new System.EventHandler(this.button7_Click);
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(10, 99);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(681, 251);
-            this.dataGridView1.TabIndex = 1;
             // 
             // Crud_Tarifas_Hotel
             // 
@@ -365,8 +371,8 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button btnGuardarCambios;
+        private System.Windows.Forms.Button btnEliminarTarifa;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBox4;

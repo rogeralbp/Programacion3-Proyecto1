@@ -80,5 +80,15 @@ namespace CapaPresentacion
             Menu_Principal_Administrador v = new Menu_Principal_Administrador();
             v.Show();
         }
+
+        private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            btnGuardar.Enabled = true;
+        }
+
+        private void comboBox4_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            btnEliminarRuta.Enabled = true;
+        }
     }
 }

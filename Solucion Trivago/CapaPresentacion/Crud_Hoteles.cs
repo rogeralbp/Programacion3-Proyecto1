@@ -42,9 +42,7 @@ namespace CapaPresentacion
         private void button2_Click(object sender, EventArgs e)
         {
 
-            this.Hide();
-            Menu_Principal_Administrador v = new Menu_Principal_Administrador();
-            v.Show();
+            
         }
 
         private void label5_Click(object sender, EventArgs e)
@@ -97,6 +95,16 @@ namespace CapaPresentacion
             this.Hide();
             Menu_Principal_Administrador v = new Menu_Principal_Administrador();
             v.Show();
+        }
+
+        private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            btnGuardarCambios.Enabled = true;
+        }
+
+        private void comboBox6_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            btnEliminarHotel.Enabled = true;
         }
     }
 }

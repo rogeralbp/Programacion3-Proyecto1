@@ -9,7 +9,7 @@ namespace CapaPresentacion
     {
         Validaciones validaciones = new Validaciones();
         Conexiones_Base_Datos conexiones = new Conexiones_Base_Datos();
-        
+        public static string nombreUsuario=String.Empty;
 
         public Login()
         {
@@ -33,8 +33,8 @@ namespace CapaPresentacion
                     this.Hide();
                     Menu_Principal_Administrador v = new Menu_Principal_Administrador();
                     v.Show();
-                    //Informacion = conexiones.ConsultarInformacionUsuario(txtCedulaLogin.Text);
-                    Console.WriteLine(conexiones.ConsultarInformacionUsuario(txtCedulaLogin.Text));
+                    nombreUsuario = conexiones.ConsultarInformacionUsuarioCedula(txtCedulaLogin.Text);
+                    Console.WriteLine(conexiones.ConsultarInformacionUsuarioCedula(txtCedulaLogin.Text));
                 }
                 else if (usuario.Equals("Cliente") && contraseña.Equals(txtCntraseñaLogin.Text))
                 {
@@ -42,8 +42,8 @@ namespace CapaPresentacion
                     this.Hide();
                     Menu_Principal_Usuarios v = new Menu_Principal_Usuarios();
                     v.Show();
-                     //= conexiones.ConsultarInformacionUsuario(txtCedulaLogin.Text);
-                    Console.WriteLine(conexiones.ConsultarInformacionUsuario(txtCedulaLogin.Text));
+                     nombreUsuario= conexiones.ConsultarInformacionUsuarioCedula(txtCedulaLogin.Text);
+                    Console.WriteLine(conexiones.ConsultarInformacionUsuarioCedula(txtCedulaLogin.Text));
                   
                 }
                 else
@@ -52,7 +52,6 @@ namespace CapaPresentacion
                 }
             }
         }
-
         private void tabPage2_Click(object sender, EventArgs e)
         {
 
@@ -70,8 +69,8 @@ namespace CapaPresentacion
 
         private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == Convert.ToChar(Keys.Enter)) {
-
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
                 if (txtCedulaLogin.Text.Length == 0 || txtCntraseñaLogin.Text.Length == 0)
                 {
                     MessageBox.Show("Debe de llenar todos los datos.");
@@ -87,7 +86,8 @@ namespace CapaPresentacion
                         this.Hide();
                         Menu_Principal_Administrador v = new Menu_Principal_Administrador();
                         v.Show();
-                        Console.WriteLine(conexiones.ConsultarInformacionUsuario(txtCedulaLogin.Text));
+                        nombreUsuario = conexiones.ConsultarInformacionUsuarioCedula(txtCedulaLogin.Text);
+                        Console.WriteLine(conexiones.ConsultarInformacionUsuarioCedula(txtCedulaLogin.Text));
                     }
                     else if (usuario.Equals("Cliente") && contraseña.Equals(txtCntraseñaLogin.Text))
                     {
@@ -95,7 +95,8 @@ namespace CapaPresentacion
                         this.Hide();
                         Menu_Principal_Usuarios v = new Menu_Principal_Usuarios();
                         v.Show();
-                        Console.WriteLine(conexiones.ConsultarInformacionUsuario(txtCedulaLogin.Text));
+                        nombreUsuario = conexiones.ConsultarInformacionUsuarioCedula(txtCedulaLogin.Text);
+                        Console.WriteLine(conexiones.ConsultarInformacionUsuarioCedula(txtCedulaLogin.Text));
 
                     }
                     else
@@ -104,6 +105,7 @@ namespace CapaPresentacion
                     }
                 }
             }
+            
         }
 
         private void textBox3_KeyPress(object sender, KeyPressEventArgs e)

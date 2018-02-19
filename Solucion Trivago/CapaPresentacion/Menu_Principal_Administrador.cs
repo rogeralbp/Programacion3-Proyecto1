@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,7 @@ namespace CapaPresentacion
 {
     public partial class Menu_Principal_Administrador : Form
     {
+
         public Menu_Principal_Administrador()
         {
             InitializeComponent();
@@ -41,7 +43,8 @@ namespace CapaPresentacion
 
         private void Menu_Principal_Administrador_Load(object sender, EventArgs e)
         {
-            nombreUsuarioVer.Text = "Bienvenido Administrador ";
+           nombreUsuarioVer.Text = "Bienvenido Administrador ,"+Login.nombreUsuario;
+            
         }
 
         private void btnCrud_Aeropuerto_Click(object sender, EventArgs e)

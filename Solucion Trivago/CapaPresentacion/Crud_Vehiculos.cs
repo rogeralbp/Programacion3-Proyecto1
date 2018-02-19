@@ -46,7 +46,7 @@ namespace CapaPresentacion
 
         private void comboBox4_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            btnGuardarCambios.Enabled = true;
         }
 
         private void button7_Click(object sender, EventArgs e)
@@ -54,6 +54,16 @@ namespace CapaPresentacion
             this.Hide();
             Menu_Principal_Administrador v = new Menu_Principal_Administrador();
             v.Show();
+        }
+
+        private void textBox13_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox5_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            btnEliminarVehiculo.Enabled = true;
         }
     }
 }

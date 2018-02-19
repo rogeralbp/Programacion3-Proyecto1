@@ -266,8 +266,14 @@ namespace CapaDatos
             conexion.Close();
         }
 
-
-        public String ConsultarInformacionUsuario(String cedula)
+        /// <summary>
+        /// Este metodo funciona para saber quien esta logeado
+        /// en linea mejor dicho y a si saber la informacion
+        /// del usuario a la hora de realizar procesos
+        /// </summary>
+        /// <param name="cedula"></param>
+        /// <returns> el nombre del usuario en Linea </returns>
+        public String ConsultarInformacionUsuarioCedula(String cedula)
         {
 
             String informacionUsuario = String.Empty;
@@ -280,7 +286,38 @@ namespace CapaDatos
             {
                 while (lectorConsulta.Read())
                 {
-                    informacionUsuario = lectorConsulta.GetString(0) + ";" + lectorConsulta.GetString(1) + ";" + lectorConsulta.GetString(2) + ";"+ lectorConsulta.GetString(3);            
+                    //cedula, nombre, contraseña y tipo de usuario
+                    //informacionUsuario = lectorConsulta.GetString(0) + ";" + lectorConsulta.GetString(1) + ";" + lectorConsulta.GetString(2) + ";"+ lectorConsulta.GetString(3);
+                    informacionUsuario = lectorConsulta.GetString(1);
+                }
+            }
+            conexion.Close();
+
+            return informacionUsuario;
+        }
+
+        /// <summary>
+        /// Retorna la informacion completa de un usuario 
+        /// mediante el nombre dado por parametro
+        /// </summary>
+        /// <param name="nombre"></param>
+        /// <returns> los datos completos cedula[0], nombre[1] y tipo de usuario[3] </returns>
+        public String ConsultarInformacionUsuarioNombre(String nombre)
+        {
+
+            String informacionUsuario = String.Empty;
+
+            Conexion();
+            conexion.Open();
+            NpgsqlCommand consulta = new NpgsqlCommand("SELECT * FROM usuarios WHERE nombre='" + nombre + "'", conexion);
+            NpgsqlDataReader lectorConsulta = consulta.ExecuteReader();
+            if (lectorConsulta.HasRows)
+            {
+                while (lectorConsulta.Read())
+                {
+                    //cedula, nombre y tipo de usuario
+                    informacionUsuario = lectorConsulta.GetString(0) + ";" + lectorConsulta.GetString(1)  + ";"+ lectorConsulta.GetString(3);
+                
                 }
             }
             conexion.Close();

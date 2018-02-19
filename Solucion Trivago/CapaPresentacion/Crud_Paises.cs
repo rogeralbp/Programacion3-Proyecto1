@@ -61,5 +61,15 @@ namespace CapaPresentacion
             Menu_Principal_Administrador v = new Menu_Principal_Administrador();
             v.Show();
         }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            btnActualizarPais.Enabled = true;
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            btnEliminarPais.Enabled = true;
+        }
     }
 }
