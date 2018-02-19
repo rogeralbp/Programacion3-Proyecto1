@@ -42,7 +42,7 @@ namespace CapaPresentacion
                     this.Hide();
                     Menu_Principal_Usuarios v = new Menu_Principal_Usuarios();
                     v.Show();
-                     nombreUsuario= conexiones.ConsultarInformacionUsuarioCedula(txtCedulaLogin.Text);
+                    nombreUsuario= conexiones.ConsultarInformacionUsuarioCedula(txtCedulaLogin.Text);
                     Console.WriteLine(conexiones.ConsultarInformacionUsuarioCedula(txtCedulaLogin.Text));
                   
                 }

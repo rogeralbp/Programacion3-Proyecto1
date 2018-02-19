@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Seccion_Alojamiento));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.btnConfirmarReservacionPais = new System.Windows.Forms.Button();
@@ -80,11 +81,23 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
+            this.button9 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.panelDatosHotel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -100,6 +113,9 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.button5);
+            this.tabPage1.Controls.Add(this.button4);
+            this.tabPage1.Controls.Add(this.numericUpDown1);
             this.tabPage1.Controls.Add(this.btnConfirmarReservacionPais);
             this.tabPage1.Controls.Add(this.optPorLugarPais);
             this.tabPage1.Controls.Add(this.optPrecioMenorPais);
@@ -179,7 +195,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(410, 225);
+            this.label5.Location = new System.Drawing.Point(412, 208);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(72, 13);
             this.label5.TabIndex = 23;
@@ -188,7 +204,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(145, 225);
+            this.label4.Location = new System.Drawing.Point(145, 208);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(81, 13);
             this.label4.TabIndex = 22;
@@ -198,7 +214,7 @@
             // 
             this.fechaPartidaPais.CustomFormat = "dd/MM/yyyy";
             this.fechaPartidaPais.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.fechaPartidaPais.Location = new System.Drawing.Point(517, 218);
+            this.fechaPartidaPais.Location = new System.Drawing.Point(519, 201);
             this.fechaPartidaPais.Name = "fechaPartidaPais";
             this.fechaPartidaPais.Size = new System.Drawing.Size(101, 20);
             this.fechaPartidaPais.TabIndex = 21;
@@ -208,7 +224,7 @@
             // 
             this.fechaLlegadaPais.CustomFormat = "dd/MM/yyyy";
             this.fechaLlegadaPais.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.fechaLlegadaPais.Location = new System.Drawing.Point(255, 219);
+            this.fechaLlegadaPais.Location = new System.Drawing.Point(255, 201);
             this.fechaLlegadaPais.Name = "fechaLlegadaPais";
             this.fechaLlegadaPais.Size = new System.Drawing.Size(101, 20);
             this.fechaLlegadaPais.TabIndex = 20;
@@ -279,6 +295,9 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.button7);
+            this.tabPage2.Controls.Add(this.button6);
+            this.tabPage2.Controls.Add(this.numericUpDown2);
             this.tabPage2.Controls.Add(this.labelCantidadDiasLugar);
             this.tabPage2.Controls.Add(this.FechaPartidaCiudad);
             this.tabPage2.Controls.Add(this.label9);
@@ -425,6 +444,9 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.button9);
+            this.tabPage3.Controls.Add(this.button8);
+            this.tabPage3.Controls.Add(this.numericUpDown3);
             this.tabPage3.Controls.Add(this.labelCantidadDiasHotel);
             this.tabPage3.Controls.Add(this.fechaPartidaHotel);
             this.tabPage3.Controls.Add(this.labelFechaSalidaHotel);
@@ -495,7 +517,7 @@
             // btnConfirmarReservacionHotel
             // 
             this.btnConfirmarReservacionHotel.Enabled = false;
-            this.btnConfirmarReservacionHotel.Location = new System.Drawing.Point(427, 307);
+            this.btnConfirmarReservacionHotel.Location = new System.Drawing.Point(412, 343);
             this.btnConfirmarReservacionHotel.Name = "btnConfirmarReservacionHotel";
             this.btnConfirmarReservacionHotel.Size = new System.Drawing.Size(133, 23);
             this.btnConfirmarReservacionHotel.TabIndex = 20;
@@ -625,6 +647,101 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Location = new System.Drawing.Point(613, 279);
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(41, 20);
+            this.numericUpDown1.TabIndex = 30;
+            // 
+            // numericUpDown2
+            // 
+            this.numericUpDown2.Location = new System.Drawing.Point(504, 382);
+            this.numericUpDown2.Name = "numericUpDown2";
+            this.numericUpDown2.Size = new System.Drawing.Size(37, 20);
+            this.numericUpDown2.TabIndex = 40;
+            // 
+            // numericUpDown3
+            // 
+            this.numericUpDown3.Location = new System.Drawing.Point(609, 297);
+            this.numericUpDown3.Name = "numericUpDown3";
+            this.numericUpDown3.Size = new System.Drawing.Size(37, 20);
+            this.numericUpDown3.TabIndex = 41;
+            // 
+            // button5
+            // 
+            this.button5.Image = ((System.Drawing.Image)(resources.GetObject("button5.Image")));
+            this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button5.Location = new System.Drawing.Point(404, 261);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(97, 28);
+            this.button5.TabIndex = 32;
+            this.button5.Text = "Personas";
+            this.button5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // button4
+            // 
+            this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
+            this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button4.Location = new System.Drawing.Point(237, 261);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(108, 28);
+            this.button4.TabIndex = 31;
+            this.button4.Text = "Habitaciones";
+            this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // button6
+            // 
+            this.button6.Image = ((System.Drawing.Image)(resources.GetObject("button6.Image")));
+            this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button6.Location = new System.Drawing.Point(274, 273);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(111, 28);
+            this.button6.TabIndex = 41;
+            this.button6.Text = "Habitaciones";
+            this.button6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button6.UseVisualStyleBackColor = true;
+            // 
+            // button7
+            // 
+            this.button7.Image = ((System.Drawing.Image)(resources.GetObject("button7.Image")));
+            this.button7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button7.Location = new System.Drawing.Point(425, 273);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(97, 28);
+            this.button7.TabIndex = 42;
+            this.button7.Text = "Personas";
+            this.button7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button7.UseVisualStyleBackColor = true;
+            // 
+            // button8
+            // 
+            this.button8.Image = ((System.Drawing.Image)(resources.GetObject("button8.Image")));
+            this.button8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button8.Location = new System.Drawing.Point(339, 207);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(111, 28);
+            this.button8.TabIndex = 42;
+            this.button8.Text = "Habitaciones";
+            this.button8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button8.UseVisualStyleBackColor = true;
+            // 
+            // button9
+            // 
+            this.button9.Image = ((System.Drawing.Image)(resources.GetObject("button9.Image")));
+            this.button9.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button9.Location = new System.Drawing.Point(506, 207);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(97, 28);
+            this.button9.TabIndex = 43;
+            this.button9.Text = "Personas";
+            this.button9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button9.UseVisualStyleBackColor = true;
+            // 
             // Seccion_Alojamiento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -643,6 +760,9 @@
             this.tabPage3.PerformLayout();
             this.panelDatosHotel.ResumeLayout(false);
             this.panelDatosHotel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -701,5 +821,14 @@
         private System.Windows.Forms.Label labelFechaSalidaHotel;
         private System.Windows.Forms.DateTimePicker fechaLlegadaHotel;
         private System.Windows.Forms.Label labelCantidadDiasHotel;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown numericUpDown2;
+        private System.Windows.Forms.NumericUpDown numericUpDown3;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button button8;
     }
 }
