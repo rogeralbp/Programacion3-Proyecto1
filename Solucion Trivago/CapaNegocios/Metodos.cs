@@ -57,7 +57,7 @@ namespace CapaNegocios
 
             catch (Exception error)
             {
-                MessageBox.Show("Error" + error);
+                Console.WriteLine(error);
 
             }
         }
@@ -86,7 +86,7 @@ namespace CapaNegocios
             }
             catch (Exception error)
             {
-                MessageBox.Show("Error" + error);
+                Console.WriteLine(error);
             }
 
         }
@@ -114,7 +114,7 @@ namespace CapaNegocios
             }
             catch (Exception error)
             {
-                MessageBox.Show("error" + error);
+                Console.WriteLine(error);
             }
         }
 
@@ -127,10 +127,10 @@ namespace CapaNegocios
                 Conexion();
                 conexion.Open();
                 DataSet dataset = new DataSet();
-                NpgsqlDataAdapter adapter = new NpgsqlDataAdapter("SELECT identificador_lugar , nombre  FROM lugares", conexion);
+                NpgsqlDataAdapter adapter = new NpgsqlDataAdapter("SELECT idenficador_lugar , nombre  FROM lugares", conexion);
                 adapter.Fill(dataset, "lugares");
                 agregar_lugares.DataSource = dataset.Tables[0];
-                agregar_lugares.Columns[0].HeaderCell.Value = "identificador_lugar";
+                agregar_lugares.Columns[0].HeaderCell.Value = "idenficador_lugar";
                 agregar_lugares.Columns[1].HeaderCell.Value = "nombre";
                 conexion.Close();
 
@@ -138,7 +138,8 @@ namespace CapaNegocios
             }
             catch (Exception error)
             {
-                MessageBox.Show("" + error);
+                Console.WriteLine(error);
+
             }
         }
 
@@ -198,21 +199,96 @@ namespace CapaNegocios
 
         }
 
+        public void LlenarLugares(ComboBox identificador)
+        {
+
+            try
+            {
+                Conexion();
+                conexion.Open();
+                List<String> lista = new List<String>();
+                NpgsqlCommand cmd = new NpgsqlCommand("SELECT idenficador_lugar FROM lugares", conexion);
+                NpgsqlDataReader dr = cmd.ExecuteReader();
+                if (dr.HasRows)
+                {
+                    while (dr.Read())
+                    {
+                        identificador.Items.Add(dr.GetInt64(0));
+                    }
+                }
+                conexion.Close();
 
 
+            }
+            catch (Exception error)
+            {
+                Console.WriteLine(error);
+
+            }
+
+        }
+        //Metodo que selecciona un identicador e impreme su imformacion en un texbox
+        public void LLenarComboLugares(ComboBox agregar, TextBox nombre_lugar)
+        {
+
+            try
+            {
+                Conexion();
+                conexion.Open();
+                NpgsqlCommand cmd = new NpgsqlCommand("SELECT nombre FROM lugares WHERE idenficador_lugar = '" + agregar.SelectedItem + "'", conexion);
+                NpgsqlDataReader leer = cmd.ExecuteReader();
+                if (leer.HasRows)
+                {
+                    while (leer.Read())
+                    {
+                        nombre_lugar.Text = leer.GetString(1);
 
 
+                    }
+                    conexion.Close();
+
+                }
+
+            }
+            catch (Exception error)
+            {
+                Console.WriteLine(error);
+            }
+
+        }
+
+        //Metodo que llena el combo de lugares , en la ventana de modificar lugares
+        public void LlenarComboNLugares(ComboBox nombres)
+        {
+
+            try
+            {
+                Conexion();
+                conexion.Open();
+                List<String> lista = new List<String>();
+                NpgsqlCommand cmd = new NpgsqlCommand("SELECT nombre FROM lugares", conexion);
+                NpgsqlDataReader dr = cmd.ExecuteReader();
+                if (dr.HasRows)
+                {
+                    while (dr.Read())
+                    {
+                        nombres.Items.Add(dr.GetString(0));
+                    }
+                }
+                conexion.Close();
 
 
+            }
+            catch (Exception error)
+            {
+                Console.WriteLine(error);
 
+            }
 
-
-
-
+        }
 
     }
 
-
-    }
+}
 
 

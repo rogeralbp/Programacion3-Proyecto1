@@ -7,19 +7,33 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CapaDatos;
+using CapaNegocios;
 
 namespace CapaPresentacion
 {
     public partial class Crud_Lugares : Form
     {
+        Conexiones_Base_Datos conectar = new Conexiones_Base_Datos();
+        Validaciones validar = new Validaciones();
+        Metodos metodos = new Metodos();
+
+
         public Crud_Lugares()
         {
             InitializeComponent();
             this.CenterToScreen();
+
+           //Llenando el combobox
+            metodos.LlenarLugares(comboIdentificador);
+
+           
         }
 
         private void Crud_Lugares_Load(object sender, EventArgs e)
         {
+            //Lleno la tabla de lugares
+            metodos.LlenarDtLugar(dataGridView1);
 
         }
 
@@ -49,8 +63,29 @@ namespace CapaPresentacion
 
         }
 
+        public void LimpiarCampos()
+        {
+            txtIDLugarNuevo.Clear();
+            txtNombreLugarNuevo.Clear();
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
+            //Validando entrada de datos
+            if (txtIDLugarNuevo.Text.Length == 0 || txtIDLugarNuevo.Text.Length == 0)
+            {
+                MessageBox.Show("Debe de llenar todos los datos.");
+            }
+            else
+            {
+                int identificador = int.Parse(txtIDLugarNuevo.Text);
+                string nombre = txtNombreLugarNuevo.Text;
+                conectar.InsertarDatosLugares(identificador, nombre);
+                MessageBox.Show("Lugar Registrado con exito");
+
+                //Limpiar campos
+                LimpiarCampos();
+            }
 
         }
 
@@ -69,11 +104,45 @@ namespace CapaPresentacion
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             btnEliminarLugar.Enabled = true;
+           
         }
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
             btnGuardarCambios.Enabled = true;
+        }
+
+        private void btnEliminarLugar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabPage4_Load(object sender, EventArgs e)
+        {
+
+        }
+
+       
+
+        private void comboIdentificador_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            metodos.LLenarComboLugares(comboIdentificador, txtNombreLugarEliminar);
+
+        }
+
+        private void txtIDLugarNuevo_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Tabla_Lugares_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+        }
+
+        private void tabPage3_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
