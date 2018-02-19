@@ -82,14 +82,14 @@
             this.label10 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
-            this.button8 = new System.Windows.Forms.Button();
+            this.btnDatosHabitacionesHotel = new System.Windows.Forms.Button();
             this.panelHabitacionesHotel = new System.Windows.Forms.Panel();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.numericUpDown4 = new System.Windows.Forms.NumericUpDown();
             this.numericUpDown5 = new System.Windows.Forms.NumericUpDown();
             this.label17 = new System.Windows.Forms.Label();
-            this.button6 = new System.Windows.Forms.Button();
+            this.btnDatosHabitacionesCiudad = new System.Windows.Forms.Button();
             this.panelHabiatacionesCiudad = new System.Windows.Forms.Panel();
             this.label18 = new System.Windows.Forms.Label();
             this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
@@ -97,7 +97,7 @@
             this.label19 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.numericUpDown7 = new System.Windows.Forms.NumericUpDown();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btnDatosHabitacionesPais = new System.Windows.Forms.Button();
             this.panelHabitacionesPais = new System.Windows.Forms.Panel();
             this.label21 = new System.Windows.Forms.Label();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
@@ -138,7 +138,7 @@
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.panelHabitacionesPais);
-            this.tabPage1.Controls.Add(this.button4);
+            this.tabPage1.Controls.Add(this.btnDatosHabitacionesPais);
             this.tabPage1.Controls.Add(this.btnConfirmarReservacionPais);
             this.tabPage1.Controls.Add(this.optPorLugarPais);
             this.tabPage1.Controls.Add(this.optPrecioMenorPais);
@@ -319,7 +319,7 @@
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.panelHabiatacionesCiudad);
-            this.tabPage2.Controls.Add(this.button6);
+            this.tabPage2.Controls.Add(this.btnDatosHabitacionesCiudad);
             this.tabPage2.Controls.Add(this.labelCantidadDiasLugar);
             this.tabPage2.Controls.Add(this.FechaPartidaCiudad);
             this.tabPage2.Controls.Add(this.label9);
@@ -467,7 +467,7 @@
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.panelHabitacionesHotel);
-            this.tabPage3.Controls.Add(this.button8);
+            this.tabPage3.Controls.Add(this.btnDatosHabitacionesHotel);
             this.tabPage3.Controls.Add(this.labelCantidadDiasHotel);
             this.tabPage3.Controls.Add(this.fechaPartidaHotel);
             this.tabPage3.Controls.Add(this.labelFechaSalidaHotel);
@@ -675,17 +675,17 @@
             this.numericUpDown3.Size = new System.Drawing.Size(37, 20);
             this.numericUpDown3.TabIndex = 41;
             // 
-            // button8
+            // btnDatosHabitacionesHotel
             // 
-            this.button8.Image = ((System.Drawing.Image)(resources.GetObject("button8.Image")));
-            this.button8.Location = new System.Drawing.Point(468, 150);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(83, 32);
-            this.button8.TabIndex = 42;
-            this.button8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button8.UseVisualStyleBackColor = true;
-            this.button8.MouseLeave += new System.EventHandler(this.button8_MouseLeave);
-            this.button8.MouseHover += new System.EventHandler(this.button8_MouseHover);
+            this.btnDatosHabitacionesHotel.Image = ((System.Drawing.Image)(resources.GetObject("btnDatosHabitacionesHotel.Image")));
+            this.btnDatosHabitacionesHotel.Location = new System.Drawing.Point(468, 150);
+            this.btnDatosHabitacionesHotel.Name = "btnDatosHabitacionesHotel";
+            this.btnDatosHabitacionesHotel.Size = new System.Drawing.Size(83, 32);
+            this.btnDatosHabitacionesHotel.TabIndex = 42;
+            this.btnDatosHabitacionesHotel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnDatosHabitacionesHotel.UseVisualStyleBackColor = true;
+            this.btnDatosHabitacionesHotel.MouseLeave += new System.EventHandler(this.button8_MouseLeave);
+            this.btnDatosHabitacionesHotel.MouseHover += new System.EventHandler(this.button8_MouseHover);
             // 
             // panelHabitacionesHotel
             // 
@@ -744,15 +744,15 @@
             this.label17.TabIndex = 46;
             this.label17.Text = "Menores:";
             // 
-            // button6
+            // btnDatosHabitacionesCiudad
             // 
-            this.button6.Image = ((System.Drawing.Image)(resources.GetObject("button6.Image")));
-            this.button6.Location = new System.Drawing.Point(375, 252);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(83, 32);
-            this.button6.TabIndex = 43;
-            this.button6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button6.UseVisualStyleBackColor = true;
+            this.btnDatosHabitacionesCiudad.Image = ((System.Drawing.Image)(resources.GetObject("btnDatosHabitacionesCiudad.Image")));
+            this.btnDatosHabitacionesCiudad.Location = new System.Drawing.Point(375, 252);
+            this.btnDatosHabitacionesCiudad.Name = "btnDatosHabitacionesCiudad";
+            this.btnDatosHabitacionesCiudad.Size = new System.Drawing.Size(83, 32);
+            this.btnDatosHabitacionesCiudad.TabIndex = 43;
+            this.btnDatosHabitacionesCiudad.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnDatosHabitacionesCiudad.UseVisualStyleBackColor = true;
             // 
             // panelHabiatacionesCiudad
             // 
@@ -816,15 +816,15 @@
             this.numericUpDown7.Size = new System.Drawing.Size(37, 20);
             this.numericUpDown7.TabIndex = 41;
             // 
-            // button4
+            // btnDatosHabitacionesPais
             // 
-            this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
-            this.button4.Location = new System.Drawing.Point(351, 250);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(83, 32);
-            this.button4.TabIndex = 44;
-            this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnDatosHabitacionesPais.Image = ((System.Drawing.Image)(resources.GetObject("btnDatosHabitacionesPais.Image")));
+            this.btnDatosHabitacionesPais.Location = new System.Drawing.Point(351, 250);
+            this.btnDatosHabitacionesPais.Name = "btnDatosHabitacionesPais";
+            this.btnDatosHabitacionesPais.Size = new System.Drawing.Size(83, 32);
+            this.btnDatosHabitacionesPais.TabIndex = 44;
+            this.btnDatosHabitacionesPais.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnDatosHabitacionesPais.UseVisualStyleBackColor = true;
             // 
             // panelHabitacionesPais
             // 
@@ -980,15 +980,15 @@
         private System.Windows.Forms.DateTimePicker fechaLlegadaHotel;
         private System.Windows.Forms.Label labelCantidadDiasHotel;
         private System.Windows.Forms.NumericUpDown numericUpDown3;
-        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button btnDatosHabitacionesHotel;
         private System.Windows.Forms.Panel panelHabitacionesHotel;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.NumericUpDown numericUpDown5;
         private System.Windows.Forms.NumericUpDown numericUpDown4;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnDatosHabitacionesCiudad;
+        private System.Windows.Forms.Button btnDatosHabitacionesPais;
         private System.Windows.Forms.Panel panelHabiatacionesCiudad;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.NumericUpDown numericUpDown2;
