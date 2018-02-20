@@ -23,16 +23,16 @@ namespace CapaPresentacion
             this.Hide();
             Login v = new Login();
             v.Show();
+            Login.nombreUsuario = String.Empty;
         }
 
         private void Menu_Principal_Usuarios_Load(object sender, EventArgs e)
         {
-            nombreCliente.Text = "Bienvenido Cliente ,"+Login.nombreUsuario;
+            nombreCliente.Text = "Bienvenido Cliente,"+Login.nombreUsuario;
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-
             this.Hide();
             Seccion_Alojamiento v = new Seccion_Alojamiento();
             v.Show();

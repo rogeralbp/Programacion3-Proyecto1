@@ -31,7 +31,16 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Seccion_Alojamiento));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.btnPersonasPais = new System.Windows.Forms.Button();
+            this.btnHabitacionesPais = new System.Windows.Forms.Button();
+            this.panelAdultosNiñosPais = new System.Windows.Forms.Panel();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.numericUpDown8 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.spinnerHabitacionesPais = new System.Windows.Forms.NumericUpDown();
             this.btnConfirmarReservacionPais = new System.Windows.Forms.Button();
+            this.labelHabitaciones = new System.Windows.Forms.Label();
             this.optPorLugarPais = new System.Windows.Forms.RadioButton();
             this.optPrecioMenorPais = new System.Windows.Forms.RadioButton();
             this.optPrecioMayorPais = new System.Windows.Forms.RadioButton();
@@ -48,6 +57,15 @@
             this.label1 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.panelPersonasCiudad = new System.Windows.Forms.Panel();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown4 = new System.Windows.Forms.NumericUpDown();
+            this.btnPersonasCiudad = new System.Windows.Forms.Button();
+            this.spinnerHabitacionesCiudad = new System.Windows.Forms.NumericUpDown();
+            this.laberlHabitacionesCiudad = new System.Windows.Forms.Label();
+            this.btnHabitacionesCiudad = new System.Windows.Forms.Button();
             this.labelCantidadDiasLugar = new System.Windows.Forms.Label();
             this.FechaPartidaCiudad = new System.Windows.Forms.DateTimePicker();
             this.label9 = new System.Windows.Forms.Label();
@@ -62,6 +80,15 @@
             this.label6 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.panelPersonasHotel = new System.Windows.Forms.Panel();
+            this.label18 = new System.Windows.Forms.Label();
+            this.paner = new System.Windows.Forms.Label();
+            this.numericUpDown5 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown6 = new System.Windows.Forms.NumericUpDown();
+            this.btnPersonasHotel = new System.Windows.Forms.Button();
+            this.spinnerHabitacionesHotel = new System.Windows.Forms.NumericUpDown();
+            this.labelHabitacionesH = new System.Windows.Forms.Label();
+            this.btnHabitacionesHotel = new System.Windows.Forms.Button();
             this.labelCantidadDiasHotel = new System.Windows.Forms.Label();
             this.fechaPartidaHotel = new System.Windows.Forms.DateTimePicker();
             this.labelFechaSalidaHotel = new System.Windows.Forms.Label();
@@ -81,47 +108,23 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
-            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
-            this.btnDatosHabitacionesHotel = new System.Windows.Forms.Button();
-            this.panelHabitacionesHotel = new System.Windows.Forms.Panel();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.numericUpDown4 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown5 = new System.Windows.Forms.NumericUpDown();
-            this.label17 = new System.Windows.Forms.Label();
-            this.btnDatosHabitacionesCiudad = new System.Windows.Forms.Button();
-            this.panelHabiatacionesCiudad = new System.Windows.Forms.Panel();
-            this.label18 = new System.Windows.Forms.Label();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown6 = new System.Windows.Forms.NumericUpDown();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.numericUpDown7 = new System.Windows.Forms.NumericUpDown();
-            this.btnDatosHabitacionesPais = new System.Windows.Forms.Button();
-            this.panelHabitacionesPais = new System.Windows.Forms.Panel();
-            this.label21 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown8 = new System.Windows.Forms.NumericUpDown();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
-            this.numericUpDown9 = new System.Windows.Forms.NumericUpDown();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
-            this.tabPage3.SuspendLayout();
-            this.panelDatosHotel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
-            this.panelHabitacionesHotel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).BeginInit();
-            this.panelHabiatacionesCiudad.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown7)).BeginInit();
-            this.panelHabitacionesPais.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            this.panelAdultosNiñosPais.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spinnerHabitacionesPais)).BeginInit();
+            this.tabPage2.SuspendLayout();
+            this.panelPersonasCiudad.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spinnerHabitacionesCiudad)).BeginInit();
+            this.tabPage3.SuspendLayout();
+            this.panelPersonasHotel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spinnerHabitacionesHotel)).BeginInit();
+            this.panelDatosHotel.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -137,9 +140,12 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.panelHabitacionesPais);
-            this.tabPage1.Controls.Add(this.btnDatosHabitacionesPais);
+            this.tabPage1.Controls.Add(this.btnPersonasPais);
+            this.tabPage1.Controls.Add(this.btnHabitacionesPais);
+            this.tabPage1.Controls.Add(this.panelAdultosNiñosPais);
+            this.tabPage1.Controls.Add(this.spinnerHabitacionesPais);
             this.tabPage1.Controls.Add(this.btnConfirmarReservacionPais);
+            this.tabPage1.Controls.Add(this.labelHabitaciones);
             this.tabPage1.Controls.Add(this.optPorLugarPais);
             this.tabPage1.Controls.Add(this.optPrecioMenorPais);
             this.tabPage1.Controls.Add(this.optPrecioMayorPais);
@@ -162,7 +168,88 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Busqueda Pais";
             this.tabPage1.UseVisualStyleBackColor = true;
-            this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
+            // 
+            // btnPersonasPais
+            // 
+            this.btnPersonasPais.Image = ((System.Drawing.Image)(resources.GetObject("btnPersonasPais.Image")));
+            this.btnPersonasPais.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPersonasPais.Location = new System.Drawing.Point(533, 239);
+            this.btnPersonasPais.Name = "btnPersonasPais";
+            this.btnPersonasPais.Size = new System.Drawing.Size(98, 31);
+            this.btnPersonasPais.TabIndex = 50;
+            this.btnPersonasPais.Text = "Personas";
+            this.btnPersonasPais.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnPersonasPais.UseVisualStyleBackColor = true;
+            this.btnPersonasPais.Click += new System.EventHandler(this.button5_Click_1);
+            // 
+            // btnHabitacionesPais
+            // 
+            this.btnHabitacionesPais.Image = ((System.Drawing.Image)(resources.GetObject("btnHabitacionesPais.Image")));
+            this.btnHabitacionesPais.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnHabitacionesPais.Location = new System.Drawing.Point(198, 250);
+            this.btnHabitacionesPais.Name = "btnHabitacionesPais";
+            this.btnHabitacionesPais.Size = new System.Drawing.Size(113, 23);
+            this.btnHabitacionesPais.TabIndex = 49;
+            this.btnHabitacionesPais.Text = "Habitaciones";
+            this.btnHabitacionesPais.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnHabitacionesPais.UseVisualStyleBackColor = true;
+            this.btnHabitacionesPais.Click += new System.EventHandler(this.button4_Click_1);
+            // 
+            // panelAdultosNiñosPais
+            // 
+            this.panelAdultosNiñosPais.Controls.Add(this.label23);
+            this.panelAdultosNiñosPais.Controls.Add(this.label21);
+            this.panelAdultosNiñosPais.Controls.Add(this.numericUpDown8);
+            this.panelAdultosNiñosPais.Controls.Add(this.numericUpDown1);
+            this.panelAdultosNiñosPais.Location = new System.Drawing.Point(519, 273);
+            this.panelAdultosNiñosPais.Name = "panelAdultosNiñosPais";
+            this.panelAdultosNiñosPais.Size = new System.Drawing.Size(127, 60);
+            this.panelAdultosNiñosPais.TabIndex = 48;
+            this.panelAdultosNiñosPais.Visible = false;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(17, 44);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(45, 13);
+            this.label23.TabIndex = 42;
+            this.label23.Text = "Adultos:";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(17, 13);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(51, 13);
+            this.label21.TabIndex = 46;
+            this.label21.Text = "Menores:";
+            // 
+            // numericUpDown8
+            // 
+            this.numericUpDown8.Location = new System.Drawing.Point(88, 3);
+            this.numericUpDown8.Name = "numericUpDown8";
+            this.numericUpDown8.Size = new System.Drawing.Size(37, 20);
+            this.numericUpDown8.TabIndex = 44;
+            this.numericUpDown8.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.numericUpDown8_KeyPress);
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Location = new System.Drawing.Point(88, 37);
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(37, 20);
+            this.numericUpDown1.TabIndex = 45;
+            this.numericUpDown1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.numericUpDown1_KeyPress);
+            // 
+            // spinnerHabitacionesPais
+            // 
+            this.spinnerHabitacionesPais.Cursor = System.Windows.Forms.Cursors.Default;
+            this.spinnerHabitacionesPais.Location = new System.Drawing.Point(297, 313);
+            this.spinnerHabitacionesPais.Name = "spinnerHabitacionesPais";
+            this.spinnerHabitacionesPais.Size = new System.Drawing.Size(37, 20);
+            this.spinnerHabitacionesPais.TabIndex = 41;
+            this.spinnerHabitacionesPais.Visible = false;
+            this.spinnerHabitacionesPais.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.spinnerHabitacionesPais_KeyPress);
             // 
             // btnConfirmarReservacionPais
             // 
@@ -172,6 +259,17 @@
             this.btnConfirmarReservacionPais.TabIndex = 29;
             this.btnConfirmarReservacionPais.Text = "Confirmar Reservacion";
             this.btnConfirmarReservacionPais.UseVisualStyleBackColor = true;
+            this.btnConfirmarReservacionPais.Click += new System.EventHandler(this.btnConfirmarReservacionPais_Click);
+            // 
+            // labelHabitaciones
+            // 
+            this.labelHabitaciones.AutoSize = true;
+            this.labelHabitaciones.Location = new System.Drawing.Point(195, 320);
+            this.labelHabitaciones.Name = "labelHabitaciones";
+            this.labelHabitaciones.Size = new System.Drawing.Size(72, 13);
+            this.labelHabitaciones.TabIndex = 43;
+            this.labelHabitaciones.Text = "Habitaciones:";
+            this.labelHabitaciones.Visible = false;
             // 
             // optPorLugarPais
             // 
@@ -205,7 +303,6 @@
             this.optPrecioMayorPais.TabStop = true;
             this.optPrecioMayorPais.Text = "Precio Mayor";
             this.optPrecioMayorPais.UseVisualStyleBackColor = true;
-            this.optPrecioMayorPais.CheckedChanged += new System.EventHandler(this.optPrecioMayor_CheckedChanged);
             // 
             // labelCantidadDias
             // 
@@ -242,6 +339,7 @@
             this.fechaPartidaPais.Size = new System.Drawing.Size(101, 20);
             this.fechaPartidaPais.TabIndex = 21;
             this.fechaPartidaPais.ValueChanged += new System.EventHandler(this.dateTimePicker2_ValueChanged);
+            this.fechaPartidaPais.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.fechaPartidaPais_KeyPress);
             // 
             // fechaLlegadaPais
             // 
@@ -251,6 +349,7 @@
             this.fechaLlegadaPais.Name = "fechaLlegadaPais";
             this.fechaLlegadaPais.Size = new System.Drawing.Size(101, 20);
             this.fechaLlegadaPais.TabIndex = 20;
+            this.fechaLlegadaPais.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.fechaLlegadaPais_KeyPress);
             // 
             // comboHotelesPaises
             // 
@@ -318,8 +417,11 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.panelHabiatacionesCiudad);
-            this.tabPage2.Controls.Add(this.btnDatosHabitacionesCiudad);
+            this.tabPage2.Controls.Add(this.panelPersonasCiudad);
+            this.tabPage2.Controls.Add(this.btnPersonasCiudad);
+            this.tabPage2.Controls.Add(this.spinnerHabitacionesCiudad);
+            this.tabPage2.Controls.Add(this.laberlHabitacionesCiudad);
+            this.tabPage2.Controls.Add(this.btnHabitacionesCiudad);
             this.tabPage2.Controls.Add(this.labelCantidadDiasLugar);
             this.tabPage2.Controls.Add(this.FechaPartidaCiudad);
             this.tabPage2.Controls.Add(this.label9);
@@ -340,7 +442,98 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Busqueda Ciudad";
             this.tabPage2.UseVisualStyleBackColor = true;
-            this.tabPage2.Click += new System.EventHandler(this.tabPage2_Click);
+            // 
+            // panelPersonasCiudad
+            // 
+            this.panelPersonasCiudad.Controls.Add(this.label16);
+            this.panelPersonasCiudad.Controls.Add(this.label17);
+            this.panelPersonasCiudad.Controls.Add(this.numericUpDown3);
+            this.panelPersonasCiudad.Controls.Add(this.numericUpDown4);
+            this.panelPersonasCiudad.Location = new System.Drawing.Point(460, 303);
+            this.panelPersonasCiudad.Name = "panelPersonasCiudad";
+            this.panelPersonasCiudad.Size = new System.Drawing.Size(127, 60);
+            this.panelPersonasCiudad.TabIndex = 54;
+            this.panelPersonasCiudad.Visible = false;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(17, 44);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(45, 13);
+            this.label16.TabIndex = 42;
+            this.label16.Text = "Adultos:";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(17, 13);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(51, 13);
+            this.label17.TabIndex = 46;
+            this.label17.Text = "Menores:";
+            // 
+            // numericUpDown3
+            // 
+            this.numericUpDown3.Location = new System.Drawing.Point(88, 3);
+            this.numericUpDown3.Name = "numericUpDown3";
+            this.numericUpDown3.Size = new System.Drawing.Size(37, 20);
+            this.numericUpDown3.TabIndex = 44;
+            this.numericUpDown3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.numericUpDown3_KeyPress);
+            // 
+            // numericUpDown4
+            // 
+            this.numericUpDown4.Location = new System.Drawing.Point(88, 37);
+            this.numericUpDown4.Name = "numericUpDown4";
+            this.numericUpDown4.Size = new System.Drawing.Size(37, 20);
+            this.numericUpDown4.TabIndex = 45;
+            this.numericUpDown4.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.numericUpDown4_KeyPress);
+            // 
+            // btnPersonasCiudad
+            // 
+            this.btnPersonasCiudad.Image = ((System.Drawing.Image)(resources.GetObject("btnPersonasCiudad.Image")));
+            this.btnPersonasCiudad.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPersonasCiudad.Location = new System.Drawing.Point(477, 266);
+            this.btnPersonasCiudad.Name = "btnPersonasCiudad";
+            this.btnPersonasCiudad.Size = new System.Drawing.Size(98, 31);
+            this.btnPersonasCiudad.TabIndex = 53;
+            this.btnPersonasCiudad.Text = "Personas";
+            this.btnPersonasCiudad.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnPersonasCiudad.UseVisualStyleBackColor = true;
+            this.btnPersonasCiudad.Click += new System.EventHandler(this.btnPersonasCiudad_Click);
+            // 
+            // spinnerHabitacionesCiudad
+            // 
+            this.spinnerHabitacionesCiudad.Cursor = System.Windows.Forms.Cursors.Default;
+            this.spinnerHabitacionesCiudad.Location = new System.Drawing.Point(317, 320);
+            this.spinnerHabitacionesCiudad.Name = "spinnerHabitacionesCiudad";
+            this.spinnerHabitacionesCiudad.Size = new System.Drawing.Size(37, 20);
+            this.spinnerHabitacionesCiudad.TabIndex = 52;
+            this.spinnerHabitacionesCiudad.Visible = false;
+            this.spinnerHabitacionesCiudad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.spinnerHabitacionesCiudad_KeyPress);
+            // 
+            // laberlHabitacionesCiudad
+            // 
+            this.laberlHabitacionesCiudad.AutoSize = true;
+            this.laberlHabitacionesCiudad.Location = new System.Drawing.Point(239, 322);
+            this.laberlHabitacionesCiudad.Name = "laberlHabitacionesCiudad";
+            this.laberlHabitacionesCiudad.Size = new System.Drawing.Size(72, 13);
+            this.laberlHabitacionesCiudad.TabIndex = 51;
+            this.laberlHabitacionesCiudad.Text = "Habitaciones:";
+            this.laberlHabitacionesCiudad.Visible = false;
+            // 
+            // btnHabitacionesCiudad
+            // 
+            this.btnHabitacionesCiudad.Image = ((System.Drawing.Image)(resources.GetObject("btnHabitacionesCiudad.Image")));
+            this.btnHabitacionesCiudad.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnHabitacionesCiudad.Location = new System.Drawing.Point(241, 274);
+            this.btnHabitacionesCiudad.Name = "btnHabitacionesCiudad";
+            this.btnHabitacionesCiudad.Size = new System.Drawing.Size(113, 23);
+            this.btnHabitacionesCiudad.TabIndex = 50;
+            this.btnHabitacionesCiudad.Text = "Habitaciones";
+            this.btnHabitacionesCiudad.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnHabitacionesCiudad.UseVisualStyleBackColor = true;
+            this.btnHabitacionesCiudad.Click += new System.EventHandler(this.btnHabitacionesCiudad_Click);
             // 
             // labelCantidadDiasLugar
             // 
@@ -359,6 +552,7 @@
             this.FechaPartidaCiudad.Size = new System.Drawing.Size(101, 20);
             this.FechaPartidaCiudad.TabIndex = 38;
             this.FechaPartidaCiudad.ValueChanged += new System.EventHandler(this.dateTimePicker2_ValueChanged_1);
+            this.FechaPartidaCiudad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FechaPartidaCiudad_KeyPress);
             // 
             // label9
             // 
@@ -377,6 +571,7 @@
             this.fechaLlegadaCiudad.Name = "fechaLlegadaCiudad";
             this.fechaLlegadaCiudad.Size = new System.Drawing.Size(101, 20);
             this.fechaLlegadaCiudad.TabIndex = 36;
+            this.fechaLlegadaCiudad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.fechaLlegadaCiudad_KeyPress);
             // 
             // label8
             // 
@@ -435,6 +630,7 @@
             this.btnConfirmarReservacionCiudad.TabIndex = 30;
             this.btnConfirmarReservacionCiudad.Text = "Confirmar Reservacion";
             this.btnConfirmarReservacionCiudad.UseVisualStyleBackColor = true;
+            this.btnConfirmarReservacionCiudad.Click += new System.EventHandler(this.btnConfirmarReservacionCiudad_Click);
             // 
             // comboCiudadesCiudades
             // 
@@ -456,7 +652,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(653, 392);
+            this.button1.Location = new System.Drawing.Point(654, 429);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(81, 27);
             this.button1.TabIndex = 14;
@@ -466,8 +662,11 @@
             // 
             // tabPage3
             // 
-            this.tabPage3.Controls.Add(this.panelHabitacionesHotel);
-            this.tabPage3.Controls.Add(this.btnDatosHabitacionesHotel);
+            this.tabPage3.Controls.Add(this.panelPersonasHotel);
+            this.tabPage3.Controls.Add(this.btnPersonasHotel);
+            this.tabPage3.Controls.Add(this.spinnerHabitacionesHotel);
+            this.tabPage3.Controls.Add(this.labelHabitacionesH);
+            this.tabPage3.Controls.Add(this.btnHabitacionesHotel);
             this.tabPage3.Controls.Add(this.labelCantidadDiasHotel);
             this.tabPage3.Controls.Add(this.fechaPartidaHotel);
             this.tabPage3.Controls.Add(this.labelFechaSalidaHotel);
@@ -485,6 +684,98 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Busqueda de Nombre";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // panelPersonasHotel
+            // 
+            this.panelPersonasHotel.Controls.Add(this.label18);
+            this.panelPersonasHotel.Controls.Add(this.paner);
+            this.panelPersonasHotel.Controls.Add(this.numericUpDown5);
+            this.panelPersonasHotel.Controls.Add(this.numericUpDown6);
+            this.panelPersonasHotel.Location = new System.Drawing.Point(552, 220);
+            this.panelPersonasHotel.Name = "panelPersonasHotel";
+            this.panelPersonasHotel.Size = new System.Drawing.Size(127, 60);
+            this.panelPersonasHotel.TabIndex = 55;
+            this.panelPersonasHotel.Visible = false;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(17, 44);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(45, 13);
+            this.label18.TabIndex = 42;
+            this.label18.Text = "Adultos:";
+            // 
+            // paner
+            // 
+            this.paner.AutoSize = true;
+            this.paner.Location = new System.Drawing.Point(17, 13);
+            this.paner.Name = "paner";
+            this.paner.Size = new System.Drawing.Size(51, 13);
+            this.paner.TabIndex = 46;
+            this.paner.Text = "Menores:";
+            // 
+            // numericUpDown5
+            // 
+            this.numericUpDown5.Location = new System.Drawing.Point(88, 3);
+            this.numericUpDown5.Name = "numericUpDown5";
+            this.numericUpDown5.Size = new System.Drawing.Size(37, 20);
+            this.numericUpDown5.TabIndex = 44;
+            this.numericUpDown5.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.numericUpDown5_KeyPress);
+            // 
+            // numericUpDown6
+            // 
+            this.numericUpDown6.Location = new System.Drawing.Point(88, 37);
+            this.numericUpDown6.Name = "numericUpDown6";
+            this.numericUpDown6.Size = new System.Drawing.Size(37, 20);
+            this.numericUpDown6.TabIndex = 45;
+            this.numericUpDown6.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.numericUpDown6_KeyPress);
+            // 
+            // btnPersonasHotel
+            // 
+            this.btnPersonasHotel.Image = ((System.Drawing.Image)(resources.GetObject("btnPersonasHotel.Image")));
+            this.btnPersonasHotel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPersonasHotel.Location = new System.Drawing.Point(569, 173);
+            this.btnPersonasHotel.Name = "btnPersonasHotel";
+            this.btnPersonasHotel.Size = new System.Drawing.Size(98, 31);
+            this.btnPersonasHotel.TabIndex = 54;
+            this.btnPersonasHotel.Text = "Personas";
+            this.btnPersonasHotel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnPersonasHotel.UseVisualStyleBackColor = true;
+            this.btnPersonasHotel.Click += new System.EventHandler(this.btnPersonasHotel_Click);
+            // 
+            // spinnerHabitacionesHotel
+            // 
+            this.spinnerHabitacionesHotel.Cursor = System.Windows.Forms.Cursors.Default;
+            this.spinnerHabitacionesHotel.Location = new System.Drawing.Point(428, 242);
+            this.spinnerHabitacionesHotel.Name = "spinnerHabitacionesHotel";
+            this.spinnerHabitacionesHotel.Size = new System.Drawing.Size(37, 20);
+            this.spinnerHabitacionesHotel.TabIndex = 53;
+            this.spinnerHabitacionesHotel.Visible = false;
+            this.spinnerHabitacionesHotel.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.spinnerHabitacionesHotel_KeyPress);
+            // 
+            // labelHabitacionesH
+            // 
+            this.labelHabitacionesH.AutoSize = true;
+            this.labelHabitacionesH.Location = new System.Drawing.Point(337, 247);
+            this.labelHabitacionesH.Name = "labelHabitacionesH";
+            this.labelHabitacionesH.Size = new System.Drawing.Size(72, 13);
+            this.labelHabitacionesH.TabIndex = 52;
+            this.labelHabitacionesH.Text = "Habitaciones:";
+            this.labelHabitacionesH.Visible = false;
+            // 
+            // btnHabitacionesHotel
+            // 
+            this.btnHabitacionesHotel.Image = ((System.Drawing.Image)(resources.GetObject("btnHabitacionesHotel.Image")));
+            this.btnHabitacionesHotel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnHabitacionesHotel.Location = new System.Drawing.Point(352, 181);
+            this.btnHabitacionesHotel.Name = "btnHabitacionesHotel";
+            this.btnHabitacionesHotel.Size = new System.Drawing.Size(113, 23);
+            this.btnHabitacionesHotel.TabIndex = 51;
+            this.btnHabitacionesHotel.Text = "Habitaciones";
+            this.btnHabitacionesHotel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnHabitacionesHotel.UseVisualStyleBackColor = true;
+            this.btnHabitacionesHotel.Click += new System.EventHandler(this.btnHabitacionesHotel_Click);
             // 
             // labelCantidadDiasHotel
             // 
@@ -504,6 +795,7 @@
             this.fechaPartidaHotel.TabIndex = 39;
             this.fechaPartidaHotel.Visible = false;
             this.fechaPartidaHotel.ValueChanged += new System.EventHandler(this.fechaSalidaHotel_ValueChanged);
+            this.fechaPartidaHotel.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.fechaPartidaHotel_KeyPress);
             // 
             // labelFechaSalidaHotel
             // 
@@ -524,6 +816,7 @@
             this.fechaLlegadaHotel.Size = new System.Drawing.Size(101, 20);
             this.fechaLlegadaHotel.TabIndex = 37;
             this.fechaLlegadaHotel.Visible = false;
+            this.fechaLlegadaHotel.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.fechaLlegadaHotel_KeyPress);
             // 
             // labelFechaLlegadaHotel
             // 
@@ -538,12 +831,13 @@
             // btnConfirmarReservacionHotel
             // 
             this.btnConfirmarReservacionHotel.Enabled = false;
-            this.btnConfirmarReservacionHotel.Location = new System.Drawing.Point(453, 331);
+            this.btnConfirmarReservacionHotel.Location = new System.Drawing.Point(437, 407);
             this.btnConfirmarReservacionHotel.Name = "btnConfirmarReservacionHotel";
             this.btnConfirmarReservacionHotel.Size = new System.Drawing.Size(133, 23);
             this.btnConfirmarReservacionHotel.TabIndex = 20;
             this.btnConfirmarReservacionHotel.Text = "Confirmar Reservacion";
             this.btnConfirmarReservacionHotel.UseVisualStyleBackColor = true;
+            this.btnConfirmarReservacionHotel.Click += new System.EventHandler(this.btnConfirmarReservacionHotel_Click);
             // 
             // panelDatosHotel
             // 
@@ -639,8 +933,6 @@
             this.btnBuscarHotel.Text = "Buscar Hotel";
             this.btnBuscarHotel.UseVisualStyleBackColor = true;
             this.btnBuscarHotel.Click += new System.EventHandler(this.btnBuscarHotel_Click);
-            this.btnBuscarHotel.MouseLeave += new System.EventHandler(this.btnBuscarHotel_MouseLeave);
-            this.btnBuscarHotel.MouseHover += new System.EventHandler(this.btnBuscarHotel_MouseHover);
             // 
             // textBox1
             // 
@@ -648,6 +940,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(307, 20);
             this.textBox1.TabIndex = 16;
+            this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
             // 
             // label10
             // 
@@ -668,226 +961,6 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // numericUpDown3
-            // 
-            this.numericUpDown3.Location = new System.Drawing.Point(162, 16);
-            this.numericUpDown3.Name = "numericUpDown3";
-            this.numericUpDown3.Size = new System.Drawing.Size(37, 20);
-            this.numericUpDown3.TabIndex = 41;
-            // 
-            // btnDatosHabitacionesHotel
-            // 
-            this.btnDatosHabitacionesHotel.Image = ((System.Drawing.Image)(resources.GetObject("btnDatosHabitacionesHotel.Image")));
-            this.btnDatosHabitacionesHotel.Location = new System.Drawing.Point(468, 150);
-            this.btnDatosHabitacionesHotel.Name = "btnDatosHabitacionesHotel";
-            this.btnDatosHabitacionesHotel.Size = new System.Drawing.Size(83, 32);
-            this.btnDatosHabitacionesHotel.TabIndex = 42;
-            this.btnDatosHabitacionesHotel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnDatosHabitacionesHotel.UseVisualStyleBackColor = true;
-            this.btnDatosHabitacionesHotel.MouseLeave += new System.EventHandler(this.button8_MouseLeave);
-            this.btnDatosHabitacionesHotel.MouseHover += new System.EventHandler(this.button8_MouseHover);
-            // 
-            // panelHabitacionesHotel
-            // 
-            this.panelHabitacionesHotel.Controls.Add(this.label17);
-            this.panelHabitacionesHotel.Controls.Add(this.numericUpDown5);
-            this.panelHabitacionesHotel.Controls.Add(this.numericUpDown4);
-            this.panelHabitacionesHotel.Controls.Add(this.label16);
-            this.panelHabitacionesHotel.Controls.Add(this.label15);
-            this.panelHabitacionesHotel.Controls.Add(this.numericUpDown3);
-            this.panelHabitacionesHotel.Location = new System.Drawing.Point(412, 197);
-            this.panelHabitacionesHotel.Name = "panelHabitacionesHotel";
-            this.panelHabitacionesHotel.Size = new System.Drawing.Size(209, 104);
-            this.panelHabitacionesHotel.TabIndex = 44;
-            this.panelHabitacionesHotel.Visible = false;
-            this.panelHabitacionesHotel.MouseLeave += new System.EventHandler(this.panelHabitacionesHotel_MouseLeave);
-            this.panelHabitacionesHotel.MouseHover += new System.EventHandler(this.panelHabitacionesHotel_MouseHover);
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(40, 48);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(45, 13);
-            this.label15.TabIndex = 42;
-            this.label15.Text = "Adultos:";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(40, 23);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(72, 13);
-            this.label16.TabIndex = 43;
-            this.label16.Text = "Habitaciones:";
-            // 
-            // numericUpDown4
-            // 
-            this.numericUpDown4.Location = new System.Drawing.Point(162, 41);
-            this.numericUpDown4.Name = "numericUpDown4";
-            this.numericUpDown4.Size = new System.Drawing.Size(37, 20);
-            this.numericUpDown4.TabIndex = 44;
-            // 
-            // numericUpDown5
-            // 
-            this.numericUpDown5.Location = new System.Drawing.Point(162, 68);
-            this.numericUpDown5.Name = "numericUpDown5";
-            this.numericUpDown5.Size = new System.Drawing.Size(37, 20);
-            this.numericUpDown5.TabIndex = 45;
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(40, 75);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(51, 13);
-            this.label17.TabIndex = 46;
-            this.label17.Text = "Menores:";
-            // 
-            // btnDatosHabitacionesCiudad
-            // 
-            this.btnDatosHabitacionesCiudad.Image = ((System.Drawing.Image)(resources.GetObject("btnDatosHabitacionesCiudad.Image")));
-            this.btnDatosHabitacionesCiudad.Location = new System.Drawing.Point(375, 252);
-            this.btnDatosHabitacionesCiudad.Name = "btnDatosHabitacionesCiudad";
-            this.btnDatosHabitacionesCiudad.Size = new System.Drawing.Size(83, 32);
-            this.btnDatosHabitacionesCiudad.TabIndex = 43;
-            this.btnDatosHabitacionesCiudad.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnDatosHabitacionesCiudad.UseVisualStyleBackColor = true;
-            // 
-            // panelHabiatacionesCiudad
-            // 
-            this.panelHabiatacionesCiudad.Controls.Add(this.label18);
-            this.panelHabiatacionesCiudad.Controls.Add(this.numericUpDown2);
-            this.panelHabiatacionesCiudad.Controls.Add(this.numericUpDown6);
-            this.panelHabiatacionesCiudad.Controls.Add(this.label19);
-            this.panelHabiatacionesCiudad.Controls.Add(this.label20);
-            this.panelHabiatacionesCiudad.Controls.Add(this.numericUpDown7);
-            this.panelHabiatacionesCiudad.Location = new System.Drawing.Point(314, 300);
-            this.panelHabiatacionesCiudad.Name = "panelHabiatacionesCiudad";
-            this.panelHabiatacionesCiudad.Size = new System.Drawing.Size(199, 90);
-            this.panelHabiatacionesCiudad.TabIndex = 45;
-            this.panelHabiatacionesCiudad.Visible = false;
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(40, 68);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(51, 13);
-            this.label18.TabIndex = 46;
-            this.label18.Text = "Menores:";
-            // 
-            // numericUpDown2
-            // 
-            this.numericUpDown2.Location = new System.Drawing.Point(156, 60);
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(37, 20);
-            this.numericUpDown2.TabIndex = 45;
-            // 
-            // numericUpDown6
-            // 
-            this.numericUpDown6.Location = new System.Drawing.Point(156, 34);
-            this.numericUpDown6.Name = "numericUpDown6";
-            this.numericUpDown6.Size = new System.Drawing.Size(37, 20);
-            this.numericUpDown6.TabIndex = 44;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(40, 16);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(72, 13);
-            this.label19.TabIndex = 43;
-            this.label19.Text = "Habitaciones:";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(40, 41);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(45, 13);
-            this.label20.TabIndex = 42;
-            this.label20.Text = "Adultos:";
-            // 
-            // numericUpDown7
-            // 
-            this.numericUpDown7.Location = new System.Drawing.Point(156, 9);
-            this.numericUpDown7.Name = "numericUpDown7";
-            this.numericUpDown7.Size = new System.Drawing.Size(37, 20);
-            this.numericUpDown7.TabIndex = 41;
-            // 
-            // btnDatosHabitacionesPais
-            // 
-            this.btnDatosHabitacionesPais.Image = ((System.Drawing.Image)(resources.GetObject("btnDatosHabitacionesPais.Image")));
-            this.btnDatosHabitacionesPais.Location = new System.Drawing.Point(351, 250);
-            this.btnDatosHabitacionesPais.Name = "btnDatosHabitacionesPais";
-            this.btnDatosHabitacionesPais.Size = new System.Drawing.Size(83, 32);
-            this.btnDatosHabitacionesPais.TabIndex = 44;
-            this.btnDatosHabitacionesPais.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnDatosHabitacionesPais.UseVisualStyleBackColor = true;
-            // 
-            // panelHabitacionesPais
-            // 
-            this.panelHabitacionesPais.Controls.Add(this.label21);
-            this.panelHabitacionesPais.Controls.Add(this.numericUpDown1);
-            this.panelHabitacionesPais.Controls.Add(this.numericUpDown8);
-            this.panelHabitacionesPais.Controls.Add(this.label22);
-            this.panelHabitacionesPais.Controls.Add(this.label23);
-            this.panelHabitacionesPais.Controls.Add(this.numericUpDown9);
-            this.panelHabitacionesPais.Location = new System.Drawing.Point(300, 307);
-            this.panelHabitacionesPais.Name = "panelHabitacionesPais";
-            this.panelHabitacionesPais.Size = new System.Drawing.Size(199, 90);
-            this.panelHabitacionesPais.TabIndex = 46;
-            this.panelHabitacionesPais.Visible = false;
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(40, 68);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(51, 13);
-            this.label21.TabIndex = 46;
-            this.label21.Text = "Menores:";
-            // 
-            // numericUpDown1
-            // 
-            this.numericUpDown1.Location = new System.Drawing.Point(156, 60);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(37, 20);
-            this.numericUpDown1.TabIndex = 45;
-            // 
-            // numericUpDown8
-            // 
-            this.numericUpDown8.Location = new System.Drawing.Point(156, 34);
-            this.numericUpDown8.Name = "numericUpDown8";
-            this.numericUpDown8.Size = new System.Drawing.Size(37, 20);
-            this.numericUpDown8.TabIndex = 44;
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(40, 16);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(72, 13);
-            this.label22.TabIndex = 43;
-            this.label22.Text = "Habitaciones:";
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(40, 41);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(45, 13);
-            this.label23.TabIndex = 42;
-            this.label23.Text = "Adultos:";
-            // 
-            // numericUpDown9
-            // 
-            this.numericUpDown9.Location = new System.Drawing.Point(156, 9);
-            this.numericUpDown9.Name = "numericUpDown9";
-            this.numericUpDown9.Size = new System.Drawing.Size(37, 20);
-            this.numericUpDown9.TabIndex = 41;
-            // 
             // Seccion_Alojamiento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -896,31 +969,30 @@
             this.Controls.Add(this.tabControl1);
             this.Name = "Seccion_Alojamiento";
             this.Text = "Seccion_Alojamiento";
-            this.Load += new System.EventHandler(this.Seccion_Alojamiento_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            this.panelAdultosNiñosPais.ResumeLayout(false);
+            this.panelAdultosNiñosPais.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spinnerHabitacionesPais)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            this.panelPersonasCiudad.ResumeLayout(false);
+            this.panelPersonasCiudad.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spinnerHabitacionesCiudad)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
+            this.panelPersonasHotel.ResumeLayout(false);
+            this.panelPersonasHotel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spinnerHabitacionesHotel)).EndInit();
             this.panelDatosHotel.ResumeLayout(false);
             this.panelDatosHotel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
-            this.panelHabitacionesHotel.ResumeLayout(false);
-            this.panelHabitacionesHotel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).EndInit();
-            this.panelHabiatacionesCiudad.ResumeLayout(false);
-            this.panelHabiatacionesCiudad.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown7)).EndInit();
-            this.panelHabitacionesPais.ResumeLayout(false);
-            this.panelHabitacionesPais.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown9)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -979,29 +1051,32 @@
         private System.Windows.Forms.Label labelFechaSalidaHotel;
         private System.Windows.Forms.DateTimePicker fechaLlegadaHotel;
         private System.Windows.Forms.Label labelCantidadDiasHotel;
-        private System.Windows.Forms.NumericUpDown numericUpDown3;
-        private System.Windows.Forms.Button btnDatosHabitacionesHotel;
-        private System.Windows.Forms.Panel panelHabitacionesHotel;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.NumericUpDown numericUpDown5;
-        private System.Windows.Forms.NumericUpDown numericUpDown4;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Button btnDatosHabitacionesCiudad;
-        private System.Windows.Forms.Button btnDatosHabitacionesPais;
-        private System.Windows.Forms.Panel panelHabiatacionesCiudad;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
-        private System.Windows.Forms.NumericUpDown numericUpDown6;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.NumericUpDown numericUpDown7;
-        private System.Windows.Forms.Panel panelHabitacionesPais;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.NumericUpDown numericUpDown8;
-        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label labelHabitaciones;
         private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.NumericUpDown numericUpDown9;
+        private System.Windows.Forms.NumericUpDown spinnerHabitacionesPais;
+        private System.Windows.Forms.Panel panelAdultosNiñosPais;
+        private System.Windows.Forms.Button btnPersonasPais;
+        private System.Windows.Forms.Button btnHabitacionesPais;
+        private System.Windows.Forms.Panel panelPersonasCiudad;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.NumericUpDown numericUpDown3;
+        private System.Windows.Forms.NumericUpDown numericUpDown4;
+        private System.Windows.Forms.Button btnPersonasCiudad;
+        private System.Windows.Forms.NumericUpDown spinnerHabitacionesCiudad;
+        private System.Windows.Forms.Label laberlHabitacionesCiudad;
+        private System.Windows.Forms.Button btnHabitacionesCiudad;
+        private System.Windows.Forms.Button btnHabitacionesHotel;
+        private System.Windows.Forms.Panel panelPersonasHotel;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label paner;
+        private System.Windows.Forms.NumericUpDown numericUpDown5;
+        private System.Windows.Forms.NumericUpDown numericUpDown6;
+        private System.Windows.Forms.Button btnPersonasHotel;
+        private System.Windows.Forms.NumericUpDown spinnerHabitacionesHotel;
+        private System.Windows.Forms.Label labelHabitacionesH;
     }
 }

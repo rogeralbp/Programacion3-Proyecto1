@@ -43,7 +43,8 @@ namespace CapaPresentacion
 
         private void Menu_Principal_Administrador_Load(object sender, EventArgs e)
         {
-           nombreUsuarioVer.Text = "Bienvenido Administrador ,"+Login.nombreUsuario;
+           nombreUsuarioVer.Text = "Bienvenido Administrador,"+Login.nombreUsuario;
+            Console.WriteLine("Bienvenido Administrador ," + Login.nombreUsuario);
             
         }
 
@@ -66,6 +67,7 @@ namespace CapaPresentacion
             this.Hide();
             Login v = new Login();
             v.Show();
+            Login.nombreUsuario =String.Empty;
         }
 
         private void btnCrud_Vehiculos_Click(object sender, EventArgs e)
