@@ -30,9 +30,9 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.button4 = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.btnRegistrar = new System.Windows.Forms.Button();
+            this.txtPrecio = new System.Windows.Forms.TextBox();
+            this.txtIdentificador = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
@@ -53,14 +53,14 @@
             this.btnEliminarTarifa = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.TablaTarifasHoteles = new System.Windows.Forms.DataGridView();
             this.button7 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.tabPage4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TablaTarifasHoteles)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -77,9 +77,9 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.button4);
-            this.tabPage1.Controls.Add(this.textBox2);
-            this.tabPage1.Controls.Add(this.textBox1);
+            this.tabPage1.Controls.Add(this.btnRegistrar);
+            this.tabPage1.Controls.Add(this.txtPrecio);
+            this.tabPage1.Controls.Add(this.txtIdentificador);
             this.tabPage1.Controls.Add(this.label2);
             this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Controls.Add(this.button1);
@@ -91,29 +91,29 @@
             this.tabPage1.Text = "Agregar Tarifa";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // btnRegistrar
             // 
-            this.button4.Location = new System.Drawing.Point(216, 193);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(103, 23);
-            this.button4.TabIndex = 5;
-            this.button4.Text = "Registar Tarifa";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.btnRegistrar.Location = new System.Drawing.Point(216, 193);
+            this.btnRegistrar.Name = "btnRegistrar";
+            this.btnRegistrar.Size = new System.Drawing.Size(103, 23);
+            this.btnRegistrar.TabIndex = 5;
+            this.btnRegistrar.Text = "Registar Tarifa";
+            this.btnRegistrar.UseVisualStyleBackColor = true;
+            this.btnRegistrar.Click += new System.EventHandler(this.button4_Click);
             // 
-            // textBox2
+            // txtPrecio
             // 
-            this.textBox2.Location = new System.Drawing.Point(227, 93);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(206, 20);
-            this.textBox2.TabIndex = 4;
+            this.txtPrecio.Location = new System.Drawing.Point(227, 93);
+            this.txtPrecio.Name = "txtPrecio";
+            this.txtPrecio.Size = new System.Drawing.Size(206, 20);
+            this.txtPrecio.TabIndex = 4;
             // 
-            // textBox1
+            // txtIdentificador
             // 
-            this.textBox1.Location = new System.Drawing.Point(227, 40);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(206, 20);
-            this.textBox1.TabIndex = 3;
+            this.txtIdentificador.Location = new System.Drawing.Point(227, 40);
+            this.txtIdentificador.Name = "txtIdentificador";
+            this.txtIdentificador.Size = new System.Drawing.Size(206, 20);
+            this.txtIdentificador.TabIndex = 3;
             // 
             // label2
             // 
@@ -309,7 +309,7 @@
             // 
             // tabPage4
             // 
-            this.tabPage4.Controls.Add(this.dataGridView1);
+            this.tabPage4.Controls.Add(this.TablaTarifasHoteles);
             this.tabPage4.Controls.Add(this.button7);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
@@ -317,14 +317,15 @@
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Consultar Tarifas Hoteles";
             this.tabPage4.UseVisualStyleBackColor = true;
+            this.tabPage4.Click += new System.EventHandler(this.tabPage4_Click);
             // 
-            // dataGridView1
+            // TablaTarifasHoteles
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(10, 99);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(681, 251);
-            this.dataGridView1.TabIndex = 1;
+            this.TablaTarifasHoteles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.TablaTarifasHoteles.Location = new System.Drawing.Point(10, 99);
+            this.TablaTarifasHoteles.Name = "TablaTarifasHoteles";
+            this.TablaTarifasHoteles.Size = new System.Drawing.Size(681, 251);
+            this.TablaTarifasHoteles.TabIndex = 1;
             // 
             // button7
             // 
@@ -344,6 +345,7 @@
             this.Controls.Add(this.tabControl1);
             this.Name = "Crud_Tarifas_Hotel";
             this.Text = "Crud_Tarifas_Hotel";
+            this.Load += new System.EventHandler(this.Mostar_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
@@ -352,7 +354,7 @@
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             this.tabPage4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TablaTarifasHoteles)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -366,9 +368,9 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button btnRegistrar;
+        private System.Windows.Forms.TextBox txtPrecio;
+        private System.Windows.Forms.TextBox txtIdentificador;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnGuardarCambios;
@@ -384,7 +386,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TabPage tabPage4;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView TablaTarifasHoteles;
         private System.Windows.Forms.Button button7;
     }
 }

@@ -7,11 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CapaDatos;
+using CapaNegocios;
+
 
 namespace CapaPresentacion
 {
     public partial class Crud_Tarifas_Hotel : Form
     {
+        Metodos metodos = new Metodos();
+        Conexiones_Base_Datos conectar = new Conexiones_Base_Datos();
+        Validaciones validar = new Validaciones();
+
         public Crud_Tarifas_Hotel()
         {
             InitializeComponent();
@@ -57,8 +64,28 @@ namespace CapaPresentacion
 
         }
 
+        public void LimpiarCampos()
+        {
+            txtIdentificador.Clear();
+            txtPrecio.Clear();
+        }
+
         private void button4_Click(object sender, EventArgs e)
         {
+
+            if (txtIdentificador.Text.Length == 0 || txtPrecio.Text.Length == 0)
+            {
+                MessageBox.Show("Debe de llenar todos los datos.");
+            }
+            else
+            {
+                int identficador = int.Parse(txtIdentificador.Text);
+                double precio = double.Parse(txtPrecio.Text);
+                conectar.InsertaTarifaHotel(identficador, precio);
+                MessageBox.Show("Tarifa hotel insertado con exito");
+                LimpiarCampos();
+            }
+
 
         }
 
@@ -77,6 +104,16 @@ namespace CapaPresentacion
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
             btnEliminarTarifa.Enabled = true;
+        }
+
+        private void tabPage4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Mostar_Load(object sender, EventArgs e)
+        {
+            metodos.LlenarDtarifaHotel(TablaTarifasHoteles);
         }
     }
 }

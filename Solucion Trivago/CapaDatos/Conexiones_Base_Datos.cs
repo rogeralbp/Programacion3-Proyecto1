@@ -22,7 +22,7 @@ namespace CapaDatos
 
             string baseDatos = "gestion_vuelos";
 
-            string cadenaConexion = "Server=" + servidor + ";" + "Port=" + puerto + ";" + "User Id=" + usuario + ";" + "Password=" + claveRoger + ";" + "Database=" + baseDatos;
+            string cadenaConexion = "Server=" + servidor + ";" + "Port=" + puerto + ";" + "User Id=" + usuario + ";" + "Password=" + claveAnthonny + ";" + "Database=" + baseDatos;
             conexion = new NpgsqlConnection(cadenaConexion);
 
             if (conexion != null)
@@ -152,7 +152,7 @@ namespace CapaDatos
         {
             Conexion();
             conexion.Open();
-            cmd = new NpgsqlCommand("INSERT INTO lugares (identificador_lugar, nombre_lugar) VALUES ('" + identificador + "', '" + nombre +  "')", conexion);
+            cmd = new NpgsqlCommand("INSERT INTO lugares (idenficador_lugar, nombre) VALUES ('" + identificador + "', '" + nombre +  "')", conexion);
             cmd.ExecuteNonQuery();
             conexion.Close();
         }
@@ -161,7 +161,7 @@ namespace CapaDatos
         {
             Conexion();
             conexion.Open();
-            NpgsqlCommand cmd = new NpgsqlCommand("UPDATE lugares SET nombre_lugar = '" + nombre +  "' WHERE identificador_lugar = '" + identificador + "'", conexion);
+            NpgsqlCommand cmd = new NpgsqlCommand("UPDATE lugares SET nombre = '" + nombre + "' WHERE idenficador_lugar = '" + identificador + "'", conexion);
             cmd.ExecuteNonQuery();
             conexion.Close();
                 
@@ -172,7 +172,7 @@ namespace CapaDatos
         {
             Conexion();
             conexion.Open();
-            NpgsqlCommand cmd = new NpgsqlCommand("DELETE FROM lugares WHERE identificador_lugar = '" + identificador+ "'", conexion);
+            NpgsqlCommand cmd = new NpgsqlCommand("DELETE FROM lugares WHERE idenficador_lugar = '" + identificador+ "'", conexion);
             cmd.ExecuteNonQuery();
             conexion.Close();
 
@@ -207,7 +207,7 @@ namespace CapaDatos
 
         }
 
-        public void InsertaTarifaHotel(int identificador_tarifa , int precio_tarifa)
+        public void InsertaTarifaHotel(int identificador_tarifa , double precio_tarifa)
         {
             Conexion();
             conexion.Open();
@@ -217,7 +217,7 @@ namespace CapaDatos
 
         }
 
-        public void ModificarTarifaHotel(int identificador_tarifa, int precio_tarifa)
+        public void ModificarTarifaHotel(int identificador_tarifa, double precio_tarifa)
         {
             Conexion();
             conexion.Open();

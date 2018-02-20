@@ -30,16 +30,16 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.txtNombreLugarNuevo = new System.Windows.Forms.TextBox();
+            this.txtNombres = new System.Windows.Forms.TextBox();
             this.txtIDLugarNuevo = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.comboIdentificador = new System.Windows.Forms.ComboBox();
             this.btnEliminarLugar = new System.Windows.Forms.Button();
-            this.txtNombreLugarEliminar = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.txtNombre = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
@@ -48,7 +48,7 @@
             this.txtNombreLugarActual = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.comboBoxLugar = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.btnGuardarCambios = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
@@ -78,7 +78,7 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.txtNombreLugarNuevo);
+            this.tabPage1.Controls.Add(this.txtNombres);
             this.tabPage1.Controls.Add(this.txtIDLugarNuevo);
             this.tabPage1.Controls.Add(this.button2);
             this.tabPage1.Controls.Add(this.button1);
@@ -92,13 +92,14 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Agregar Lugar";
             this.tabPage1.UseVisualStyleBackColor = true;
+            this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
             // 
-            // txtNombreLugarNuevo
+            // txtNombres
             // 
-            this.txtNombreLugarNuevo.Location = new System.Drawing.Point(219, 105);
-            this.txtNombreLugarNuevo.Name = "txtNombreLugarNuevo";
-            this.txtNombreLugarNuevo.Size = new System.Drawing.Size(445, 22);
-            this.txtNombreLugarNuevo.TabIndex = 5;
+            this.txtNombres.Location = new System.Drawing.Point(219, 105);
+            this.txtNombres.Name = "txtNombres";
+            this.txtNombres.Size = new System.Drawing.Size(445, 22);
+            this.txtNombres.TabIndex = 5;
             // 
             // txtIDLugarNuevo
             // 
@@ -106,6 +107,7 @@
             this.txtIDLugarNuevo.Name = "txtIDLugarNuevo";
             this.txtIDLugarNuevo.Size = new System.Drawing.Size(445, 22);
             this.txtIDLugarNuevo.TabIndex = 4;
+            this.txtIDLugarNuevo.TextChanged += new System.EventHandler(this.txtIDLugarNuevo_TextChanged);
             // 
             // button2
             // 
@@ -147,9 +149,9 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.comboIdentificador);
             this.tabPage2.Controls.Add(this.btnEliminarLugar);
-            this.tabPage2.Controls.Add(this.txtNombreLugarEliminar);
-            this.tabPage2.Controls.Add(this.comboBox1);
+            this.tabPage2.Controls.Add(this.txtNombre);
             this.tabPage2.Controls.Add(this.label4);
             this.tabPage2.Controls.Add(this.label3);
             this.tabPage2.Controls.Add(this.button3);
@@ -162,6 +164,15 @@
             this.tabPage2.UseVisualStyleBackColor = true;
             this.tabPage2.Click += new System.EventHandler(this.tabPage2_Click);
             // 
+            // comboIdentificador
+            // 
+            this.comboIdentificador.FormattingEnabled = true;
+            this.comboIdentificador.Location = new System.Drawing.Point(258, 35);
+            this.comboIdentificador.Name = "comboIdentificador";
+            this.comboIdentificador.Size = new System.Drawing.Size(384, 24);
+            this.comboIdentificador.TabIndex = 10;
+            this.comboIdentificador.SelectedIndexChanged += new System.EventHandler(this.comboIdentificador_SelectedIndexChanged);
+            // 
             // btnEliminarLugar
             // 
             this.btnEliminarLugar.Location = new System.Drawing.Point(258, 204);
@@ -170,25 +181,16 @@
             this.btnEliminarLugar.TabIndex = 9;
             this.btnEliminarLugar.Text = "Eliminar Lugar";
             this.btnEliminarLugar.UseVisualStyleBackColor = true;
+            this.btnEliminarLugar.Click += new System.EventHandler(this.btnEliminarLugar_Click);
             // 
-            // txtNombreLugarEliminar
+            // txtNombre
             // 
-            this.txtNombreLugarEliminar.Enabled = false;
-            this.txtNombreLugarEliminar.Location = new System.Drawing.Point(258, 104);
-            this.txtNombreLugarEliminar.Name = "txtNombreLugarEliminar";
-            this.txtNombreLugarEliminar.Size = new System.Drawing.Size(384, 22);
-            this.txtNombreLugarEliminar.TabIndex = 8;
-            this.txtNombreLugarEliminar.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(258, 33);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(384, 24);
-            this.comboBox1.TabIndex = 7;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.txtNombre.Enabled = false;
+            this.txtNombre.Location = new System.Drawing.Point(258, 104);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(384, 22);
+            this.txtNombre.TabIndex = 8;
+            this.txtNombre.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // label4
             // 
@@ -224,7 +226,7 @@
             this.tabPage3.Controls.Add(this.txtNombreLugarActual);
             this.tabPage3.Controls.Add(this.label7);
             this.tabPage3.Controls.Add(this.label6);
-            this.tabPage3.Controls.Add(this.comboBox2);
+            this.tabPage3.Controls.Add(this.comboBoxLugar);
             this.tabPage3.Controls.Add(this.label5);
             this.tabPage3.Controls.Add(this.btnGuardarCambios);
             this.tabPage3.Controls.Add(this.button4);
@@ -234,6 +236,7 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Modificar Lugar";
             this.tabPage3.UseVisualStyleBackColor = true;
+            this.tabPage3.Click += new System.EventHandler(this.tabPage3_Click);
             // 
             // txtNombreLugarActualizar
             // 
@@ -268,16 +271,16 @@
             this.label6.TabIndex = 9;
             this.label6.Text = "Nuevo Nombre:";
             // 
-            // comboBox2
+            // comboBoxLugar
             // 
-            this.comboBox2.AllowDrop = true;
-            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(269, 41);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(375, 24);
-            this.comboBox2.TabIndex = 8;
-            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+            this.comboBoxLugar.AllowDrop = true;
+            this.comboBoxLugar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxLugar.FormattingEnabled = true;
+            this.comboBoxLugar.Location = new System.Drawing.Point(269, 41);
+            this.comboBoxLugar.Name = "comboBoxLugar";
+            this.comboBoxLugar.Size = new System.Drawing.Size(375, 24);
+            this.comboBoxLugar.TabIndex = 8;
+            this.comboBoxLugar.SelectedIndexChanged += new System.EventHandler(this.comboBoxLugar_SelectedIndexChanged);
             // 
             // label5
             // 
@@ -318,13 +321,14 @@
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Consultar Lugares";
             this.tabPage4.UseVisualStyleBackColor = true;
+            this.tabPage4.Click += new System.EventHandler(this.Crud_Lugares_Load);
             // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(18, 140);
+            this.dataGridView1.Location = new System.Drawing.Point(32, 100);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(708, 280);
+            this.dataGridView1.Size = new System.Drawing.Size(657, 318);
             this.dataGridView1.TabIndex = 1;
             // 
             // button7
@@ -365,7 +369,7 @@
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.TextBox txtNombreLugarNuevo;
+        private System.Windows.Forms.TextBox txtNombres;
         private System.Windows.Forms.TextBox txtIDLugarNuevo;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
@@ -374,19 +378,19 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button btnEliminarLugar;
-        private System.Windows.Forms.TextBox txtNombreLugarEliminar;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtNombreLugarActualizar;
         private System.Windows.Forms.TextBox txtNombreLugarActual;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox comboBoxLugar;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnGuardarCambios;
         private System.Windows.Forms.TabPage tabPage4;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.ComboBox comboIdentificador;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
