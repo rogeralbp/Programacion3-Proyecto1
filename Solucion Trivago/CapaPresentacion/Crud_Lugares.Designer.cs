@@ -39,7 +39,7 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.comboIdentificador = new System.Windows.Forms.ComboBox();
             this.btnEliminarLugar = new System.Windows.Forms.Button();
-            this.txtNombreLugarEliminar = new System.Windows.Forms.TextBox();
+            this.txtNombre = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
@@ -53,8 +53,8 @@
             this.btnGuardarCambios = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.button7 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.button7 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -92,6 +92,7 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Agregar Lugar";
             this.tabPage1.UseVisualStyleBackColor = true;
+            this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
             // 
             // txtNombreLugarNuevo
             // 
@@ -150,7 +151,7 @@
             // 
             this.tabPage2.Controls.Add(this.comboIdentificador);
             this.tabPage2.Controls.Add(this.btnEliminarLugar);
-            this.tabPage2.Controls.Add(this.txtNombreLugarEliminar);
+            this.tabPage2.Controls.Add(this.txtNombre);
             this.tabPage2.Controls.Add(this.label4);
             this.tabPage2.Controls.Add(this.label3);
             this.tabPage2.Controls.Add(this.button3);
@@ -182,14 +183,14 @@
             this.btnEliminarLugar.UseVisualStyleBackColor = true;
             this.btnEliminarLugar.Click += new System.EventHandler(this.btnEliminarLugar_Click);
             // 
-            // txtNombreLugarEliminar
+            // txtNombre
             // 
-            this.txtNombreLugarEliminar.Enabled = false;
-            this.txtNombreLugarEliminar.Location = new System.Drawing.Point(258, 104);
-            this.txtNombreLugarEliminar.Name = "txtNombreLugarEliminar";
-            this.txtNombreLugarEliminar.Size = new System.Drawing.Size(384, 22);
-            this.txtNombreLugarEliminar.TabIndex = 8;
-            this.txtNombreLugarEliminar.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
+            this.txtNombre.Enabled = false;
+            this.txtNombre.Location = new System.Drawing.Point(258, 104);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(384, 22);
+            this.txtNombre.TabIndex = 8;
+            this.txtNombre.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // label4
             // 
@@ -279,7 +280,7 @@
             this.comboBoxLugar.Name = "comboBoxLugar";
             this.comboBoxLugar.Size = new System.Drawing.Size(375, 24);
             this.comboBoxLugar.TabIndex = 8;
-            this.comboBoxLugar.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+            this.comboBoxLugar.SelectedIndexChanged += new System.EventHandler(this.comboBoxLugar_SelectedIndexChanged);
             // 
             // label5
             // 
@@ -320,7 +321,15 @@
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Consultar Lugares";
             this.tabPage4.UseVisualStyleBackColor = true;
-            this.tabPage4.Click += new System.EventHandler(this.tabPage4_Load);
+            this.tabPage4.Click += new System.EventHandler(this.Crud_Lugares_Load);
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(32, 100);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(657, 318);
+            this.dataGridView1.TabIndex = 1;
             // 
             // button7
             // 
@@ -331,14 +340,6 @@
             this.button7.Text = "Regresar";
             this.button7.UseVisualStyleBackColor = true;
             this.button7.Click += new System.EventHandler(this.button7_Click);
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(32, 100);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(657, 318);
-            this.dataGridView1.TabIndex = 1;
             // 
             // Crud_Lugares
             // 
@@ -377,7 +378,7 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button btnEliminarLugar;
-        private System.Windows.Forms.TextBox txtNombreLugarEliminar;
+        private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtNombreLugarActualizar;

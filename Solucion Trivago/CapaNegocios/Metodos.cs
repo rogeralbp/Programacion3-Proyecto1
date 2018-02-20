@@ -170,9 +170,6 @@ namespace CapaNegocios
 
         }
 
-
-
-
         public void LlenarDtTarifaVuelo(DataGridView agregar_tariVuelo)
         {
             try
@@ -199,6 +196,8 @@ namespace CapaNegocios
 
         }
 
+
+        //Metodo que llena el combobox de indentificadores de lugares
         public void LlenarLugares(ComboBox identificador)
         {
 
@@ -272,7 +271,7 @@ namespace CapaNegocios
                 {
                     while (dr.Read())
                     {
-                        nombres.Items.Add(dr.GetString(0));
+                        nombres.Items.Add(dr.GetString(1));
                     }
                 }
                 conexion.Close();
@@ -287,8 +286,110 @@ namespace CapaNegocios
 
         }
 
+
+
+        //Metodo que llena el combo de lugares , en la ventana de modificar lugares
+        public void ComboboxModificarLugares(ComboBox nombre, TextBox nombre_lugar)
+        {
+
+            {
+
+                try
+                {
+                    Conexion();
+                    conexion.Open();
+                    NpgsqlCommand cmd = new NpgsqlCommand("SELECT nombre FROM lugares WHERE nombre = '" + nombre.SelectedItem + "'", conexion);
+                    NpgsqlDataReader leer = cmd.ExecuteReader();
+                    if (leer.HasRows)
+                    {
+                        while (leer.Read())
+                        {
+                            nombre_lugar.Text = leer.GetString(1);
+
+
+                        }
+                        conexion.Close();
+
+                    }
+
+                }
+                catch (Exception error)
+                {
+                    Console.WriteLine(error);
+                }
+
+            }
+
+        }
+
+
+        //Metodo que llena el combo de identificadores de vehiculos , en la ventana de modificar vehiculos
+        public void LlenarComboIdentificadorVehiculos(ComboBox placas)
+        {
+
+            try
+            {
+                Conexion();
+                conexion.Open();
+                List<String> lista = new List<String>();
+                NpgsqlCommand cmd = new NpgsqlCommand("SELECT placa FROM vehiculos", conexion);
+                NpgsqlDataReader dr = cmd.ExecuteReader();
+                if (dr.HasRows)
+                {
+                    while (dr.Read())
+                    {
+                        placas.Items.Add(dr.GetInt64(0));
+                    }
+                }
+                conexion.Close();
+
+
+            }
+            catch (Exception error)
+            {
+                Console.WriteLine(error);
+
+            }
+
+        }
+
+
+        //Este metodo sirve para modificar y eliminar datos de los vehiculos 
+
+        public void SeleccionarPlacaInformacion(ComboBox placa, TextBox marca, TextBox modelo, TextBox tipo_vehiculo, TextBox precio, TextBox cantidadP)
+        {
+
+            try
+            {
+                Conexion();
+                conexion.Open();
+                NpgsqlCommand cmd = new NpgsqlCommand("SELECT marca, modelo , tipo_vehiculo , precio , cantidad_personas FROM vehiculos WHERE placa = '" + placa.SelectedItem + "'", conexion);
+                NpgsqlDataReader leer = cmd.ExecuteReader();
+                if (leer.HasRows)
+                {
+                    while (leer.Read())
+                    {
+                        marca.Text = leer.GetString(1);
+                        modelo.Text = leer.GetString(2);
+                        tipo_vehiculo.Text = leer.GetString(3);
+                        precio.Text = leer.GetString(4);
+                        cantidadP.Text = leer.GetString(5);
+                    }
+                    conexion.Close();
+
+                }
+
+            }
+            catch (Exception error)
+            {
+                Console.WriteLine(error);
+            }
+
+
+        }
     }
 
 }
+
 
 

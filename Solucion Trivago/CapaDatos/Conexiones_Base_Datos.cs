@@ -207,7 +207,7 @@ namespace CapaDatos
 
         }
 
-        public void InsertaTarifaHotel(int identificador_tarifa , int precio_tarifa)
+        public void InsertaTarifaHotel(int identificador_tarifa , double precio_tarifa)
         {
             Conexion();
             conexion.Open();
@@ -217,7 +217,7 @@ namespace CapaDatos
 
         }
 
-        public void ModificarTarifaHotel(int identificador_tarifa, int precio_tarifa)
+        public void ModificarTarifaHotel(int identificador_tarifa, double precio_tarifa)
         {
             Conexion();
             conexion.Open();

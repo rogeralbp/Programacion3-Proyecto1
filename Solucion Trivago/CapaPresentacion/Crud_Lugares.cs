@@ -11,21 +11,22 @@ using CapaDatos;
 using CapaNegocios;
 
 namespace CapaPresentacion
+
 {
     public partial class Crud_Lugares : Form
     {
+
         Conexiones_Base_Datos conectar = new Conexiones_Base_Datos();
         Validaciones validar = new Validaciones();
         Metodos metodos = new Metodos();
-
 
         public Crud_Lugares()
         {
             InitializeComponent();
             this.CenterToScreen();
-
            //Llenando el combobox
             metodos.LlenarLugares(comboIdentificador);
+            metodos.LlenarComboNLugares(comboBoxLugar);
 
            
         }
@@ -79,7 +80,7 @@ namespace CapaPresentacion
             else
             {
                 int identificador = int.Parse(txtIDLugarNuevo.Text);
-                string nombre = txtNombreLugarNuevo.Text;
+                string nombre = txtNombre.Text;
                 conectar.InsertarDatosLugares(identificador, nombre);
                 MessageBox.Show("Lugar Registrado con exito");
 
@@ -101,23 +102,8 @@ namespace CapaPresentacion
             btnGuardarCambios.Enabled = true;
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            btnEliminarLugar.Enabled = true;
-           
-        }
-
-        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            btnGuardarCambios.Enabled = true;
-        }
 
         private void btnEliminarLugar_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tabPage4_Load(object sender, EventArgs e)
         {
 
         }
@@ -126,7 +112,7 @@ namespace CapaPresentacion
 
         private void comboIdentificador_SelectedIndexChanged(object sender, EventArgs e)
         {
-            metodos.LLenarComboLugares(comboIdentificador, txtNombreLugarEliminar);
+            metodos.LLenarComboLugares(comboIdentificador, txtNombre);
 
         }
 
@@ -143,6 +129,16 @@ namespace CapaPresentacion
         private void tabPage3_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBoxLugar_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            metodos.ComboboxModificarLugares(comboBoxLugar , txtNombreLugarActual);
         }
     }
 }
