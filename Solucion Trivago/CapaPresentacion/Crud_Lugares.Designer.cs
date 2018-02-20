@@ -39,7 +39,6 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.comboIdentificador = new System.Windows.Forms.ComboBox();
             this.btnEliminarLugar = new System.Windows.Forms.Button();
-            this.txtNombre = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
@@ -50,11 +49,12 @@
             this.label6 = new System.Windows.Forms.Label();
             this.comboBoxLugar = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.btnGuardarCambios = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.button7 = new System.Windows.Forms.Button();
+            this.textBoxNombre = new System.Windows.Forms.TextBox();
+            this.button5 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -149,9 +149,9 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.textBoxNombre);
             this.tabPage2.Controls.Add(this.comboIdentificador);
             this.tabPage2.Controls.Add(this.btnEliminarLugar);
-            this.tabPage2.Controls.Add(this.txtNombre);
             this.tabPage2.Controls.Add(this.label4);
             this.tabPage2.Controls.Add(this.label3);
             this.tabPage2.Controls.Add(this.button3);
@@ -171,7 +171,10 @@
             this.comboIdentificador.Name = "comboIdentificador";
             this.comboIdentificador.Size = new System.Drawing.Size(384, 24);
             this.comboIdentificador.TabIndex = 10;
+            this.comboIdentificador.DropDown += new System.EventHandler(this.comboIdentificador_SelectionChangeCommitted);
             this.comboIdentificador.SelectedIndexChanged += new System.EventHandler(this.comboIdentificador_SelectedIndexChanged);
+            this.comboIdentificador.SelectionChangeCommitted += new System.EventHandler(this.comboIdentificador_SelectionChangeCommitted);
+            this.comboIdentificador.DropDownStyleChanged += new System.EventHandler(this.comboIdentificador_SelectedIndexChanged);
             // 
             // btnEliminarLugar
             // 
@@ -182,15 +185,6 @@
             this.btnEliminarLugar.Text = "Eliminar Lugar";
             this.btnEliminarLugar.UseVisualStyleBackColor = true;
             this.btnEliminarLugar.Click += new System.EventHandler(this.btnEliminarLugar_Click);
-            // 
-            // txtNombre
-            // 
-            this.txtNombre.Enabled = false;
-            this.txtNombre.Location = new System.Drawing.Point(258, 104);
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(384, 22);
-            this.txtNombre.TabIndex = 8;
-            this.txtNombre.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // label4
             // 
@@ -222,13 +216,13 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.button5);
             this.tabPage3.Controls.Add(this.txtNombreLugarActualizar);
             this.tabPage3.Controls.Add(this.txtNombreLugarActual);
             this.tabPage3.Controls.Add(this.label7);
             this.tabPage3.Controls.Add(this.label6);
             this.tabPage3.Controls.Add(this.comboBoxLugar);
             this.tabPage3.Controls.Add(this.label5);
-            this.tabPage3.Controls.Add(this.btnGuardarCambios);
             this.tabPage3.Controls.Add(this.button4);
             this.tabPage3.Location = new System.Drawing.Point(4, 25);
             this.tabPage3.Name = "tabPage3";
@@ -287,19 +281,9 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(52, 49);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(99, 16);
+            this.label5.Size = new System.Drawing.Size(108, 16);
             this.label5.TabIndex = 7;
-            this.label5.Text = "Seleccionar Pais:";
-            // 
-            // btnGuardarCambios
-            // 
-            this.btnGuardarCambios.Enabled = false;
-            this.btnGuardarCambios.Location = new System.Drawing.Point(269, 325);
-            this.btnGuardarCambios.Name = "btnGuardarCambios";
-            this.btnGuardarCambios.Size = new System.Drawing.Size(222, 33);
-            this.btnGuardarCambios.TabIndex = 6;
-            this.btnGuardarCambios.Text = "Guardar Cambios";
-            this.btnGuardarCambios.UseVisualStyleBackColor = true;
+            this.label5.Text = "Seleccionar Lugar:";
             // 
             // button4
             // 
@@ -341,6 +325,23 @@
             this.button7.UseVisualStyleBackColor = true;
             this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
+            // textBoxNombre
+            // 
+            this.textBoxNombre.Location = new System.Drawing.Point(258, 107);
+            this.textBoxNombre.Name = "textBoxNombre";
+            this.textBoxNombre.Size = new System.Drawing.Size(384, 22);
+            this.textBoxNombre.TabIndex = 11;
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(360, 292);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(118, 23);
+            this.button5.TabIndex = 13;
+            this.button5.Text = "Guardar Cambios";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
             // Crud_Lugares
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -378,7 +379,6 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button btnEliminarLugar;
-        private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtNombreLugarActualizar;
@@ -387,10 +387,11 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox comboBoxLugar;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button btnGuardarCambios;
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.ComboBox comboIdentificador;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.TextBox textBoxNombre;
+        private System.Windows.Forms.Button button5;
     }
 }

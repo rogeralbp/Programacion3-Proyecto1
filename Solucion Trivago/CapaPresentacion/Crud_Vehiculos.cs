@@ -26,8 +26,13 @@ namespace CapaPresentacion
             InitializeComponent();
             this.CenterToScreen();
 
-            //Llena el combo con las placas
-            metodo.LlenarComboIdentificadorVehiculos(comboVehiculos);
+            //Llena el combo con las placas de los vehiculos
+            metodo.LlenarCombo1IdentificadorVehiculos(comboVehiculos);
+
+            //Llena el combo del TAB de eliminar Vehiculos 
+            metodo.LlenarCombo1IdentificadorVehiculos(ComboPlacas);
+
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -59,6 +64,8 @@ namespace CapaPresentacion
         private void comboBox4_SelectedIndexChanged(object sender, EventArgs e)
         {
             btnGuardarCambios.Enabled = true;
+            metodo.Combo2Vehiculos(comboVehiculos, txtMarca, txtModelo, txtTipo, txtPre, txtCantida);
+
         }
 
         private void button7_Click(object sender, EventArgs e)
@@ -76,6 +83,8 @@ namespace CapaPresentacion
         private void comboBox5_SelectedIndexChanged(object sender, EventArgs e)
         {
             btnEliminarVehiculo.Enabled = true;
+            metodo.Combo2Vehiculos(ComboPlacas, textBoxMarcaActual, textBoxModeloActual, textBoxTipoActual, textBoxPrecioActual, textBoxCantidadActual);
+
         }
 
         public void LImpiarCampos()
@@ -123,6 +132,40 @@ namespace CapaPresentacion
         private void tabPage1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnGuardarCambios_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox9_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabPage3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+        public void Limpiar()
+        {
+            textBoxMarcaActual.Clear();
+            textBoxModeloActual.Clear();
+            textBoxTipoActual.Clear();
+            textBoxPrecioActual.Clear();
+            textBoxCantidadActual.Clear();
+        }
+
+        private void btnEliminarVehiculo_Click(object sender, EventArgs e)
+        {
+
+            conectar.EliminarDatosVehiculos(textBoxMarcaActual.Text);
+            MessageBox.Show("Vehiculo Eliminado");
+
+            Limpiar();
         }
     }
 }

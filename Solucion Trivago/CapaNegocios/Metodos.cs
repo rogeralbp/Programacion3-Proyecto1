@@ -198,7 +198,7 @@ namespace CapaNegocios
 
 
         //Metodo que llena el combobox de indentificadores de lugares
-        public void LlenarLugares(ComboBox identificador)
+        public void Combo1Lugar(ComboBox identificador)
         {
 
             try
@@ -227,20 +227,20 @@ namespace CapaNegocios
 
         }
         //Metodo que selecciona un identicador e impreme su imformacion en un texbox
-        public void LLenarComboLugares(ComboBox agregar, TextBox nombre_lugar)
+        public void ComboEliminarLugar(ComboBox agregar, TextBox nombre_lugar)
         {
-
+           
             try
             {
                 Conexion();
                 conexion.Open();
-                NpgsqlCommand cmd = new NpgsqlCommand("SELECT nombre FROM lugares WHERE idenficador_lugar = '" + agregar.SelectedItem + "'", conexion);
+                NpgsqlCommand cmd = new NpgsqlCommand("SELECT nombre FROM lugares WHERE idenficador_lugar = '" + agregar.SelectedItem.ToString() + "'", conexion);
                 NpgsqlDataReader leer = cmd.ExecuteReader();
                 if (leer.HasRows)
                 {
                     while (leer.Read())
                     {
-                        nombre_lugar.Text = leer.GetString(1);
+                        nombre_lugar.Text = leer.GetString(0);
 
 
                     }
@@ -257,7 +257,7 @@ namespace CapaNegocios
         }
 
         //Metodo que llena el combo de lugares , en la ventana de modificar lugares
-        public void LlenarComboModificarLugares(ComboBox nombres)
+        public void ComboNombresLugares(ComboBox nombres)
         {
 
             try
@@ -271,7 +271,7 @@ namespace CapaNegocios
                 {
                     while (dr.Read())
                     {
-                        nombres.Items.Add(dr.GetString(1));
+                        nombres.Items.Add(dr.GetString(0));
                     }
                 }
                 conexion.Close();
@@ -289,7 +289,7 @@ namespace CapaNegocios
 
 
         //Metodo que llena el combo de lugares , en la ventana de modificar lugares
-        public void ComboboxModificarLugares(ComboBox nombre, TextBox nombre_lugar)
+        public void LlenarCombosModificarLugar(ComboBox nombre, TextBox nombre_lugar)
         {
 
             {
@@ -304,7 +304,7 @@ namespace CapaNegocios
                     {
                         while (leer.Read())
                         {
-                            nombre_lugar.Text = leer.GetString(1);
+                            nombre_lugar.Text = leer.GetString(0);
 
 
                         }
@@ -324,7 +324,7 @@ namespace CapaNegocios
 
 
         //Metodo que llena el combo de identificadores de vehiculos , en la ventana de modificar vehiculos
-        public void LlenarComboIdentificadorVehiculos(ComboBox placas)
+        public void LlenarCombo1IdentificadorVehiculos(ComboBox placas)
         {
 
             try
@@ -356,24 +356,24 @@ namespace CapaNegocios
 
         //Este metodo sirve para modificar y eliminar datos de los vehiculos 
 
-        public void SeleccionarPlacaInformacion(ComboBox placa, TextBox marca, TextBox modelo, TextBox tipo_vehiculo, TextBox precio, TextBox cantidadP)
+        public void Combo2Vehiculos(ComboBox placa, TextBox marca, TextBox modelo, TextBox tipo_vehiculo, TextBox precio, TextBox cantidadP)
         {
 
             try
             {
                 Conexion();
                 conexion.Open();
-                NpgsqlCommand cmd = new NpgsqlCommand("SELECT marca, modelo , tipo_vehiculo , precio , cantidad_personas FROM vehiculos WHERE placa = '" + placa.SelectedItem + "'", conexion);
+                NpgsqlCommand cmd = new NpgsqlCommand("SELECT marca, modelo , tipo_vehiculo , precio , cantidad_personas FROM vehiculos WHERE placa = '" + placa.SelectedItem.ToString() + "'", conexion);
                 NpgsqlDataReader leer = cmd.ExecuteReader();
                 if (leer.HasRows)
                 {
                     while (leer.Read())
                     {
-                        marca.Text = leer.GetString(1);
-                        modelo.Text = leer.GetString(2);
-                        tipo_vehiculo.Text = leer.GetString(3);
-                        precio.Text = leer.GetString(4);
-                        cantidadP.Text = leer.GetString(5);
+                        marca.Text = leer.GetString(0);
+                        modelo.Text = leer.GetString(1);
+                        tipo_vehiculo.Text = leer.GetString(2);
+                        precio.Text = leer.GetDouble(3).ToString();
+                        cantidadP.Text = leer.GetInt64(4).ToString();
                     }
                     conexion.Close();
 

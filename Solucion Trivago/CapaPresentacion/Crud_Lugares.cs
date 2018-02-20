@@ -24,18 +24,18 @@ namespace CapaPresentacion
         {
             InitializeComponent();
             this.CenterToScreen();
-           //Llenando el combobox
-            metodos.LlenarLugares(comboIdentificador);
+            //Llenando el combobox con ID del lugar
+            metodos.Combo1Lugar(comboIdentificador);
 
-            //Llena el combobox de modificar lugares
-            metodos.LlenarComboModificarLugares(comboBoxLugar);
+            //Llena el combobox de nombres de lugares
+            metodos.ComboNombresLugares(comboBoxLugar);
 
-           
+
         }
 
         private void Crud_Lugares_Load(object sender, EventArgs e)
         {
-            //Lleno la tabla de lugares
+            //Lleno la tabla de lugares en el DataGridview
             metodos.LlenarDtLugar(dataGridView1);
 
         }
@@ -75,7 +75,7 @@ namespace CapaPresentacion
         private void button1_Click(object sender, EventArgs e)
         {
             //Validando entrada de datos
-            if (txtIDLugarNuevo.Text.Length == 0 || txtIDLugarNuevo.Text.Length == 0)
+            if (txtIDLugarNuevo.Text.Length == 0 || txtNombres.Text.Length == 0)
             {
                 MessageBox.Show("Debe de llenar todos los datos.");
             }
@@ -101,20 +101,29 @@ namespace CapaPresentacion
 
         private void tabPage2_Click(object sender, EventArgs e)
         {
-            //btnGuardarCambios.Enabled = true;
+
+        }
+
+
+        public void LimpiarDatos()
+        {
+            textBoxNombre.Clear();
         }
 
 
         private void btnEliminarLugar_Click(object sender, EventArgs e)
         {
+            conectar.EliminarDatosLugares(textBoxNombre.Text);
+            MessageBox.Show("Lugar Eliminado");
+            LimpiarCampos();
 
         }
 
-       
+
 
         private void comboIdentificador_SelectedIndexChanged(object sender, EventArgs e)
         {
-            metodos.LLenarComboLugares(comboIdentificador, txtNombre);
+
 
         }
 
@@ -125,7 +134,7 @@ namespace CapaPresentacion
 
         private void Tabla_Lugares_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+
         }
 
         private void tabPage3_Click(object sender, EventArgs e)
@@ -140,7 +149,37 @@ namespace CapaPresentacion
 
         private void comboBoxLugar_SelectedIndexChanged(object sender, EventArgs e)
         {
-            metodos.ComboboxModificarLugares(comboBoxLugar , txtNombreLugarActual);
+            metodos.LlenarCombosModificarLugar(comboBoxLugar, txtNombreLugarActual);
+        }
+
+        private void comboIdentificador_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            metodos.ComboEliminarLugar(comboIdentificador, textBoxNombre);
+        
+        }
+    
+
+        public void LimpiarCamposs()
+        {
+            txtNombreLugarActualizar.Clear();
+        }
+
+        private void btnGuardarCambios_Click(object sender, EventArgs e)
+        {
+
+
+
+           
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            conectar.ModificarDatosLugar(txtNombreLugarActualizar.Text);
+            MessageBox.Show("Lugar modificado");
+            LimpiarCamposs();
+            
+
         }
     }
+
 }

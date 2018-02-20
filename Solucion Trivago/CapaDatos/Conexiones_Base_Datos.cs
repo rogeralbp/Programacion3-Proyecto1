@@ -110,11 +110,11 @@ namespace CapaDatos
             conexion.Close();
         }
 
-        public void EliminarDatosVehiculos(int placa)
+        public void EliminarDatosVehiculos(string marca)
         {
             Conexion();
             conexion.Open();
-            NpgsqlCommand cmd = new NpgsqlCommand("DELETE FROM vehiculos WHERE placa = '" + placa + "'", conexion);
+            NpgsqlCommand cmd = new NpgsqlCommand("DELETE FROM vehiculos WHERE marca = '" + marca + "'", conexion);
             cmd.ExecuteNonQuery();
             conexion.Close();
         }
@@ -157,22 +157,22 @@ namespace CapaDatos
             conexion.Close();
         }
 
-        public void ModificarDatosLugar( int identificador , string nombre)
+        public void ModificarDatosLugar(  string nombre)
         {
             Conexion();
             conexion.Open();
-            NpgsqlCommand cmd = new NpgsqlCommand("UPDATE lugares SET nombre = '" + nombre + "' WHERE idenficador_lugar = '" + identificador + "'", conexion);
+            NpgsqlCommand cmd = new NpgsqlCommand("UPDATE lugares SET nombre = '" + nombre + "' WHERE nombre = '" + nombre + "'", conexion);
             cmd.ExecuteNonQuery();
             conexion.Close();
                 
 
         }
 
-        public void EliminarDatosLugares( int identificador)
+        public void EliminarDatosLugares( string nombre)
         {
             Conexion();
             conexion.Open();
-            NpgsqlCommand cmd = new NpgsqlCommand("DELETE FROM lugares WHERE idenficador_lugar = '" + identificador+ "'", conexion);
+            NpgsqlCommand cmd = new NpgsqlCommand("DELETE FROM lugares WHERE nombre = '" + nombre+ "'", conexion);
             cmd.ExecuteNonQuery();
             conexion.Close();
 
