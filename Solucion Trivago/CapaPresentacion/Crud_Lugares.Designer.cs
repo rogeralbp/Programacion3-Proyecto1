@@ -30,7 +30,7 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.txtNombreLugarNuevo = new System.Windows.Forms.TextBox();
+            this.txtNombres = new System.Windows.Forms.TextBox();
             this.txtIDLugarNuevo = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -78,7 +78,7 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.txtNombreLugarNuevo);
+            this.tabPage1.Controls.Add(this.txtNombres);
             this.tabPage1.Controls.Add(this.txtIDLugarNuevo);
             this.tabPage1.Controls.Add(this.button2);
             this.tabPage1.Controls.Add(this.button1);
@@ -94,12 +94,12 @@
             this.tabPage1.UseVisualStyleBackColor = true;
             this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
             // 
-            // txtNombreLugarNuevo
+            // txtNombres
             // 
-            this.txtNombreLugarNuevo.Location = new System.Drawing.Point(219, 105);
-            this.txtNombreLugarNuevo.Name = "txtNombreLugarNuevo";
-            this.txtNombreLugarNuevo.Size = new System.Drawing.Size(445, 22);
-            this.txtNombreLugarNuevo.TabIndex = 5;
+            this.txtNombres.Location = new System.Drawing.Point(219, 105);
+            this.txtNombres.Name = "txtNombres";
+            this.txtNombres.Size = new System.Drawing.Size(445, 22);
+            this.txtNombres.TabIndex = 5;
             // 
             // txtIDLugarNuevo
             // 
@@ -369,7 +369,7 @@
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.TextBox txtNombreLugarNuevo;
+        private System.Windows.Forms.TextBox txtNombres;
         private System.Windows.Forms.TextBox txtIDLugarNuevo;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;

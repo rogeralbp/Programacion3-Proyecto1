@@ -24,7 +24,7 @@ namespace CapaNegocios
 
             string baseDatos = "gestion_vuelos";
 
-            string cadenaConexion = "Server=" + servidor + ";" + "Port=" + puerto + ";" + "User Id=" + usuario + ";" + "Password=" + claveRoger + ";" + "Database=" + baseDatos;
+            string cadenaConexion = "Server=" + servidor + ";" + "Port=" + puerto + ";" + "User Id=" + usuario + ";" + "Password=" + claveAnthonny + ";" + "Database=" + baseDatos;
             conexion = new NpgsqlConnection(cadenaConexion);
 
             if (conexion != null)
@@ -257,7 +257,7 @@ namespace CapaNegocios
         }
 
         //Metodo que llena el combo de lugares , en la ventana de modificar lugares
-        public void LlenarComboNLugares(ComboBox nombres)
+        public void LlenarComboModificarLugares(ComboBox nombres)
         {
 
             try

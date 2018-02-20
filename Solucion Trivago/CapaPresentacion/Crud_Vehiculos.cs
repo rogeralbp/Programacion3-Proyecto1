@@ -25,6 +25,9 @@ namespace CapaPresentacion
         {
             InitializeComponent();
             this.CenterToScreen();
+
+            //Llena el combo con las placas
+            metodo.LlenarComboIdentificadorVehiculos(comboVehiculos);
         }
 
         private void button1_Click(object sender, EventArgs e)

@@ -26,7 +26,9 @@ namespace CapaPresentacion
             this.CenterToScreen();
            //Llenando el combobox
             metodos.LlenarLugares(comboIdentificador);
-            metodos.LlenarComboNLugares(comboBoxLugar);
+
+            //Llena el combobox de modificar lugares
+            metodos.LlenarComboModificarLugares(comboBoxLugar);
 
            
         }
@@ -67,7 +69,7 @@ namespace CapaPresentacion
         public void LimpiarCampos()
         {
             txtIDLugarNuevo.Clear();
-            txtNombreLugarNuevo.Clear();
+            txtNombres.Clear();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -80,7 +82,7 @@ namespace CapaPresentacion
             else
             {
                 int identificador = int.Parse(txtIDLugarNuevo.Text);
-                string nombre = txtNombre.Text;
+                string nombre = txtNombres.Text;
                 conectar.InsertarDatosLugares(identificador, nombre);
                 MessageBox.Show("Lugar Registrado con exito");
 
@@ -99,7 +101,7 @@ namespace CapaPresentacion
 
         private void tabPage2_Click(object sender, EventArgs e)
         {
-            btnGuardarCambios.Enabled = true;
+            //btnGuardarCambios.Enabled = true;
         }
 
 
