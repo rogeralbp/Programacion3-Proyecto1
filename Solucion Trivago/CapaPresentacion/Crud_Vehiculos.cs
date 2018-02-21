@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using CapaDatos;
 using CapaNegocios;
 
+
 namespace CapaPresentacion
 {
     public partial class Crud_Vehiculos : Form
@@ -136,7 +137,11 @@ namespace CapaPresentacion
 
         private void btnGuardarCambios_Click(object sender, EventArgs e)
         {
+            double castear = Convert.ToDouble(this.txtNuevoPrecio.Text);
+            int castear2 = Convert.ToInt16(this.txtNuevaCantidad.Text);
 
+            
+            conectar.ModificarDatosVehiculo(ComboMarcaNueva.Text, comboModeloNuevo.Text, comboTipoNuevo.Text, castear , castear2 );
         }
 
         private void textBox9_TextChanged(object sender, EventArgs e)
@@ -172,6 +177,11 @@ namespace CapaPresentacion
 
             //Metodo para llenar el DataGridView con informacion de la tabla de vehiculos
             metodo.LlenarDtVehiculos(TablaVehiculos);
+        }
+
+        private void comboBox8_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

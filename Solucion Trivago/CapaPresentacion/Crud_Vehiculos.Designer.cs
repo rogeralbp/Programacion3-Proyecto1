@@ -30,11 +30,11 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.comboBox8 = new System.Windows.Forms.ComboBox();
-            this.comboBox7 = new System.Windows.Forms.ComboBox();
-            this.comboBox6 = new System.Windows.Forms.ComboBox();
+            this.txtNuevaCantidad = new System.Windows.Forms.TextBox();
+            this.txtNuevoPrecio = new System.Windows.Forms.TextBox();
+            this.comboModeloNuevo = new System.Windows.Forms.ComboBox();
+            this.comboTipoNuevo = new System.Windows.Forms.ComboBox();
+            this.ComboMarcaNueva = new System.Windows.Forms.ComboBox();
             this.label17 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
@@ -110,11 +110,11 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.textBox10);
-            this.tabPage1.Controls.Add(this.textBox9);
-            this.tabPage1.Controls.Add(this.comboBox8);
-            this.tabPage1.Controls.Add(this.comboBox7);
-            this.tabPage1.Controls.Add(this.comboBox6);
+            this.tabPage1.Controls.Add(this.txtNuevaCantidad);
+            this.tabPage1.Controls.Add(this.txtNuevoPrecio);
+            this.tabPage1.Controls.Add(this.comboModeloNuevo);
+            this.tabPage1.Controls.Add(this.comboTipoNuevo);
+            this.tabPage1.Controls.Add(this.ComboMarcaNueva);
             this.tabPage1.Controls.Add(this.label17);
             this.tabPage1.Controls.Add(this.label16);
             this.tabPage1.Controls.Add(this.label15);
@@ -144,56 +144,57 @@
             this.tabPage1.UseVisualStyleBackColor = true;
             this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
             // 
-            // textBox10
+            // txtNuevaCantidad
             // 
-            this.textBox10.Location = new System.Drawing.Point(500, 302);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(169, 20);
-            this.textBox10.TabIndex = 26;
+            this.txtNuevaCantidad.Location = new System.Drawing.Point(500, 302);
+            this.txtNuevaCantidad.Name = "txtNuevaCantidad";
+            this.txtNuevaCantidad.Size = new System.Drawing.Size(169, 20);
+            this.txtNuevaCantidad.TabIndex = 26;
             // 
-            // textBox9
+            // txtNuevoPrecio
             // 
-            this.textBox9.Location = new System.Drawing.Point(500, 239);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(169, 20);
-            this.textBox9.TabIndex = 25;
-            this.textBox9.TextChanged += new System.EventHandler(this.textBox9_TextChanged);
+            this.txtNuevoPrecio.Location = new System.Drawing.Point(500, 239);
+            this.txtNuevoPrecio.Name = "txtNuevoPrecio";
+            this.txtNuevoPrecio.Size = new System.Drawing.Size(169, 20);
+            this.txtNuevoPrecio.TabIndex = 25;
+            this.txtNuevoPrecio.TextChanged += new System.EventHandler(this.textBox9_TextChanged);
             // 
-            // comboBox8
+            // comboModeloNuevo
             // 
-            this.comboBox8.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox8.FormattingEnabled = true;
-            this.comboBox8.Items.AddRange(new object[] {
+            this.comboModeloNuevo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboModeloNuevo.FormattingEnabled = true;
+            this.comboModeloNuevo.Items.AddRange(new object[] {
             "Sentra",
             "Tercell"});
-            this.comboBox8.Location = new System.Drawing.Point(490, 128);
-            this.comboBox8.Name = "comboBox8";
-            this.comboBox8.Size = new System.Drawing.Size(179, 21);
-            this.comboBox8.TabIndex = 24;
+            this.comboModeloNuevo.Location = new System.Drawing.Point(490, 128);
+            this.comboModeloNuevo.Name = "comboModeloNuevo";
+            this.comboModeloNuevo.Size = new System.Drawing.Size(179, 21);
+            this.comboModeloNuevo.TabIndex = 24;
+            this.comboModeloNuevo.SelectedIndexChanged += new System.EventHandler(this.comboBox8_SelectedIndexChanged);
             // 
-            // comboBox7
+            // comboTipoNuevo
             // 
-            this.comboBox7.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox7.FormattingEnabled = true;
-            this.comboBox7.Items.AddRange(new object[] {
+            this.comboTipoNuevo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboTipoNuevo.FormattingEnabled = true;
+            this.comboTipoNuevo.Items.AddRange(new object[] {
             "Manual",
             "Automatico"});
-            this.comboBox7.Location = new System.Drawing.Point(490, 181);
-            this.comboBox7.Name = "comboBox7";
-            this.comboBox7.Size = new System.Drawing.Size(179, 21);
-            this.comboBox7.TabIndex = 23;
+            this.comboTipoNuevo.Location = new System.Drawing.Point(490, 181);
+            this.comboTipoNuevo.Name = "comboTipoNuevo";
+            this.comboTipoNuevo.Size = new System.Drawing.Size(179, 21);
+            this.comboTipoNuevo.TabIndex = 23;
             // 
-            // comboBox6
+            // ComboMarcaNueva
             // 
-            this.comboBox6.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox6.FormattingEnabled = true;
-            this.comboBox6.Items.AddRange(new object[] {
+            this.ComboMarcaNueva.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ComboMarcaNueva.FormattingEnabled = true;
+            this.ComboMarcaNueva.Items.AddRange(new object[] {
             "Nissan",
             "Toyota"});
-            this.comboBox6.Location = new System.Drawing.Point(485, 73);
-            this.comboBox6.Name = "comboBox6";
-            this.comboBox6.Size = new System.Drawing.Size(179, 21);
-            this.comboBox6.TabIndex = 22;
+            this.ComboMarcaNueva.Location = new System.Drawing.Point(485, 73);
+            this.ComboMarcaNueva.Name = "ComboMarcaNueva";
+            this.ComboMarcaNueva.Size = new System.Drawing.Size(179, 21);
+            this.ComboMarcaNueva.TabIndex = 22;
             // 
             // label17
             // 
@@ -763,11 +764,11 @@
         private System.Windows.Forms.TextBox txtTipo;
         private System.Windows.Forms.TextBox txtPre;
         private System.Windows.Forms.TextBox txtCantida;
-        private System.Windows.Forms.TextBox textBox10;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.ComboBox comboBox8;
-        private System.Windows.Forms.ComboBox comboBox7;
-        private System.Windows.Forms.ComboBox comboBox6;
+        private System.Windows.Forms.TextBox txtNuevaCantidad;
+        private System.Windows.Forms.TextBox txtNuevoPrecio;
+        private System.Windows.Forms.ComboBox comboModeloNuevo;
+        private System.Windows.Forms.ComboBox comboTipoNuevo;
+        private System.Windows.Forms.ComboBox ComboMarcaNueva;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label15;

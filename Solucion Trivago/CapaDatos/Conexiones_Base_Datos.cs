@@ -101,11 +101,11 @@ namespace CapaDatos
             conexion.Close();
         }
 
-        public void ModificarDatosVehiculo(int placa, string marca, string modelo, string tipo_vehiculo, double precio, int cantidad_personas)
+        public void ModificarDatosVehiculo(string marca, string modelo, string tipo_vehiculo, double precio, int cantidad_personas)
         {
             Conexion();
             conexion.Open();
-            NpgsqlCommand cmd = new NpgsqlCommand("UPDATE vehiculos SET marca = '" + marca + "', modelo = '" + modelo + "', tipo_vehiculo = '" + tipo_vehiculo + "', precio ='" + precio + "', cantidad_personas = '" + cantidad_personas + "' WHERE placa = '" + placa + "'", conexion);
+            NpgsqlCommand cmd = new NpgsqlCommand("UPDATE vehiculos SET marca = '" + marca + "', modelo = '" + modelo + "', tipo_vehiculo = '" + tipo_vehiculo + "', precio ='" + precio + "', cantidad_personas = '" + cantidad_personas  + "'", conexion);
             cmd.ExecuteNonQuery();
             conexion.Close();
         }
@@ -217,21 +217,21 @@ namespace CapaDatos
 
         }
 
-        public void ModificarTarifaHotel(int identificador_tarifa, double precio_tarifa)
+        public void ModificarTarifaHotel( double precio_tarifa)
         {
             Conexion();
             conexion.Open();
-            NpgsqlCommand cmd = new NpgsqlCommand("UPDATE  tarifas_hoteles SET precio_tarifa = '" + precio_tarifa + "' WHERE identificador_tarifa = '" + identificador_tarifa + "'", conexion);
+            NpgsqlCommand cmd = new NpgsqlCommand("UPDATE  tarifas_hoteles SET precio_tarifa = '" + precio_tarifa +  "'", conexion);
             cmd.ExecuteNonQuery();
             conexion.Close();
 
         }
 
-        public void EliminarDatosTarifa(int identificador)
+        public void EliminarDatosTarifa(double precio)
         {
             Conexion();
             conexion.Open();
-            NpgsqlCommand cmd = new NpgsqlCommand("DELETE FROM  tarifas_hoteles WHERE identificador_tarifa = '" + identificador + "'", conexion);
+            NpgsqlCommand cmd = new NpgsqlCommand("DELETE FROM  tarifas_hoteles WHERE precio_tarifa = '" + precio + "'", conexion);
             cmd.ExecuteNonQuery();
             conexion.Close();
 

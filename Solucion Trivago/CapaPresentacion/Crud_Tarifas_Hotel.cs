@@ -23,6 +23,12 @@ namespace CapaPresentacion
         {
             InitializeComponent();
             this.CenterToScreen();
+            //Llenamos el combobox en el TAB de eliminar
+            metodos.ComboIDTarifasHoteles(ComboIndentificadorTarifas);
+            //Llenamos el combobox en el TAB de modificar
+            metodos.ComboIDTarifasHoteles(ComboIDTarifas);
+
+                
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -59,9 +65,19 @@ namespace CapaPresentacion
 
         }
 
+        public void LimpiarC()
+        {
+            txtPrecioNuevo.Clear();
+            txtTarifaAc.Clear();
+        }
+
         private void button5_Click(object sender, EventArgs e)
         {
 
+            Double precio = Convert.ToDouble(this.txtPrecioNuevo.Text);
+            conectar.ModificarTarifaHotel(precio);
+            MessageBox.Show("Precio de tarifa Hotel modificado con Exito");
+            LimpiarC();
         }
 
         public void LimpiarCampos()
@@ -99,11 +115,14 @@ namespace CapaPresentacion
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             btnGuardarCambios.Enabled = true;
+            metodos.MostrarInformacionTarifaHoteles(ComboIDTarifas, txtTarifaAc);
         }
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
             btnEliminarTarifa.Enabled = true;
+            
+            metodos.MostrarInformacionTarifaHoteles(ComboIndentificadorTarifas, txtTarifaActual);
 
         }
 
@@ -118,6 +137,35 @@ namespace CapaPresentacion
         }
 
         private void tabPage3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox5_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+
+        public void limpiar()
+        {
+            txtTarifaActual.Clear();
+        }
+        private void btnEliminarTarifa_Click(object sender, EventArgs e)
+        {
+            double precio = Convert.ToDouble(this.txtTarifaActual.Text);
+            conectar.EliminarDatosTarifa(precio);
+            MessageBox.Show("Tarifa Hotel eliminado con Exito");
+            limpiar();
+
+        }
+
+        private void textBox4_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged_1(object sender, EventArgs e)
         {
 
         }

@@ -37,16 +37,16 @@
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.txtPrecioNuevo = new System.Windows.Forms.TextBox();
+            this.txtTarifaAc = new System.Windows.Forms.TextBox();
+            this.ComboIDTarifas = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.btnGuardarCambios = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.txtTarifaActual = new System.Windows.Forms.TextBox();
             this.ComboIndentificadorTarifas = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -146,9 +146,9 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.textBox4);
-            this.tabPage2.Controls.Add(this.textBox3);
-            this.tabPage2.Controls.Add(this.comboBox1);
+            this.tabPage2.Controls.Add(this.txtPrecioNuevo);
+            this.tabPage2.Controls.Add(this.txtTarifaAc);
+            this.tabPage2.Controls.Add(this.ComboIDTarifas);
             this.tabPage2.Controls.Add(this.label5);
             this.tabPage2.Controls.Add(this.label4);
             this.tabPage2.Controls.Add(this.label3);
@@ -163,30 +163,31 @@
             this.tabPage2.UseVisualStyleBackColor = true;
             this.tabPage2.Click += new System.EventHandler(this.tabPage2_Click);
             // 
-            // textBox4
+            // txtPrecioNuevo
             // 
-            this.textBox4.Location = new System.Drawing.Point(240, 127);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(271, 20);
-            this.textBox4.TabIndex = 8;
+            this.txtPrecioNuevo.Location = new System.Drawing.Point(240, 127);
+            this.txtPrecioNuevo.Name = "txtPrecioNuevo";
+            this.txtPrecioNuevo.Size = new System.Drawing.Size(271, 20);
+            this.txtPrecioNuevo.TabIndex = 8;
+            this.txtPrecioNuevo.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
             // 
-            // textBox3
+            // txtTarifaAc
             // 
-            this.textBox3.Enabled = false;
-            this.textBox3.Location = new System.Drawing.Point(240, 86);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(271, 20);
-            this.textBox3.TabIndex = 7;
+            this.txtTarifaAc.Enabled = false;
+            this.txtTarifaAc.Location = new System.Drawing.Point(240, 86);
+            this.txtTarifaAc.Name = "txtTarifaAc";
+            this.txtTarifaAc.Size = new System.Drawing.Size(271, 20);
+            this.txtTarifaAc.TabIndex = 7;
             // 
-            // comboBox1
+            // ComboIDTarifas
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(240, 39);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(271, 21);
-            this.comboBox1.TabIndex = 6;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.ComboIDTarifas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ComboIDTarifas.FormattingEnabled = true;
+            this.ComboIDTarifas.Location = new System.Drawing.Point(240, 39);
+            this.ComboIDTarifas.Name = "ComboIDTarifas";
+            this.ComboIDTarifas.Size = new System.Drawing.Size(271, 21);
+            this.ComboIDTarifas.TabIndex = 6;
+            this.ComboIDTarifas.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // label5
             // 
@@ -238,7 +239,7 @@
             // 
             // tabPage3
             // 
-            this.tabPage3.Controls.Add(this.textBox5);
+            this.tabPage3.Controls.Add(this.txtTarifaActual);
             this.tabPage3.Controls.Add(this.ComboIndentificadorTarifas);
             this.tabPage3.Controls.Add(this.label7);
             this.tabPage3.Controls.Add(this.label6);
@@ -252,13 +253,14 @@
             this.tabPage3.UseVisualStyleBackColor = true;
             this.tabPage3.Click += new System.EventHandler(this.tabPage3_Click);
             // 
-            // textBox5
+            // txtTarifaActual
             // 
-            this.textBox5.Enabled = false;
-            this.textBox5.Location = new System.Drawing.Point(266, 100);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(271, 20);
-            this.textBox5.TabIndex = 8;
+            this.txtTarifaActual.Enabled = false;
+            this.txtTarifaActual.Location = new System.Drawing.Point(266, 100);
+            this.txtTarifaActual.Name = "txtTarifaActual";
+            this.txtTarifaActual.Size = new System.Drawing.Size(271, 20);
+            this.txtTarifaActual.TabIndex = 8;
+            this.txtTarifaActual.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
             // 
             // ComboIndentificadorTarifas
             // 
@@ -297,6 +299,7 @@
             this.btnEliminarTarifa.TabIndex = 2;
             this.btnEliminarTarifa.Text = "Eliminar Tarifa";
             this.btnEliminarTarifa.UseVisualStyleBackColor = true;
+            this.btnEliminarTarifa.Click += new System.EventHandler(this.btnEliminarTarifa_Click);
             // 
             // button3
             // 
@@ -378,11 +381,11 @@
         private System.Windows.Forms.Button btnEliminarTarifa;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.TextBox txtPrecioNuevo;
+        private System.Windows.Forms.TextBox txtTarifaAc;
+        private System.Windows.Forms.ComboBox ComboIDTarifas;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox txtTarifaActual;
         private System.Windows.Forms.ComboBox ComboIndentificadorTarifas;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;

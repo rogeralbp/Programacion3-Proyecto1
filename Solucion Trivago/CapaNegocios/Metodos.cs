@@ -422,9 +422,37 @@ namespace CapaNegocios
 
 
 
+
+        public void MostrarInformacionTarifaHoteles(ComboBox tarifa_hoteles, TextBox precio_hotel )
+        {
+            try
+            { 
+                Conexion();
+                conexion.Open();
+                NpgsqlCommand cmd = new NpgsqlCommand("SELECT precio_tarifa FROM tarifas_hoteles WHERE identificador_tarifa = '" + tarifa_hoteles.SelectedItem.ToString() + "'", conexion);
+                NpgsqlDataReader leer = cmd.ExecuteReader();
+                if (leer.HasRows)
+                {
+                    while (leer.Read())
+                    {
+                        precio_hotel.Text = leer.GetDouble(0).ToString();
+                      
+                    }
+                    conexion.Close();
+
+                }
+                }
+            catch (Exception error)
+            {
+                Console.WriteLine(error);
+            }
+
+        }
+
+
     }
 
-        //public void MostrarInformacionTarifaHoteles(ComboBox tarifa_hoteles , TextBox )
+
 }
 
 
