@@ -104,6 +104,7 @@ namespace CapaPresentacion
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
             btnEliminarTarifa.Enabled = true;
+
         }
 
         private void tabPage4_Click(object sender, EventArgs e)
@@ -114,6 +115,11 @@ namespace CapaPresentacion
         private void Mostar_Load(object sender, EventArgs e)
         {
             metodos.LlenarDtarifaHotel(TablaTarifasHoteles);
+        }
+
+        private void tabPage3_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

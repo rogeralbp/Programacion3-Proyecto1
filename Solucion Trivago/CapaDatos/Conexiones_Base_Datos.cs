@@ -157,11 +157,11 @@ namespace CapaDatos
             conexion.Close();
         }
 
-        public void ModificarDatosLugar(  string nombre)
+        public void ModificarDatosLugar( string nombre )
         {
             Conexion();
             conexion.Open();
-            NpgsqlCommand cmd = new NpgsqlCommand("UPDATE lugares SET nombre = '" + nombre + "' WHERE nombre = '" + nombre + "'", conexion);
+            NpgsqlCommand cmd = new NpgsqlCommand("UPDATE lugares SET nombre = '" + nombre + "'", conexion);
             cmd.ExecuteNonQuery();
             conexion.Close();
                 

@@ -174,10 +174,15 @@ namespace CapaPresentacion
 
         private void button5_Click(object sender, EventArgs e)
         {
-            conectar.ModificarDatosLugar(txtNombreLugarActualizar.Text);
+            conectar.ModificarDatosLugar( txtNombreLugarActualizar.Text);
             MessageBox.Show("Lugar modificado");
             LimpiarCamposs();
             
+
+        }
+
+        private void txtNombreLugarActualizar_TextChanged(object sender, EventArgs e)
+        {
 
         }
     }

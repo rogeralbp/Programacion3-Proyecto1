@@ -79,7 +79,7 @@ namespace CapaPresentacion
         {
 
         }
-
+         
         private void comboBox5_SelectedIndexChanged(object sender, EventArgs e)
         {
             btnEliminarVehiculo.Enabled = true;
@@ -161,11 +161,17 @@ namespace CapaPresentacion
 
         private void btnEliminarVehiculo_Click(object sender, EventArgs e)
         {
-
+            //Boton y Metodo  Eliminar Vehiculo
             conectar.EliminarDatosVehiculos(textBoxMarcaActual.Text);
             MessageBox.Show("Vehiculo Eliminado");
-
             Limpiar();
+        }
+
+        private void Crud_Vehiculos_Load(object sender, EventArgs e)
+        {
+
+            //Metodo para llenar el DataGridView con informacion de la tabla de vehiculos
+            metodo.LlenarDtVehiculos(TablaVehiculos);
         }
     }
 }

@@ -37,12 +37,14 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.textBoxNombre = new System.Windows.Forms.TextBox();
             this.comboIdentificador = new System.Windows.Forms.ComboBox();
             this.btnEliminarLugar = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.button5 = new System.Windows.Forms.Button();
             this.txtNombreLugarActualizar = new System.Windows.Forms.TextBox();
             this.txtNombreLugarActual = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -53,8 +55,6 @@
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.button7 = new System.Windows.Forms.Button();
-            this.textBoxNombre = new System.Windows.Forms.TextBox();
-            this.button5 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -164,6 +164,13 @@
             this.tabPage2.UseVisualStyleBackColor = true;
             this.tabPage2.Click += new System.EventHandler(this.tabPage2_Click);
             // 
+            // textBoxNombre
+            // 
+            this.textBoxNombre.Location = new System.Drawing.Point(258, 107);
+            this.textBoxNombre.Name = "textBoxNombre";
+            this.textBoxNombre.Size = new System.Drawing.Size(384, 22);
+            this.textBoxNombre.TabIndex = 11;
+            // 
             // comboIdentificador
             // 
             this.comboIdentificador.FormattingEnabled = true;
@@ -232,12 +239,23 @@
             this.tabPage3.UseVisualStyleBackColor = true;
             this.tabPage3.Click += new System.EventHandler(this.tabPage3_Click);
             // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(360, 292);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(118, 23);
+            this.button5.TabIndex = 13;
+            this.button5.Text = "Guardar Cambios";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
             // txtNombreLugarActualizar
             // 
             this.txtNombreLugarActualizar.Location = new System.Drawing.Point(269, 194);
             this.txtNombreLugarActualizar.Name = "txtNombreLugarActualizar";
             this.txtNombreLugarActualizar.Size = new System.Drawing.Size(375, 22);
             this.txtNombreLugarActualizar.TabIndex = 12;
+            this.txtNombreLugarActualizar.TextChanged += new System.EventHandler(this.txtNombreLugarActualizar_TextChanged);
             // 
             // txtNombreLugarActual
             // 
@@ -324,23 +342,6 @@
             this.button7.Text = "Regresar";
             this.button7.UseVisualStyleBackColor = true;
             this.button7.Click += new System.EventHandler(this.button7_Click);
-            // 
-            // textBoxNombre
-            // 
-            this.textBoxNombre.Location = new System.Drawing.Point(258, 107);
-            this.textBoxNombre.Name = "textBoxNombre";
-            this.textBoxNombre.Size = new System.Drawing.Size(384, 22);
-            this.textBoxNombre.TabIndex = 11;
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(360, 292);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(118, 23);
-            this.button5.TabIndex = 13;
-            this.button5.Text = "Guardar Cambios";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // Crud_Lugares
             // 

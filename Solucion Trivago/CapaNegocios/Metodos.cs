@@ -229,7 +229,7 @@ namespace CapaNegocios
         //Metodo que selecciona un identicador e impreme su imformacion en un texbox
         public void ComboEliminarLugar(ComboBox agregar, TextBox nombre_lugar)
         {
-           
+
             try
             {
                 Conexion();
@@ -387,8 +387,44 @@ namespace CapaNegocios
 
 
         }
+
+
+
+        //Metodo que llena el combobox de indentificadores de tarifas de hoteles
+        public void ComboIDTarifasHoteles(ComboBox identificador_tarifa)
+        {
+
+            try
+            {
+                Conexion();
+                conexion.Open();
+                List<String> lista = new List<String>();
+                NpgsqlCommand cmd = new NpgsqlCommand("SELECT identificador_tarifa FROM tarifas_hoteles", conexion);
+                NpgsqlDataReader dr = cmd.ExecuteReader();
+                if (dr.HasRows)
+                {
+                    while (dr.Read())
+                    {
+                        identificador_tarifa.Items.Add(dr.GetInt64(0));
+                    }
+                }
+                conexion.Close();
+
+
+            }
+            catch (Exception error)
+            {
+                Console.WriteLine(error);
+
+            }
+
+        }
+
+
+
     }
 
+        //public void MostrarInformacionTarifaHoteles(ComboBox tarifa_hoteles , TextBox )
 }
 
 

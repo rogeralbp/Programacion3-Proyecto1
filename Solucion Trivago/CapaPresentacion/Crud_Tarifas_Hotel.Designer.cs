@@ -47,7 +47,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.textBox5 = new System.Windows.Forms.TextBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.ComboIndentificadorTarifas = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.btnEliminarTarifa = new System.Windows.Forms.Button();
@@ -239,7 +239,7 @@
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.textBox5);
-            this.tabPage3.Controls.Add(this.comboBox2);
+            this.tabPage3.Controls.Add(this.ComboIndentificadorTarifas);
             this.tabPage3.Controls.Add(this.label7);
             this.tabPage3.Controls.Add(this.label6);
             this.tabPage3.Controls.Add(this.btnEliminarTarifa);
@@ -250,6 +250,7 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Eliminar Tarifa";
             this.tabPage3.UseVisualStyleBackColor = true;
+            this.tabPage3.Click += new System.EventHandler(this.tabPage3_Click);
             // 
             // textBox5
             // 
@@ -259,15 +260,15 @@
             this.textBox5.Size = new System.Drawing.Size(271, 20);
             this.textBox5.TabIndex = 8;
             // 
-            // comboBox2
+            // ComboIndentificadorTarifas
             // 
-            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(266, 41);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(271, 21);
-            this.comboBox2.TabIndex = 7;
-            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+            this.ComboIndentificadorTarifas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ComboIndentificadorTarifas.FormattingEnabled = true;
+            this.ComboIndentificadorTarifas.Location = new System.Drawing.Point(266, 41);
+            this.ComboIndentificadorTarifas.Name = "ComboIndentificadorTarifas";
+            this.ComboIndentificadorTarifas.Size = new System.Drawing.Size(271, 21);
+            this.ComboIndentificadorTarifas.TabIndex = 7;
+            this.ComboIndentificadorTarifas.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
             // label7
             // 
@@ -382,7 +383,7 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox ComboIndentificadorTarifas;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TabPage tabPage4;
