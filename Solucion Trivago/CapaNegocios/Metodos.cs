@@ -585,7 +585,7 @@ namespace CapaNegocios
 
 
         //Metodo que llena el combobox de indentificadores de rutas
-        public void ComboIDRutas(ComboBox identificador)
+        public void ComboIDRuta(ComboBox identificador)
         {
 
             try
@@ -624,14 +624,12 @@ namespace CapaNegocios
             {
                 Conexion();
                 conexion.Open();
-                NpgsqlCommand cmd = new NpgsqlCommand("SELECT identificador , nombre  FROM pais WHERE identificador = '" + id_rutas.SelectedItem.ToString() + "'", conexion);
+                NpgsqlCommand cmd = new NpgsqlCommand("SELECT pais_origen , pais_destino , duracion FROM rutas WHERE identificador_ruta = '" + id_rutas.SelectedItem.ToString() + "'", conexion);
                 NpgsqlDataReader leer = cmd.ExecuteReader();
                 if (leer.HasRows)
                 {
                     while (leer.Read())
                     {
-
-
                         pais_origen.Text = leer.GetString(0);
                         pais_destino.Text = leer.GetString(1);
                         cantidad.Text = leer.GetInt64(2).ToString();

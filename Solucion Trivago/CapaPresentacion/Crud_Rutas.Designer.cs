@@ -59,10 +59,10 @@
             this.button3 = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.btnEliminarRuta = new System.Windows.Forms.Button();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.txtDestinoActual = new System.Windows.Forms.TextBox();
+            this.txtDuracionActual = new System.Windows.Forms.TextBox();
+            this.txtOrigenActual = new System.Windows.Forms.TextBox();
+            this.comboIDRutas = new System.Windows.Forms.ComboBox();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
@@ -371,10 +371,10 @@
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.btnEliminarRuta);
-            this.tabPage3.Controls.Add(this.textBox11);
-            this.tabPage3.Controls.Add(this.textBox10);
-            this.tabPage3.Controls.Add(this.textBox9);
-            this.tabPage3.Controls.Add(this.comboBox4);
+            this.tabPage3.Controls.Add(this.txtDestinoActual);
+            this.tabPage3.Controls.Add(this.txtDuracionActual);
+            this.tabPage3.Controls.Add(this.txtOrigenActual);
+            this.tabPage3.Controls.Add(this.comboIDRutas);
             this.tabPage3.Controls.Add(this.label15);
             this.tabPage3.Controls.Add(this.label14);
             this.tabPage3.Controls.Add(this.label13);
@@ -386,6 +386,7 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Eliminar Rutas";
             this.tabPage3.UseVisualStyleBackColor = true;
+            this.tabPage3.Click += new System.EventHandler(this.tabPage3_Click);
             // 
             // btnEliminarRuta
             // 
@@ -396,40 +397,41 @@
             this.btnEliminarRuta.TabIndex = 23;
             this.btnEliminarRuta.Text = "Eliminar Ruta";
             this.btnEliminarRuta.UseVisualStyleBackColor = true;
+            this.btnEliminarRuta.Click += new System.EventHandler(this.btnEliminarRuta_Click);
             // 
-            // textBox11
+            // txtDestinoActual
             // 
-            this.textBox11.Enabled = false;
-            this.textBox11.Location = new System.Drawing.Point(234, 134);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(378, 22);
-            this.textBox11.TabIndex = 22;
+            this.txtDestinoActual.Enabled = false;
+            this.txtDestinoActual.Location = new System.Drawing.Point(234, 134);
+            this.txtDestinoActual.Name = "txtDestinoActual";
+            this.txtDestinoActual.Size = new System.Drawing.Size(378, 22);
+            this.txtDestinoActual.TabIndex = 22;
             // 
-            // textBox10
+            // txtDuracionActual
             // 
-            this.textBox10.Enabled = false;
-            this.textBox10.Location = new System.Drawing.Point(234, 202);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(378, 22);
-            this.textBox10.TabIndex = 21;
+            this.txtDuracionActual.Enabled = false;
+            this.txtDuracionActual.Location = new System.Drawing.Point(234, 202);
+            this.txtDuracionActual.Name = "txtDuracionActual";
+            this.txtDuracionActual.Size = new System.Drawing.Size(378, 22);
+            this.txtDuracionActual.TabIndex = 21;
             // 
-            // textBox9
+            // txtOrigenActual
             // 
-            this.textBox9.Enabled = false;
-            this.textBox9.Location = new System.Drawing.Point(234, 77);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(378, 22);
-            this.textBox9.TabIndex = 20;
+            this.txtOrigenActual.Enabled = false;
+            this.txtOrigenActual.Location = new System.Drawing.Point(234, 77);
+            this.txtOrigenActual.Name = "txtOrigenActual";
+            this.txtOrigenActual.Size = new System.Drawing.Size(378, 22);
+            this.txtOrigenActual.TabIndex = 20;
             // 
-            // comboBox4
+            // comboIDRutas
             // 
-            this.comboBox4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(234, 10);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(378, 24);
-            this.comboBox4.TabIndex = 17;
-            this.comboBox4.SelectedIndexChanged += new System.EventHandler(this.comboBox4_SelectedIndexChanged);
+            this.comboIDRutas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboIDRutas.FormattingEnabled = true;
+            this.comboIDRutas.Location = new System.Drawing.Point(234, 10);
+            this.comboIDRutas.Name = "comboIDRutas";
+            this.comboIDRutas.Size = new System.Drawing.Size(378, 24);
+            this.comboIDRutas.TabIndex = 17;
+            this.comboIDRutas.SelectedIndexChanged += new System.EventHandler(this.comboBox4_SelectedIndexChanged);
             // 
             // label15
             // 
@@ -562,10 +564,10 @@
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button btnEliminarRuta;
-        private System.Windows.Forms.TextBox textBox11;
-        private System.Windows.Forms.TextBox textBox10;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.TextBox txtDestinoActual;
+        private System.Windows.Forms.TextBox txtDuracionActual;
+        private System.Windows.Forms.TextBox txtOrigenActual;
+        private System.Windows.Forms.ComboBox comboIDRutas;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;

@@ -197,11 +197,11 @@ namespace CapaDatos
             conexion.Close();
         }
 
-        public void EliminarDatosRuta(int identificador)
+        public void EliminarDatosRuta(int identificador_ruta)
         {
             Conexion();
             conexion.Open();
-            NpgsqlCommand cmd = new NpgsqlCommand("DELETE FROM rutas WHERE identificador_ruta = '" + identificador + "'", conexion);
+            NpgsqlCommand cmd = new NpgsqlCommand("DELETE FROM rutas WHERE identificador_ruta = '" + identificador_ruta + "'", conexion);
             cmd.ExecuteNonQuery();
             conexion.Close();
 

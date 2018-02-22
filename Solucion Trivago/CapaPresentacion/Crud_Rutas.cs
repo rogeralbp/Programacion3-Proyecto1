@@ -25,6 +25,10 @@ namespace CapaPresentacion
             //Metodos que llenan los combobox de la TAB de agregar agregar rutas
             metodo.ComboNombresPaises(comboPaisOrigen);
             metodo.ComboNombresPaises(comboPaisDestino);
+
+
+            //Metodo que llena el combobox del TAB de eliminar rutas
+            metodo.ComboIDRuta(comboIDRutas);
         }
 
         private void tabPage1_Click(object sender, EventArgs e)
@@ -134,10 +138,37 @@ namespace CapaPresentacion
         private void comboBox4_SelectedIndexChanged(object sender, EventArgs e)
         {
             btnEliminarRuta.Enabled = true;
+
+            //Metodo que muestra la informacion de la ruta 
+            metodo.MostrarInformacionRutas(comboIDRutas, txtOrigenActual, txtDestinoActual, txtDuracionActual);
+
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
+
+        }
+
+        private void tabPage3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        public void limpiarCamposEliminar()
+        {
+            txtOrigenActual.Clear();
+            txtDestinoActual.Clear();
+            txtDuracionActual.Clear();
+        }
+        private void btnEliminarRuta_Click(object sender, EventArgs e)
+        {
+
+
+            int identificador = int.Parse(comboIDRutas.SelectedItem.ToString() );
+            conectar.EliminarDatosRuta(identificador);
+            MessageBox.Show("Ruta Eliminada con Exito");
+            limpiarCamposEliminar();
+            Actualizar_Rutas();
 
         }
     }
