@@ -423,10 +423,10 @@ namespace CapaNegocios
 
 
 
-        public void MostrarInformacionTarifaHoteles(ComboBox tarifa_hoteles, TextBox precio_hotel )
+        public void MostrarInformacionTarifaHoteles(ComboBox tarifa_hoteles, TextBox precio_hotel)
         {
             try
-            { 
+            {
                 Conexion();
                 conexion.Open();
                 NpgsqlCommand cmd = new NpgsqlCommand("SELECT precio_tarifa FROM tarifas_hoteles WHERE identificador_tarifa = '" + tarifa_hoteles.SelectedItem.ToString() + "'", conexion);
@@ -436,12 +436,12 @@ namespace CapaNegocios
                     while (leer.Read())
                     {
                         precio_hotel.Text = leer.GetDouble(0).ToString();
-                      
+
                     }
                     conexion.Close();
 
                 }
-                }
+            }
             catch (Exception error)
             {
                 Console.WriteLine(error);
@@ -450,9 +450,70 @@ namespace CapaNegocios
         }
 
 
+
+
+
+        //Metodo que llena el combobox de indentificadores de tarifas de hoteles
+        public void ComboIDPaises(ComboBox identificador_pais)
+        {
+
+            try
+            {
+                Conexion();
+                conexion.Open();
+                List<String> lista = new List<String>();
+                NpgsqlCommand cmd = new NpgsqlCommand("SELECT identificador FROM pais", conexion);
+                NpgsqlDataReader dr = cmd.ExecuteReader();
+                if (dr.HasRows)
+                {
+                    while (dr.Read())
+                    {
+                        identificador_pais.Items.Add(dr.GetInt64(0));
+                    }
+                }
+                conexion.Close();
+
+
+            }
+            catch (Exception error)
+            {
+                Console.WriteLine(error);
+
+            }
+
+
+        }
+
+
+
+
+        public void MostrarInformacionPais(ComboBox pais, TextBox identificador, TextBox nombre)
+        {
+            try
+            {
+                Conexion();
+                conexion.Open();
+                NpgsqlCommand cmd = new NpgsqlCommand("SELECT identificador , nombre  FROM pais WHERE identificador = '" + pais.SelectedItem.ToString() + "'", conexion);
+                NpgsqlDataReader leer = cmd.ExecuteReader();
+                if (leer.HasRows)
+                {
+                    while (leer.Read())
+                    {
+                        identificador.Text = leer.GetDouble(0).ToString();
+                        nombre.Text = leer.GetString(1);
+
+                    }
+                    conexion.Close();
+
+                }
+            }
+            catch (Exception error)
+            {
+                Console.WriteLine(error);
+            }
+
+        }
     }
-
-
 }
 
 

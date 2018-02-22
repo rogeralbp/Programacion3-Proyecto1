@@ -49,9 +49,9 @@
             this.tabControlPaises = new System.Windows.Forms.TabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.btnEliminarPais = new System.Windows.Forms.Button();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.comboPaisesEliminar = new System.Windows.Forms.ComboBox();
+            this.txtIdentificadorEliminar = new System.Windows.Forms.TextBox();
+            this.txtNombreEliminar = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -271,9 +271,9 @@
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.btnEliminarPais);
-            this.tabPage3.Controls.Add(this.comboBox2);
-            this.tabPage3.Controls.Add(this.textBox6);
-            this.tabPage3.Controls.Add(this.textBox5);
+            this.tabPage3.Controls.Add(this.comboPaisesEliminar);
+            this.tabPage3.Controls.Add(this.txtIdentificadorEliminar);
+            this.tabPage3.Controls.Add(this.txtNombreEliminar);
             this.tabPage3.Controls.Add(this.label6);
             this.tabPage3.Controls.Add(this.label5);
             this.tabPage3.Controls.Add(this.label11);
@@ -295,32 +295,33 @@
             this.btnEliminarPais.TabIndex = 14;
             this.btnEliminarPais.Text = "Eliminar Pais";
             this.btnEliminarPais.UseVisualStyleBackColor = true;
+            this.btnEliminarPais.Click += new System.EventHandler(this.btnEliminarPais_Click);
             // 
-            // comboBox2
+            // comboPaisesEliminar
             // 
-            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(245, 20);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(374, 24);
-            this.comboBox2.TabIndex = 13;
-            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+            this.comboPaisesEliminar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboPaisesEliminar.FormattingEnabled = true;
+            this.comboPaisesEliminar.Location = new System.Drawing.Point(245, 20);
+            this.comboPaisesEliminar.Name = "comboPaisesEliminar";
+            this.comboPaisesEliminar.Size = new System.Drawing.Size(374, 24);
+            this.comboPaisesEliminar.TabIndex = 13;
+            this.comboPaisesEliminar.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
-            // textBox6
+            // txtIdentificadorEliminar
             // 
-            this.textBox6.Enabled = false;
-            this.textBox6.Location = new System.Drawing.Point(245, 200);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(377, 22);
-            this.textBox6.TabIndex = 12;
+            this.txtIdentificadorEliminar.Enabled = false;
+            this.txtIdentificadorEliminar.Location = new System.Drawing.Point(245, 200);
+            this.txtIdentificadorEliminar.Name = "txtIdentificadorEliminar";
+            this.txtIdentificadorEliminar.Size = new System.Drawing.Size(377, 22);
+            this.txtIdentificadorEliminar.TabIndex = 12;
             // 
-            // textBox5
+            // txtNombreEliminar
             // 
-            this.textBox5.Enabled = false;
-            this.textBox5.Location = new System.Drawing.Point(245, 105);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(377, 22);
-            this.textBox5.TabIndex = 11;
+            this.txtNombreEliminar.Enabled = false;
+            this.txtNombreEliminar.Location = new System.Drawing.Point(245, 105);
+            this.txtNombreEliminar.Name = "txtNombreEliminar";
+            this.txtNombreEliminar.Size = new System.Drawing.Size(377, 22);
+            this.txtNombreEliminar.TabIndex = 11;
             // 
             // label6
             // 
@@ -458,9 +459,9 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button btnEliminarPais;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.ComboBox comboPaisesEliminar;
+        private System.Windows.Forms.TextBox txtIdentificadorEliminar;
+        private System.Windows.Forms.TextBox txtNombreEliminar;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label11;

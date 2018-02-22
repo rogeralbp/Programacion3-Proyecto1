@@ -277,6 +277,17 @@ namespace CapaDatos
 
         }
 
+
+        public void EliminarDatosPaises(string  nombre)
+        {
+            Conexion();
+            conexion.Open();
+            NpgsqlCommand cmd = new NpgsqlCommand("DELETE FROM  pais WHERE nombre = '" + nombre + "'", conexion);
+            cmd.ExecuteNonQuery();
+            conexion.Close();
+        }
+
+
         /// <summary>
         /// Este metodo funciona para saber quien esta logeado
         /// en linea mejor dicho y a si saber la informacion

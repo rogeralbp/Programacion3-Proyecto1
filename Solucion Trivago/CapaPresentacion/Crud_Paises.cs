@@ -28,6 +28,9 @@ namespace CapaPresentacion
             InitializeComponent();
             this.CenterToScreen();
 
+            //Lleno el combo del TAB de eliminar
+            metodos.ComboIDPaises(comboPaisesEliminar);
+
         }
 
         private void tabPage2_Click(object sender, EventArgs e)
@@ -62,14 +65,35 @@ namespace CapaPresentacion
             v.Show();
         }
 
+
+       public void LimpiarCamposAgregar()
+        {
+            txtIDPaisNuevo.Clear();
+            txtNombrePaisNuevo.Clear();
+            pictureBox1.Image = null;
+        }
+
+
         private void button1_Click(object sender, EventArgs e)
         {
-            int identificador = int.Parse(txtIDPaisNuevo.Text);
-            string nombre = txtNombrePaisNuevo.Text;
 
-            conectar.InsertarDatosPaises(identificador, nombre, dir);
-            MessageBox.Show("Se registro el Pais con exito");
+
+            if (txtIDPaisNuevo.Text.Length == 0 || txtNombrePaisNuevo.Text.Length == 0 || pictureBox1 == null)
+            {
+                MessageBox.Show("Debe de llenar todos los datos.");
+            }
+            else
+            {
+                int identificador = int.Parse(txtIDPaisNuevo.Text);
+                string nombre = txtNombrePaisNuevo.Text;
+                conectar.InsertarDatosPaises(identificador, nombre, dir);
+                MessageBox.Show("Se registro el Pais con exito");
+
+
+                LimpiarCamposAgregar();
+            }
         }
+        
 
         private void button7_Click(object sender, EventArgs e)
         {
@@ -83,9 +107,19 @@ namespace CapaPresentacion
             btnActualizarPais.Enabled = true;
         }
 
+        public void LimpiarEliminarCampos()
+        {
+            txtIdentificadorEliminar.Clear();
+            txtNombreEliminar.Clear();
+        }
+
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
             btnEliminarPais.Enabled = true;
+            //Metodo para mostrar la informacion del pais , de acuerdo con el ID correspondiente
+            metodos.MostrarInformacionPais(comboPaisesEliminar, txtIdentificadorEliminar, txtNombreEliminar);
+         
+
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -117,5 +151,12 @@ namespace CapaPresentacion
             }
         }
 
+        private void btnEliminarPais_Click(object sender, EventArgs e)
+        {
+
+            conectar.EliminarDatosPaises(txtNombreEliminar.Text);
+            MessageBox.Show("Pais eliminado con exito");
+            LimpiarEliminarCampos();
+        }
     }
 }
