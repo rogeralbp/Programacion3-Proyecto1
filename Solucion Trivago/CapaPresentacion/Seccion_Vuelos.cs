@@ -14,14 +14,7 @@ namespace CapaPresentacion
     public partial class Seccion_Vuelos : Form
     {
         Validaciones validar = new Validaciones();
-        
-        /// <summary>
-        /// case V: solo vuelo
-        /// case VH: vuelo y hotel
-        /// case VA: vuelo y automovil 
-        /// case VHA: vuelo, hotel, automovil
-        /// </summary>
-
+   
         public Seccion_Vuelos()
         {
             InitializeComponent();
