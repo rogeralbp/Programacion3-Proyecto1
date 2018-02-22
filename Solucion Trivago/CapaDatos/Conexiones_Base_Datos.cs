@@ -157,22 +157,23 @@ namespace CapaDatos
             conexion.Close();
         }
 
-        public void ModificarDatosLugar( string nombre )
+        public void ModificarDatosLugar( int identificador , string nombre )
         {
             Conexion();
             conexion.Open();
-            NpgsqlCommand cmd = new NpgsqlCommand("UPDATE lugares SET nombre = '" + nombre + "'", conexion);
+            NpgsqlCommand cmd = new NpgsqlCommand("UPDATE lugares SET nombre = '" + nombre+ "' WHERE idenficador_lugar = '" + identificador + "'", conexion);
+
             cmd.ExecuteNonQuery();
             conexion.Close();
                 
 
         }
 
-        public void EliminarDatosLugares( string nombre)
+        public void EliminarDatosLugares(int identificador)
         {
             Conexion();
             conexion.Open();
-            NpgsqlCommand cmd = new NpgsqlCommand("DELETE FROM lugares WHERE nombre = '" + nombre+ "'", conexion);
+            NpgsqlCommand cmd = new NpgsqlCommand("DELETE FROM lugares WHERE idenficador_lugar = '" + identificador+ "'", conexion);
             cmd.ExecuteNonQuery();
             conexion.Close();
 

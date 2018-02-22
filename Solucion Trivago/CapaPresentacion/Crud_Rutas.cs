@@ -29,6 +29,9 @@ namespace CapaPresentacion
 
             //Metodo que llena el combobox del TAB de eliminar rutas
             metodo.ComboIDRuta(comboIDRutas);
+
+            //Metodo que llena el combobox del TAD de modificar de rutas
+            metodo.ComboIDRuta(comboboxIDModificar);
         }
 
         private void tabPage1_Click(object sender, EventArgs e)
@@ -133,6 +136,8 @@ namespace CapaPresentacion
         private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
         {
             btnGuardar.Enabled = true;
+            //Metodo que muestra la informacion de la ruta
+            metodo.MostrarInformacionRutas(comboboxIDModificar , textOrigen , textDestino , textDuracion);
         }
 
         private void comboBox4_SelectedIndexChanged(object sender, EventArgs e)
@@ -169,6 +174,35 @@ namespace CapaPresentacion
             MessageBox.Show("Ruta Eliminada con Exito");
             limpiarCamposEliminar();
             Actualizar_Rutas();
+
+        }
+
+        public void LimpiarCamposModificar()
+        {
+            txtOrigenActual.Clear();
+            txtDestinoActual.Clear();
+            txtDuracionActual.Clear();
+
+            textNuevoOrigen.Clear();
+            textNuevoDestino.Clear();
+            textNuevoDuracion.Clear();
+
+
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            string origen_nuevo = textNuevoOrigen.Text;
+            string destino_nuevo = textNuevoDestino.Text;
+            int duracion_nuevo = int.Parse(textNuevoDuracion.Text);
+            int identificador_modificar = int.Parse(comboboxIDModificar.SelectedItem.ToString());
+
+            conectar.ModificarDatosRuta(identificador_modificar, origen_nuevo, destino_nuevo, duracion_nuevo);
+            MessageBox.Show("Ruta modificada con exito");
+
+            LimpiarCamposModificar();
+            Actualizar_Rutas();
+
 
         }
     }

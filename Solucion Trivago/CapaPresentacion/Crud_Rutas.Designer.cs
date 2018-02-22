@@ -42,19 +42,19 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.btnGuardar = new System.Windows.Forms.Button();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textNuevoDuracion = new System.Windows.Forms.TextBox();
+            this.textNuevoDestino = new System.Windows.Forms.TextBox();
+            this.textNuevoOrigen = new System.Windows.Forms.TextBox();
+            this.textDuracion = new System.Windows.Forms.TextBox();
+            this.textDestino = new System.Windows.Forms.TextBox();
+            this.textOrigen = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.comboboxIDModificar = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
@@ -203,19 +203,19 @@
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.btnGuardar);
-            this.tabPage2.Controls.Add(this.textBox8);
-            this.tabPage2.Controls.Add(this.textBox7);
-            this.tabPage2.Controls.Add(this.textBox6);
-            this.tabPage2.Controls.Add(this.textBox5);
-            this.tabPage2.Controls.Add(this.textBox4);
-            this.tabPage2.Controls.Add(this.textBox3);
+            this.tabPage2.Controls.Add(this.textNuevoDuracion);
+            this.tabPage2.Controls.Add(this.textNuevoDestino);
+            this.tabPage2.Controls.Add(this.textNuevoOrigen);
+            this.tabPage2.Controls.Add(this.textDuracion);
+            this.tabPage2.Controls.Add(this.textDestino);
+            this.tabPage2.Controls.Add(this.textOrigen);
             this.tabPage2.Controls.Add(this.label11);
             this.tabPage2.Controls.Add(this.label10);
             this.tabPage2.Controls.Add(this.label9);
             this.tabPage2.Controls.Add(this.label8);
             this.tabPage2.Controls.Add(this.label7);
             this.tabPage2.Controls.Add(this.label6);
-            this.tabPage2.Controls.Add(this.comboBox3);
+            this.tabPage2.Controls.Add(this.comboboxIDModificar);
             this.tabPage2.Controls.Add(this.label5);
             this.tabPage2.Controls.Add(this.button3);
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
@@ -236,53 +236,54 @@
             this.btnGuardar.TabIndex = 25;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
-            // textBox8
+            // textNuevoDuracion
             // 
-            this.textBox8.Location = new System.Drawing.Point(239, 357);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(378, 22);
-            this.textBox8.TabIndex = 24;
+            this.textNuevoDuracion.Location = new System.Drawing.Point(239, 357);
+            this.textNuevoDuracion.Name = "textNuevoDuracion";
+            this.textNuevoDuracion.Size = new System.Drawing.Size(378, 22);
+            this.textNuevoDuracion.TabIndex = 24;
             // 
-            // textBox7
+            // textNuevoDestino
             // 
-            this.textBox7.Location = new System.Drawing.Point(239, 295);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(378, 22);
-            this.textBox7.TabIndex = 23;
-            this.textBox7.TextChanged += new System.EventHandler(this.textBox7_TextChanged);
+            this.textNuevoDestino.Location = new System.Drawing.Point(239, 295);
+            this.textNuevoDestino.Name = "textNuevoDestino";
+            this.textNuevoDestino.Size = new System.Drawing.Size(378, 22);
+            this.textNuevoDestino.TabIndex = 23;
+            this.textNuevoDestino.TextChanged += new System.EventHandler(this.textBox7_TextChanged);
             // 
-            // textBox6
+            // textNuevoOrigen
             // 
-            this.textBox6.Location = new System.Drawing.Point(239, 238);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(378, 22);
-            this.textBox6.TabIndex = 22;
+            this.textNuevoOrigen.Location = new System.Drawing.Point(239, 238);
+            this.textNuevoOrigen.Name = "textNuevoOrigen";
+            this.textNuevoOrigen.Size = new System.Drawing.Size(378, 22);
+            this.textNuevoOrigen.TabIndex = 22;
             // 
-            // textBox5
+            // textDuracion
             // 
-            this.textBox5.Enabled = false;
-            this.textBox5.Location = new System.Drawing.Point(239, 185);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(378, 22);
-            this.textBox5.TabIndex = 21;
+            this.textDuracion.Enabled = false;
+            this.textDuracion.Location = new System.Drawing.Point(239, 185);
+            this.textDuracion.Name = "textDuracion";
+            this.textDuracion.Size = new System.Drawing.Size(378, 22);
+            this.textDuracion.TabIndex = 21;
             // 
-            // textBox4
+            // textDestino
             // 
-            this.textBox4.Enabled = false;
-            this.textBox4.Location = new System.Drawing.Point(239, 133);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(378, 22);
-            this.textBox4.TabIndex = 20;
+            this.textDestino.Enabled = false;
+            this.textDestino.Location = new System.Drawing.Point(239, 133);
+            this.textDestino.Name = "textDestino";
+            this.textDestino.Size = new System.Drawing.Size(378, 22);
+            this.textDestino.TabIndex = 20;
             // 
-            // textBox3
+            // textOrigen
             // 
-            this.textBox3.Enabled = false;
-            this.textBox3.Location = new System.Drawing.Point(239, 69);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(378, 22);
-            this.textBox3.TabIndex = 19;
-            this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
+            this.textOrigen.Enabled = false;
+            this.textOrigen.Location = new System.Drawing.Point(239, 69);
+            this.textOrigen.Name = "textOrigen";
+            this.textOrigen.Size = new System.Drawing.Size(378, 22);
+            this.textOrigen.TabIndex = 19;
+            this.textOrigen.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // label11
             // 
@@ -339,15 +340,15 @@
             this.label6.TabIndex = 13;
             this.label6.Text = "Pais Origen Actual:";
             // 
-            // comboBox3
+            // comboboxIDModificar
             // 
-            this.comboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(239, 11);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(378, 24);
-            this.comboBox3.TabIndex = 12;
-            this.comboBox3.SelectedIndexChanged += new System.EventHandler(this.comboBox3_SelectedIndexChanged);
+            this.comboboxIDModificar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboboxIDModificar.FormattingEnabled = true;
+            this.comboboxIDModificar.Location = new System.Drawing.Point(239, 11);
+            this.comboboxIDModificar.Name = "comboboxIDModificar";
+            this.comboboxIDModificar.Size = new System.Drawing.Size(378, 24);
+            this.comboboxIDModificar.TabIndex = 12;
+            this.comboboxIDModificar.SelectedIndexChanged += new System.EventHandler(this.comboBox3_SelectedIndexChanged);
             // 
             // label5
             // 
@@ -551,17 +552,17 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox comboboxIDModificar;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox textOrigen;
+        private System.Windows.Forms.TextBox textNuevoDuracion;
+        private System.Windows.Forms.TextBox textNuevoDestino;
+        private System.Windows.Forms.TextBox textNuevoOrigen;
+        private System.Windows.Forms.TextBox textDuracion;
+        private System.Windows.Forms.TextBox textDestino;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button btnEliminarRuta;
         private System.Windows.Forms.TextBox txtDestinoActual;

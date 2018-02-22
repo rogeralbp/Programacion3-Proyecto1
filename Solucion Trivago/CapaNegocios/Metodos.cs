@@ -257,7 +257,7 @@ namespace CapaNegocios
         }
 
         //Metodo que llena el combo de lugares , en la ventana de modificar lugares
-        public void ComboNombresLugares(ComboBox nombres)
+        public void ComboNombresLugares(ComboBox id_lugares)
         {
 
             try
@@ -265,13 +265,13 @@ namespace CapaNegocios
                 Conexion();
                 conexion.Open();
                 List<String> lista = new List<String>();
-                NpgsqlCommand cmd = new NpgsqlCommand("SELECT nombre FROM lugares", conexion);
+                NpgsqlCommand cmd = new NpgsqlCommand("SELECT  idenficador_lugar FROM lugares", conexion);
                 NpgsqlDataReader dr = cmd.ExecuteReader();
                 if (dr.HasRows)
                 {
                     while (dr.Read())
                     {
-                        nombres.Items.Add(dr.GetString(0));
+                        id_lugares.Items.Add(dr.GetInt64(0));
                     }
                 }
                 conexion.Close();
@@ -289,7 +289,7 @@ namespace CapaNegocios
 
 
         //Metodo que llena el combo de lugares , en la ventana de modificar lugares
-        public void LlenarCombosModificarLugar(ComboBox nombre, TextBox nombre_lugar)
+        public void LlenarCombosModificarLugar(ComboBox id_lugar, TextBox nombre_lugar)
         {
 
             {
@@ -298,7 +298,7 @@ namespace CapaNegocios
                 {
                     Conexion();
                     conexion.Open();
-                    NpgsqlCommand cmd = new NpgsqlCommand("SELECT nombre FROM lugares WHERE nombre = '" + nombre.SelectedItem + "'", conexion);
+                    NpgsqlCommand cmd = new NpgsqlCommand("SELECT nombre FROM lugares WHERE idenficador_lugar = '" + id_lugar.SelectedItem + "'", conexion);
                     NpgsqlDataReader leer = cmd.ExecuteReader();
                     if (leer.HasRows)
                     {

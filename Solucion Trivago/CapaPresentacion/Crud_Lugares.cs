@@ -40,6 +40,13 @@ namespace CapaPresentacion
 
         }
 
+
+        public void ActualizarTablaLugares()
+        {
+            //Lleno la tabla de lugares en el DataGridview
+            metodos.LlenarDtLugar(dataGridView1);
+        }
+
         private void button2_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -88,6 +95,9 @@ namespace CapaPresentacion
 
                 //Limpiar campos
                 LimpiarCampos();
+
+                //Actualizando la tabla lugares
+                ActualizarTablaLugares();
             }
 
         }
@@ -113,9 +123,12 @@ namespace CapaPresentacion
 
         private void btnEliminarLugar_Click(object sender, EventArgs e)
         {
-            conectar.EliminarDatosLugares(textBoxNombre.Text);
+
+            int identificador_eliminar = int.Parse(comboIdentificador.SelectedItem.ToString());
+            conectar.EliminarDatosLugares(identificador_eliminar);
             MessageBox.Show("Lugar Eliminado");
             LimpiarCampos();
+            ActualizarTablaLugares();
 
         }
 
@@ -150,12 +163,14 @@ namespace CapaPresentacion
         private void comboBoxLugar_SelectedIndexChanged(object sender, EventArgs e)
         {
             metodos.LlenarCombosModificarLugar(comboBoxLugar, txtNombreLugarActual);
+            ActualizarTablaLugares();
         }
 
         private void comboIdentificador_SelectionChangeCommitted(object sender, EventArgs e)
         {
             metodos.ComboEliminarLugar(comboIdentificador, textBoxNombre);
-        
+            ActualizarTablaLugares();
+
         }
     
 
@@ -174,9 +189,12 @@ namespace CapaPresentacion
 
         private void button5_Click(object sender, EventArgs e)
         {
-            conectar.ModificarDatosLugar( txtNombreLugarActualizar.Text);
+            int identificador_modificar = int.Parse(comboBoxLugar.SelectedItem.ToString());
+            string nombre_lugar = txtNombreLugarActualizar.Text;
+            conectar.ModificarDatosLugar( identificador_modificar , nombre_lugar);
             MessageBox.Show("Lugar modificado");
             LimpiarCamposs();
+            ActualizarTablaLugares();
             
 
         }
