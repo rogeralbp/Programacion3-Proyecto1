@@ -31,6 +31,9 @@ namespace CapaPresentacion
 
             metodo.ComboIDVuelos(comboIDVuelos);
 
+            //Este metodo llena el combo de ID vuelos del TAB de eliminar
+            metodo.ComboIDVuelos(comboboxIndenticadorEliminar);
+
 
         }
 
@@ -114,6 +117,9 @@ namespace CapaPresentacion
         private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
         {
             btnEliminarTarifa.Enabled = true;
+            metodo.MostrarInformacionVuelos(comboboxIndenticadorEliminar, txtRutaEliminar, txtPrecioEliminar);
+
+
         }
 
         private void tabPage1_Click(object sender, EventArgs e)
@@ -138,6 +144,29 @@ namespace CapaPresentacion
             MessageBox.Show("Tarifa vuelo modificada con exito");
 
             LimpiarCampos();
+            //Actulizamos la tabla de vuelos
+            metodo.LlenarDtTarifaVuelo(TablaVuelos);
+
+        }
+
+        private void tabPage3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        public void LimpiarCamposEliminar()
+        {
+            txtPrecioEliminar.Clear();
+            txtRutaEliminar.Clear();
+        }
+
+        private void btnEliminarTarifa_Click(object sender, EventArgs e)
+        {
+            int indentificador_eliminar = int.Parse(comboboxIndenticadorEliminar.SelectedItem.ToString());
+            conectar.EliminarDatosTarifaVuelos(indentificador_eliminar);
+            MessageBox.Show("Tarifa Eliminada con exito");
+
+            LimpiarCamposEliminar();
             //Actulizamos la tabla de vuelos
             metodo.LlenarDtTarifaVuelo(TablaVuelos);
 

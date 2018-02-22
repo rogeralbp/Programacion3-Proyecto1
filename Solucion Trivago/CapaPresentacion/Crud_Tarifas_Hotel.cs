@@ -24,9 +24,9 @@ namespace CapaPresentacion
             InitializeComponent();
             this.CenterToScreen();
             //Llenamos el combobox en el TAB de eliminar
-            metodos.ComboIDTarifasHoteles(ComboIndentificadorTarifas);
+            metodos.ComboIDTarifasHoteles(ComboEliminar);
             //Llenamos el combobox en el TAB de modificar
-            metodos.ComboIDTarifasHoteles(ComboIDTarifas);
+            metodos.ComboIDTarifasHoteles(ComboIDTarifasModifcar);
 
                 
         }
@@ -73,16 +73,17 @@ namespace CapaPresentacion
 
         private void button5_Click(object sender, EventArgs e)
         {
-           
-            Double precio = Convert.ToDouble(this.txtPrecioNuevo.Text);
-           
+            int identificador = int.Parse(this.ComboIDTarifasModifcar.SelectedItem.ToString());
 
+            double precio_nuevo = double.Parse(txtPrecioNuevo.Text);
 
 
             
-           // conectar.ModificarTarifaHotel(combo , precio);
+           conectar.ModificarTarifaHotel(identificador , precio_nuevo);
             MessageBox.Show("Precio de tarifa Hotel modificado con Exito");
             LimpiarC();
+            //Actualizar tabla 
+            metodos.LlenarDtarifaHotel(TablaTarifasHoteles);
         }
 
         public void LimpiarCampos()
@@ -105,6 +106,8 @@ namespace CapaPresentacion
                 conectar.InsertaTarifaHotel(identficador, precio);
                 MessageBox.Show("Tarifa hotel insertado con exito");
                 LimpiarCampos();
+                //Actualizar tabla 
+                metodos.LlenarDtarifaHotel(TablaTarifasHoteles);
             }
 
 
@@ -120,14 +123,14 @@ namespace CapaPresentacion
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             btnGuardarCambios.Enabled = true;
-            metodos.MostrarInformacionTarifaHoteles(ComboIDTarifas, txtTarifaAc);
+            metodos.MostrarInformacionTarifaHoteles(ComboIDTarifasModifcar, txtTarifaAc);
         }
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
             btnEliminarTarifa.Enabled = true;
             
-            metodos.MostrarInformacionTarifaHoteles(ComboIndentificadorTarifas, txtTarifaActual);
+            metodos.MostrarInformacionTarifaHoteles(ComboEliminar, txtTarifaActual);
 
         }
 
@@ -138,6 +141,7 @@ namespace CapaPresentacion
 
         private void Mostar_Load(object sender, EventArgs e)
         {
+            //Actualizar tabla 
             metodos.LlenarDtarifaHotel(TablaTarifasHoteles);
         }
 
@@ -158,11 +162,12 @@ namespace CapaPresentacion
         }
         private void btnEliminarTarifa_Click(object sender, EventArgs e)
         {
-            double precio = Convert.ToDouble(this.txtTarifaActual.Text);
-            conectar.EliminarDatosTarifa(precio);
+            int identificador = int.Parse(ComboEliminar.SelectedItem.ToString());
+            conectar.EliminarDatosTarifa(identificador);
             MessageBox.Show("Tarifa Hotel eliminado con Exito");
             limpiar();
-
+            //Actualizar tabla 
+            metodos.LlenarDtarifaHotel(TablaTarifasHoteles);
         }
 
         private void textBox4_TextChanged(object sender, EventArgs e)
