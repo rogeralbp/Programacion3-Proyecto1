@@ -217,11 +217,11 @@ namespace CapaDatos
 
         }
 
-        public void ModificarTarifaHotel( double precio_tarifa)
+        public void ModificarTarifaHotel(int identificador,  double precio_tarifa)
         {
             Conexion();
             conexion.Open();
-            NpgsqlCommand cmd = new NpgsqlCommand("UPDATE  tarifas_hoteles SET precio_tarifa = '" + precio_tarifa +  "'", conexion);
+            NpgsqlCommand cmd = new NpgsqlCommand("UPDATE  tarifas_hoteles SET precio_tarifa = '" + precio_tarifa +"' WHERE identificador_tarifa = '" + identificador +  "'", conexion);
             cmd.ExecuteNonQuery();
             conexion.Close();
 
@@ -264,6 +264,17 @@ namespace CapaDatos
             NpgsqlCommand cmd = new NpgsqlCommand("DELETE FROM  tarifas_vuelos WHERE identificador_tarifa = '" + identificador + "'", conexion);
             cmd.ExecuteNonQuery();
             conexion.Close();
+        }
+
+
+        public void InsertarDatosPaises(int identificador , string nombre , string direccion)
+        {
+            Conexion();
+            conexion.Open();
+            cmd = new NpgsqlCommand("INSERT INTO pais (identificador, nombre , direccion) VALUES ('" + identificador + "', '" + nombre + "', '" + direccion + "')", conexion);
+            cmd.ExecuteNonQuery();
+            conexion.Close();
+
         }
 
         /// <summary>

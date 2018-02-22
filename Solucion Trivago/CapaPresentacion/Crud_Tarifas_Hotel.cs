@@ -73,9 +73,14 @@ namespace CapaPresentacion
 
         private void button5_Click(object sender, EventArgs e)
         {
-
+           
             Double precio = Convert.ToDouble(this.txtPrecioNuevo.Text);
-            conectar.ModificarTarifaHotel(precio);
+           
+
+
+
+            
+           // conectar.ModificarTarifaHotel(combo , precio);
             MessageBox.Show("Precio de tarifa Hotel modificado con Exito");
             LimpiarC();
         }

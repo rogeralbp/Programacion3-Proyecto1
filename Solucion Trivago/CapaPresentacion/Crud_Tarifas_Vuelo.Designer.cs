@@ -30,9 +30,9 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.txtIdentificador = new System.Windows.Forms.TextBox();
+            this.txtPrecio = new System.Windows.Forms.TextBox();
+            this.comboBoxRuta = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -86,9 +86,9 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.textBox2);
-            this.tabPage1.Controls.Add(this.textBox1);
-            this.tabPage1.Controls.Add(this.comboBox2);
+            this.tabPage1.Controls.Add(this.txtIdentificador);
+            this.tabPage1.Controls.Add(this.txtPrecio);
+            this.tabPage1.Controls.Add(this.comboBoxRuta);
             this.tabPage1.Controls.Add(this.label3);
             this.tabPage1.Controls.Add(this.label2);
             this.tabPage1.Controls.Add(this.label1);
@@ -102,28 +102,28 @@
             this.tabPage1.Text = "Agregar Tarifa";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // textBox2
+            // txtIdentificador
             // 
-            this.textBox2.Location = new System.Drawing.Point(265, 32);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(410, 22);
-            this.textBox2.TabIndex = 8;
+            this.txtIdentificador.Location = new System.Drawing.Point(265, 32);
+            this.txtIdentificador.Name = "txtIdentificador";
+            this.txtIdentificador.Size = new System.Drawing.Size(410, 22);
+            this.txtIdentificador.TabIndex = 8;
             // 
-            // textBox1
+            // txtPrecio
             // 
-            this.textBox1.Location = new System.Drawing.Point(265, 157);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(410, 22);
-            this.textBox1.TabIndex = 7;
+            this.txtPrecio.Location = new System.Drawing.Point(265, 157);
+            this.txtPrecio.Name = "txtPrecio";
+            this.txtPrecio.Size = new System.Drawing.Size(410, 22);
+            this.txtPrecio.TabIndex = 7;
             // 
-            // comboBox2
+            // comboBoxRuta
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(265, 96);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(410, 24);
-            this.comboBox2.TabIndex = 6;
-            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+            this.comboBoxRuta.FormattingEnabled = true;
+            this.comboBoxRuta.Location = new System.Drawing.Point(265, 96);
+            this.comboBoxRuta.Name = "comboBoxRuta";
+            this.comboBoxRuta.Size = new System.Drawing.Size(410, 24);
+            this.comboBoxRuta.TabIndex = 6;
+            this.comboBoxRuta.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -396,9 +396,9 @@
             // 
             this.tabPage4.Controls.Add(this.dataGridView1);
             this.tabPage4.Controls.Add(this.button7);
-            this.tabPage4.Location = new System.Drawing.Point(4, 38);
+            this.tabPage4.Location = new System.Drawing.Point(4, 25);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(799, 443);
+            this.tabPage4.Size = new System.Drawing.Size(799, 456);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Consultar Tarifas Vuelos";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -448,14 +448,14 @@
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.TextBox txtPrecio;
+        private System.Windows.Forms.ComboBox comboBoxRuta;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtIdentificador;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label label11;
