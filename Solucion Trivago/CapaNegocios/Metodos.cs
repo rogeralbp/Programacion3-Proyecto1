@@ -513,8 +513,76 @@ namespace CapaNegocios
             }
 
         }
+
+
+
+
+        public void ComboNombresPaises(ComboBox nombre_pais)
+        {
+
+            try
+            {
+                Conexion();
+                conexion.Open();
+                List<String> lista = new List<String>();
+                NpgsqlCommand cmd = new NpgsqlCommand("SELECT nombre FROM pais", conexion);
+                NpgsqlDataReader dr = cmd.ExecuteReader();
+                if (dr.HasRows)
+                {
+                    while (dr.Read())
+                    {
+                        nombre_pais.Text = dr.GetString(0);
+
+                    }
+                }
+                conexion.Close();
+
+
+            }
+            catch (Exception error)
+            {
+                Console.WriteLine(error);
+
+            }
+
+
+        }
+
+
+
+
+        public void MostrarInformacionPaisModificar(ComboBox pais, TextBox identificador, TextBox nombre , PictureBox bandera)
+        {
+            try
+            {
+                Conexion();
+                conexion.Open();
+                NpgsqlCommand cmd = new NpgsqlCommand("SELECT identificador , nombre , direccion FROM pais WHERE nombre = '" + pais.SelectedItem.ToString() + "'", conexion);
+                NpgsqlDataReader leer = cmd.ExecuteReader();
+                if (leer.HasRows)
+                {
+                    while (leer.Read())
+                    {
+                        identificador.Text = leer.GetDouble(0).ToString();
+                        nombre.Text = leer.GetString(1);
+                        //bandera.Image= leer.GetString
+
+
+                    }
+                    conexion.Close();
+
+                }
+            }
+            catch (Exception error)
+            {
+                Console.WriteLine(error);
+            }
+
+        }
+
+
+
     }
+
+
 }
-
-
-

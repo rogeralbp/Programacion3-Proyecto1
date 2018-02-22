@@ -288,6 +288,18 @@ namespace CapaDatos
         }
 
 
+
+        public void ModificarDatosPaises(int identificador, string nombre, string direccion)
+        {
+            {
+                Conexion();
+                conexion.Open();
+                NpgsqlCommand cmd = new NpgsqlCommand("UPDATE pais SET identificador = '" + identificador + "', nombre = '" + nombre + "', direccion = '" + direccion + "' WHERE nombre = '" + nombre + "'", conexion);
+                cmd.ExecuteNonQuery();
+                conexion.Close();
+            }
+
+        }
         /// <summary>
         /// Este metodo funciona para saber quien esta logeado
         /// en linea mejor dicho y a si saber la informacion
