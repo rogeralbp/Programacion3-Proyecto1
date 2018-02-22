@@ -49,7 +49,7 @@ namespace CapaPresentacion
             DateTime f2 = DateTime.Parse(fechaPartidaPais.Text);
             TimeSpan ts = f2 - f1;
             int cantidadDias = ts.Days;
-            labelCantidadDias.Text ="Cantidad de dias "+cantidadDias.ToString();
+            labelCantidadDias2.Text+=cantidadDias.ToString();
         }
 
 
@@ -59,12 +59,11 @@ namespace CapaPresentacion
             DateTime f2 = DateTime.Parse(FechaPartidaCiudad.Text);
             TimeSpan ts = f2 - f1;
             int cantidadDias = ts.Days;
-            labelCantidadDiasLugar.Text = "Cantidad de dias " + cantidadDias.ToString();
+             labelCntidadDias3.Text+=cantidadDias.ToString();
         }
    
         private void btnBuscarHotel_Click(object sender, EventArgs e)
         {
-            panelDatosHotel.Visible = true;
             labelFechaLlegadaHotel.Visible = true;
             labelFechaSalidaHotel.Visible = true;
             fechaLlegadaHotel.Visible = true;
@@ -77,7 +76,7 @@ namespace CapaPresentacion
             DateTime f2 = DateTime.Parse(fechaPartidaHotel.Text);
             TimeSpan ts = f2 - f1;
             int cantidadDias = ts.Days;
-            labelCantidadDiasHotel.Text = "  Cantidad de dias " + cantidadDias.ToString();
+            labelCantidadDias4.Text += cantidadDias.ToString();
         }
 
 
@@ -233,6 +232,16 @@ namespace CapaPresentacion
             /// ------------------------------------------------
             ///Falta realizar la calificacion que el cliente le da al Hotel 
             ///
+        }
+
+        private void labelHabitaciones_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboCiudadesCiudades_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

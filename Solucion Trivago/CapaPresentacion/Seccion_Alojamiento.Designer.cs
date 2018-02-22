@@ -41,7 +41,6 @@
             this.spinnerHabitacionesPais = new System.Windows.Forms.NumericUpDown();
             this.btnConfirmarReservacionPais = new System.Windows.Forms.Button();
             this.labelHabitaciones = new System.Windows.Forms.Label();
-            this.optPorLugarPais = new System.Windows.Forms.RadioButton();
             this.optPrecioMenorPais = new System.Windows.Forms.RadioButton();
             this.optPrecioMayorPais = new System.Windows.Forms.RadioButton();
             this.labelCantidadDias = new System.Windows.Forms.Label();
@@ -49,8 +48,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.fechaPartidaPais = new System.Windows.Forms.DateTimePicker();
             this.fechaLlegadaPais = new System.Windows.Forms.DateTimePicker();
-            this.comboHotelesPaises = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.comboPaises = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
@@ -69,8 +66,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.fechaLlegadaCiudad = new System.Windows.Forms.DateTimePicker();
             this.label8 = new System.Windows.Forms.Label();
-            this.comboHotelesCiudad = new System.Windows.Forms.ComboBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.optPrecioMenorCiudad = new System.Windows.Forms.RadioButton();
             this.optPrecioMayorCiudad = new System.Windows.Forms.RadioButton();
             this.btnConfirmarReservacionCiudad = new System.Windows.Forms.Button();
@@ -93,19 +88,16 @@
             this.fechaLlegadaHotel = new System.Windows.Forms.DateTimePicker();
             this.labelFechaLlegadaHotel = new System.Windows.Forms.Label();
             this.btnConfirmarReservacionHotel = new System.Windows.Forms.Button();
-            this.panelDatosHotel = new System.Windows.Forms.Panel();
-            this.labelHabitacionesHotel = new System.Windows.Forms.Label();
-            this.labelLugarHotel = new System.Windows.Forms.Label();
-            this.labelPaisHotel = new System.Windows.Forms.Label();
-            this.labelNombreHotel = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
             this.btnBuscarHotel = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.labelCantidadDias2 = new System.Windows.Forms.Label();
+            this.labelCntidadDias3 = new System.Windows.Forms.Label();
+            this.labelCantidadDias4 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panelAdultosNiñosPais.SuspendLayout();
@@ -122,7 +114,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spinnerHabitacionesHotel)).BeginInit();
-            this.panelDatosHotel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -133,18 +125,21 @@
             this.tabControl1.Location = new System.Drawing.Point(2, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(763, 500);
+            this.tabControl1.Size = new System.Drawing.Size(875, 593);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.labelCantidadDias2);
+            this.tabPage1.Controls.Add(this.button5);
+            this.tabPage1.Controls.Add(this.button4);
+            this.tabPage1.Controls.Add(this.dataGridView1);
             this.tabPage1.Controls.Add(this.btnPersonasPais);
             this.tabPage1.Controls.Add(this.btnHabitacionesPais);
             this.tabPage1.Controls.Add(this.panelAdultosNiñosPais);
             this.tabPage1.Controls.Add(this.spinnerHabitacionesPais);
             this.tabPage1.Controls.Add(this.btnConfirmarReservacionPais);
             this.tabPage1.Controls.Add(this.labelHabitaciones);
-            this.tabPage1.Controls.Add(this.optPorLugarPais);
             this.tabPage1.Controls.Add(this.optPrecioMenorPais);
             this.tabPage1.Controls.Add(this.optPrecioMayorPais);
             this.tabPage1.Controls.Add(this.labelCantidadDias);
@@ -152,15 +147,13 @@
             this.tabPage1.Controls.Add(this.label4);
             this.tabPage1.Controls.Add(this.fechaPartidaPais);
             this.tabPage1.Controls.Add(this.fechaLlegadaPais);
-            this.tabPage1.Controls.Add(this.comboHotelesPaises);
-            this.tabPage1.Controls.Add(this.label3);
             this.tabPage1.Controls.Add(this.comboPaises);
             this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Controls.Add(this.button2);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(755, 474);
+            this.tabPage1.Size = new System.Drawing.Size(867, 567);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Busqueda Pais";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -169,7 +162,7 @@
             // 
             this.btnPersonasPais.Image = ((System.Drawing.Image)(resources.GetObject("btnPersonasPais.Image")));
             this.btnPersonasPais.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPersonasPais.Location = new System.Drawing.Point(533, 239);
+            this.btnPersonasPais.Location = new System.Drawing.Point(197, 169);
             this.btnPersonasPais.Name = "btnPersonasPais";
             this.btnPersonasPais.Size = new System.Drawing.Size(98, 31);
             this.btnPersonasPais.TabIndex = 50;
@@ -182,7 +175,7 @@
             // 
             this.btnHabitacionesPais.Image = ((System.Drawing.Image)(resources.GetObject("btnHabitacionesPais.Image")));
             this.btnHabitacionesPais.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHabitacionesPais.Location = new System.Drawing.Point(198, 250);
+            this.btnHabitacionesPais.Location = new System.Drawing.Point(491, 124);
             this.btnHabitacionesPais.Name = "btnHabitacionesPais";
             this.btnHabitacionesPais.Size = new System.Drawing.Size(113, 23);
             this.btnHabitacionesPais.TabIndex = 49;
@@ -197,7 +190,7 @@
             this.panelAdultosNiñosPais.Controls.Add(this.label21);
             this.panelAdultosNiñosPais.Controls.Add(this.numericUpDown8);
             this.panelAdultosNiñosPais.Controls.Add(this.numericUpDown1);
-            this.panelAdultosNiñosPais.Location = new System.Drawing.Point(519, 273);
+            this.panelAdultosNiñosPais.Location = new System.Drawing.Point(362, 155);
             this.panelAdultosNiñosPais.Name = "panelAdultosNiñosPais";
             this.panelAdultosNiñosPais.Size = new System.Drawing.Size(127, 60);
             this.panelAdultosNiñosPais.TabIndex = 48;
@@ -206,7 +199,7 @@
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(17, 44);
+            this.label23.Location = new System.Drawing.Point(17, 39);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(45, 13);
             this.label23.TabIndex = 42;
@@ -240,7 +233,7 @@
             // spinnerHabitacionesPais
             // 
             this.spinnerHabitacionesPais.Cursor = System.Windows.Forms.Cursors.Default;
-            this.spinnerHabitacionesPais.Location = new System.Drawing.Point(297, 313);
+            this.spinnerHabitacionesPais.Location = new System.Drawing.Point(712, 124);
             this.spinnerHabitacionesPais.Name = "spinnerHabitacionesPais";
             this.spinnerHabitacionesPais.Size = new System.Drawing.Size(37, 20);
             this.spinnerHabitacionesPais.TabIndex = 41;
@@ -249,7 +242,7 @@
             // 
             // btnConfirmarReservacionPais
             // 
-            this.btnConfirmarReservacionPais.Location = new System.Drawing.Point(346, 435);
+            this.btnConfirmarReservacionPais.Location = new System.Drawing.Point(481, 504);
             this.btnConfirmarReservacionPais.Name = "btnConfirmarReservacionPais";
             this.btnConfirmarReservacionPais.Size = new System.Drawing.Size(133, 23);
             this.btnConfirmarReservacionPais.TabIndex = 29;
@@ -260,28 +253,18 @@
             // labelHabitaciones
             // 
             this.labelHabitaciones.AutoSize = true;
-            this.labelHabitaciones.Location = new System.Drawing.Point(195, 320);
+            this.labelHabitaciones.Location = new System.Drawing.Point(623, 129);
             this.labelHabitaciones.Name = "labelHabitaciones";
             this.labelHabitaciones.Size = new System.Drawing.Size(72, 13);
             this.labelHabitaciones.TabIndex = 43;
             this.labelHabitaciones.Text = "Habitaciones:";
             this.labelHabitaciones.Visible = false;
-            // 
-            // optPorLugarPais
-            // 
-            this.optPorLugarPais.AutoSize = true;
-            this.optPorLugarPais.Location = new System.Drawing.Point(533, 112);
-            this.optPorLugarPais.Name = "optPorLugarPais";
-            this.optPorLugarPais.Size = new System.Drawing.Size(71, 17);
-            this.optPorLugarPais.TabIndex = 28;
-            this.optPorLugarPais.TabStop = true;
-            this.optPorLugarPais.Text = "Por Lugar";
-            this.optPorLugarPais.UseVisualStyleBackColor = true;
+            this.labelHabitaciones.Click += new System.EventHandler(this.labelHabitaciones_Click);
             // 
             // optPrecioMenorPais
             // 
             this.optPrecioMenorPais.AutoSize = true;
-            this.optPrecioMenorPais.Location = new System.Drawing.Point(346, 112);
+            this.optPrecioMenorPais.Location = new System.Drawing.Point(462, 232);
             this.optPrecioMenorPais.Name = "optPrecioMenorPais";
             this.optPrecioMenorPais.Size = new System.Drawing.Size(88, 17);
             this.optPrecioMenorPais.TabIndex = 27;
@@ -292,7 +275,7 @@
             // optPrecioMayorPais
             // 
             this.optPrecioMayorPais.AutoSize = true;
-            this.optPrecioMayorPais.Location = new System.Drawing.Point(175, 112);
+            this.optPrecioMayorPais.Location = new System.Drawing.Point(282, 232);
             this.optPrecioMayorPais.Name = "optPrecioMayorPais";
             this.optPrecioMayorPais.Size = new System.Drawing.Size(87, 17);
             this.optPrecioMayorPais.TabIndex = 26;
@@ -311,7 +294,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(412, 208);
+            this.label5.Location = new System.Drawing.Point(279, 135);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(72, 13);
             this.label5.TabIndex = 23;
@@ -320,7 +303,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(145, 208);
+            this.label4.Location = new System.Drawing.Point(35, 134);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(81, 13);
             this.label4.TabIndex = 22;
@@ -330,7 +313,7 @@
             // 
             this.fechaPartidaPais.CustomFormat = "dd/MM/yyyy";
             this.fechaPartidaPais.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.fechaPartidaPais.Location = new System.Drawing.Point(519, 201);
+            this.fechaPartidaPais.Location = new System.Drawing.Point(359, 129);
             this.fechaPartidaPais.Name = "fechaPartidaPais";
             this.fechaPartidaPais.Size = new System.Drawing.Size(101, 20);
             this.fechaPartidaPais.TabIndex = 21;
@@ -341,29 +324,11 @@
             // 
             this.fechaLlegadaPais.CustomFormat = "dd/MM/yyyy";
             this.fechaLlegadaPais.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.fechaLlegadaPais.Location = new System.Drawing.Point(255, 201);
+            this.fechaLlegadaPais.Location = new System.Drawing.Point(148, 128);
             this.fechaLlegadaPais.Name = "fechaLlegadaPais";
             this.fechaLlegadaPais.Size = new System.Drawing.Size(101, 20);
             this.fechaLlegadaPais.TabIndex = 20;
             this.fechaLlegadaPais.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.fechaLlegadaPais_KeyPress);
-            // 
-            // comboHotelesPaises
-            // 
-            this.comboHotelesPaises.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboHotelesPaises.FormattingEnabled = true;
-            this.comboHotelesPaises.Location = new System.Drawing.Point(255, 142);
-            this.comboHotelesPaises.Name = "comboHotelesPaises";
-            this.comboHotelesPaises.Size = new System.Drawing.Size(326, 21);
-            this.comboHotelesPaises.TabIndex = 19;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(145, 150);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(102, 13);
-            this.label3.TabIndex = 18;
-            this.label3.Text = "Seleccione el Hotel:";
             // 
             // comboPaises
             // 
@@ -385,7 +350,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(656, 431);
+            this.button2.Location = new System.Drawing.Point(765, 516);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(81, 27);
             this.button2.TabIndex = 13;
@@ -395,6 +360,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.labelCntidadDias3);
             this.tabPage2.Controls.Add(this.panelPersonasCiudad);
             this.tabPage2.Controls.Add(this.btnPersonasCiudad);
             this.tabPage2.Controls.Add(this.spinnerHabitacionesCiudad);
@@ -405,8 +371,6 @@
             this.tabPage2.Controls.Add(this.label9);
             this.tabPage2.Controls.Add(this.fechaLlegadaCiudad);
             this.tabPage2.Controls.Add(this.label8);
-            this.tabPage2.Controls.Add(this.comboHotelesCiudad);
-            this.tabPage2.Controls.Add(this.label7);
             this.tabPage2.Controls.Add(this.optPrecioMenorCiudad);
             this.tabPage2.Controls.Add(this.optPrecioMayorCiudad);
             this.tabPage2.Controls.Add(this.btnConfirmarReservacionCiudad);
@@ -416,7 +380,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(755, 474);
+            this.tabPage2.Size = new System.Drawing.Size(867, 567);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Busqueda Ciudad";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -560,28 +524,10 @@
             this.label8.TabIndex = 35;
             this.label8.Text = "Fecha Llegada:";
             // 
-            // comboHotelesCiudad
-            // 
-            this.comboHotelesCiudad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboHotelesCiudad.FormattingEnabled = true;
-            this.comboHotelesCiudad.Location = new System.Drawing.Point(294, 135);
-            this.comboHotelesCiudad.Name = "comboHotelesCiudad";
-            this.comboHotelesCiudad.Size = new System.Drawing.Size(326, 21);
-            this.comboHotelesCiudad.TabIndex = 34;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(153, 143);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(102, 13);
-            this.label7.TabIndex = 33;
-            this.label7.Text = "Seleccione el Hotel:";
-            // 
             // optPrecioMenorCiudad
             // 
             this.optPrecioMenorCiudad.AutoSize = true;
-            this.optPrecioMenorCiudad.Location = new System.Drawing.Point(434, 88);
+            this.optPrecioMenorCiudad.Location = new System.Drawing.Point(519, 114);
             this.optPrecioMenorCiudad.Name = "optPrecioMenorCiudad";
             this.optPrecioMenorCiudad.Size = new System.Drawing.Size(88, 17);
             this.optPrecioMenorCiudad.TabIndex = 32;
@@ -592,7 +538,7 @@
             // optPrecioMayorCiudad
             // 
             this.optPrecioMayorCiudad.AutoSize = true;
-            this.optPrecioMayorCiudad.Location = new System.Drawing.Point(224, 88);
+            this.optPrecioMayorCiudad.Location = new System.Drawing.Point(204, 123);
             this.optPrecioMayorCiudad.Name = "optPrecioMayorCiudad";
             this.optPrecioMayorCiudad.Size = new System.Drawing.Size(87, 17);
             this.optPrecioMayorCiudad.TabIndex = 31;
@@ -618,6 +564,7 @@
             this.comboCiudadesCiudades.Name = "comboCiudadesCiudades";
             this.comboCiudadesCiudades.Size = new System.Drawing.Size(326, 21);
             this.comboCiudadesCiudades.TabIndex = 16;
+            this.comboCiudadesCiudades.SelectedIndexChanged += new System.EventHandler(this.comboCiudadesCiudades_SelectedIndexChanged);
             // 
             // label6
             // 
@@ -640,6 +587,7 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.labelCantidadDias4);
             this.tabPage3.Controls.Add(this.panelPersonasHotel);
             this.tabPage3.Controls.Add(this.btnPersonasHotel);
             this.tabPage3.Controls.Add(this.spinnerHabitacionesHotel);
@@ -651,14 +599,13 @@
             this.tabPage3.Controls.Add(this.fechaLlegadaHotel);
             this.tabPage3.Controls.Add(this.labelFechaLlegadaHotel);
             this.tabPage3.Controls.Add(this.btnConfirmarReservacionHotel);
-            this.tabPage3.Controls.Add(this.panelDatosHotel);
             this.tabPage3.Controls.Add(this.btnBuscarHotel);
             this.tabPage3.Controls.Add(this.textBox1);
             this.tabPage3.Controls.Add(this.label10);
             this.tabPage3.Controls.Add(this.button3);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(755, 474);
+            this.tabPage3.Size = new System.Drawing.Size(867, 567);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Busqueda de Nombre";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -669,7 +616,7 @@
             this.panelPersonasHotel.Controls.Add(this.paner);
             this.panelPersonasHotel.Controls.Add(this.numericUpDown5);
             this.panelPersonasHotel.Controls.Add(this.numericUpDown6);
-            this.panelPersonasHotel.Location = new System.Drawing.Point(552, 220);
+            this.panelPersonasHotel.Location = new System.Drawing.Point(730, 88);
             this.panelPersonasHotel.Name = "panelPersonasHotel";
             this.panelPersonasHotel.Size = new System.Drawing.Size(127, 60);
             this.panelPersonasHotel.TabIndex = 55;
@@ -713,7 +660,7 @@
             // 
             this.btnPersonasHotel.Image = ((System.Drawing.Image)(resources.GetObject("btnPersonasHotel.Image")));
             this.btnPersonasHotel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPersonasHotel.Location = new System.Drawing.Point(569, 173);
+            this.btnPersonasHotel.Location = new System.Drawing.Point(602, 104);
             this.btnPersonasHotel.Name = "btnPersonasHotel";
             this.btnPersonasHotel.Size = new System.Drawing.Size(98, 31);
             this.btnPersonasHotel.TabIndex = 54;
@@ -725,7 +672,7 @@
             // spinnerHabitacionesHotel
             // 
             this.spinnerHabitacionesHotel.Cursor = System.Windows.Forms.Cursors.Default;
-            this.spinnerHabitacionesHotel.Location = new System.Drawing.Point(428, 242);
+            this.spinnerHabitacionesHotel.Location = new System.Drawing.Point(533, 164);
             this.spinnerHabitacionesHotel.Name = "spinnerHabitacionesHotel";
             this.spinnerHabitacionesHotel.Size = new System.Drawing.Size(37, 20);
             this.spinnerHabitacionesHotel.TabIndex = 53;
@@ -735,7 +682,7 @@
             // labelHabitacionesH
             // 
             this.labelHabitacionesH.AutoSize = true;
-            this.labelHabitacionesH.Location = new System.Drawing.Point(337, 247);
+            this.labelHabitacionesH.Location = new System.Drawing.Point(409, 171);
             this.labelHabitacionesH.Name = "labelHabitacionesH";
             this.labelHabitacionesH.Size = new System.Drawing.Size(72, 13);
             this.labelHabitacionesH.TabIndex = 52;
@@ -746,7 +693,7 @@
             // 
             this.btnHabitacionesHotel.Image = ((System.Drawing.Image)(resources.GetObject("btnHabitacionesHotel.Image")));
             this.btnHabitacionesHotel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHabitacionesHotel.Location = new System.Drawing.Point(352, 181);
+            this.btnHabitacionesHotel.Location = new System.Drawing.Point(268, 161);
             this.btnHabitacionesHotel.Name = "btnHabitacionesHotel";
             this.btnHabitacionesHotel.Size = new System.Drawing.Size(113, 23);
             this.btnHabitacionesHotel.TabIndex = 51;
@@ -767,7 +714,7 @@
             // 
             this.fechaPartidaHotel.CustomFormat = "dd/MM/yyyy";
             this.fechaPartidaHotel.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.fechaPartidaHotel.Location = new System.Drawing.Point(609, 104);
+            this.fechaPartidaHotel.Location = new System.Drawing.Point(425, 101);
             this.fechaPartidaHotel.Name = "fechaPartidaHotel";
             this.fechaPartidaHotel.Size = new System.Drawing.Size(101, 20);
             this.fechaPartidaHotel.TabIndex = 39;
@@ -778,7 +725,7 @@
             // labelFechaSalidaHotel
             // 
             this.labelFechaSalidaHotel.AutoSize = true;
-            this.labelFechaSalidaHotel.Location = new System.Drawing.Point(514, 111);
+            this.labelFechaSalidaHotel.Location = new System.Drawing.Point(309, 110);
             this.labelFechaSalidaHotel.Name = "labelFechaSalidaHotel";
             this.labelFechaSalidaHotel.Size = new System.Drawing.Size(72, 13);
             this.labelFechaSalidaHotel.TabIndex = 38;
@@ -789,7 +736,7 @@
             // 
             this.fechaLlegadaHotel.CustomFormat = "dd/MM/yyyy";
             this.fechaLlegadaHotel.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.fechaLlegadaHotel.Location = new System.Drawing.Point(387, 106);
+            this.fechaLlegadaHotel.Location = new System.Drawing.Point(162, 104);
             this.fechaLlegadaHotel.Name = "fechaLlegadaHotel";
             this.fechaLlegadaHotel.Size = new System.Drawing.Size(101, 20);
             this.fechaLlegadaHotel.TabIndex = 37;
@@ -799,7 +746,7 @@
             // labelFechaLlegadaHotel
             // 
             this.labelFechaLlegadaHotel.AutoSize = true;
-            this.labelFechaLlegadaHotel.Location = new System.Drawing.Point(300, 111);
+            this.labelFechaLlegadaHotel.Location = new System.Drawing.Point(48, 113);
             this.labelFechaLlegadaHotel.Name = "labelFechaLlegadaHotel";
             this.labelFechaLlegadaHotel.Size = new System.Drawing.Size(81, 13);
             this.labelFechaLlegadaHotel.TabIndex = 36;
@@ -816,91 +763,6 @@
             this.btnConfirmarReservacionHotel.Text = "Confirmar Reservacion";
             this.btnConfirmarReservacionHotel.UseVisualStyleBackColor = true;
             this.btnConfirmarReservacionHotel.Click += new System.EventHandler(this.btnConfirmarReservacionHotel_Click);
-            // 
-            // panelDatosHotel
-            // 
-            this.panelDatosHotel.Controls.Add(this.labelHabitacionesHotel);
-            this.panelDatosHotel.Controls.Add(this.labelLugarHotel);
-            this.panelDatosHotel.Controls.Add(this.labelPaisHotel);
-            this.panelDatosHotel.Controls.Add(this.labelNombreHotel);
-            this.panelDatosHotel.Controls.Add(this.label14);
-            this.panelDatosHotel.Controls.Add(this.label13);
-            this.panelDatosHotel.Controls.Add(this.label12);
-            this.panelDatosHotel.Controls.Add(this.label11);
-            this.panelDatosHotel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panelDatosHotel.Location = new System.Drawing.Point(19, 100);
-            this.panelDatosHotel.Name = "panelDatosHotel";
-            this.panelDatosHotel.Size = new System.Drawing.Size(275, 201);
-            this.panelDatosHotel.TabIndex = 19;
-            this.panelDatosHotel.Visible = false;
-            // 
-            // labelHabitacionesHotel
-            // 
-            this.labelHabitacionesHotel.AutoSize = true;
-            this.labelHabitacionesHotel.Location = new System.Drawing.Point(87, 176);
-            this.labelHabitacionesHotel.Name = "labelHabitacionesHotel";
-            this.labelHabitacionesHotel.Size = new System.Drawing.Size(0, 16);
-            this.labelHabitacionesHotel.TabIndex = 7;
-            // 
-            // labelLugarHotel
-            // 
-            this.labelLugarHotel.AutoSize = true;
-            this.labelLugarHotel.Location = new System.Drawing.Point(84, 120);
-            this.labelLugarHotel.Name = "labelLugarHotel";
-            this.labelLugarHotel.Size = new System.Drawing.Size(0, 16);
-            this.labelLugarHotel.TabIndex = 6;
-            // 
-            // labelPaisHotel
-            // 
-            this.labelPaisHotel.AutoSize = true;
-            this.labelPaisHotel.Location = new System.Drawing.Point(84, 60);
-            this.labelPaisHotel.Name = "labelPaisHotel";
-            this.labelPaisHotel.Size = new System.Drawing.Size(0, 16);
-            this.labelPaisHotel.TabIndex = 5;
-            // 
-            // labelNombreHotel
-            // 
-            this.labelNombreHotel.AutoSize = true;
-            this.labelNombreHotel.Location = new System.Drawing.Point(81, 11);
-            this.labelNombreHotel.Name = "labelNombreHotel";
-            this.labelNombreHotel.Size = new System.Drawing.Size(0, 16);
-            this.labelNombreHotel.TabIndex = 4;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(3, 177);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(91, 16);
-            this.label14.TabIndex = 3;
-            this.label14.Text = "Habitaciones:";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(3, 121);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(45, 16);
-            this.label13.TabIndex = 2;
-            this.label13.Text = "Lugar:";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(3, 61);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(38, 16);
-            this.label12.TabIndex = 1;
-            this.label12.Text = "Pais:";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(3, 12);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(60, 16);
-            this.label11.TabIndex = 0;
-            this.label11.Text = "Nombre:";
             // 
             // btnBuscarHotel
             // 
@@ -939,11 +801,64 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(38, 255);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(779, 232);
+            this.dataGridView1.TabIndex = 51;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(544, 173);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(138, 23);
+            this.button4.TabIndex = 52;
+            this.button4.Text = "Vista Preliminar Hoteles";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(264, 504);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(130, 23);
+            this.button5.TabIndex = 53;
+            this.button5.Text = "Guardar Reservacion";
+            this.button5.UseVisualStyleBackColor = true;
+            // 
+            // labelCantidadDias2
+            // 
+            this.labelCantidadDias2.AutoSize = true;
+            this.labelCantidadDias2.Location = new System.Drawing.Point(319, 83);
+            this.labelCantidadDias2.Name = "labelCantidadDias2";
+            this.labelCantidadDias2.Size = new System.Drawing.Size(91, 13);
+            this.labelCantidadDias2.TabIndex = 54;
+            this.labelCantidadDias2.Text = "Cantidad de Dias ";
+            // 
+            // labelCntidadDias3
+            // 
+            this.labelCntidadDias3.AutoSize = true;
+            this.labelCntidadDias3.Location = new System.Drawing.Point(354, 79);
+            this.labelCntidadDias3.Name = "labelCntidadDias3";
+            this.labelCntidadDias3.Size = new System.Drawing.Size(91, 13);
+            this.labelCntidadDias3.TabIndex = 55;
+            this.labelCntidadDias3.Text = "Cantidad de Dias ";
+            // 
+            // labelCantidadDias4
+            // 
+            this.labelCantidadDias4.AutoSize = true;
+            this.labelCantidadDias4.Location = new System.Drawing.Point(339, 61);
+            this.labelCantidadDias4.Name = "labelCantidadDias4";
+            this.labelCantidadDias4.Size = new System.Drawing.Size(91, 13);
+            this.labelCantidadDias4.TabIndex = 56;
+            this.labelCantidadDias4.Text = "Cantidad de Dias ";
+            // 
             // Seccion_Alojamiento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(765, 505);
+            this.ClientSize = new System.Drawing.Size(875, 598);
             this.Controls.Add(this.tabControl1);
             this.Name = "Seccion_Alojamiento";
             this.Text = "Seccion_Alojamiento";
@@ -969,8 +884,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spinnerHabitacionesHotel)).EndInit();
-            this.panelDatosHotel.ResumeLayout(false);
-            this.panelDatosHotel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -990,10 +904,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DateTimePicker fechaPartidaPais;
         private System.Windows.Forms.DateTimePicker fechaLlegadaPais;
-        private System.Windows.Forms.ComboBox comboHotelesPaises;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label labelCantidadDias;
-        private System.Windows.Forms.RadioButton optPorLugarPais;
         private System.Windows.Forms.RadioButton optPrecioMenorPais;
         private System.Windows.Forms.RadioButton optPrecioMayorPais;
         private System.Windows.Forms.Button btnConfirmarReservacionPais;
@@ -1006,22 +917,11 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.DateTimePicker fechaLlegadaCiudad;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ComboBox comboHotelesCiudad;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label labelCantidadDiasLugar;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button btnBuscarHotel;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button btnConfirmarReservacionHotel;
-        private System.Windows.Forms.Panel panelDatosHotel;
-        private System.Windows.Forms.Label labelHabitacionesHotel;
-        private System.Windows.Forms.Label labelLugarHotel;
-        private System.Windows.Forms.Label labelPaisHotel;
-        private System.Windows.Forms.Label labelNombreHotel;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label labelFechaLlegadaHotel;
         private System.Windows.Forms.DateTimePicker fechaPartidaHotel;
         private System.Windows.Forms.Label labelFechaSalidaHotel;
@@ -1054,5 +954,11 @@
         private System.Windows.Forms.Button btnPersonasHotel;
         private System.Windows.Forms.NumericUpDown spinnerHabitacionesHotel;
         private System.Windows.Forms.Label labelHabitacionesH;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Label labelCantidadDias2;
+        private System.Windows.Forms.Label labelCntidadDias3;
+        private System.Windows.Forms.Label labelCantidadDias4;
     }
 }

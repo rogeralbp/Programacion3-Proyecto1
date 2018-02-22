@@ -53,5 +53,10 @@ namespace CapaPresentacion
             Seccion_Compra_Reserva v = new Seccion_Compra_Reserva();
             v.Show();
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+          
+        }
     }
 }
