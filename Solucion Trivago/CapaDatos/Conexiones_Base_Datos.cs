@@ -101,11 +101,11 @@ namespace CapaDatos
             conexion.Close();
         }
 
-        public void ModificarDatosVehiculo(int placa, string marca, string modelo, string tipo_vehiculo, double precio, int cantidad_personas)
+        public void ModificarDatosVehiculo(string marca, string modelo, string tipo_vehiculo, double precio, int cantidad_personas)
         {
             Conexion();
             conexion.Open();
-            NpgsqlCommand cmd = new NpgsqlCommand("UPDATE vehiculos SET marca = '" + marca + "', modelo = '" + modelo + "', tipo_vehiculo = '" + tipo_vehiculo + "', precio ='" + precio + "', cantidad_personas = '" + cantidad_personas + "' WHERE placa = '" + placa + "'", conexion);
+            NpgsqlCommand cmd = new NpgsqlCommand("UPDATE vehiculos SET marca = '" + marca + "', modelo = '" + modelo + "', tipo_vehiculo = '" + tipo_vehiculo + "', precio ='" + precio + "', cantidad_personas = '" + cantidad_personas  + "'", conexion);
             cmd.ExecuteNonQuery();
             conexion.Close();
         }
@@ -157,22 +157,23 @@ namespace CapaDatos
             conexion.Close();
         }
 
-        public void ModificarDatosLugar(  string nombre)
+        public void ModificarDatosLugar( int identificador , string nombre )
         {
             Conexion();
             conexion.Open();
-            NpgsqlCommand cmd = new NpgsqlCommand("UPDATE lugares SET nombre = '" + nombre + "' WHERE nombre = '" + nombre + "'", conexion);
+            NpgsqlCommand cmd = new NpgsqlCommand("UPDATE lugares SET nombre = '" + nombre+ "' WHERE idenficador_lugar = '" + identificador + "'", conexion);
+
             cmd.ExecuteNonQuery();
             conexion.Close();
                 
 
         }
 
-        public void EliminarDatosLugares( string nombre)
+        public void EliminarDatosLugares(int identificador)
         {
             Conexion();
             conexion.Open();
-            NpgsqlCommand cmd = new NpgsqlCommand("DELETE FROM lugares WHERE nombre = '" + nombre+ "'", conexion);
+            NpgsqlCommand cmd = new NpgsqlCommand("DELETE FROM lugares WHERE idenficador_lugar = '" + identificador+ "'", conexion);
             cmd.ExecuteNonQuery();
             conexion.Close();
 
@@ -197,11 +198,11 @@ namespace CapaDatos
             conexion.Close();
         }
 
-        public void EliminarDatosRuta(int identificador)
+        public void EliminarDatosRuta(int identificador_ruta)
         {
             Conexion();
             conexion.Open();
-            NpgsqlCommand cmd = new NpgsqlCommand("DELETE FROM rutas WHERE identificador_ruta = '" + identificador + "'", conexion);
+            NpgsqlCommand cmd = new NpgsqlCommand("DELETE FROM rutas WHERE identificador_ruta = '" + identificador_ruta + "'", conexion);
             cmd.ExecuteNonQuery();
             conexion.Close();
 
@@ -217,21 +218,21 @@ namespace CapaDatos
 
         }
 
-        public void ModificarTarifaHotel(int identificador_tarifa, double precio_tarifa)
+        public void ModificarTarifaHotel(int identificador,  double precio_tarifa)
         {
             Conexion();
             conexion.Open();
-            NpgsqlCommand cmd = new NpgsqlCommand("UPDATE  tarifas_hoteles SET precio_tarifa = '" + precio_tarifa + "' WHERE identificador_tarifa = '" + identificador_tarifa + "'", conexion);
+            NpgsqlCommand cmd = new NpgsqlCommand("UPDATE  tarifas_hoteles SET precio_tarifa = '" + precio_tarifa +"' WHERE identificador_tarifa = '" + identificador +  "'", conexion);
             cmd.ExecuteNonQuery();
             conexion.Close();
 
         }
 
-        public void EliminarDatosTarifa(int identificador)
+        public void EliminarDatosTarifa(double precio)
         {
             Conexion();
             conexion.Open();
-            NpgsqlCommand cmd = new NpgsqlCommand("DELETE FROM  tarifas_hoteles WHERE identificador_tarifa = '" + identificador + "'", conexion);
+            NpgsqlCommand cmd = new NpgsqlCommand("DELETE FROM  tarifas_hoteles WHERE precio_tarifa = '" + precio + "'", conexion);
             cmd.ExecuteNonQuery();
             conexion.Close();
 
@@ -266,6 +267,40 @@ namespace CapaDatos
             conexion.Close();
         }
 
+
+        public void InsertarDatosPaises(int identificador , string nombre , string direccion)
+        {
+            Conexion();
+            conexion.Open();
+            cmd = new NpgsqlCommand("INSERT INTO pais (identificador, nombre , direccion) VALUES ('" + identificador + "', '" + nombre + "', '" + direccion + "')", conexion);
+            cmd.ExecuteNonQuery();
+            conexion.Close();
+
+        }
+
+
+        public void EliminarDatosPaises(string nombre)
+        {
+            Conexion();
+            conexion.Open();
+            NpgsqlCommand cmd = new NpgsqlCommand("DELETE FROM  pais WHERE nombre = '" + nombre + "'", conexion);
+            cmd.ExecuteNonQuery();
+            conexion.Close();
+        }
+
+
+
+        public void ModificarDatosPaises(int identificador, string nombre, string direccion)
+        {
+            {
+                Conexion();
+                conexion.Open();
+                NpgsqlCommand cmd = new NpgsqlCommand("UPDATE pais SET identificador = '" + identificador + "', nombre = '" + nombre + "', direccion = '" + direccion + "' WHERE nombre = '" + nombre + "'", conexion);
+                cmd.ExecuteNonQuery();
+                conexion.Close();
+            }
+
+        }
         /// <summary>
         /// Este metodo funciona para saber quien esta logeado
         /// en linea mejor dicho y a si saber la informacion

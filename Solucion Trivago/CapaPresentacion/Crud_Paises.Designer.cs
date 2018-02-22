@@ -30,9 +30,9 @@
         {
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.btnActualizarPais = new System.Windows.Forms.Button();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.txtIdentificadorModificar = new System.Windows.Forms.TextBox();
+            this.txtNombreModificar = new System.Windows.Forms.TextBox();
+            this.comboBoxModificarPaises = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
@@ -49,9 +49,9 @@
             this.tabControlPaises = new System.Windows.Forms.TabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.btnEliminarPais = new System.Windows.Forms.Button();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.comboPaisesEliminar = new System.Windows.Forms.ComboBox();
+            this.txtIdentificadorEliminar = new System.Windows.Forms.TextBox();
+            this.txtNombreEliminar = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -59,20 +59,29 @@
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.button7 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnCargar = new System.Windows.Forms.Button();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.cargar = new System.Windows.Forms.Button();
             this.tabPage2.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabControlPaises.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.cargar);
+            this.tabPage2.Controls.Add(this.pictureBox2);
             this.tabPage2.Controls.Add(this.btnActualizarPais);
-            this.tabPage2.Controls.Add(this.textBox4);
-            this.tabPage2.Controls.Add(this.textBox3);
-            this.tabPage2.Controls.Add(this.comboBox1);
+            this.tabPage2.Controls.Add(this.txtIdentificadorModificar);
+            this.tabPage2.Controls.Add(this.txtNombreModificar);
+            this.tabPage2.Controls.Add(this.comboBoxModificarPaises);
             this.tabPage2.Controls.Add(this.label10);
             this.tabPage2.Controls.Add(this.button3);
             this.tabPage2.Controls.Add(this.label8);
@@ -89,37 +98,37 @@
             // btnActualizarPais
             // 
             this.btnActualizarPais.Enabled = false;
-            this.btnActualizarPais.Location = new System.Drawing.Point(256, 335);
+            this.btnActualizarPais.Location = new System.Drawing.Point(244, 364);
             this.btnActualizarPais.Name = "btnActualizarPais";
             this.btnActualizarPais.Size = new System.Drawing.Size(220, 38);
             this.btnActualizarPais.TabIndex = 12;
             this.btnActualizarPais.Text = "Actualizar Pais";
             this.btnActualizarPais.UseVisualStyleBackColor = true;
             // 
-            // textBox4
+            // txtIdentificadorModificar
             // 
-            this.textBox4.Enabled = false;
-            this.textBox4.Location = new System.Drawing.Point(256, 166);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(374, 22);
-            this.textBox4.TabIndex = 11;
+            this.txtIdentificadorModificar.Enabled = false;
+            this.txtIdentificadorModificar.Location = new System.Drawing.Point(256, 166);
+            this.txtIdentificadorModificar.Name = "txtIdentificadorModificar";
+            this.txtIdentificadorModificar.Size = new System.Drawing.Size(374, 22);
+            this.txtIdentificadorModificar.TabIndex = 11;
             // 
-            // textBox3
+            // txtNombreModificar
             // 
-            this.textBox3.Location = new System.Drawing.Point(256, 104);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(374, 22);
-            this.textBox3.TabIndex = 10;
+            this.txtNombreModificar.Location = new System.Drawing.Point(256, 104);
+            this.txtNombreModificar.Name = "txtNombreModificar";
+            this.txtNombreModificar.Size = new System.Drawing.Size(374, 22);
+            this.txtNombreModificar.TabIndex = 10;
             // 
-            // comboBox1
+            // comboBoxModificarPaises
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(256, 31);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(374, 24);
-            this.comboBox1.TabIndex = 9;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.comboBoxModificarPaises.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxModificarPaises.FormattingEnabled = true;
+            this.comboBoxModificarPaises.Location = new System.Drawing.Point(256, 31);
+            this.comboBoxModificarPaises.Name = "comboBoxModificarPaises";
+            this.comboBoxModificarPaises.Size = new System.Drawing.Size(374, 24);
+            this.comboBoxModificarPaises.TabIndex = 9;
+            this.comboBoxModificarPaises.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // label10
             // 
@@ -133,7 +142,7 @@
             // button3
             // 
             this.button3.Font = new System.Drawing.Font("Arial Narrow", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(582, 348);
+            this.button3.Location = new System.Drawing.Point(500, 359);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(86, 43);
             this.button3.TabIndex = 7;
@@ -170,6 +179,8 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.btnCargar);
+            this.tabPage1.Controls.Add(this.pictureBox1);
             this.tabPage1.Controls.Add(this.button2);
             this.tabPage1.Controls.Add(this.button1);
             this.tabPage1.Controls.Add(this.txtNombrePaisNuevo);
@@ -188,7 +199,7 @@
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Arial Narrow", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(540, 295);
+            this.button2.Location = new System.Drawing.Point(582, 365);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(86, 43);
             this.button2.TabIndex = 6;
@@ -199,7 +210,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Arial Narrow", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(227, 342);
+            this.button1.Location = new System.Drawing.Point(299, 365);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(216, 28);
             this.button1.TabIndex = 5;
@@ -265,9 +276,9 @@
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.btnEliminarPais);
-            this.tabPage3.Controls.Add(this.comboBox2);
-            this.tabPage3.Controls.Add(this.textBox6);
-            this.tabPage3.Controls.Add(this.textBox5);
+            this.tabPage3.Controls.Add(this.comboPaisesEliminar);
+            this.tabPage3.Controls.Add(this.txtIdentificadorEliminar);
+            this.tabPage3.Controls.Add(this.txtNombreEliminar);
             this.tabPage3.Controls.Add(this.label6);
             this.tabPage3.Controls.Add(this.label5);
             this.tabPage3.Controls.Add(this.label11);
@@ -289,32 +300,33 @@
             this.btnEliminarPais.TabIndex = 14;
             this.btnEliminarPais.Text = "Eliminar Pais";
             this.btnEliminarPais.UseVisualStyleBackColor = true;
+            this.btnEliminarPais.Click += new System.EventHandler(this.btnEliminarPais_Click);
             // 
-            // comboBox2
+            // comboPaisesEliminar
             // 
-            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(245, 20);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(374, 24);
-            this.comboBox2.TabIndex = 13;
-            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+            this.comboPaisesEliminar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboPaisesEliminar.FormattingEnabled = true;
+            this.comboPaisesEliminar.Location = new System.Drawing.Point(245, 20);
+            this.comboPaisesEliminar.Name = "comboPaisesEliminar";
+            this.comboPaisesEliminar.Size = new System.Drawing.Size(374, 24);
+            this.comboPaisesEliminar.TabIndex = 13;
+            this.comboPaisesEliminar.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
-            // textBox6
+            // txtIdentificadorEliminar
             // 
-            this.textBox6.Enabled = false;
-            this.textBox6.Location = new System.Drawing.Point(245, 200);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(377, 22);
-            this.textBox6.TabIndex = 12;
+            this.txtIdentificadorEliminar.Enabled = false;
+            this.txtIdentificadorEliminar.Location = new System.Drawing.Point(245, 200);
+            this.txtIdentificadorEliminar.Name = "txtIdentificadorEliminar";
+            this.txtIdentificadorEliminar.Size = new System.Drawing.Size(377, 22);
+            this.txtIdentificadorEliminar.TabIndex = 12;
             // 
-            // textBox5
+            // txtNombreEliminar
             // 
-            this.textBox5.Enabled = false;
-            this.textBox5.Location = new System.Drawing.Point(245, 105);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(377, 22);
-            this.textBox5.TabIndex = 11;
+            this.txtNombreEliminar.Enabled = false;
+            this.txtNombreEliminar.Location = new System.Drawing.Point(245, 105);
+            this.txtNombreEliminar.Name = "txtNombreEliminar";
+            this.txtNombreEliminar.Size = new System.Drawing.Size(377, 22);
+            this.txtNombreEliminar.TabIndex = 11;
             // 
             // label6
             // 
@@ -358,9 +370,9 @@
             // 
             this.tabPage4.Controls.Add(this.button7);
             this.tabPage4.Controls.Add(this.dataGridView1);
-            this.tabPage4.Location = new System.Drawing.Point(4, 38);
+            this.tabPage4.Location = new System.Drawing.Point(4, 25);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(678, 407);
+            this.tabPage4.Size = new System.Drawing.Size(678, 420);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Consultar Paises";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -383,6 +395,46 @@
             this.dataGridView1.Size = new System.Drawing.Size(659, 299);
             this.dataGridView1.TabIndex = 0;
             // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(236, 133);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(388, 211);
+            this.pictureBox1.TabIndex = 7;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // btnCargar
+            // 
+            this.btnCargar.Location = new System.Drawing.Point(630, 133);
+            this.btnCargar.Name = "btnCargar";
+            this.btnCargar.Size = new System.Drawing.Size(38, 23);
+            this.btnCargar.TabIndex = 8;
+            this.btnCargar.Text = "....";
+            this.btnCargar.UseVisualStyleBackColor = true;
+            this.btnCargar.Click += new System.EventHandler(this.btnCargar_Click);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Location = new System.Drawing.Point(244, 212);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(260, 127);
+            this.pictureBox2.TabIndex = 13;
+            this.pictureBox2.TabStop = false;
+            // 
+            // cargar
+            // 
+            this.cargar.Location = new System.Drawing.Point(554, 231);
+            this.cargar.Name = "cargar";
+            this.cargar.Size = new System.Drawing.Size(75, 23);
+            this.cargar.TabIndex = 14;
+            this.cargar.Text = "......";
+            this.cargar.UseVisualStyleBackColor = true;
+            // 
             // Crud_Paises
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -400,6 +452,8 @@
             this.tabPage3.PerformLayout();
             this.tabPage4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -423,19 +477,24 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button btnActualizarPais;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.TextBox txtIdentificadorModificar;
+        private System.Windows.Forms.TextBox txtNombreModificar;
+        private System.Windows.Forms.ComboBox comboBoxModificarPaises;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button btnEliminarPais;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.ComboBox comboPaisesEliminar;
+        private System.Windows.Forms.TextBox txtIdentificadorEliminar;
+        private System.Windows.Forms.TextBox txtNombreEliminar;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button btnCargar;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.Button cargar;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }

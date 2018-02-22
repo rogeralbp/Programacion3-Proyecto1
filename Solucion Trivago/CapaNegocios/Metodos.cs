@@ -229,7 +229,7 @@ namespace CapaNegocios
         //Metodo que selecciona un identicador e impreme su imformacion en un texbox
         public void ComboEliminarLugar(ComboBox agregar, TextBox nombre_lugar)
         {
-           
+
             try
             {
                 Conexion();
@@ -257,7 +257,7 @@ namespace CapaNegocios
         }
 
         //Metodo que llena el combo de lugares , en la ventana de modificar lugares
-        public void ComboNombresLugares(ComboBox nombres)
+        public void ComboNombresLugares(ComboBox id_lugares)
         {
 
             try
@@ -265,13 +265,13 @@ namespace CapaNegocios
                 Conexion();
                 conexion.Open();
                 List<String> lista = new List<String>();
-                NpgsqlCommand cmd = new NpgsqlCommand("SELECT nombre FROM lugares", conexion);
+                NpgsqlCommand cmd = new NpgsqlCommand("SELECT  idenficador_lugar FROM lugares", conexion);
                 NpgsqlDataReader dr = cmd.ExecuteReader();
                 if (dr.HasRows)
                 {
                     while (dr.Read())
                     {
-                        nombres.Items.Add(dr.GetString(0));
+                        id_lugares.Items.Add(dr.GetInt64(0));
                     }
                 }
                 conexion.Close();
@@ -289,7 +289,7 @@ namespace CapaNegocios
 
 
         //Metodo que llena el combo de lugares , en la ventana de modificar lugares
-        public void LlenarCombosModificarLugar(ComboBox nombre, TextBox nombre_lugar)
+        public void LlenarCombosModificarLugar(ComboBox id_lugar, TextBox nombre_lugar)
         {
 
             {
@@ -298,7 +298,7 @@ namespace CapaNegocios
                 {
                     Conexion();
                     conexion.Open();
-                    NpgsqlCommand cmd = new NpgsqlCommand("SELECT nombre FROM lugares WHERE nombre = '" + nombre.SelectedItem + "'", conexion);
+                    NpgsqlCommand cmd = new NpgsqlCommand("SELECT nombre FROM lugares WHERE idenficador_lugar = '" + id_lugar.SelectedItem + "'", conexion);
                     NpgsqlDataReader leer = cmd.ExecuteReader();
                     if (leer.HasRows)
                     {
@@ -387,9 +387,361 @@ namespace CapaNegocios
 
 
         }
+
+
+
+        //Metodo que llena el combobox de indentificadores de tarifas de hoteles
+        public void ComboIDTarifasHoteles(ComboBox identificador_tarifa)
+        {
+
+            try
+            {
+                Conexion();
+                conexion.Open();
+                List<String> lista = new List<String>();
+                NpgsqlCommand cmd = new NpgsqlCommand("SELECT identificador_tarifa FROM tarifas_hoteles", conexion);
+                NpgsqlDataReader dr = cmd.ExecuteReader();
+                if (dr.HasRows)
+                {
+                    while (dr.Read())
+                    {
+                        identificador_tarifa.Items.Add(dr.GetInt64(0));
+                    }
+                }
+                conexion.Close();
+
+
+            }
+            catch (Exception error)
+            {
+                Console.WriteLine(error);
+
+            }
+
+        }
+
+
+
+
+        public void MostrarInformacionTarifaHoteles(ComboBox tarifa_hoteles, TextBox precio_hotel)
+        {
+            try
+            {
+                Conexion();
+                conexion.Open();
+                NpgsqlCommand cmd = new NpgsqlCommand("SELECT precio_tarifa FROM tarifas_hoteles WHERE identificador_tarifa = '" + tarifa_hoteles.SelectedItem.ToString() + "'", conexion);
+                NpgsqlDataReader leer = cmd.ExecuteReader();
+                if (leer.HasRows)
+                {
+                    while (leer.Read())
+                    {
+                        precio_hotel.Text = leer.GetDouble(0).ToString();
+
+                    }
+                    conexion.Close();
+
+                }
+            }
+            catch (Exception error)
+            {
+                Console.WriteLine(error);
+            }
+
+        }
+
+
+
+
+
+        //Metodo que llena el combobox de indentificadores de tarifas de hoteles
+        public void ComboIDPaises(ComboBox identificador_pais)
+        {
+
+            try
+            {
+                Conexion();
+                conexion.Open();
+                List<String> lista = new List<String>();
+                NpgsqlCommand cmd = new NpgsqlCommand("SELECT identificador FROM pais", conexion);
+                NpgsqlDataReader dr = cmd.ExecuteReader();
+                if (dr.HasRows)
+                {
+                    while (dr.Read())
+                    {
+                        identificador_pais.Items.Add(dr.GetInt64(0));
+                    }
+                }
+                conexion.Close();
+
+
+            }
+            catch (Exception error)
+            {
+                Console.WriteLine(error);
+
+            }
+
+
+        }
+
+
+
+
+        public void MostrarInformacionPais(ComboBox pais, TextBox identificador, TextBox nombre)
+        {
+            try
+            {
+                Conexion();
+                conexion.Open();
+                NpgsqlCommand cmd = new NpgsqlCommand("SELECT identificador , nombre  FROM pais WHERE identificador = '" + pais.SelectedItem.ToString() + "'", conexion);
+                NpgsqlDataReader leer = cmd.ExecuteReader();
+                if (leer.HasRows)
+                {
+                    while (leer.Read())
+                    {
+                        identificador.Text = leer.GetDouble(0).ToString();
+                        nombre.Text = leer.GetString(1);
+
+                    }
+                    conexion.Close();
+
+                }
+            }
+            catch (Exception error)
+            {
+                Console.WriteLine(error);
+            }
+
+        }
+
+
+
+
+        public void ComboNombresPaises(ComboBox nombre_pais)
+        {
+
+            try
+            {
+                Conexion();
+                conexion.Open();
+                List<String> lista = new List<String>();
+                NpgsqlCommand cmd = new NpgsqlCommand("SELECT nombre FROM pais", conexion);
+                NpgsqlDataReader dr = cmd.ExecuteReader();
+                if (dr.HasRows)
+                {
+                    while (dr.Read())
+                    {
+                        nombre_pais.Items.Add(dr.GetString(0));
+
+                    }
+                }
+                conexion.Close();
+
+
+            }
+            catch (Exception error)
+            {
+                Console.WriteLine(error);
+
+            }
+
+
+        }
+
+
+
+
+        public void MostrarInformacionPaisModificar(ComboBox pais, TextBox identificador, TextBox nombre, PictureBox bandera)
+        {
+            try
+            {
+                Conexion();
+                conexion.Open();
+                NpgsqlCommand cmd = new NpgsqlCommand("SELECT identificador , nombre , direccion FROM pais WHERE nombre = '" + pais.SelectedItem.ToString() + "'", conexion);
+                NpgsqlDataReader leer = cmd.ExecuteReader();
+                if (leer.HasRows)
+                {
+                    while (leer.Read())
+                    {
+                        identificador.Text = leer.GetDouble(0).ToString();
+                        nombre.Text = leer.GetString(1);
+                        //bandera.Image= leer.GetString
+
+
+                    }
+                    conexion.Close();
+
+                }
+            }
+            catch (Exception error)
+            {
+                Console.WriteLine(error);
+            }
+
+        }
+
+
+
+
+
+        //Metodo que llena el combobox de indentificadores de rutas
+        public void ComboIDRuta(ComboBox identificador)
+        {
+
+            try
+            {
+                Conexion();
+                conexion.Open();
+                List<String> lista = new List<String>();
+                NpgsqlCommand cmd = new NpgsqlCommand("SELECT identificador_ruta FROM rutas", conexion);
+                NpgsqlDataReader dr = cmd.ExecuteReader();
+                if (dr.HasRows)
+                {
+                    while (dr.Read())
+                    {
+                        identificador.Items.Add(dr.GetInt64(0));
+                    }
+                }
+                conexion.Close();
+
+
+            }
+            catch (Exception error)
+            {
+                Console.WriteLine(error);
+
+            }
+
+
+        }
+
+
+
+        //Metodo que llena el combobox de nombres  de rutas
+        public void ComboNombreRuta(ComboBox identificador)
+        {
+
+            try
+            {
+                Conexion();
+                conexion.Open();
+                List<String> lista = new List<String>();
+                NpgsqlCommand cmd = new NpgsqlCommand("SELECT nombre FROM pais", conexion);
+                NpgsqlDataReader dr = cmd.ExecuteReader();
+                if (dr.HasRows)
+                {
+                    while (dr.Read())
+                    {
+                        identificador.Items.Add(dr.GetString(0));
+                    }
+                }
+                conexion.Close();
+
+
+            }
+            catch (Exception error)
+            {
+                Console.WriteLine(error);
+
+            }
+
+
+        }
+
+
+
+
+        public void MostrarInformacionRutas(ComboBox id_rutas, TextBox pais_origen, TextBox pais_destino, TextBox cantidad)
+        {
+            try
+            {
+                Conexion();
+                conexion.Open();
+                NpgsqlCommand cmd = new NpgsqlCommand("SELECT pais_origen , pais_destino , duracion FROM rutas WHERE identificador_ruta = '" + id_rutas.SelectedItem.ToString() + "'", conexion);
+                NpgsqlDataReader leer = cmd.ExecuteReader();
+                if (leer.HasRows)
+                {
+                    while (leer.Read())
+                    {
+                        pais_origen.Text = leer.GetString(0);
+                        pais_destino.Text = leer.GetString(1);
+                        cantidad.Text = leer.GetInt64(2).ToString();
+
+
+                    }
+                    conexion.Close();
+
+                }
+            }
+            catch (Exception error)
+            {
+                Console.WriteLine(error);
+            }
+
+        }
+
+        //Metodo que llena el combobox de indentificadores de vuelos
+        public void ComboIDVuelos(ComboBox identificador)
+        {
+
+            try
+            {
+                Conexion();
+                conexion.Open();
+                List<String> lista = new List<String>();
+                NpgsqlCommand cmd = new NpgsqlCommand("SELECT identificador_tarifa FROM tarifas_vuelos", conexion);
+                NpgsqlDataReader dr = cmd.ExecuteReader();
+                if (dr.HasRows)
+                {
+                    while (dr.Read())
+                    {
+                        identificador.Items.Add(dr.GetInt64(0));
+                    }
+                }
+                conexion.Close();
+
+
+            }
+            catch (Exception error)
+            {
+                Console.WriteLine(error);
+
+            }
+
+
+        }
+
+
+
+
+        public void MostrarInformacionVuelos(ComboBox id_rutas, TextBox ruta, TextBox precio)
+        {
+            try
+            {
+                Conexion();
+                conexion.Open();
+                NpgsqlCommand cmd = new NpgsqlCommand("SELECT ruta , precio  FROM tarifas_vuelos WHERE identificador_tarifa = '" + id_rutas.SelectedItem.ToString() + "'", conexion);
+                NpgsqlDataReader leer = cmd.ExecuteReader();
+                if (leer.HasRows)
+                {
+                    while (leer.Read())
+                    {
+                        ruta.Text = leer.GetString(0);
+                        precio.Text = leer.GetDouble(1).ToString();
+
+
+                    }
+                    conexion.Close();
+
+                }
+            }
+            catch (Exception error)
+            {
+                Console.WriteLine(error);
+            }
+
+        }
+
+
     }
-
 }
-
-
-

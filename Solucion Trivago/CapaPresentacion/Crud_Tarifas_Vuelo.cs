@@ -7,15 +7,31 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CapaDatos;
+using CapaNegocios;
+
 
 namespace CapaPresentacion
 {
     public partial class Crud_Tarifas_Vuelo : Form
     {
+        Conexiones_Base_Datos conectar = new Conexiones_Base_Datos();
+        Metodos metodo = new Metodos();
+
         public Crud_Tarifas_Vuelo()
         {
             InitializeComponent();
             this.CenterToScreen();
+
+            //Este metodo llena el combo de rutas del TAB de agregar
+            metodo.ComboNombreRuta(comboBoxRuta);
+            metodo.ComboNombreRuta(comboNueaRuta);
+
+            //Este metodo llena el combo de ID de vuelos del TAB de modificar
+
+            metodo.ComboIDVuelos(comboIDVuelos);
+
+
         }
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
@@ -49,9 +65,36 @@ namespace CapaPresentacion
             v.Show();
         }
 
+        public void LimpiarCampos()
+        {
+            txtIdentificador.Clear();
+            txtPrecio.Clear();
+            txtPrecioNuevo.Clear();
+           
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
 
+
+            if (txtIdentificador.Text.Length == 0 || txtPrecio.Text.Length == 0 || comboBoxRuta.Text.Length == 0 )
+            {
+                MessageBox.Show("Debe de llenar todos los datos.");
+            }
+            else
+            {
+                int identificador = int.Parse(txtIdentificador.Text);
+                string ruta = comboBoxRuta.SelectedItem.ToString();
+                double precio = double.Parse(txtPrecio.Text);
+
+                conectar.InsertarDatosVuelos(identificador, ruta, precio);
+                MessageBox.Show("Tarifa de vuelo ingresada");
+                LimpiarCampos();
+                //Actulizamos la tabla de vuelos
+                metodo.LlenarDtTarifaVuelo(TablaVuelos);
+
+
+            }
         }
 
         private void button7_Click(object sender, EventArgs e)
@@ -64,11 +107,40 @@ namespace CapaPresentacion
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             btnGuardarCambios.Enabled = true;
+            //Metodo que me muestra la informacion
+            metodo.MostrarInformacionVuelos(comboIDVuelos, txtModificarRuta, txtModificarPrecio);
         }
 
         private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
         {
             btnEliminarTarifa.Enabled = true;
+        }
+
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Cargar_Load(object sender, EventArgs e)
+        {
+            //Actulizamos la tabla de vuelos
+            metodo.LlenarDtTarifaVuelo(TablaVuelos);
+        }
+
+
+        private void btnGuardarCambios_Click(object sender, EventArgs e)
+        {
+            string ruta = comboNueaRuta.SelectedItem.ToString();
+            double precio = double.Parse(txtPrecioNuevo.Text);
+            int identificador_ruta = int.Parse(comboIDVuelos.SelectedItem.ToString());
+            conectar.ModificarTarifaVuelo(identificador_ruta, ruta, precio);
+
+            MessageBox.Show("Tarifa vuelo modificada con exito");
+
+            LimpiarCampos();
+            //Actulizamos la tabla de vuelos
+            metodo.LlenarDtTarifaVuelo(TablaVuelos);
+
         }
     }
 }
