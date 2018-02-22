@@ -531,7 +531,7 @@ namespace CapaNegocios
                 {
                     while (dr.Read())
                     {
-                        nombre_pais.Text = dr.GetString(0);
+                        nombre_pais.Items.Add(dr.GetString(0));
 
                     }
                 }
@@ -551,7 +551,7 @@ namespace CapaNegocios
 
 
 
-        public void MostrarInformacionPaisModificar(ComboBox pais, TextBox identificador, TextBox nombre , PictureBox bandera)
+        public void MostrarInformacionPaisModificar(ComboBox pais, TextBox identificador, TextBox nombre, PictureBox bandera)
         {
             try
             {
@@ -582,6 +582,72 @@ namespace CapaNegocios
 
 
 
+
+
+        //Metodo que llena el combobox de indentificadores de rutas
+        public void ComboIDRutas(ComboBox identificador)
+        {
+
+            try
+            {
+                Conexion();
+                conexion.Open();
+                List<String> lista = new List<String>();
+                NpgsqlCommand cmd = new NpgsqlCommand("SELECT identificador_ruta FROM rutas", conexion);
+                NpgsqlDataReader dr = cmd.ExecuteReader();
+                if (dr.HasRows)
+                {
+                    while (dr.Read())
+                    {
+                        identificador.Items.Add(dr.GetInt64(0));
+                    }
+                }
+                conexion.Close();
+
+
+            }
+            catch (Exception error)
+            {
+                Console.WriteLine(error);
+
+            }
+
+
+        }
+
+
+
+
+        public void MostrarInformacionRutas(ComboBox id_rutas, TextBox pais_origen, TextBox pais_destino, TextBox cantidad)
+        {
+            try
+            {
+                Conexion();
+                conexion.Open();
+                NpgsqlCommand cmd = new NpgsqlCommand("SELECT identificador , nombre  FROM pais WHERE identificador = '" + id_rutas.SelectedItem.ToString() + "'", conexion);
+                NpgsqlDataReader leer = cmd.ExecuteReader();
+                if (leer.HasRows)
+                {
+                    while (leer.Read())
+                    {
+
+
+                        pais_origen.Text = leer.GetString(0);
+                        pais_destino.Text = leer.GetString(1);
+                        cantidad.Text = leer.GetInt64(2).ToString();
+
+
+                    }
+                    conexion.Close();
+
+                }
+            }
+            catch (Exception error)
+            {
+                Console.WriteLine(error);
+            }
+
+        }
     }
 
 

@@ -278,7 +278,7 @@ namespace CapaDatos
         }
 
 
-        public void EliminarDatosPaises(string  nombre)
+        public void EliminarDatosPaises(string nombre)
         {
             Conexion();
             conexion.Open();
