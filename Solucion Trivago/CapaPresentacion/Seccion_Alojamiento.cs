@@ -215,8 +215,7 @@ namespace CapaPresentacion
             /// ------------------------------------------------
             ///Falta realizar la calificacion que el cliente le da al Hotel 
             ///
-            
-        }
+            MessageBox.Show("Has reservado un hotel "+Login.nombreUsuario+ "con "+spinnerHabitacionesPais.GetType());        }
 
         private void btnConfirmarReservacionCiudad_Click(object sender, EventArgs e)
         {

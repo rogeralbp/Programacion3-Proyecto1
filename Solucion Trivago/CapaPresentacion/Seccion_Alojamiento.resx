@@ -118,52 +118,6 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="btnPersonasHotel.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        /9j/4AAQSkZJRgABAQEAYABgAAD/4QC2RXhpZgAATU0AKgAAAAgAAgESAAMAAAABAAEAAIdpAAQAAAAB
-        AAAAJgAAAAAAAZKGAAcAAAB0AAAAOAAAAABDAFIARQBBAFQATwBSADoAIABnAGQALQBqAHAAZQBnACAA
-        dgAxAC4AMAAgACgAdQBzAGkAbgBnACAASQBKAEcAIABKAFAARQBHACAAdgA4ADAAKQAsACAAcQB1AGEA
-        bABpAHQAeQAgAD0AIAA5ADAACgAAAAAA/9sAQwACAQECAQECAgICAgICAgMFAwMDAwMGBAQDBQcGBwcH
-        BgcHCAkLCQgICggHBwoNCgoLDAwMDAcJDg8NDA4LDAwM/9sAQwECAgIDAwMGAwMGDAgHCAwMDAwMDAwM
-        DAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwM/8AAEQgAIAAgAwEiAAIRAQMR
-        Af/EAB8AAAEFAQEBAQEBAAAAAAAAAAABAgMEBQYHCAkKC//EALUQAAIBAwMCBAMFBQQEAAABfQECAwAE
-        EQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElK
-        U1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrC
-        w8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5+v/EAB8BAAMBAQEBAQEBAQEAAAAAAAAB
-        AgMEBQYHCAkKC//EALURAAIBAgQEAwQHBQQEAAECdwABAgMRBAUhMQYSQVEHYXETIjKBCBRCkaGxwQkj
-        M1LwFWJy0QoWJDThJfEXGBkaJicoKSo1Njc4OTpDREVGR0hJSlNUVVZXWFlaY2RlZmdoaWpzdHV2d3h5
-        eoKDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uLj5OXm
-        5+jp6vLz9PX29/j5+v/aAAwDAQACEQMRAD8A/fyvzs/4OH/+C1uuf8Ee/g54FXwX4Z0jxD4++JN5dx6Z
-        JrSSSaXp9tZfZzcySpFJHJJIftMKIgdR8zOWOwI/mH/BS79qD4/ftZfCL9rz4M6h4Rb9mDwd4Phs4fDP
-        xY8U+In0PRPFMP8AaECvafbSipi+g8wKIGYKH+zz4MpB/N344/Gj4Q/sVf8ABJrwD+zz+0hC/wC058Rd
-        W1JvH3hVPCPjE20Hw70W8t4o7aJNXMUwLTbZp1tVglhZZ1dguLeRwD9cf+DeH/gtbrn/AAWE+DnjpfGn
-        hnSPD3j74bXlpHqcmipJHpeoW179oNtJEkskkkcg+zTI6F2Hyq4YbyifonX8vfwP+NHwh/bV/wCCTPj7
-        9nn9m+F/2Y/iLpOpL4+8VJ4u8Ym5g+Imi2dvLHcxPq4ihAaHdBO1s0EUKrAXUNm4kT9Iv+CaP7UHx+/Z
-        N+EX7IfwZ0/wi37UHg7xhDeQ+Jvix4X8RPrmi+Fof7QnVLT7aEZMWMHlhhOyhgn2eDJiAAB+CX7Svx28
-        YfGb/gnX4P8AEnijxFqmt638RPjL4w1TxJd3U5d9XuLPSPDQs3lz18galfLEOka3UoUANisD/gqfEtv+
-        1zDFGqpHB4A8CwxoowqIvhDRlVQPQKAB9K/qg/b8/wCCDH7Pn/BRDR/Bun+J9F1Lwfp/gefULqxtfBZt
-        dHhnmvltEnlmQQMHfbY26hsAgLg5GMflt/wUi/4NN/jx+0b+2J4k8UfDXxD8MLXwEbDR9I0KLXtbvE1J
-        bXT9Js9PTzxHZOm8/Zskq2DnPGcCkB+VP/BK6Jbj9rmeKRVkjm+H/juKRGGVdG8H6yrKR6EEg/Wt79mr
-        46+MPgz/AME7PGHiTwv4i1TRNb+Hfxk8H6p4bu7Wco+kXF5pHiUXjxY6eeNNsVlHSRbWIMCFxX6c/wDB
-        Nv8A4NOPjv8As4/ti+G/FHxK8Q/DG68A/wBn6zo+uxaDrd4+pNa6hpF5p7+QJLJE3j7VkFmwMZ5xg/qR
-        +wH/AMEGP2fP+Cd+j+MtP8MaLqXjDT/HE+n3V9a+NDa6xDBNYrdpBLChgUI+2+uFLYJIbAwM5NAP/9k=
-</value>
-  </data>
-  <data name="btnHabitacionesHotel.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        xAAADsQBlSsOGwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAHqSURBVFhH7VVN
-        ywFRFJ6NjUj5A+xZWShK2EgkC5JYiFJC+QNYiGTrD7CQr5WV/AX+ibJA2amjc3SnuXOnd7y974zNPPXM
-        zH3OnHOe7syckeDLsAxYBiwDZGC324EkSWCz2eB8PlPALJABbM4YjUYpYBYEA7FYjAJmQTAQj8cp8Hw+
-        odVqQbFYhOPxSJoREAwkEol3QKEh5/M56X9FJBIBl8sF+/2e1oKBfD4PnU6H0xhPpxOdu90uJc9mM9hs
-        NrBcLmGxWBBXqxVpyPV6Ddvtlu5FNJtNrh5CMFAoFCCXy3EaYzAYlK/VeXrErwsfqVKjGupCmUwGDocD
-        pyHT6TSEw2F5rc7To9/vh36/z2lUQ12IvYSj0UjWQqEQaT6fT9YQ7PoT2u12GAwGnEY11IWSySTc73co
-        lUpQq9XokTQaDSiXy+BwOPhkRZ4enU7nZwawscfj4TQtqvP06Ha7PzOAX4Fy+7WYSqVoTmjFfuJwOOTW
-        mgbYKH48HnC9Xom32w0ulwudcc3iv0W1WuV6IQQDZtIyoGnA6/XCZDKhofGfHI/HEAgEuF6aBtjPyAi0
-        222uF0IwwCahEajX61wvhGCAjV0jUKlUuF4IOuK2Z7NZGjC9Xo8CRmA6ndIOYx/8syLeNr4Iy8CXDQC8
-        AGlO5QQxIsIqAAAAAElFTkSuQmCC
-</value>
-  </data>
   <data name="btnPersonasPais.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         /9j/4AAQSkZJRgABAQEAYABgAAD/4QC2RXhpZgAATU0AKgAAAAgAAgESAAMAAAABAAEAAIdpAAQAAAAB
@@ -242,6 +196,52 @@
 </value>
   </data>
   <data name="btnHabitacionesCiudad.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        xAAADsQBlSsOGwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAHqSURBVFhH7VVN
+        ywFRFJ6NjUj5A+xZWShK2EgkC5JYiFJC+QNYiGTrD7CQr5WV/AX+ibJA2amjc3SnuXOnd7y974zNPPXM
+        zH3OnHOe7syckeDLsAxYBiwDZGC324EkSWCz2eB8PlPALJABbM4YjUYpYBYEA7FYjAJmQTAQj8cp8Hw+
+        odVqQbFYhOPxSJoREAwkEol3QKEh5/M56X9FJBIBl8sF+/2e1oKBfD4PnU6H0xhPpxOdu90uJc9mM9hs
+        NrBcLmGxWBBXqxVpyPV6Ddvtlu5FNJtNrh5CMFAoFCCXy3EaYzAYlK/VeXrErwsfqVKjGupCmUwGDocD
+        pyHT6TSEw2F5rc7To9/vh36/z2lUQ12IvYSj0UjWQqEQaT6fT9YQ7PoT2u12GAwGnEY11IWSySTc73co
+        lUpQq9XokTQaDSiXy+BwOPhkRZ4enU7nZwawscfj4TQtqvP06Ha7PzOAX4Fy+7WYSqVoTmjFfuJwOOTW
+        mgbYKH48HnC9Xom32w0ulwudcc3iv0W1WuV6IQQDZtIyoGnA6/XCZDKhofGfHI/HEAgEuF6aBtjPyAi0
+        222uF0IwwCahEajX61wvhGCAjV0jUKlUuF4IOuK2Z7NZGjC9Xo8CRmA6ndIOYx/8syLeNr4Iy8CXDQC8
+        AGlO5QQxIsIqAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="btnPersonasHotel.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        /9j/4AAQSkZJRgABAQEAYABgAAD/4QC2RXhpZgAATU0AKgAAAAgAAgESAAMAAAABAAEAAIdpAAQAAAAB
+        AAAAJgAAAAAAAZKGAAcAAAB0AAAAOAAAAABDAFIARQBBAFQATwBSADoAIABnAGQALQBqAHAAZQBnACAA
+        dgAxAC4AMAAgACgAdQBzAGkAbgBnACAASQBKAEcAIABKAFAARQBHACAAdgA4ADAAKQAsACAAcQB1AGEA
+        bABpAHQAeQAgAD0AIAA5ADAACgAAAAAA/9sAQwACAQECAQECAgICAgICAgMFAwMDAwMGBAQDBQcGBwcH
+        BgcHCAkLCQgICggHBwoNCgoLDAwMDAcJDg8NDA4LDAwM/9sAQwECAgIDAwMGAwMGDAgHCAwMDAwMDAwM
+        DAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwM/8AAEQgAIAAgAwEiAAIRAQMR
+        Af/EAB8AAAEFAQEBAQEBAAAAAAAAAAABAgMEBQYHCAkKC//EALUQAAIBAwMCBAMFBQQEAAABfQECAwAE
+        EQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElK
+        U1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrC
+        w8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5+v/EAB8BAAMBAQEBAQEBAQEAAAAAAAAB
+        AgMEBQYHCAkKC//EALURAAIBAgQEAwQHBQQEAAECdwABAgMRBAUhMQYSQVEHYXETIjKBCBRCkaGxwQkj
+        M1LwFWJy0QoWJDThJfEXGBkaJicoKSo1Njc4OTpDREVGR0hJSlNUVVZXWFlaY2RlZmdoaWpzdHV2d3h5
+        eoKDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uLj5OXm
+        5+jp6vLz9PX29/j5+v/aAAwDAQACEQMRAD8A/fyvzs/4OH/+C1uuf8Ee/g54FXwX4Z0jxD4++JN5dx6Z
+        JrSSSaXp9tZfZzcySpFJHJJIftMKIgdR8zOWOwI/mH/BS79qD4/ftZfCL9rz4M6h4Rb9mDwd4Phs4fDP
+        xY8U+In0PRPFMP8AaECvafbSipi+g8wKIGYKH+zz4MpB/N344/Gj4Q/sVf8ABJrwD+zz+0hC/wC058Rd
+        W1JvH3hVPCPjE20Hw70W8t4o7aJNXMUwLTbZp1tVglhZZ1dguLeRwD9cf+DeH/gtbrn/AAWE+DnjpfGn
+        hnSPD3j74bXlpHqcmipJHpeoW179oNtJEkskkkcg+zTI6F2Hyq4YbyifonX8vfwP+NHwh/bV/wCCTPj7
+        9nn9m+F/2Y/iLpOpL4+8VJ4u8Ym5g+Imi2dvLHcxPq4ihAaHdBO1s0EUKrAXUNm4kT9Iv+CaP7UHx+/Z
+        N+EX7IfwZ0/wi37UHg7xhDeQ+Jvix4X8RPrmi+Fof7QnVLT7aEZMWMHlhhOyhgn2eDJiAAB+CX7Svx28
+        YfGb/gnX4P8AEnijxFqmt638RPjL4w1TxJd3U5d9XuLPSPDQs3lz18galfLEOka3UoUANisD/gqfEtv+
+        1zDFGqpHB4A8CwxoowqIvhDRlVQPQKAB9K/qg/b8/wCCDH7Pn/BRDR/Bun+J9F1Lwfp/gefULqxtfBZt
+        dHhnmvltEnlmQQMHfbY26hsAgLg5GMflt/wUi/4NN/jx+0b+2J4k8UfDXxD8MLXwEbDR9I0KLXtbvE1J
+        bXT9Js9PTzxHZOm8/Zskq2DnPGcCkB+VP/BK6Jbj9rmeKRVkjm+H/juKRGGVdG8H6yrKR6EEg/Wt79mr
+        46+MPgz/AME7PGHiTwv4i1TRNb+Hfxk8H6p4bu7Wco+kXF5pHiUXjxY6eeNNsVlHSRbWIMCFxX6c/wDB
+        Nv8A4NOPjv8As4/ti+G/FHxK8Q/DG68A/wBn6zo+uxaDrd4+pNa6hpF5p7+QJLJE3j7VkFmwMZ5xg/qR
+        +wH/AMEGP2fP+Cd+j+MtP8MaLqXjDT/HE+n3V9a+NDa6xDBNYrdpBLChgUI+2+uFLYJIbAwM5NAP/9k=
+</value>
+  </data>
+  <data name="btnHabitacionesHotel.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
         xAAADsQBlSsOGwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAHqSURBVFhH7VVN

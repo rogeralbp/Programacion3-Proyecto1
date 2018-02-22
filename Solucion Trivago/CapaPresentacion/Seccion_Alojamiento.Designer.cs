@@ -51,8 +51,6 @@
             this.fechaLlegadaPais = new System.Windows.Forms.DateTimePicker();
             this.comboHotelesPaises = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.comboLugares = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.comboPaises = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
@@ -156,8 +154,6 @@
             this.tabPage1.Controls.Add(this.fechaLlegadaPais);
             this.tabPage1.Controls.Add(this.comboHotelesPaises);
             this.tabPage1.Controls.Add(this.label3);
-            this.tabPage1.Controls.Add(this.comboLugares);
-            this.tabPage1.Controls.Add(this.label2);
             this.tabPage1.Controls.Add(this.comboPaises);
             this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Controls.Add(this.button2);
@@ -368,24 +364,6 @@
             this.label3.Size = new System.Drawing.Size(102, 13);
             this.label3.TabIndex = 18;
             this.label3.Text = "Seleccione el Hotel:";
-            // 
-            // comboLugares
-            // 
-            this.comboLugares.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboLugares.FormattingEnabled = true;
-            this.comboLugares.Location = new System.Drawing.Point(255, 72);
-            this.comboLugares.Name = "comboLugares";
-            this.comboLugares.Size = new System.Drawing.Size(326, 21);
-            this.comboLugares.TabIndex = 17;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(145, 75);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(104, 13);
-            this.label2.TabIndex = 16;
-            this.label2.Text = "Seleccione el Lugar:";
             // 
             // comboPaises
             // 
@@ -1014,8 +992,6 @@
         private System.Windows.Forms.DateTimePicker fechaLlegadaPais;
         private System.Windows.Forms.ComboBox comboHotelesPaises;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox comboLugares;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label labelCantidadDias;
         private System.Windows.Forms.RadioButton optPorLugarPais;
         private System.Windows.Forms.RadioButton optPrecioMenorPais;
