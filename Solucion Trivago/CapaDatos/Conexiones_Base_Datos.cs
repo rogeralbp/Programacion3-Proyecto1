@@ -101,20 +101,20 @@ namespace CapaDatos
             conexion.Close();
         }
 
-        public void ModificarDatosVehiculo(string marca, string modelo, string tipo_vehiculo, double precio, int cantidad_personas)
+        public void ModificarDatosVehiculo(int placa ,string marca, string modelo, string tipo_vehiculo, double precio, int cantidad_personas)
         {
             Conexion();
             conexion.Open();
-            NpgsqlCommand cmd = new NpgsqlCommand("UPDATE vehiculos SET marca = '" + marca + "', modelo = '" + modelo + "', tipo_vehiculo = '" + tipo_vehiculo + "', precio ='" + precio + "', cantidad_personas = '" + cantidad_personas  + "'", conexion);
+            NpgsqlCommand cmd = new NpgsqlCommand("UPDATE vehiculos SET marca = '" + marca + "', modelo = '" + modelo + "', tipo_vehiculo ='" + tipo_vehiculo + "', precio = '" + precio + "', cantidad_personas = '" + cantidad_personas + "' WHERE placa = '" + placa + "'", conexion);
             cmd.ExecuteNonQuery();
             conexion.Close();
         }
 
-        public void EliminarDatosVehiculos(string marca)
+        public void EliminarDatosVehiculos(int placa)
         {
             Conexion();
             conexion.Open();
-            NpgsqlCommand cmd = new NpgsqlCommand("DELETE FROM vehiculos WHERE marca = '" + marca + "'", conexion);
+            NpgsqlCommand cmd = new NpgsqlCommand("DELETE FROM vehiculos WHERE placa = '" + placa + "'", conexion);
             cmd.ExecuteNonQuery();
             conexion.Close();
         }

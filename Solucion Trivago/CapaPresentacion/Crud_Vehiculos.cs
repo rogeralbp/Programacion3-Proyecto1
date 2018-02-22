@@ -28,10 +28,10 @@ namespace CapaPresentacion
             this.CenterToScreen();
 
             //Llena el combo con las placas de los vehiculos
-            metodo.LlenarCombo1IdentificadorVehiculos(comboVehiculos);
+            metodo.LlenarCombo1IdentificadorVehiculos(comboVehiculosModificar);
 
             //Llena el combo del TAB de eliminar Vehiculos 
-            metodo.LlenarCombo1IdentificadorVehiculos(ComboPlacas);
+            metodo.LlenarCombo1IdentificadorVehiculos(ComboPlacasEliminar);
 
 
         }
@@ -65,7 +65,7 @@ namespace CapaPresentacion
         private void comboBox4_SelectedIndexChanged(object sender, EventArgs e)
         {
             btnGuardarCambios.Enabled = true;
-            metodo.Combo2Vehiculos(comboVehiculos, txtMarca, txtModelo, txtTipo, txtPre, txtCantida);
+            metodo.Combo2Vehiculos(comboVehiculosModificar, txtMarca, txtModelo, txtTipo, txtPre, txtCantida);
 
         }
 
@@ -84,7 +84,7 @@ namespace CapaPresentacion
         private void comboBox5_SelectedIndexChanged(object sender, EventArgs e)
         {
             btnEliminarVehiculo.Enabled = true;
-            metodo.Combo2Vehiculos(ComboPlacas, textBoxMarcaActual, textBoxModeloActual, textBoxTipoActual, textBoxPrecioActual, textBoxCantidadActual);
+            metodo.Combo2Vehiculos(ComboPlacasEliminar, textBoxMarcaActual, textBoxModeloActual, textBoxTipoActual, textBoxPrecioActual, textBoxCantidadActual);
 
         }
 
@@ -119,6 +119,8 @@ namespace CapaPresentacion
                 MessageBox.Show("Vehiculo Insertado con Exito");
 
                 LImpiarCampos();
+                //Metodo para llenar el DataGridView con informacion de la tabla de vehiculos
+                metodo.LlenarDtVehiculos(TablaVehiculos);
 
 
             }
@@ -139,9 +141,13 @@ namespace CapaPresentacion
         {
             double castear = Convert.ToDouble(this.txtNuevoPrecio.Text);
             int castear2 = Convert.ToInt16(this.txtNuevaCantidad.Text);
+            int placa = int.Parse(this.comboVehiculosModificar.SelectedItem.ToString());
 
             
-            conectar.ModificarDatosVehiculo(ComboMarcaNueva.Text, comboModeloNuevo.Text, comboTipoNuevo.Text, castear , castear2 );
+            conectar.ModificarDatosVehiculo(placa ,ComboMarcaNueva.Text, comboModeloNuevo.Text, comboTipoNuevo.Text, castear , castear2 );
+            MessageBox.Show("Vehiculo Modificado");
+            //Metodo para llenar el DataGridView con informacion de la tabla de vehiculos
+            metodo.LlenarDtVehiculos(TablaVehiculos);
         }
 
         private void textBox9_TextChanged(object sender, EventArgs e)
@@ -167,10 +173,15 @@ namespace CapaPresentacion
         private void btnEliminarVehiculo_Click(object sender, EventArgs e)
         {
             //Boton y Metodo  Eliminar Vehiculo
-            conectar.EliminarDatosVehiculos(textBoxMarcaActual.Text);
+            int placas_eliminar = int.Parse(this.ComboPlacasEliminar.SelectedItem.ToString());
+            conectar.EliminarDatosVehiculos(placas_eliminar);
             MessageBox.Show("Vehiculo Eliminado");
             Limpiar();
+            //Metodo para llenar el DataGridView con informacion de la tabla de vehiculos
+            metodo.LlenarDtVehiculos(TablaVehiculos);
         }
+
+
 
         private void Crud_Vehiculos_Load(object sender, EventArgs e)
         {
