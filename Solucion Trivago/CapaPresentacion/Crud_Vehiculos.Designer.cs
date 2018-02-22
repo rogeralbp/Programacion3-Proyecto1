@@ -45,7 +45,7 @@
             this.txtPre = new System.Windows.Forms.TextBox();
             this.txtCantida = new System.Windows.Forms.TextBox();
             this.txtMarca = new System.Windows.Forms.TextBox();
-            this.comboVehiculos = new System.Windows.Forms.ComboBox();
+            this.comboVehiculosModificar = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -81,7 +81,7 @@
             this.label20 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
-            this.ComboPlacas = new System.Windows.Forms.ComboBox();
+            this.ComboPlacasEliminar = new System.Windows.Forms.ComboBox();
             this.button6 = new System.Windows.Forms.Button();
             this.btnEliminarVehiculo = new System.Windows.Forms.Button();
             this.tabPage4 = new System.Windows.Forms.TabPage();
@@ -125,7 +125,7 @@
             this.tabPage1.Controls.Add(this.txtPre);
             this.tabPage1.Controls.Add(this.txtCantida);
             this.tabPage1.Controls.Add(this.txtMarca);
-            this.tabPage1.Controls.Add(this.comboVehiculos);
+            this.tabPage1.Controls.Add(this.comboVehiculosModificar);
             this.tabPage1.Controls.Add(this.label13);
             this.tabPage1.Controls.Add(this.label12);
             this.tabPage1.Controls.Add(this.label11);
@@ -281,15 +281,15 @@
             this.txtMarca.Size = new System.Drawing.Size(179, 20);
             this.txtMarca.TabIndex = 12;
             // 
-            // comboVehiculos
+            // comboVehiculosModificar
             // 
-            this.comboVehiculos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboVehiculos.FormattingEnabled = true;
-            this.comboVehiculos.Location = new System.Drawing.Point(367, 16);
-            this.comboVehiculos.Name = "comboVehiculos";
-            this.comboVehiculos.Size = new System.Drawing.Size(179, 21);
-            this.comboVehiculos.TabIndex = 11;
-            this.comboVehiculos.SelectedIndexChanged += new System.EventHandler(this.comboBox4_SelectedIndexChanged);
+            this.comboVehiculosModificar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboVehiculosModificar.FormattingEnabled = true;
+            this.comboVehiculosModificar.Location = new System.Drawing.Point(367, 16);
+            this.comboVehiculosModificar.Name = "comboVehiculosModificar";
+            this.comboVehiculosModificar.Size = new System.Drawing.Size(179, 21);
+            this.comboVehiculosModificar.TabIndex = 11;
+            this.comboVehiculosModificar.SelectedIndexChanged += new System.EventHandler(this.comboBox4_SelectedIndexChanged);
             // 
             // label13
             // 
@@ -540,7 +540,7 @@
             this.tabPage3.Controls.Add(this.label20);
             this.tabPage3.Controls.Add(this.label19);
             this.tabPage3.Controls.Add(this.label18);
-            this.tabPage3.Controls.Add(this.ComboPlacas);
+            this.tabPage3.Controls.Add(this.ComboPlacasEliminar);
             this.tabPage3.Controls.Add(this.button6);
             this.tabPage3.Controls.Add(this.btnEliminarVehiculo);
             this.tabPage3.Location = new System.Drawing.Point(4, 25);
@@ -646,15 +646,15 @@
             this.label18.TabIndex = 13;
             this.label18.Text = "Identificador:";
             // 
-            // ComboPlacas
+            // ComboPlacasEliminar
             // 
-            this.ComboPlacas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ComboPlacas.FormattingEnabled = true;
-            this.ComboPlacas.Location = new System.Drawing.Point(353, 30);
-            this.ComboPlacas.Name = "ComboPlacas";
-            this.ComboPlacas.Size = new System.Drawing.Size(291, 24);
-            this.ComboPlacas.TabIndex = 12;
-            this.ComboPlacas.SelectedIndexChanged += new System.EventHandler(this.comboBox5_SelectedIndexChanged);
+            this.ComboPlacasEliminar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ComboPlacasEliminar.FormattingEnabled = true;
+            this.ComboPlacasEliminar.Location = new System.Drawing.Point(353, 30);
+            this.ComboPlacasEliminar.Name = "ComboPlacasEliminar";
+            this.ComboPlacasEliminar.Size = new System.Drawing.Size(291, 24);
+            this.ComboPlacasEliminar.TabIndex = 12;
+            this.ComboPlacasEliminar.SelectedIndexChanged += new System.EventHandler(this.comboBox5_SelectedIndexChanged);
             // 
             // button6
             // 
@@ -753,14 +753,14 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtMarca;
-        private System.Windows.Forms.ComboBox comboVehiculos;
+        private System.Windows.Forms.ComboBox comboVehiculosModificar;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox ComboPlacas;
+        private System.Windows.Forms.ComboBox ComboPlacasEliminar;
         private System.Windows.Forms.TextBox txtTipo;
         private System.Windows.Forms.TextBox txtPre;
         private System.Windows.Forms.TextBox txtCantida;
