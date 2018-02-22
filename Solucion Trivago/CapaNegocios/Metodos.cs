@@ -617,6 +617,39 @@ namespace CapaNegocios
 
 
 
+        //Metodo que llena el combobox de nombres  de rutas
+        public void ComboNombreRuta(ComboBox identificador)
+        {
+
+            try
+            {
+                Conexion();
+                conexion.Open();
+                List<String> lista = new List<String>();
+                NpgsqlCommand cmd = new NpgsqlCommand("SELECT nombre FROM pais", conexion);
+                NpgsqlDataReader dr = cmd.ExecuteReader();
+                if (dr.HasRows)
+                {
+                    while (dr.Read())
+                    {
+                        identificador.Items.Add(dr.GetString(0));
+                    }
+                }
+                conexion.Close();
+
+
+            }
+            catch (Exception error)
+            {
+                Console.WriteLine(error);
+
+            }
+
+
+        }
+
+
+
 
         public void MostrarInformacionRutas(ComboBox id_rutas, TextBox pais_origen, TextBox pais_destino, TextBox cantidad)
         {
@@ -646,7 +679,69 @@ namespace CapaNegocios
             }
 
         }
+
+        //Metodo que llena el combobox de indentificadores de vuelos
+        public void ComboIDVuelos(ComboBox identificador)
+        {
+
+            try
+            {
+                Conexion();
+                conexion.Open();
+                List<String> lista = new List<String>();
+                NpgsqlCommand cmd = new NpgsqlCommand("SELECT identificador_tarifa FROM tarifas_vuelos", conexion);
+                NpgsqlDataReader dr = cmd.ExecuteReader();
+                if (dr.HasRows)
+                {
+                    while (dr.Read())
+                    {
+                        identificador.Items.Add(dr.GetInt64(0));
+                    }
+                }
+                conexion.Close();
+
+
+            }
+            catch (Exception error)
+            {
+                Console.WriteLine(error);
+
+            }
+
+
+        }
+
+
+
+
+        public void MostrarInformacionVuelos(ComboBox id_rutas, TextBox ruta, TextBox precio)
+        {
+            try
+            {
+                Conexion();
+                conexion.Open();
+                NpgsqlCommand cmd = new NpgsqlCommand("SELECT ruta , precio  FROM tarifas_vuelos WHERE identificador_tarifa = '" + id_rutas.SelectedItem.ToString() + "'", conexion);
+                NpgsqlDataReader leer = cmd.ExecuteReader();
+                if (leer.HasRows)
+                {
+                    while (leer.Read())
+                    {
+                        ruta.Text = leer.GetString(0);
+                        precio.Text = leer.GetDouble(1).ToString();
+
+
+                    }
+                    conexion.Close();
+
+                }
+            }
+            catch (Exception error)
+            {
+                Console.WriteLine(error);
+            }
+
+        }
+
+
     }
-
-
 }

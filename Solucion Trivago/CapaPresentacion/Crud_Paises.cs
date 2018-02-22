@@ -17,8 +17,8 @@ namespace CapaPresentacion
     
     public partial class Crud_Paises : Form
     {
-        string dir;
-        string dir3;
+        string bandera;
+        string banderas;
 
         Conexiones_Base_Datos conectar = new Conexiones_Base_Datos();
         Metodos metodos = new Metodos();
@@ -86,7 +86,7 @@ namespace CapaPresentacion
             {
                 int identificador = int.Parse(txtIDPaisNuevo.Text);
                 string nombre = txtNombrePaisNuevo.Text;
-                conectar.InsertarDatosPaises(identificador, nombre, dir);
+                conectar.InsertarDatosPaises(identificador, nombre, bandera);
                 MessageBox.Show("Se registro el Pais con exito");
 
 
@@ -130,8 +130,8 @@ namespace CapaPresentacion
 
             if (op.ShowDialog() == DialogResult.OK)
             {
-                dir = op.FileName;
-                Bitmap foto = new Bitmap(dir);
+                bandera = op.FileName;
+                Bitmap foto = new Bitmap(bandera);
 
                 pictureBox1.Image = (Image)foto;
             }
@@ -145,8 +145,8 @@ namespace CapaPresentacion
 
             if (op.ShowDialog() == DialogResult.OK)
             {
-                dir3 = op.FileName;
-                Bitmap foto = new Bitmap(dir3);
+                banderas = op.FileName;
+                Bitmap foto = new Bitmap(banderas);
                 pictureBox1.Image = (Image)foto;
             }
         }
