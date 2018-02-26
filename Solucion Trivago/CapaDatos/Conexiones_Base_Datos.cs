@@ -459,6 +459,7 @@ namespace CapaDatos
         public void ModificarDatosAerolineas(string identificadorAer, string nombreAer)
         {
             {
+
                 Conexion();
                 conexion.Open();
                 NpgsqlCommand cmd = new NpgsqlCommand("UPDATE aerolineas SET nombre ='"+nombreAer+"' WHERE identificador='"+identificadorAer+"'", conexion);
