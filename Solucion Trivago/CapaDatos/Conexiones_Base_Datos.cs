@@ -270,7 +270,6 @@ namespace CapaDatos
         {
             Conexion();
             conexion.Open();
-            cmd = new NpgsqlCommand("INSERT INTO paises (identificador, nombre , direccion) VALUES ('" + identificador + "', '" + nombre + "', '" + direccion + "')", conexion);
 
             cmd = new NpgsqlCommand("INSERT INTO pais(identificador, nombre , direccion) VALUES ('" + identificador + "', '" + nombre + "', '" + direccion + "')", conexion);
 
@@ -283,7 +282,7 @@ namespace CapaDatos
         {
             Conexion();
             conexion.Open();
-            NpgsqlCommand cmd = new NpgsqlCommand("DELETE FROM  paises WHERE identificador = '" + identificador + "'", conexion);            cmd.ExecuteNonQuery();
+            NpgsqlCommand cmd = new NpgsqlCommand("DELETE FROM  pais WHERE identificador = '" + identificador + "'", conexion);            cmd.ExecuteNonQuery();
             conexion.Close();
         }
 
@@ -294,7 +293,7 @@ namespace CapaDatos
             {
                 Conexion();
                 conexion.Open();
-                NpgsqlCommand cmd = new NpgsqlCommand("UPDATE paises SET identificador = '" + identificador + "', nombre = '" + nombre + "', direccion = '" + direccion + "' WHERE nombre = '" + nombre + "'", conexion);
+                NpgsqlCommand cmd = new NpgsqlCommand("UPDATE pais SET identificador = '" + identificador + "', nombre = '" + nombre + "', direccion = '" + direccion + "' WHERE nombre = '" + nombre + "'", conexion);
                 cmd.ExecuteNonQuery();
                 conexion.Close();
             }
