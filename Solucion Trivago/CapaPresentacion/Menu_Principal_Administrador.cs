@@ -90,5 +90,12 @@ namespace CapaPresentacion
             Crud_Paises v = new Crud_Paises();
             v.Show();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Crud_Aerolineas v = new Crud_Aerolineas();
+            v.Show();
+        }
     }
 }

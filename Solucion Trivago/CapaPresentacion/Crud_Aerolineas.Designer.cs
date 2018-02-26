@@ -30,30 +30,30 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtNNuevo = new System.Windows.Forms.TextBox();
+            this.txtIDNuevo = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.btnGuardarCambios = new System.Windows.Forms.Button();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtNuevoNombreModificar = new System.Windows.Forms.TextBox();
+            this.txtNombreActual = new System.Windows.Forms.TextBox();
+            this.txtIDActual = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBoxIDSA = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.btnEliminarAerolinea = new System.Windows.Forms.Button();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.txtNombreEliminar = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.txtIDEliminar = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.comboIDSElmiminar = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
             this.tabPage4 = new System.Windows.Forms.TabPage();
@@ -79,11 +79,12 @@
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(712, 489);
             this.tabControl1.TabIndex = 0;
+            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabPage3_Click);
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.textBox2);
-            this.tabPage1.Controls.Add(this.textBox1);
+            this.tabPage1.Controls.Add(this.txtNNuevo);
+            this.tabPage1.Controls.Add(this.txtIDNuevo);
             this.tabPage1.Controls.Add(this.button2);
             this.tabPage1.Controls.Add(this.button1);
             this.tabPage1.Controls.Add(this.label2);
@@ -97,19 +98,19 @@
             this.tabPage1.Text = "Agregar Aerolínea";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // textBox2
+            // txtNNuevo
             // 
-            this.textBox2.Location = new System.Drawing.Point(182, 106);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(402, 20);
-            this.textBox2.TabIndex = 5;
+            this.txtNNuevo.Location = new System.Drawing.Point(182, 106);
+            this.txtNNuevo.Name = "txtNNuevo";
+            this.txtNNuevo.Size = new System.Drawing.Size(402, 20);
+            this.txtNNuevo.TabIndex = 5;
             // 
-            // textBox1
+            // txtIDNuevo
             // 
-            this.textBox1.Location = new System.Drawing.Point(182, 33);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(402, 20);
-            this.textBox1.TabIndex = 4;
+            this.txtIDNuevo.Location = new System.Drawing.Point(182, 33);
+            this.txtIDNuevo.Name = "txtIDNuevo";
+            this.txtIDNuevo.Size = new System.Drawing.Size(402, 20);
+            this.txtIDNuevo.TabIndex = 4;
             // 
             // button2
             // 
@@ -154,11 +155,11 @@
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.btnGuardarCambios);
-            this.tabPage2.Controls.Add(this.textBox5);
-            this.tabPage2.Controls.Add(this.textBox4);
-            this.tabPage2.Controls.Add(this.textBox3);
+            this.tabPage2.Controls.Add(this.txtNuevoNombreModificar);
+            this.tabPage2.Controls.Add(this.txtNombreActual);
+            this.tabPage2.Controls.Add(this.txtIDActual);
             this.tabPage2.Controls.Add(this.label6);
-            this.tabPage2.Controls.Add(this.comboBox1);
+            this.tabPage2.Controls.Add(this.comboBoxIDSA);
             this.tabPage2.Controls.Add(this.label5);
             this.tabPage2.Controls.Add(this.label4);
             this.tabPage2.Controls.Add(this.label3);
@@ -181,30 +182,31 @@
             this.btnGuardarCambios.TabIndex = 12;
             this.btnGuardarCambios.Text = "Guardar Cambios";
             this.btnGuardarCambios.UseVisualStyleBackColor = true;
+            this.btnGuardarCambios.Click += new System.EventHandler(this.btnGuardarCambios_Click);
             // 
-            // textBox5
+            // txtNuevoNombreModificar
             // 
-            this.textBox5.Enabled = false;
-            this.textBox5.Location = new System.Drawing.Point(205, 233);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(428, 26);
-            this.textBox5.TabIndex = 11;
+            this.txtNuevoNombreModificar.Enabled = false;
+            this.txtNuevoNombreModificar.Location = new System.Drawing.Point(205, 233);
+            this.txtNuevoNombreModificar.Name = "txtNuevoNombreModificar";
+            this.txtNuevoNombreModificar.Size = new System.Drawing.Size(428, 26);
+            this.txtNuevoNombreModificar.TabIndex = 11;
             // 
-            // textBox4
+            // txtNombreActual
             // 
-            this.textBox4.Enabled = false;
-            this.textBox4.Location = new System.Drawing.Point(205, 159);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(428, 26);
-            this.textBox4.TabIndex = 10;
+            this.txtNombreActual.Enabled = false;
+            this.txtNombreActual.Location = new System.Drawing.Point(205, 159);
+            this.txtNombreActual.Name = "txtNombreActual";
+            this.txtNombreActual.Size = new System.Drawing.Size(428, 26);
+            this.txtNombreActual.TabIndex = 10;
             // 
-            // textBox3
+            // txtIDActual
             // 
-            this.textBox3.Enabled = false;
-            this.textBox3.Location = new System.Drawing.Point(205, 99);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(428, 26);
-            this.textBox3.TabIndex = 9;
+            this.txtIDActual.Enabled = false;
+            this.txtIDActual.Location = new System.Drawing.Point(205, 99);
+            this.txtIDActual.Name = "txtIDActual";
+            this.txtIDActual.Size = new System.Drawing.Size(428, 26);
+            this.txtIDActual.TabIndex = 9;
             // 
             // label6
             // 
@@ -215,15 +217,15 @@
             this.label6.TabIndex = 8;
             this.label6.Text = "Identificador Actual:";
             // 
-            // comboBox1
+            // comboBoxIDSA
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(205, 29);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(428, 28);
-            this.comboBox1.TabIndex = 7;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.comboBoxIDSA.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxIDSA.FormattingEnabled = true;
+            this.comboBoxIDSA.Location = new System.Drawing.Point(205, 29);
+            this.comboBoxIDSA.Name = "comboBoxIDSA";
+            this.comboBoxIDSA.Size = new System.Drawing.Size(428, 28);
+            this.comboBoxIDSA.TabIndex = 7;
+            this.comboBoxIDSA.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // label5
             // 
@@ -265,11 +267,11 @@
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.btnEliminarAerolinea);
-            this.tabPage3.Controls.Add(this.textBox7);
+            this.tabPage3.Controls.Add(this.txtNombreEliminar);
             this.tabPage3.Controls.Add(this.label9);
-            this.tabPage3.Controls.Add(this.textBox6);
+            this.tabPage3.Controls.Add(this.txtIDEliminar);
             this.tabPage3.Controls.Add(this.label8);
-            this.tabPage3.Controls.Add(this.comboBox2);
+            this.tabPage3.Controls.Add(this.comboIDSElmiminar);
             this.tabPage3.Controls.Add(this.label7);
             this.tabPage3.Controls.Add(this.button4);
             this.tabPage3.Location = new System.Drawing.Point(4, 25);
@@ -288,14 +290,15 @@
             this.btnEliminarAerolinea.TabIndex = 13;
             this.btnEliminarAerolinea.Text = "Eliminar Aerolinea";
             this.btnEliminarAerolinea.UseVisualStyleBackColor = true;
+            this.btnEliminarAerolinea.Click += new System.EventHandler(this.btnEliminarAerolinea_Click);
             // 
-            // textBox7
+            // txtNombreEliminar
             // 
-            this.textBox7.Enabled = false;
-            this.textBox7.Location = new System.Drawing.Point(221, 187);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(392, 22);
-            this.textBox7.TabIndex = 12;
+            this.txtNombreEliminar.Enabled = false;
+            this.txtNombreEliminar.Location = new System.Drawing.Point(221, 187);
+            this.txtNombreEliminar.Name = "txtNombreEliminar";
+            this.txtNombreEliminar.Size = new System.Drawing.Size(392, 22);
+            this.txtNombreEliminar.TabIndex = 12;
             // 
             // label9
             // 
@@ -306,13 +309,13 @@
             this.label9.TabIndex = 11;
             this.label9.Text = "Nombre Actual:";
             // 
-            // textBox6
+            // txtIDEliminar
             // 
-            this.textBox6.Enabled = false;
-            this.textBox6.Location = new System.Drawing.Point(221, 117);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(392, 22);
-            this.textBox6.TabIndex = 10;
+            this.txtIDEliminar.Enabled = false;
+            this.txtIDEliminar.Location = new System.Drawing.Point(221, 117);
+            this.txtIDEliminar.Name = "txtIDEliminar";
+            this.txtIDEliminar.Size = new System.Drawing.Size(392, 22);
+            this.txtIDEliminar.TabIndex = 10;
             // 
             // label8
             // 
@@ -323,15 +326,15 @@
             this.label8.TabIndex = 9;
             this.label8.Text = "Identificador Actual:";
             // 
-            // comboBox2
+            // comboIDSElmiminar
             // 
-            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(221, 37);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(428, 24);
-            this.comboBox2.TabIndex = 8;
-            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+            this.comboIDSElmiminar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboIDSElmiminar.FormattingEnabled = true;
+            this.comboIDSElmiminar.Location = new System.Drawing.Point(221, 37);
+            this.comboIDSElmiminar.Name = "comboIDSElmiminar";
+            this.comboIDSElmiminar.Size = new System.Drawing.Size(392, 24);
+            this.comboIDSElmiminar.TabIndex = 8;
+            this.comboIDSElmiminar.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
             // label7
             // 
@@ -389,6 +392,7 @@
             this.Controls.Add(this.tabControl1);
             this.Name = "Crud_Aerolineas";
             this.Text = "Crud_Aerolineas";
+            this.Load += new System.EventHandler(this.Crud_Aerolineas_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
@@ -414,23 +418,23 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtNNuevo;
+        private System.Windows.Forms.TextBox txtIDNuevo;
         private System.Windows.Forms.Button btnGuardarCambios;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtNuevoNombreModificar;
+        private System.Windows.Forms.TextBox txtNombreActual;
+        private System.Windows.Forms.TextBox txtIDActual;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBoxIDSA;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnEliminarAerolinea;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox txtNombreEliminar;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox txtIDEliminar;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox comboIDSElmiminar;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.Button button7;

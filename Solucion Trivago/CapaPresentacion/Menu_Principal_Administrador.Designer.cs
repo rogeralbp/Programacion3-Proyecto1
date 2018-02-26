@@ -40,12 +40,14 @@
             this.button1 = new System.Windows.Forms.Button();
             this.nombreUsuarioVer = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnCrud_Vehiculos
             // 
-            this.btnCrud_Vehiculos.Location = new System.Drawing.Point(189, 108);
+            this.btnCrud_Vehiculos.Location = new System.Drawing.Point(189, 68);
             this.btnCrud_Vehiculos.Name = "btnCrud_Vehiculos";
             this.btnCrud_Vehiculos.Size = new System.Drawing.Size(173, 23);
             this.btnCrud_Vehiculos.TabIndex = 0;
@@ -55,7 +57,7 @@
             // 
             // btnCrud_Aeropuerto
             // 
-            this.btnCrud_Aeropuerto.Location = new System.Drawing.Point(189, 162);
+            this.btnCrud_Aeropuerto.Location = new System.Drawing.Point(189, 133);
             this.btnCrud_Aeropuerto.Name = "btnCrud_Aeropuerto";
             this.btnCrud_Aeropuerto.Size = new System.Drawing.Size(173, 23);
             this.btnCrud_Aeropuerto.TabIndex = 1;
@@ -65,7 +67,7 @@
             // 
             // btnCrud_Hoteles
             // 
-            this.btnCrud_Hoteles.Location = new System.Drawing.Point(189, 216);
+            this.btnCrud_Hoteles.Location = new System.Drawing.Point(189, 203);
             this.btnCrud_Hoteles.Name = "btnCrud_Hoteles";
             this.btnCrud_Hoteles.Size = new System.Drawing.Size(173, 23);
             this.btnCrud_Hoteles.TabIndex = 2;
@@ -75,7 +77,7 @@
             // 
             // btnCrud_Paises
             // 
-            this.btnCrud_Paises.Location = new System.Drawing.Point(189, 276);
+            this.btnCrud_Paises.Location = new System.Drawing.Point(189, 284);
             this.btnCrud_Paises.Name = "btnCrud_Paises";
             this.btnCrud_Paises.Size = new System.Drawing.Size(173, 23);
             this.btnCrud_Paises.TabIndex = 3;
@@ -85,7 +87,7 @@
             // 
             // btnCrudLugares
             // 
-            this.btnCrudLugares.Location = new System.Drawing.Point(460, 216);
+            this.btnCrudLugares.Location = new System.Drawing.Point(460, 203);
             this.btnCrudLugares.Name = "btnCrudLugares";
             this.btnCrudLugares.Size = new System.Drawing.Size(179, 23);
             this.btnCrudLugares.TabIndex = 4;
@@ -95,7 +97,7 @@
             // 
             // btnCrudRutas
             // 
-            this.btnCrudRutas.Location = new System.Drawing.Point(460, 276);
+            this.btnCrudRutas.Location = new System.Drawing.Point(460, 284);
             this.btnCrudRutas.Name = "btnCrudRutas";
             this.btnCrudRutas.Size = new System.Drawing.Size(179, 23);
             this.btnCrudRutas.TabIndex = 6;
@@ -105,7 +107,7 @@
             // 
             // btnCrud_TarifasH
             // 
-            this.btnCrud_TarifasH.Location = new System.Drawing.Point(460, 162);
+            this.btnCrud_TarifasH.Location = new System.Drawing.Point(460, 133);
             this.btnCrud_TarifasH.Name = "btnCrud_TarifasH";
             this.btnCrud_TarifasH.Size = new System.Drawing.Size(179, 23);
             this.btnCrud_TarifasH.TabIndex = 7;
@@ -115,7 +117,7 @@
             // 
             // btnCrudTarifasV
             // 
-            this.btnCrudTarifasV.Location = new System.Drawing.Point(460, 108);
+            this.btnCrudTarifasV.Location = new System.Drawing.Point(460, 68);
             this.btnCrudTarifasV.Name = "btnCrudTarifasV";
             this.btnCrudTarifasV.Size = new System.Drawing.Size(179, 23);
             this.btnCrudTarifasV.TabIndex = 8;
@@ -125,7 +127,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(687, 389);
+            this.button1.Location = new System.Drawing.Point(687, 452);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(123, 23);
             this.button1.TabIndex = 9;
@@ -150,11 +152,32 @@
             this.pictureBox1.TabIndex = 11;
             this.pictureBox1.TabStop = false;
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(460, 370);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(179, 23);
+            this.button2.TabIndex = 12;
+            this.button2.Text = "Reportes";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(189, 370);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(173, 23);
+            this.button3.TabIndex = 13;
+            this.button3.Text = "Mantenimiento Aerolineas";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // Menu_Principal_Administrador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(822, 451);
+            this.ClientSize = new System.Drawing.Size(822, 487);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.nombreUsuarioVer);
             this.Controls.Add(this.button1);
@@ -188,5 +211,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label nombreUsuarioVer;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
     }
 }

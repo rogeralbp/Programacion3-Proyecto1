@@ -29,5 +29,10 @@ namespace CapaPresentacion
             Menu_Principal_Usuarios v = new Menu_Principal_Usuarios();
             v.Show();
         }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

@@ -23,7 +23,6 @@ namespace CapaPresentacion
 
         private void Seccion_Vuelos_Load(object sender, EventArgs e)
         {
-          
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -79,7 +78,7 @@ namespace CapaPresentacion
             }
             else {
 
-                MessageBox.Show("Se ha confirmado tu Reservacion solo con el Vuelo ");
+                MessageBox.Show("Se ha confirmado tu Reservacion solo con el Vuelo Pasajeros "+spinnerCantidadPasajerosAdultos.Value.ToString()+" Psajeros Niños "+spinnerCantidadPasajerosNiños.Value.ToString());
             }
         }
 
@@ -118,6 +117,11 @@ namespace CapaPresentacion
             TimeSpan ts = f2 - f1;
             int cantidadDias = ts.Days;
             labelCantidadDias.Text += cantidadDias.ToString();
+        }
+
+        private void spinnerCantidadPasajerosNiños_ValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
