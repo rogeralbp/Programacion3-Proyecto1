@@ -272,19 +272,18 @@ namespace CapaDatos
         {
             Conexion();
             conexion.Open();
-            cmd = new NpgsqlCommand("INSERT INTO pais (identificador, nombre , direccion) VALUES ('" + identificador + "', '" + nombre + "', '" + direccion + "')", conexion);
+            cmd = new NpgsqlCommand("INSERT INTO paises (identificador, nombre , direccion) VALUES ('" + identificador + "', '" + nombre + "', '" + direccion + "')", conexion);
             cmd.ExecuteNonQuery();
             conexion.Close();
 
         }
 
 
-        public void EliminarDatosPaises(string nombre)
+        public void EliminarDatosPaises(int identificador)
         {
             Conexion();
             conexion.Open();
-            NpgsqlCommand cmd = new NpgsqlCommand("DELETE FROM  pais WHERE nombre = '" + nombre + "'", conexion);
-            cmd.ExecuteNonQuery();
+            NpgsqlCommand cmd = new NpgsqlCommand("DELETE FROM  paises WHERE identificador = '" + identificador + "'", conexion);            cmd.ExecuteNonQuery();
             conexion.Close();
         }
 
@@ -295,12 +294,44 @@ namespace CapaDatos
             {
                 Conexion();
                 conexion.Open();
-                NpgsqlCommand cmd = new NpgsqlCommand("UPDATE pais SET identificador = '" + identificador + "', nombre = '" + nombre + "', direccion = '" + direccion + "' WHERE nombre = '" + nombre + "'", conexion);
+                NpgsqlCommand cmd = new NpgsqlCommand("UPDATE paises SET identificador = '" + identificador + "', nombre = '" + nombre + "', direccion = '" + direccion + "' WHERE nombre = '" + nombre + "'", conexion);
                 cmd.ExecuteNonQuery();
                 conexion.Close();
             }
 
         }
+
+
+        public void InsertarHotel(int identificador, string nombre_hotel, string foto_hotel, string pais, string lugar, int habitaciones)
+        {
+            Conexion();
+            conexion.Open();
+            cmd = new NpgsqlCommand("INSERT INTO hotel (identificador , nombre, foto , pais, lugar, habitaciones) VALUES ('" +identificador + "', '" + nombre_hotel + "', '" + foto_hotel + "', '" + pais + "', '" + lugar + "', '" + habitaciones + "')", conexion);
+            cmd.ExecuteNonQuery();
+            conexion.Close();
+        }
+
+
+        public void ModificarHotel(int identificador, string nombre_hotel, string pais, string lugar, int habitaciones)
+        {
+            Conexion();
+            conexion.Open();
+            NpgsqlCommand cmd = new NpgsqlCommand("UPDATE hotel SET nombre = '" + nombre_hotel + "', pais = '" + pais + "', lugar ='" + lugar + "', habitaciones = '" + habitaciones +  "' WHERE identificador = '" + identificador + "'", conexion);
+            cmd.ExecuteNonQuery();
+            conexion.Close();
+        }
+
+        public void EliminarHotel(int identificador)
+        {
+            Conexion();
+            conexion.Open();
+            NpgsqlCommand cmd = new NpgsqlCommand("DELETE FROM hotel WHERE identificador = '" + identificador + "'", conexion);
+            cmd.ExecuteNonQuery();
+            conexion.Close();
+        }
+
+
+
         /// <summary>
         /// Este metodo funciona para saber quien esta logeado
         /// en linea mejor dicho y a si saber la informacion

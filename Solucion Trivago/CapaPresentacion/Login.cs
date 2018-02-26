@@ -180,5 +180,10 @@ namespace CapaPresentacion
         {
             Application.Exit();
         }
+
+        private void txtCedulaLogin_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

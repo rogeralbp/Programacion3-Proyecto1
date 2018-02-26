@@ -30,13 +30,15 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.btnCargar_Foto = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.btnRegistrarHotel = new System.Windows.Forms.Button();
+            this.comboBoxPaises = new System.Windows.Forms.ComboBox();
+            this.comboBoxLugares = new System.Windows.Forms.ComboBox();
+            this.txtNombre = new System.Windows.Forms.TextBox();
+            this.txtHabitaciones = new System.Windows.Forms.TextBox();
+            this.txtIdentificador = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -45,19 +47,19 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.btnGuardarCambios = new System.Windows.Forms.Button();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.txtNuevasHabitaciones = new System.Windows.Forms.TextBox();
+            this.txtNuevoNombre = new System.Windows.Forms.TextBox();
+            this.comboNuevoLugar = new System.Windows.Forms.ComboBox();
+            this.comboNuevoPais = new System.Windows.Forms.ComboBox();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.txtHabitacionesActuales = new System.Windows.Forms.TextBox();
+            this.txtLugarActual = new System.Windows.Forms.TextBox();
+            this.txtPaisActual = new System.Windows.Forms.TextBox();
+            this.txtNombreActual = new System.Windows.Forms.TextBox();
+            this.comboBoxModifcarIdentificador = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -66,11 +68,11 @@
             this.button3 = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.btnEliminarHotel = new System.Windows.Forms.Button();
-            this.textBox13 = new System.Windows.Forms.TextBox();
-            this.textBox12 = new System.Windows.Forms.TextBox();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.comboBox6 = new System.Windows.Forms.ComboBox();
+            this.textHabitacionesActuales = new System.Windows.Forms.TextBox();
+            this.textLugarActual = new System.Windows.Forms.TextBox();
+            this.textPaisActual = new System.Windows.Forms.TextBox();
+            this.textNombreActual = new System.Windows.Forms.TextBox();
+            this.comboBoxEliminarIdentificador = new System.Windows.Forms.ComboBox();
             this.label20 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
@@ -78,14 +80,16 @@
             this.label16 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Tabla_Hoteles = new System.Windows.Forms.DataGridView();
             this.button7 = new System.Windows.Forms.Button();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.tabPage4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Tabla_Hoteles)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -103,13 +107,15 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.btnCargar_Foto);
+            this.tabPage1.Controls.Add(this.pictureBox1);
             this.tabPage1.Controls.Add(this.button2);
-            this.tabPage1.Controls.Add(this.button1);
-            this.tabPage1.Controls.Add(this.comboBox2);
-            this.tabPage1.Controls.Add(this.comboBox1);
-            this.tabPage1.Controls.Add(this.textBox3);
-            this.tabPage1.Controls.Add(this.textBox2);
-            this.tabPage1.Controls.Add(this.textBox1);
+            this.tabPage1.Controls.Add(this.btnRegistrarHotel);
+            this.tabPage1.Controls.Add(this.comboBoxPaises);
+            this.tabPage1.Controls.Add(this.comboBoxLugares);
+            this.tabPage1.Controls.Add(this.txtNombre);
+            this.tabPage1.Controls.Add(this.txtHabitaciones);
+            this.tabPage1.Controls.Add(this.txtIdentificador);
             this.tabPage1.Controls.Add(this.label6);
             this.tabPage1.Controls.Add(this.label5);
             this.tabPage1.Controls.Add(this.label4);
@@ -125,6 +131,25 @@
             this.tabPage1.UseVisualStyleBackColor = true;
             this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
             // 
+            // btnCargar_Foto
+            // 
+            this.btnCargar_Foto.Location = new System.Drawing.Point(465, 137);
+            this.btnCargar_Foto.Name = "btnCargar_Foto";
+            this.btnCargar_Foto.Size = new System.Drawing.Size(75, 23);
+            this.btnCargar_Foto.TabIndex = 14;
+            this.btnCargar_Foto.Text = ".........";
+            this.btnCargar_Foto.UseVisualStyleBackColor = true;
+            this.btnCargar_Foto.Click += new System.EventHandler(this.btnCargar_Foto_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(208, 137);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(250, 81);
+            this.pictureBox1.TabIndex = 13;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(706, 302);
@@ -135,55 +160,59 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button1
+            // btnRegistrarHotel
             // 
-            this.button1.Location = new System.Drawing.Point(679, 168);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(182, 42);
-            this.button1.TabIndex = 11;
-            this.button1.Text = "Registrar Hotel";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnRegistrarHotel.Location = new System.Drawing.Point(679, 168);
+            this.btnRegistrarHotel.Name = "btnRegistrarHotel";
+            this.btnRegistrarHotel.Size = new System.Drawing.Size(182, 42);
+            this.btnRegistrarHotel.TabIndex = 11;
+            this.btnRegistrarHotel.Text = "Registrar Hotel";
+            this.btnRegistrarHotel.UseVisualStyleBackColor = true;
+            this.btnRegistrarHotel.Click += new System.EventHandler(this.button1_Click);
             // 
-            // comboBox2
+            // comboBoxPaises
             // 
-            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(208, 228);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(372, 24);
-            this.comboBox2.TabIndex = 10;
-            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+            this.comboBoxPaises.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxPaises.FormattingEnabled = true;
+            this.comboBoxPaises.Location = new System.Drawing.Point(208, 228);
+            this.comboBoxPaises.Name = "comboBoxPaises";
+            this.comboBoxPaises.Size = new System.Drawing.Size(372, 24);
+            this.comboBoxPaises.TabIndex = 10;
+            this.comboBoxPaises.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
-            // comboBox1
+            // comboBoxLugares
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(208, 296);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(372, 24);
-            this.comboBox1.TabIndex = 9;
+            this.comboBoxLugares.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxLugares.FormattingEnabled = true;
+            this.comboBoxLugares.Location = new System.Drawing.Point(208, 296);
+            this.comboBoxLugares.Name = "comboBoxLugares";
+            this.comboBoxLugares.Size = new System.Drawing.Size(372, 24);
+            this.comboBoxLugares.TabIndex = 9;
             // 
-            // textBox3
+            // txtNombre
             // 
-            this.textBox3.Location = new System.Drawing.Point(208, 92);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(372, 22);
-            this.textBox3.TabIndex = 8;
+            this.txtNombre.Location = new System.Drawing.Point(208, 92);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(372, 22);
+            this.txtNombre.TabIndex = 8;
+            this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombre_KeyPress);
             // 
-            // textBox2
+            // txtHabitaciones
             // 
-            this.textBox2.Location = new System.Drawing.Point(208, 364);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(372, 22);
-            this.textBox2.TabIndex = 7;
+            this.txtHabitaciones.Location = new System.Drawing.Point(208, 364);
+            this.txtHabitaciones.Name = "txtHabitaciones";
+            this.txtHabitaciones.Size = new System.Drawing.Size(372, 22);
+            this.txtHabitaciones.TabIndex = 7;
+            this.txtHabitaciones.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtHabitaciones_KeyPress);
             // 
-            // textBox1
+            // txtIdentificador
             // 
-            this.textBox1.Location = new System.Drawing.Point(208, 26);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(372, 22);
-            this.textBox1.TabIndex = 6;
+            this.txtIdentificador.Location = new System.Drawing.Point(208, 26);
+            this.txtIdentificador.Name = "txtIdentificador";
+            this.txtIdentificador.Size = new System.Drawing.Size(372, 22);
+            this.txtIdentificador.TabIndex = 6;
+            this.txtIdentificador.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.txtIdentificador.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtIdentificador_KeyPress);
             // 
             // label6
             // 
@@ -245,19 +274,19 @@
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.btnGuardarCambios);
-            this.tabPage2.Controls.Add(this.textBox9);
-            this.tabPage2.Controls.Add(this.textBox8);
-            this.tabPage2.Controls.Add(this.comboBox5);
-            this.tabPage2.Controls.Add(this.comboBox4);
+            this.tabPage2.Controls.Add(this.txtNuevasHabitaciones);
+            this.tabPage2.Controls.Add(this.txtNuevoNombre);
+            this.tabPage2.Controls.Add(this.comboNuevoLugar);
+            this.tabPage2.Controls.Add(this.comboNuevoPais);
             this.tabPage2.Controls.Add(this.label15);
             this.tabPage2.Controls.Add(this.label14);
             this.tabPage2.Controls.Add(this.label13);
             this.tabPage2.Controls.Add(this.label12);
-            this.tabPage2.Controls.Add(this.textBox7);
-            this.tabPage2.Controls.Add(this.textBox6);
-            this.tabPage2.Controls.Add(this.textBox5);
-            this.tabPage2.Controls.Add(this.textBox4);
-            this.tabPage2.Controls.Add(this.comboBox3);
+            this.tabPage2.Controls.Add(this.txtHabitacionesActuales);
+            this.tabPage2.Controls.Add(this.txtLugarActual);
+            this.tabPage2.Controls.Add(this.txtPaisActual);
+            this.tabPage2.Controls.Add(this.txtNombreActual);
+            this.tabPage2.Controls.Add(this.comboBoxModifcarIdentificador);
             this.tabPage2.Controls.Add(this.label11);
             this.tabPage2.Controls.Add(this.label10);
             this.tabPage2.Controls.Add(this.label9);
@@ -283,38 +312,41 @@
             this.btnGuardarCambios.TabIndex = 32;
             this.btnGuardarCambios.Text = "Guardar Cambios";
             this.btnGuardarCambios.UseVisualStyleBackColor = true;
+            this.btnGuardarCambios.Click += new System.EventHandler(this.btnGuardarCambios_Click);
             // 
-            // textBox9
+            // txtNuevasHabitaciones
             // 
-            this.textBox9.Location = new System.Drawing.Point(647, 235);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(247, 26);
-            this.textBox9.TabIndex = 31;
+            this.txtNuevasHabitaciones.Location = new System.Drawing.Point(647, 235);
+            this.txtNuevasHabitaciones.Name = "txtNuevasHabitaciones";
+            this.txtNuevasHabitaciones.Size = new System.Drawing.Size(247, 26);
+            this.txtNuevasHabitaciones.TabIndex = 31;
+            this.txtNuevasHabitaciones.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNuevasHabitaciones_KeyPress);
             // 
-            // textBox8
+            // txtNuevoNombre
             // 
-            this.textBox8.Location = new System.Drawing.Point(620, 78);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(274, 26);
-            this.textBox8.TabIndex = 30;
+            this.txtNuevoNombre.Location = new System.Drawing.Point(620, 78);
+            this.txtNuevoNombre.Name = "txtNuevoNombre";
+            this.txtNuevoNombre.Size = new System.Drawing.Size(274, 26);
+            this.txtNuevoNombre.TabIndex = 30;
+            this.txtNuevoNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNuevoNombre_KeyPress);
             // 
-            // comboBox5
+            // comboNuevoLugar
             // 
-            this.comboBox5.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Location = new System.Drawing.Point(620, 178);
-            this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(274, 28);
-            this.comboBox5.TabIndex = 29;
+            this.comboNuevoLugar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboNuevoLugar.FormattingEnabled = true;
+            this.comboNuevoLugar.Location = new System.Drawing.Point(620, 178);
+            this.comboNuevoLugar.Name = "comboNuevoLugar";
+            this.comboNuevoLugar.Size = new System.Drawing.Size(274, 28);
+            this.comboNuevoLugar.TabIndex = 29;
             // 
-            // comboBox4
+            // comboNuevoPais
             // 
-            this.comboBox4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(620, 138);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(274, 28);
-            this.comboBox4.TabIndex = 28;
+            this.comboNuevoPais.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboNuevoPais.FormattingEnabled = true;
+            this.comboNuevoPais.Location = new System.Drawing.Point(620, 138);
+            this.comboNuevoPais.Name = "comboNuevoPais";
+            this.comboNuevoPais.Size = new System.Drawing.Size(274, 28);
+            this.comboNuevoPais.TabIndex = 28;
             // 
             // label15
             // 
@@ -352,47 +384,48 @@
             this.label12.TabIndex = 24;
             this.label12.Text = "Nuevo Nombre:";
             // 
-            // textBox7
+            // txtHabitacionesActuales
             // 
-            this.textBox7.Location = new System.Drawing.Point(184, 235);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(274, 26);
-            this.textBox7.TabIndex = 23;
+            this.txtHabitacionesActuales.Location = new System.Drawing.Point(184, 235);
+            this.txtHabitacionesActuales.Name = "txtHabitacionesActuales";
+            this.txtHabitacionesActuales.Size = new System.Drawing.Size(274, 26);
+            this.txtHabitacionesActuales.TabIndex = 23;
             // 
-            // textBox6
+            // txtLugarActual
             // 
-            this.textBox6.Enabled = false;
-            this.textBox6.Location = new System.Drawing.Point(167, 183);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(291, 26);
-            this.textBox6.TabIndex = 22;
+            this.txtLugarActual.Enabled = false;
+            this.txtLugarActual.Location = new System.Drawing.Point(167, 183);
+            this.txtLugarActual.Name = "txtLugarActual";
+            this.txtLugarActual.Size = new System.Drawing.Size(291, 26);
+            this.txtLugarActual.TabIndex = 22;
             // 
-            // textBox5
+            // txtPaisActual
             // 
-            this.textBox5.Enabled = false;
-            this.textBox5.Location = new System.Drawing.Point(167, 140);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(291, 26);
-            this.textBox5.TabIndex = 21;
+            this.txtPaisActual.Enabled = false;
+            this.txtPaisActual.Location = new System.Drawing.Point(167, 140);
+            this.txtPaisActual.Name = "txtPaisActual";
+            this.txtPaisActual.Size = new System.Drawing.Size(291, 26);
+            this.txtPaisActual.TabIndex = 21;
             // 
-            // textBox4
+            // txtNombreActual
             // 
-            this.textBox4.Enabled = false;
-            this.textBox4.Location = new System.Drawing.Point(167, 84);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(291, 26);
-            this.textBox4.TabIndex = 20;
-            this.textBox4.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
+            this.txtNombreActual.Enabled = false;
+            this.txtNombreActual.Location = new System.Drawing.Point(167, 84);
+            this.txtNombreActual.Name = "txtNombreActual";
+            this.txtNombreActual.Size = new System.Drawing.Size(291, 26);
+            this.txtNombreActual.TabIndex = 20;
+            this.txtNombreActual.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
+            this.txtNombreActual.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombreActual_KeyPress);
             // 
-            // comboBox3
+            // comboBoxModifcarIdentificador
             // 
-            this.comboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(167, 31);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(291, 28);
-            this.comboBox3.TabIndex = 19;
-            this.comboBox3.SelectedIndexChanged += new System.EventHandler(this.comboBox3_SelectedIndexChanged);
+            this.comboBoxModifcarIdentificador.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxModifcarIdentificador.FormattingEnabled = true;
+            this.comboBoxModifcarIdentificador.Location = new System.Drawing.Point(167, 31);
+            this.comboBoxModifcarIdentificador.Name = "comboBoxModifcarIdentificador";
+            this.comboBoxModifcarIdentificador.Size = new System.Drawing.Size(291, 28);
+            this.comboBoxModifcarIdentificador.TabIndex = 19;
+            this.comboBoxModifcarIdentificador.SelectedIndexChanged += new System.EventHandler(this.comboBox3_SelectedIndexChanged);
             // 
             // label11
             // 
@@ -452,11 +485,11 @@
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.btnEliminarHotel);
-            this.tabPage3.Controls.Add(this.textBox13);
-            this.tabPage3.Controls.Add(this.textBox12);
-            this.tabPage3.Controls.Add(this.textBox11);
-            this.tabPage3.Controls.Add(this.textBox10);
-            this.tabPage3.Controls.Add(this.comboBox6);
+            this.tabPage3.Controls.Add(this.textHabitacionesActuales);
+            this.tabPage3.Controls.Add(this.textLugarActual);
+            this.tabPage3.Controls.Add(this.textPaisActual);
+            this.tabPage3.Controls.Add(this.textNombreActual);
+            this.tabPage3.Controls.Add(this.comboBoxEliminarIdentificador);
             this.tabPage3.Controls.Add(this.label20);
             this.tabPage3.Controls.Add(this.label19);
             this.tabPage3.Controls.Add(this.label18);
@@ -480,48 +513,52 @@
             this.btnEliminarHotel.TabIndex = 25;
             this.btnEliminarHotel.Text = "Eliminar Hotel";
             this.btnEliminarHotel.UseVisualStyleBackColor = true;
+            this.btnEliminarHotel.Click += new System.EventHandler(this.btnEliminarHotel_Click);
             // 
-            // textBox13
+            // textHabitacionesActuales
             // 
-            this.textBox13.Location = new System.Drawing.Point(318, 304);
-            this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(215, 22);
-            this.textBox13.TabIndex = 24;
-            this.textBox13.TextChanged += new System.EventHandler(this.textBox13_TextChanged);
+            this.textHabitacionesActuales.Location = new System.Drawing.Point(318, 304);
+            this.textHabitacionesActuales.Name = "textHabitacionesActuales";
+            this.textHabitacionesActuales.Size = new System.Drawing.Size(215, 22);
+            this.textHabitacionesActuales.TabIndex = 24;
+            this.textHabitacionesActuales.TextChanged += new System.EventHandler(this.textBox13_TextChanged);
             // 
-            // textBox12
+            // textLugarActual
             // 
-            this.textBox12.Enabled = false;
-            this.textBox12.Location = new System.Drawing.Point(318, 231);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(291, 22);
-            this.textBox12.TabIndex = 23;
+            this.textLugarActual.Enabled = false;
+            this.textLugarActual.Location = new System.Drawing.Point(318, 231);
+            this.textLugarActual.Name = "textLugarActual";
+            this.textLugarActual.Size = new System.Drawing.Size(291, 22);
+            this.textLugarActual.TabIndex = 23;
             // 
-            // textBox11
+            // textPaisActual
             // 
-            this.textBox11.Enabled = false;
-            this.textBox11.Location = new System.Drawing.Point(318, 160);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(291, 22);
-            this.textBox11.TabIndex = 22;
+            this.textPaisActual.Enabled = false;
+            this.textPaisActual.Location = new System.Drawing.Point(318, 160);
+            this.textPaisActual.Name = "textPaisActual";
+            this.textPaisActual.Size = new System.Drawing.Size(291, 22);
+            this.textPaisActual.TabIndex = 22;
+            this.textPaisActual.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textPaisActual_KeyPress);
             // 
-            // textBox10
+            // textNombreActual
             // 
-            this.textBox10.Enabled = false;
-            this.textBox10.Location = new System.Drawing.Point(318, 100);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(291, 22);
-            this.textBox10.TabIndex = 21;
+            this.textNombreActual.Enabled = false;
+            this.textNombreActual.Location = new System.Drawing.Point(318, 100);
+            this.textNombreActual.Name = "textNombreActual";
+            this.textNombreActual.Size = new System.Drawing.Size(291, 22);
+            this.textNombreActual.TabIndex = 21;
+            this.textNombreActual.TextChanged += new System.EventHandler(this.textBox10_TextChanged);
+            this.textNombreActual.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textNombreActual_KeyPress);
             // 
-            // comboBox6
+            // comboBoxEliminarIdentificador
             // 
-            this.comboBox6.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox6.FormattingEnabled = true;
-            this.comboBox6.Location = new System.Drawing.Point(318, 33);
-            this.comboBox6.Name = "comboBox6";
-            this.comboBox6.Size = new System.Drawing.Size(291, 24);
-            this.comboBox6.TabIndex = 20;
-            this.comboBox6.SelectedIndexChanged += new System.EventHandler(this.comboBox6_SelectedIndexChanged);
+            this.comboBoxEliminarIdentificador.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxEliminarIdentificador.FormattingEnabled = true;
+            this.comboBoxEliminarIdentificador.Location = new System.Drawing.Point(318, 33);
+            this.comboBoxEliminarIdentificador.Name = "comboBoxEliminarIdentificador";
+            this.comboBoxEliminarIdentificador.Size = new System.Drawing.Size(291, 24);
+            this.comboBoxEliminarIdentificador.TabIndex = 20;
+            this.comboBoxEliminarIdentificador.SelectedIndexChanged += new System.EventHandler(this.comboBox6_SelectedIndexChanged);
             // 
             // label20
             // 
@@ -580,7 +617,7 @@
             // 
             // tabPage4
             // 
-            this.tabPage4.Controls.Add(this.dataGridView1);
+            this.tabPage4.Controls.Add(this.Tabla_Hoteles);
             this.tabPage4.Controls.Add(this.button7);
             this.tabPage4.Location = new System.Drawing.Point(4, 25);
             this.tabPage4.Name = "tabPage4";
@@ -588,14 +625,15 @@
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Consultar Hoteles";
             this.tabPage4.UseVisualStyleBackColor = true;
+            this.tabPage4.Click += new System.EventHandler(this.tabPage4_Click);
             // 
-            // dataGridView1
+            // Tabla_Hoteles
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(7, 101);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(797, 336);
-            this.dataGridView1.TabIndex = 1;
+            this.Tabla_Hoteles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Tabla_Hoteles.Location = new System.Drawing.Point(7, 101);
+            this.Tabla_Hoteles.Name = "Tabla_Hoteles";
+            this.Tabla_Hoteles.Size = new System.Drawing.Size(797, 336);
+            this.Tabla_Hoteles.TabIndex = 1;
             // 
             // button7
             // 
@@ -607,6 +645,10 @@
             this.button7.UseVisualStyleBackColor = true;
             this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
             // Crud_Hoteles
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -615,15 +657,17 @@
             this.Controls.Add(this.tabControl1);
             this.Name = "Crud_Hoteles";
             this.Text = "Crud_Hoteles";
+            this.Load += new System.EventHandler(this.Crud_Hoteles_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             this.tabPage4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Tabla_Hoteles)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -634,11 +678,11 @@
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.ComboBox comboBoxPaises;
+        private System.Windows.Forms.ComboBox comboBoxLugares;
+        private System.Windows.Forms.TextBox txtNombre;
+        private System.Windows.Forms.TextBox txtHabitaciones;
+        private System.Windows.Forms.TextBox txtIdentificador;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
@@ -646,7 +690,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnRegistrarHotel;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label label7;
@@ -654,33 +698,36 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btnGuardarCambios;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.ComboBox comboBox5;
-        private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.TextBox txtNuevasHabitaciones;
+        private System.Windows.Forms.TextBox txtNuevoNombre;
+        private System.Windows.Forms.ComboBox comboNuevoLugar;
+        private System.Windows.Forms.ComboBox comboNuevoPais;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.TextBox txtHabitacionesActuales;
+        private System.Windows.Forms.TextBox txtLugarActual;
+        private System.Windows.Forms.TextBox txtPaisActual;
+        private System.Windows.Forms.TextBox txtNombreActual;
+        private System.Windows.Forms.ComboBox comboBoxModifcarIdentificador;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.ComboBox comboBox6;
+        private System.Windows.Forms.ComboBox comboBoxEliminarIdentificador;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.TextBox textBox12;
-        private System.Windows.Forms.TextBox textBox11;
-        private System.Windows.Forms.TextBox textBox10;
-        private System.Windows.Forms.TextBox textBox13;
+        private System.Windows.Forms.TextBox textLugarActual;
+        private System.Windows.Forms.TextBox textPaisActual;
+        private System.Windows.Forms.TextBox textNombreActual;
+        private System.Windows.Forms.TextBox textHabitacionesActuales;
         private System.Windows.Forms.Button btnEliminarHotel;
         private System.Windows.Forms.TabPage tabPage4;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView Tabla_Hoteles;
         private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button btnCargar_Foto;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }

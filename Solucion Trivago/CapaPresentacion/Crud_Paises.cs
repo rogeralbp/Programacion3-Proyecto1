@@ -16,12 +16,13 @@ namespace CapaPresentacion
 
     
     public partial class Crud_Paises : Form
-    {
-        string bandera;
-        string banderas;
+    { 
+        string direccion = "";
+      
 
         Conexiones_Base_Datos conectar = new Conexiones_Base_Datos();
         Metodos metodos = new Metodos();
+        Validaciones validar = new Validaciones();
 
         public Crud_Paises()
         {
@@ -86,11 +87,12 @@ namespace CapaPresentacion
             {
                 int identificador = int.Parse(txtIDPaisNuevo.Text);
                 string nombre = txtNombrePaisNuevo.Text;
-                conectar.InsertarDatosPaises(identificador, nombre, bandera);
+                conectar.InsertarDatosPaises(identificador, nombre, direccion);
                 MessageBox.Show("Se registro el Pais con exito");
 
 
                 LimpiarCamposAgregar();
+                ActualizarTabla();
             }
         }
         
@@ -124,39 +126,104 @@ namespace CapaPresentacion
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            OpenFileDialog op = new OpenFileDialog();
-            op.Filter = "Archivos de Imagenes(*.jpg)(*,jpeg)|*.jpg;*.jpeg|PNG (*.png)|*.png|GIF (*.gif)|*.gif";
-            op.InitialDirectory = "C://";
-
-            if (op.ShowDialog() == DialogResult.OK)
+            try
             {
-                bandera = op.FileName;
-                Bitmap foto = new Bitmap(bandera);
+                if (openFileDialog1.ShowDialog() == DialogResult.OK)
+                {
+                    string imagen = openFileDialog1.FileName;
+                    pictureBox1.Image = Image.FromFile(imagen);
+                    direccion = imagen;
 
-                pictureBox1.Image = (Image)foto;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("El archivo seleccionado no es un tipo de imagen válido" + ex);
             }
         }
 
         private void btnCargar_Click(object sender, EventArgs e)
         {
-            OpenFileDialog op = new OpenFileDialog();
-            op.Filter = "Archivos de Imagenes(*.jpg)(*,jpeg)|*.jpg;*.jpeg|PNG (*.png)|*.png|GIF (*.gif)|*.gif";
-            op.InitialDirectory = "C://";
-
-            if (op.ShowDialog() == DialogResult.OK)
-            {
-                banderas = op.FileName;
-                Bitmap foto = new Bitmap(banderas);
-                pictureBox1.Image = (Image)foto;
-            }
+           
         }
 
         private void btnEliminarPais_Click(object sender, EventArgs e)
         {
-
-            conectar.EliminarDatosPaises(txtNombreEliminar.Text);
+            int codigo = int.Parse(this.comboPaisesEliminar.SelectedItem.ToString());
+            conectar.EliminarDatosPaises(codigo);
             MessageBox.Show("Pais eliminado con exito");
             LimpiarEliminarCampos();
+            ActualizarTabla();
+        }
+
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnActualizarPais_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (openFileDialog1.ShowDialog() == DialogResult.OK)
+                {
+                    string imagen = openFileDialog1.FileName;
+                    pictureBox2.Image = Image.FromFile(imagen);
+                    direccion = imagen;
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("El archivo seleccionado no es un tipo de imagen válido" + ex);
+            }
+        }
+
+        public void ActualizarTabla()
+        {
+            metodos.LlenarDtPaises(Tabla_Paises);
+        }
+
+        private void Tabla_Load(object sender, EventArgs e)
+        {
+            ActualizarTabla();
+
+        }
+
+        private void txtNombreEliminar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            validar.validarSoloLetras(e);
+        }
+
+        private void txtIdentificadorEliminar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            validar.validarSoloNumeros(e);
+        }
+
+        private void txtNombreModificar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            validar.validarSoloLetras(e);
+        }
+
+        private void txtIdentificadorModificar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            validar.validarSoloNumeros(e);
+        }
+
+        private void txtIDPaisNuevo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            validar.validarSoloNumeros(e);
+        }
+
+        private void txtNombrePaisNuevo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            validar.validarSoloLetras(e);
+
         }
     }
 }

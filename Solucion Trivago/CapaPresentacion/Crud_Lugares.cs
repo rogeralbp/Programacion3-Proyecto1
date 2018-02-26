@@ -203,6 +203,26 @@ namespace CapaPresentacion
         {
 
         }
+
+        private void txtIDLugarNuevo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            validar.validarSoloNumeros(e);
+        }
+
+        private void txtNombres_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            validar.validarSoloLetras(e);
+        }
+
+        private void txtNombreLugarActualizar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            validar.validarSoloLetras(e);
+        }
+
+        private void txtNombres_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 
 }

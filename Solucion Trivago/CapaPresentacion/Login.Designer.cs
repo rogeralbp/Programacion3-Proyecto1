@@ -126,6 +126,7 @@
             this.txtCedulaLogin.Name = "txtCedulaLogin";
             this.txtCedulaLogin.Size = new System.Drawing.Size(232, 22);
             this.txtCedulaLogin.TabIndex = 2;
+            this.txtCedulaLogin.TextChanged += new System.EventHandler(this.txtCedulaLogin_TextChanged);
             this.txtCedulaLogin.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
             // 
             // label2

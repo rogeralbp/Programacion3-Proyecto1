@@ -403,6 +403,7 @@
             this.comboTipo.Name = "comboTipo";
             this.comboTipo.Size = new System.Drawing.Size(269, 23);
             this.comboTipo.TabIndex = 13;
+            this.comboTipo.SelectedIndexChanged += new System.EventHandler(this.comboTipo_SelectedIndexChanged);
             // 
             // comboModelo
             // 
@@ -452,6 +453,7 @@
             this.txtIdentificador.Name = "txtIdentificador";
             this.txtIdentificador.Size = new System.Drawing.Size(269, 20);
             this.txtIdentificador.TabIndex = 8;
+            this.txtIdentificador.TextChanged += new System.EventHandler(this.txtIdentificador_TextChanged);
             // 
             // label6
             // 

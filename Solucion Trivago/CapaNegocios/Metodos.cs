@@ -7,6 +7,7 @@ using Npgsql;
 using System.Windows.Forms;
 using System.Data;
 
+
 namespace CapaNegocios
 {
     public class Metodos
@@ -183,6 +184,68 @@ namespace CapaNegocios
                 agregar_tariVuelo.Columns[0].HeaderCell.Value = "identificador_tarifa";
                 agregar_tariVuelo.Columns[1].HeaderCell.Value = "ruta";
                 agregar_tariVuelo.Columns[2].HeaderCell.Value = "precio";
+                conexion.Close();
+
+
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("" + error);
+            }
+
+
+
+        }
+
+
+
+        public void LlenarDtHoteles(DataGridView agregar_hotel)
+        {
+            try
+            {
+                Conexion();
+                conexion.Open();
+                DataSet dataset = new DataSet();
+                NpgsqlDataAdapter adapter = new NpgsqlDataAdapter("SELECT identificador , nombre , foto ,  pais , lugar , habitaciones  FROM hotel", conexion);
+                adapter.Fill(dataset, "hotel");
+                agregar_hotel.DataSource = dataset.Tables[0];
+                agregar_hotel.Columns[0].HeaderCell.Value = "identificador";
+                agregar_hotel.Columns[1].HeaderCell.Value = "nombre";
+                agregar_hotel.Columns[2].HeaderCell.Value = "foto";
+                agregar_hotel.Columns[3].HeaderCell.Value = "pais";
+                agregar_hotel.Columns[4].HeaderCell.Value = "lugar";
+                agregar_hotel.Columns[5].HeaderCell.Value = "habitaciones";
+
+                conexion.Close();
+
+
+
+
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("" + error);
+            }
+
+
+
+        }
+
+
+
+        public void LlenarDtPaises(DataGridView agregar_tariVuelo)
+        {
+            try
+            {
+                Conexion();
+                conexion.Open();
+                DataSet dataset = new DataSet();
+                NpgsqlDataAdapter adapter = new NpgsqlDataAdapter("SELECT identificador , nombre ,  direccion  FROM paises", conexion);
+                adapter.Fill(dataset, "paises");
+                agregar_tariVuelo.DataSource = dataset.Tables[0];
+                agregar_tariVuelo.Columns[0].HeaderCell.Value = "identificador";
+                agregar_tariVuelo.Columns[1].HeaderCell.Value = "nombre";
+                agregar_tariVuelo.Columns[2].HeaderCell.Value = "direccion";
                 conexion.Close();
 
 
@@ -462,7 +525,7 @@ namespace CapaNegocios
                 Conexion();
                 conexion.Open();
                 List<String> lista = new List<String>();
-                NpgsqlCommand cmd = new NpgsqlCommand("SELECT identificador FROM pais", conexion);
+                NpgsqlCommand cmd = new NpgsqlCommand("SELECT identificador FROM paises", conexion);
                 NpgsqlDataReader dr = cmd.ExecuteReader();
                 if (dr.HasRows)
                 {
@@ -493,7 +556,7 @@ namespace CapaNegocios
             {
                 Conexion();
                 conexion.Open();
-                NpgsqlCommand cmd = new NpgsqlCommand("SELECT identificador , nombre  FROM pais WHERE identificador = '" + pais.SelectedItem.ToString() + "'", conexion);
+                NpgsqlCommand cmd = new NpgsqlCommand("SELECT identificador , nombre  FROM paises WHERE identificador = '" + pais.SelectedItem.ToString() + "'", conexion);
                 NpgsqlDataReader leer = cmd.ExecuteReader();
                 if (leer.HasRows)
                 {
@@ -525,7 +588,7 @@ namespace CapaNegocios
                 Conexion();
                 conexion.Open();
                 List<String> lista = new List<String>();
-                NpgsqlCommand cmd = new NpgsqlCommand("SELECT nombre FROM pais", conexion);
+                NpgsqlCommand cmd = new NpgsqlCommand("SELECT nombre FROM paises", conexion);
                 NpgsqlDataReader dr = cmd.ExecuteReader();
                 if (dr.HasRows)
                 {
@@ -557,7 +620,7 @@ namespace CapaNegocios
             {
                 Conexion();
                 conexion.Open();
-                NpgsqlCommand cmd = new NpgsqlCommand("SELECT identificador , nombre , direccion FROM pais WHERE nombre = '" + pais.SelectedItem.ToString() + "'", conexion);
+                NpgsqlCommand cmd = new NpgsqlCommand("SELECT identificador , nombre , direccion FROM paises WHERE nombre = '" + pais.SelectedItem.ToString() + "'", conexion);
                 NpgsqlDataReader leer = cmd.ExecuteReader();
                 if (leer.HasRows)
                 {
@@ -743,5 +806,106 @@ namespace CapaNegocios
         }
 
 
+
+
+        public void ComboLugares(ComboBox nombre_pais)
+        {
+
+            try
+            {
+                Conexion();
+                conexion.Open();
+                List<String> lista = new List<String>();
+                NpgsqlCommand cmd = new NpgsqlCommand("SELECT nombre FROM lugares", conexion);
+                NpgsqlDataReader dr = cmd.ExecuteReader();
+                if (dr.HasRows)
+                {
+                    while (dr.Read())
+                    {
+                        nombre_pais.Items.Add(dr.GetString(0));
+
+                    }
+                }
+                conexion.Close();
+
+
+            }
+            catch (Exception error)
+            {
+                Console.WriteLine(error);
+
+            }
+
+        }
+
+
+
+
+
+        //Metodo que llena el combobox de nombres  de rutas
+        public void ComboIDHoteles(ComboBox identificador)
+        {
+
+            try
+            {
+                Conexion();
+                conexion.Open();
+                List<String> lista = new List<String>();
+                NpgsqlCommand cmd = new NpgsqlCommand("SELECT identificador FROM hotel", conexion);
+                NpgsqlDataReader dr = cmd.ExecuteReader();
+                if (dr.HasRows)
+                {
+                    while (dr.Read())
+                    {
+                        identificador.Items.Add(dr.GetInt64(0));
+                    }
+                }
+                conexion.Close();
+
+
+            }
+            catch (Exception error)
+            {
+                Console.WriteLine(error);
+
+            }
+
+        }
+
+
+
+
+        public void MostrarInformacionHoteles(ComboBox identificador_hotel, TextBox nombre ,  TextBox pais  , TextBox lugar, TextBox cantidad)
+        {
+            try
+            {
+                Conexion();
+                conexion.Open();
+                NpgsqlCommand cmd = new NpgsqlCommand("SELECT nombre , pais , lugar , habitaciones  FROM hotel WHERE identificador = '" + identificador_hotel.SelectedItem.ToString() + "'", conexion);
+                NpgsqlDataReader leer = cmd.ExecuteReader();
+                if (leer.HasRows)
+                {
+                    while (leer.Read())
+                    {
+                        nombre.Text = leer.GetString(0);
+                        pais.Text = leer.GetString(1);
+                       // foto.Image = leer.Get;
+                        lugar.Text = leer.GetString(2);
+                        cantidad.Text = leer.GetInt64(3).ToString();
+
+
+                    }
+                    conexion.Close();
+
+                }
+            }
+            catch (Exception error)
+            {
+                Console.WriteLine(error);
+            }
+
+        }
+
     }
 }
+
