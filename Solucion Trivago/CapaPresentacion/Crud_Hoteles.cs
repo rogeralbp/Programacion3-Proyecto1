@@ -41,8 +41,9 @@ namespace CapaPresentacion
 
         private void button2_Click(object sender, EventArgs e)
         {
-
-            
+            this.Hide();
+            Menu_Principal_Administrador v = new Menu_Principal_Administrador();
+            v.Show();
         }
 
         private void label5_Click(object sender, EventArgs e)
@@ -57,7 +58,7 @@ namespace CapaPresentacion
 
         private void tabPage2_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void label2_Click(object sender, EventArgs e)

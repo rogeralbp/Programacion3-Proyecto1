@@ -118,5 +118,10 @@ namespace CapaPresentacion
             int cantidadDias = ts.Days;
             labelCantidadDias.Text += cantidadDias.ToString();
         }
+
+        private void spinnerCantidadPasajerosNiños_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

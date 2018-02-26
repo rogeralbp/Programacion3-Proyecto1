@@ -166,6 +166,7 @@
             // 
             // textBoxNombre
             // 
+            this.textBoxNombre.Enabled = false;
             this.textBoxNombre.Location = new System.Drawing.Point(258, 107);
             this.textBoxNombre.Name = "textBoxNombre";
             this.textBoxNombre.Size = new System.Drawing.Size(384, 22);
@@ -173,6 +174,7 @@
             // 
             // comboIdentificador
             // 
+            this.comboIdentificador.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboIdentificador.FormattingEnabled = true;
             this.comboIdentificador.Location = new System.Drawing.Point(258, 35);
             this.comboIdentificador.Name = "comboIdentificador";

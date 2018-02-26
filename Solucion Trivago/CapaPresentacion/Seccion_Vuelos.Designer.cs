@@ -65,16 +65,24 @@
             this.label8 = new System.Windows.Forms.Label();
             this.spinnerCantidadPasajerosNiños = new System.Windows.Forms.NumericUpDown();
             this.labelCantidadDias = new System.Windows.Forms.Label();
+            this.btnGuardarReservacionPais = new System.Windows.Forms.Button();
+            this.dtgVistaPreliminarVHA = new System.Windows.Forms.DataGridView();
+            this.optPrecioMayorHotel = new System.Windows.Forms.RadioButton();
+            this.btnVerListaPreeliminarHotelesVuelos = new System.Windows.Forms.Button();
+            this.optPrecioMenorHotel = new System.Windows.Forms.RadioButton();
+            this.optTiempoCorto = new System.Windows.Forms.RadioButton();
+            this.optMenosEscalas = new System.Windows.Forms.RadioButton();
             this.panelAgregarHotel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spinnerCantidadHabitacionesHotel)).BeginInit();
             this.panelAgregarAutomovil.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spinnerCantidadPasajerosAdultos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spinnerCantidadPasajerosNiños)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgVistaPreliminarVHA)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(760, 495);
+            this.button1.Location = new System.Drawing.Point(864, 549);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 0;
@@ -166,13 +174,13 @@
             this.panelAgregarHotel.Controls.Add(this.label6);
             this.panelAgregarHotel.Location = new System.Drawing.Point(3, 194);
             this.panelAgregarHotel.Name = "panelAgregarHotel";
-            this.panelAgregarHotel.Size = new System.Drawing.Size(434, 271);
+            this.panelAgregarHotel.Size = new System.Drawing.Size(389, 98);
             this.panelAgregarHotel.TabIndex = 11;
             this.panelAgregarHotel.Visible = false;
             // 
             // btnGuardarSeleccionHotel
             // 
-            this.btnGuardarSeleccionHotel.Location = new System.Drawing.Point(152, 177);
+            this.btnGuardarSeleccionHotel.Location = new System.Drawing.Point(240, 47);
             this.btnGuardarSeleccionHotel.Name = "btnGuardarSeleccionHotel";
             this.btnGuardarSeleccionHotel.Size = new System.Drawing.Size(107, 23);
             this.btnGuardarSeleccionHotel.TabIndex = 9;
@@ -181,7 +189,7 @@
             // 
             // spinnerCantidadHabitacionesHotel
             // 
-            this.spinnerCantidadHabitacionesHotel.Location = new System.Drawing.Point(240, 78);
+            this.spinnerCantidadHabitacionesHotel.Location = new System.Drawing.Point(164, 47);
             this.spinnerCantidadHabitacionesHotel.Name = "spinnerCantidadHabitacionesHotel";
             this.spinnerCantidadHabitacionesHotel.Size = new System.Drawing.Size(47, 20);
             this.spinnerCantidadHabitacionesHotel.TabIndex = 8;
@@ -190,7 +198,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(86, 85);
+            this.label9.Location = new System.Drawing.Point(10, 54);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(132, 13);
             this.label9.TabIndex = 7;
@@ -228,15 +236,15 @@
             this.panelAgregarAutomovil.Controls.Add(this.label10);
             this.panelAgregarAutomovil.Controls.Add(this.comboBoxVehiculos);
             this.panelAgregarAutomovil.Controls.Add(this.label7);
-            this.panelAgregarAutomovil.Location = new System.Drawing.Point(441, 194);
+            this.panelAgregarAutomovil.Location = new System.Drawing.Point(3, 298);
             this.panelAgregarAutomovil.Name = "panelAgregarAutomovil";
-            this.panelAgregarAutomovil.Size = new System.Drawing.Size(415, 271);
+            this.panelAgregarAutomovil.Size = new System.Drawing.Size(389, 236);
             this.panelAgregarAutomovil.TabIndex = 12;
             this.panelAgregarAutomovil.Visible = false;
             // 
             // btnGuardarSeleccionAutomovil
             // 
-            this.btnGuardarSeleccionAutomovil.Location = new System.Drawing.Point(170, 226);
+            this.btnGuardarSeleccionAutomovil.Location = new System.Drawing.Point(164, 203);
             this.btnGuardarSeleccionAutomovil.Name = "btnGuardarSeleccionAutomovil";
             this.btnGuardarSeleccionAutomovil.Size = new System.Drawing.Size(113, 23);
             this.btnGuardarSeleccionAutomovil.TabIndex = 17;
@@ -357,7 +365,7 @@
             // 
             // btnCofirmarReservacion1
             // 
-            this.btnCofirmarReservacion1.Location = new System.Drawing.Point(365, 507);
+            this.btnCofirmarReservacion1.Location = new System.Drawing.Point(657, 501);
             this.btnCofirmarReservacion1.Name = "btnCofirmarReservacion1";
             this.btnCofirmarReservacion1.Size = new System.Drawing.Size(139, 23);
             this.btnCofirmarReservacion1.TabIndex = 15;
@@ -368,7 +376,7 @@
             // optTodosServicios
             // 
             this.optTodosServicios.AutoSize = true;
-            this.optTodosServicios.Location = new System.Drawing.Point(581, 150);
+            this.optTodosServicios.Location = new System.Drawing.Point(274, 150);
             this.optTodosServicios.Name = "optTodosServicios";
             this.optTodosServicios.Size = new System.Drawing.Size(121, 17);
             this.optTodosServicios.TabIndex = 16;
@@ -380,7 +388,7 @@
             // optHotel
             // 
             this.optHotel.AutoSize = true;
-            this.optHotel.Location = new System.Drawing.Point(223, 150);
+            this.optHotel.Location = new System.Drawing.Point(23, 150);
             this.optHotel.Name = "optHotel";
             this.optHotel.Size = new System.Drawing.Size(92, 17);
             this.optHotel.TabIndex = 17;
@@ -392,7 +400,7 @@
             // optAutomovil
             // 
             this.optAutomovil.AutoSize = true;
-            this.optAutomovil.Location = new System.Drawing.Point(399, 150);
+            this.optAutomovil.Location = new System.Drawing.Point(138, 150);
             this.optAutomovil.Name = "optAutomovil";
             this.optAutomovil.Size = new System.Drawing.Size(113, 17);
             this.optAutomovil.TabIndex = 18;
@@ -416,6 +424,7 @@
             this.spinnerCantidadPasajerosNiños.Name = "spinnerCantidadPasajerosNiños";
             this.spinnerCantidadPasajerosNiños.Size = new System.Drawing.Size(51, 20);
             this.spinnerCantidadPasajerosNiños.TabIndex = 20;
+            this.spinnerCantidadPasajerosNiños.ValueChanged += new System.EventHandler(this.spinnerCantidadPasajerosNiños_ValueChanged);
             this.spinnerCantidadPasajerosNiños.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.spinnerCantidadPasajerosNiños_KeyPress);
             // 
             // labelCantidadDias
@@ -427,11 +436,89 @@
             this.labelCantidadDias.TabIndex = 21;
             this.labelCantidadDias.Text = "Cantidad de Dias ";
             // 
+            // btnGuardarReservacionPais
+            // 
+            this.btnGuardarReservacionPais.Location = new System.Drawing.Point(499, 501);
+            this.btnGuardarReservacionPais.Name = "btnGuardarReservacionPais";
+            this.btnGuardarReservacionPais.Size = new System.Drawing.Size(130, 23);
+            this.btnGuardarReservacionPais.TabIndex = 54;
+            this.btnGuardarReservacionPais.Text = "Guardar Reservacion";
+            this.btnGuardarReservacionPais.UseVisualStyleBackColor = true;
+            // 
+            // dtgVistaPreliminarVHA
+            // 
+            this.dtgVistaPreliminarVHA.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgVistaPreliminarVHA.Location = new System.Drawing.Point(398, 194);
+            this.dtgVistaPreliminarVHA.Name = "dtgVistaPreliminarVHA";
+            this.dtgVistaPreliminarVHA.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtgVistaPreliminarVHA.Size = new System.Drawing.Size(541, 301);
+            this.dtgVistaPreliminarVHA.TabIndex = 55;
+            // 
+            // optPrecioMayorHotel
+            // 
+            this.optPrecioMayorHotel.AutoSize = true;
+            this.optPrecioMayorHotel.Location = new System.Drawing.Point(419, 150);
+            this.optPrecioMayorHotel.Name = "optPrecioMayorHotel";
+            this.optPrecioMayorHotel.Size = new System.Drawing.Size(87, 17);
+            this.optPrecioMayorHotel.TabIndex = 56;
+            this.optPrecioMayorHotel.TabStop = true;
+            this.optPrecioMayorHotel.Text = "Precio Mayor";
+            this.optPrecioMayorHotel.UseVisualStyleBackColor = true;
+            // 
+            // btnVerListaPreeliminarHotelesVuelos
+            // 
+            this.btnVerListaPreeliminarHotelesVuelos.Location = new System.Drawing.Point(760, 21);
+            this.btnVerListaPreeliminarHotelesVuelos.Name = "btnVerListaPreeliminarHotelesVuelos";
+            this.btnVerListaPreeliminarHotelesVuelos.Size = new System.Drawing.Size(138, 23);
+            this.btnVerListaPreeliminarHotelesVuelos.TabIndex = 57;
+            this.btnVerListaPreeliminarHotelesVuelos.Text = "Vista Preliminar Vuelo";
+            this.btnVerListaPreeliminarHotelesVuelos.UseVisualStyleBackColor = true;
+            // 
+            // optPrecioMenorHotel
+            // 
+            this.optPrecioMenorHotel.AutoSize = true;
+            this.optPrecioMenorHotel.Location = new System.Drawing.Point(541, 150);
+            this.optPrecioMenorHotel.Name = "optPrecioMenorHotel";
+            this.optPrecioMenorHotel.Size = new System.Drawing.Size(88, 17);
+            this.optPrecioMenorHotel.TabIndex = 58;
+            this.optPrecioMenorHotel.TabStop = true;
+            this.optPrecioMenorHotel.Text = "Precio Menor";
+            this.optPrecioMenorHotel.UseVisualStyleBackColor = true;
+            // 
+            // optTiempoCorto
+            // 
+            this.optTiempoCorto.AutoSize = true;
+            this.optTiempoCorto.Location = new System.Drawing.Point(671, 150);
+            this.optTiempoCorto.Name = "optTiempoCorto";
+            this.optTiempoCorto.Size = new System.Drawing.Size(109, 17);
+            this.optTiempoCorto.TabIndex = 59;
+            this.optTiempoCorto.TabStop = true;
+            this.optTiempoCorto.Text = "Tiempo mas corto";
+            this.optTiempoCorto.UseVisualStyleBackColor = true;
+            // 
+            // optMenosEscalas
+            // 
+            this.optMenosEscalas.AutoSize = true;
+            this.optMenosEscalas.Location = new System.Drawing.Point(822, 150);
+            this.optMenosEscalas.Name = "optMenosEscalas";
+            this.optMenosEscalas.Size = new System.Drawing.Size(97, 17);
+            this.optMenosEscalas.TabIndex = 60;
+            this.optMenosEscalas.TabStop = true;
+            this.optMenosEscalas.Text = "Menos Escalas";
+            this.optMenosEscalas.UseVisualStyleBackColor = true;
+            // 
             // Seccion_Vuelos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(868, 556);
+            this.ClientSize = new System.Drawing.Size(951, 584);
+            this.Controls.Add(this.optMenosEscalas);
+            this.Controls.Add(this.optTiempoCorto);
+            this.Controls.Add(this.optPrecioMenorHotel);
+            this.Controls.Add(this.btnVerListaPreeliminarHotelesVuelos);
+            this.Controls.Add(this.optPrecioMayorHotel);
+            this.Controls.Add(this.dtgVistaPreliminarVHA);
+            this.Controls.Add(this.btnGuardarReservacionPais);
             this.Controls.Add(this.labelCantidadDias);
             this.Controls.Add(this.spinnerCantidadPasajerosNiños);
             this.Controls.Add(this.label8);
@@ -462,6 +549,7 @@
             this.panelAgregarAutomovil.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spinnerCantidadPasajerosAdultos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spinnerCantidadPasajerosNiños)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgVistaPreliminarVHA)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -506,5 +594,12 @@
         private System.Windows.Forms.Button btnGuardarSeleccionAutomovil;
         private System.Windows.Forms.Button btnGuardarSeleccionHotel;
         private System.Windows.Forms.Label labelCantidadDias;
+        private System.Windows.Forms.Button btnGuardarReservacionPais;
+        private System.Windows.Forms.DataGridView dtgVistaPreliminarVHA;
+        private System.Windows.Forms.RadioButton optPrecioMayorHotel;
+        private System.Windows.Forms.Button btnVerListaPreeliminarHotelesVuelos;
+        private System.Windows.Forms.RadioButton optPrecioMenorHotel;
+        private System.Windows.Forms.RadioButton optTiempoCorto;
+        private System.Windows.Forms.RadioButton optMenosEscalas;
     }
 }

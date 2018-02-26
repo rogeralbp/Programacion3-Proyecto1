@@ -64,6 +64,9 @@ namespace CapaPresentacion
    
         private void btnBuscarHotel_Click(object sender, EventArgs e)
         {
+            ///se consulta los hoteles que esten en el pais en el que se
+            ///desea hospedar el cliente
+            ///
             labelFechaLlegadaHotel.Visible = true;
             labelFechaSalidaHotel.Visible = true;
             fechaLlegadaHotel.Visible = true;
@@ -243,5 +246,34 @@ namespace CapaPresentacion
         {
 
         }
+
+        private void btnGuardarReservacionPais_Click(object sender, EventArgs e)
+        {
+            //Se debe mostrar nombre, foto, pais, lugar, cantidad de habitaciones en base
+            //al pais en el que se desea alojar SELECT * FROM hoteles JOIN pais ON  hoteles.pais = pais.identificador
+            MessageBox.Show("Se ha guardado este reservacion para " + Login.nombreUsuario);
+        }
+
+        private void btnVerListaPreeliminarHotelesPais_Click(object sender, EventArgs e)
+        {
+            ///se consulta los hoteles que esten en el pais en el que se
+            ///desea hospedar el cliente
+        }
+
+        private void btnVerListaPreeliminarHotelesCiudad_Click(object sender, EventArgs e)
+        {
+            ///se consulta los hoteles que esten en el pais en el que se
+            ///desea hospedar el cliente
+        }
+
+        private void numericUpDown8_ValueChanged(object sender, EventArgs e)
+        {
+            if (spinnerPersonasMenoresPais.Value==4) {
+
+                MessageBox.Show("Una habitacion");
+                spinnerHabitacionesPais.Value =1;
+            }
+        }
+
     }
 }

@@ -30,6 +30,7 @@ namespace CapaPresentacion
 
             //Lleno el combo del TAB de eliminar
             metodos.ComboIDPaises(comboPaisesEliminar);
+            metodos.ComboIDPaises(comboBoxModificarPaises);
 
         }
 
@@ -153,10 +154,15 @@ namespace CapaPresentacion
 
         private void btnEliminarPais_Click(object sender, EventArgs e)
         {
-
             conectar.EliminarDatosPaises(txtNombreEliminar.Text);
             MessageBox.Show("Pais eliminado con exito");
             LimpiarEliminarCampos();
+            comboPaisesEliminar.Items.Clear();
+        }
+
+        private void btnActualizarPais_Click(object sender, EventArgs e)
+        {
+            comboBoxModificarPaises.Items.Clear();
         }
     }
 }

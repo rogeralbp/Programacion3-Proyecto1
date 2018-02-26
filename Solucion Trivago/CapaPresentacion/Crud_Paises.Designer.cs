@@ -29,16 +29,18 @@
         private void InitializeComponent()
         {
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.cargar = new System.Windows.Forms.Button();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btnActualizarPais = new System.Windows.Forms.Button();
-            this.txtIdentificadorModificar = new System.Windows.Forms.TextBox();
             this.txtNombreModificar = new System.Windows.Forms.TextBox();
             this.comboBoxModificarPaises = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
-            this.label8 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.btnCargar = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.txtNombrePaisNuevo = new System.Windows.Forms.TextBox();
@@ -60,18 +62,14 @@
             this.button7 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnCargar = new System.Windows.Forms.Button();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.cargar = new System.Windows.Forms.Button();
             this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControlPaises.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // tabPage2
@@ -79,12 +77,10 @@
             this.tabPage2.Controls.Add(this.cargar);
             this.tabPage2.Controls.Add(this.pictureBox2);
             this.tabPage2.Controls.Add(this.btnActualizarPais);
-            this.tabPage2.Controls.Add(this.txtIdentificadorModificar);
             this.tabPage2.Controls.Add(this.txtNombreModificar);
             this.tabPage2.Controls.Add(this.comboBoxModificarPaises);
             this.tabPage2.Controls.Add(this.label10);
             this.tabPage2.Controls.Add(this.button3);
-            this.tabPage2.Controls.Add(this.label8);
             this.tabPage2.Controls.Add(this.label4);
             this.tabPage2.Controls.Add(this.label3);
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
@@ -95,6 +91,23 @@
             this.tabPage2.Text = "Modificar País";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // cargar
+            // 
+            this.cargar.Location = new System.Drawing.Point(554, 231);
+            this.cargar.Name = "cargar";
+            this.cargar.Size = new System.Drawing.Size(75, 23);
+            this.cargar.TabIndex = 14;
+            this.cargar.Text = "......";
+            this.cargar.UseVisualStyleBackColor = true;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Location = new System.Drawing.Point(244, 212);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(260, 127);
+            this.pictureBox2.TabIndex = 13;
+            this.pictureBox2.TabStop = false;
+            // 
             // btnActualizarPais
             // 
             this.btnActualizarPais.Enabled = false;
@@ -104,14 +117,7 @@
             this.btnActualizarPais.TabIndex = 12;
             this.btnActualizarPais.Text = "Actualizar Pais";
             this.btnActualizarPais.UseVisualStyleBackColor = true;
-            // 
-            // txtIdentificadorModificar
-            // 
-            this.txtIdentificadorModificar.Enabled = false;
-            this.txtIdentificadorModificar.Location = new System.Drawing.Point(256, 166);
-            this.txtIdentificadorModificar.Name = "txtIdentificadorModificar";
-            this.txtIdentificadorModificar.Size = new System.Drawing.Size(374, 22);
-            this.txtIdentificadorModificar.TabIndex = 11;
+            this.btnActualizarPais.Click += new System.EventHandler(this.btnActualizarPais_Click);
             // 
             // txtNombreModificar
             // 
@@ -150,15 +156,6 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(43, 172);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(104, 16);
-            this.label8.TabIndex = 2;
-            this.label8.Text = "Identificador Pais:";
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -195,6 +192,25 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Agregar País";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // btnCargar
+            // 
+            this.btnCargar.Location = new System.Drawing.Point(630, 133);
+            this.btnCargar.Name = "btnCargar";
+            this.btnCargar.Size = new System.Drawing.Size(38, 23);
+            this.btnCargar.TabIndex = 8;
+            this.btnCargar.Text = "....";
+            this.btnCargar.UseVisualStyleBackColor = true;
+            this.btnCargar.Click += new System.EventHandler(this.btnCargar_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(236, 133);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(388, 211);
+            this.pictureBox1.TabIndex = 7;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // button2
             // 
@@ -399,42 +415,6 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(236, 133);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(388, 211);
-            this.pictureBox1.TabIndex = 7;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
-            // btnCargar
-            // 
-            this.btnCargar.Location = new System.Drawing.Point(630, 133);
-            this.btnCargar.Name = "btnCargar";
-            this.btnCargar.Size = new System.Drawing.Size(38, 23);
-            this.btnCargar.TabIndex = 8;
-            this.btnCargar.Text = "....";
-            this.btnCargar.UseVisualStyleBackColor = true;
-            this.btnCargar.Click += new System.EventHandler(this.btnCargar_Click);
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Location = new System.Drawing.Point(244, 212);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(260, 127);
-            this.pictureBox2.TabIndex = 13;
-            this.pictureBox2.TabStop = false;
-            // 
-            // cargar
-            // 
-            this.cargar.Location = new System.Drawing.Point(554, 231);
-            this.cargar.Name = "cargar";
-            this.cargar.Size = new System.Drawing.Size(75, 23);
-            this.cargar.TabIndex = 14;
-            this.cargar.Text = "......";
-            this.cargar.UseVisualStyleBackColor = true;
-            // 
             // Crud_Paises
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -445,15 +425,15 @@
             this.Text = "Crud_Paises";
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tabControlPaises.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             this.tabPage4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -464,7 +444,6 @@
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabControl tabControlPaises;
         private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button1;
@@ -477,7 +456,6 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button btnActualizarPais;
-        private System.Windows.Forms.TextBox txtIdentificadorModificar;
         private System.Windows.Forms.TextBox txtNombreModificar;
         private System.Windows.Forms.ComboBox comboBoxModificarPaises;
         private System.Windows.Forms.Label label10;
