@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Windows.Forms;
 using Npgsql;
 
 namespace CapaDatos
@@ -22,7 +20,7 @@ namespace CapaDatos
 
             string baseDatos = "gestion_vuelos";
 
-            string cadenaConexion = "Server=" + servidor + ";" + "Port=" + puerto + ";" + "User Id=" + usuario + ";" + "Password=" + claveAnthonny + ";" + "Database=" + baseDatos;
+            string cadenaConexion = "Server=" + servidor + ";" + "Port=" + puerto + ";" + "User Id=" + usuario + ";" + "Password=" + claveRoger + ";" + "Database=" + baseDatos;
             conexion = new NpgsqlConnection(cadenaConexion);
 
             if (conexion != null)
@@ -273,9 +271,11 @@ namespace CapaDatos
             Conexion();
             conexion.Open();
             cmd = new NpgsqlCommand("INSERT INTO paises (identificador, nombre , direccion) VALUES ('" + identificador + "', '" + nombre + "', '" + direccion + "')", conexion);
+
+            cmd = new NpgsqlCommand("INSERT INTO pais(identificador, nombre , direccion) VALUES ('" + identificador + "', '" + nombre + "', '" + direccion + "')", conexion);
+
             cmd.ExecuteNonQuery();
             conexion.Close();
-
         }
 
 
@@ -389,6 +389,115 @@ namespace CapaDatos
             conexion.Close();
 
             return informacionUsuario;
+        }
+
+        public void InsertarDatosAerolineas(string identificador, string nombre)
+        {
+            Conexion();
+            conexion.Open();
+            cmd = new NpgsqlCommand("INSERT INTO aerolineas(identificador, nombre) VALUES ('" + identificador + "', '" + nombre + "')", conexion);
+            cmd.ExecuteNonQuery();
+            conexion.Close();
+        }
+
+
+        public void LlenarComboIdentificadorAerolineas(ComboBox IDSA)
+        {
+            try
+            {
+                Conexion();
+                conexion.Open();
+                List<String> lista = new List<String>();
+                NpgsqlCommand cmd = new NpgsqlCommand("SELECT identificador FROM aerolineas", conexion);
+                NpgsqlDataReader dr = cmd.ExecuteReader();
+                if (dr.HasRows)
+                {
+                    while (dr.Read())
+                    {
+                        IDSA.Items.Add(dr.GetInt64(0));
+                    }
+                }
+                conexion.Close();
+
+
+            }
+            catch (Exception error)
+            {
+                Console.WriteLine(error);
+
+            }
+
+        }
+
+        public void MostrarInformacionAerolineas(ComboBox id_aerolineas,TextBox idActual, TextBox nombre)
+        {
+            try
+            {
+                Conexion();
+                conexion.Open();
+                NpgsqlCommand cmd = new NpgsqlCommand("SELECT identificador,nombre FROM aerolineas WHERE identificador = '" + id_aerolineas.SelectedItem.ToString() + "'", conexion);
+                NpgsqlDataReader leer = cmd.ExecuteReader();
+                if (leer.HasRows)
+                {
+                    while (leer.Read())
+                    {
+                        idActual.Text =leer.GetString(0);
+                        nombre.Text = leer.GetString(1);
+                        
+                    }
+                    conexion.Close();
+
+                }
+            }
+            catch (Exception error)
+            {
+                Console.WriteLine(error);
+            }
+
+        }
+
+        public void ModificarDatosAerolineas(string identificadorAer, string nombreAer)
+        {
+            {
+                Conexion();
+                conexion.Open();
+                NpgsqlCommand cmd = new NpgsqlCommand("UPDATE aerolineas SET nombre ='"+nombreAer+"' WHERE identificador='"+identificadorAer+"'", conexion);
+                cmd.ExecuteNonQuery();
+                conexion.Close();
+            }
+
+        }
+
+        public void EliminarDatosAerolineas(string idAer)
+        {
+            Conexion();
+            conexion.Open();
+            NpgsqlCommand cmd = new NpgsqlCommand("DELETE FROM  aerolineas WHERE identificador = '" + idAer + "'", conexion);
+            cmd.ExecuteNonQuery();
+            conexion.Close();
+        }
+
+        public String ConsultarIDPais(String nombrePais)
+        {
+
+            String idPais = String.Empty;
+
+            Conexion();
+            conexion.Open();
+            NpgsqlCommand consulta = new NpgsqlCommand("SELECT identificador FROM pais WHERE nombre='" + nombrePais + "'", conexion);
+            NpgsqlDataReader lectorConsulta = consulta.ExecuteReader();
+            if (lectorConsulta.HasRows)
+            {
+                while (lectorConsulta.Read())
+                {
+                    //cedula, nombre y tipo de usuario
+                    idPais = lectorConsulta.GetString(0);
+
+                }
+            }
+            conexion.Close();
+
+            return idPais;
         }
 
     } 
