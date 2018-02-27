@@ -23,6 +23,7 @@ namespace CapaPresentacion
         {
             InitializeComponent();
             this.CenterToScreen();
+
         }
 
         private void textBox4_TextChanged(object sender, EventArgs e)
@@ -66,6 +67,16 @@ namespace CapaPresentacion
         private void textBox3_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void tblAerpuertos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void Aeropuerto_Load(object sender, EventArgs e)
+        {
+            metodo.LlenarComboDatagridviewAeropuertos(ComboLugares);
         }
     }
 }

@@ -875,7 +875,7 @@ namespace CapaNegocios
 
 
 
-        public void MostrarInformacionHoteles(ComboBox identificador_hotel, TextBox nombre ,  TextBox pais  , TextBox lugar, TextBox cantidad)
+        public void MostrarInformacionHoteles(ComboBox identificador_hotel, TextBox nombre, TextBox pais, TextBox lugar, TextBox cantidad)
         {
             try
             {
@@ -889,7 +889,7 @@ namespace CapaNegocios
                     {
                         nombre.Text = leer.GetString(0);
                         pais.Text = leer.GetString(1);
-                       // foto.Image = leer.Get;
+                        // foto.Image = leer.Get;
                         lugar.Text = leer.GetString(2);
                         cantidad.Text = leer.GetInt64(3).ToString();
 
@@ -906,6 +906,34 @@ namespace CapaNegocios
 
         }
 
+        //Metodo que llena el combo de identificadores de vehiculos , en la ventana de modificar vehiculos
+        public void LlenarComboDatagridviewAeropuertos(DataGridViewComboBoxColumn nombre)
+        {
+
+            try
+            {
+                Conexion();
+                conexion.Open();
+                List<String> lista = new List<String>();
+                NpgsqlCommand cmd = new NpgsqlCommand("SELECT nombre FROM lugares", conexion);
+                NpgsqlDataReader dr = cmd.ExecuteReader();
+                if (dr.HasRows)
+                {
+                    while (dr.Read())
+                    {
+                        nombre.Items.Add(dr.GetString(0));
+                    }
+                }
+                conexion.Close();
+
+
+            }
+            catch (Exception error)
+            {
+                Console.WriteLine(error);
+
+            }
+
+        }
     }
 }
-
