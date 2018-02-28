@@ -19,6 +19,8 @@ namespace CapaPresentacion
         Metodos metodo = new Metodos();
         Validaciones validar = new Validaciones();
 
+        int i = 1;
+
         public Crud_Aeropuertos()
         {
             InitializeComponent();
@@ -59,8 +61,33 @@ namespace CapaPresentacion
             v.Show();
         }
 
+        public void LimpiarDatos()
+        {
+            txtCodigoAeropuertos.Clear();
+            txtIdentificador.Clear();
+            txtNombre.Clear();
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
+            int identificador = int.Parse(txtIdentificador.Text);
+            string nombre = txtNombre.Text;
+            int codigo = int.Parse(txtCodigoAeropuertos.Text);
+            string lugar = ComboLugares.Selected.ToString();
+
+
+
+            tblAerpuertos.Rows.Add(i + "", identificador, nombre,  lugar,  codigo);
+            i = i + 1;
+            conectar.InsertarDatosAeropuerto(identificador, nombre, lugar, codigo);
+            MessageBox.Show("Agregado con Exito");
+
+            LimpiarDatos();
+
+            
+
+            
+
 
         }
 
@@ -76,6 +103,7 @@ namespace CapaPresentacion
 
         private void Aeropuerto_Load(object sender, EventArgs e)
         {
+            //Este metodo llena el comobo que esta dentro del DatagridView
             metodo.LlenarComboDatagridviewAeropuertos(ComboLugares);
         }
     }
