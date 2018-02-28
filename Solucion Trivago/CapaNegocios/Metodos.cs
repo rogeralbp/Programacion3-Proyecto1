@@ -939,8 +939,6 @@ namespace CapaNegocios
         }
 
 
-
-
         //Metodo que llena el combobox de indentificadores de vuelos
         public void ComboIDRutas(ComboBox identificador)
         {

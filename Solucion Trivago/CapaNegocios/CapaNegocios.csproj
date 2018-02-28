@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Metodos_Usuarios.cs" />
     <Compile Include="Metodos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reservaciones_Guardadas.cs" />
