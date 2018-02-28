@@ -61,6 +61,8 @@
             this.tblAerpuertos.Size = new System.Drawing.Size(748, 283);
             this.tblAerpuertos.TabIndex = 0;
             this.tblAerpuertos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tblAerpuertos_CellContentClick);
+            this.tblAerpuertos.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.tblAerpuertos_CellEndEdit);
+            this.tblAerpuertos.MouseClick += new System.Windows.Forms.MouseEventHandler(this.tblAerpuertos_MouseClick);
             // 
             // label1
             // 
@@ -152,16 +154,19 @@
             // 
             this.ID.HeaderText = "ID";
             this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
             // 
             // Identificadores
             // 
             this.Identificadores.HeaderText = "Identificador";
             this.Identificadores.Name = "Identificadores";
+            this.Identificadores.ReadOnly = true;
             // 
             // nombres
             // 
             this.nombres.HeaderText = "Nombre";
             this.nombres.Name = "nombres";
+            this.nombres.ReadOnly = true;
             // 
             // ComboLugares
             // 
@@ -175,6 +180,7 @@
             // 
             this.Codigo.HeaderText = "Codigo Aeropuerto";
             this.Codigo.Name = "Codigo";
+            this.Codigo.ReadOnly = true;
             // 
             // Crud_Aeropuertos
             // 

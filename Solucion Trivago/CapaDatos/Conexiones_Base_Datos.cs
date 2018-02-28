@@ -235,7 +235,7 @@ namespace CapaDatos
             conexion.Close();
 
         }
-        public void InsertarDatosVuelos(int identificador_tarifa, string ruta  , double precio)
+        public void InsertarDatosVuelos(int identificador_tarifa, int ruta  , double precio)
         {
             Conexion();
             conexion.Open();
@@ -245,7 +245,7 @@ namespace CapaDatos
         }
 
 
-        public void ModificarTarifaVuelo(int identificador_tarifa, string ruta, double precio)
+        public void ModificarTarifaVuelo(int identificador_tarifa, int ruta, double precio)
         {
             Conexion();
             conexion.Open();
