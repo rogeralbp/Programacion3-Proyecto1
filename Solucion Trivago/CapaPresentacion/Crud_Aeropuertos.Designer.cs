@@ -28,29 +28,39 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.tblAerpuertos = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.btnRegistrar = new System.Windows.Forms.Button();
+            this.btnActualizar = new System.Windows.Forms.Button();
+            this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnRegresar = new System.Windows.Forms.Button();
+            this.txtIdentificador = new System.Windows.Forms.TextBox();
+            this.txtNombre = new System.Windows.Forms.TextBox();
+            this.txtCodigoAeropuertos = new System.Windows.Forms.TextBox();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Identificadores = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombres = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ComboLugares = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.tblAerpuertos)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // tblAerpuertos
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(5, 197);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(748, 283);
-            this.dataGridView1.TabIndex = 0;
+            this.tblAerpuertos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.tblAerpuertos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ID,
+            this.Identificadores,
+            this.nombres,
+            this.ComboLugares,
+            this.Codigo});
+            this.tblAerpuertos.Location = new System.Drawing.Point(5, 197);
+            this.tblAerpuertos.Name = "tblAerpuertos";
+            this.tblAerpuertos.Size = new System.Drawing.Size(748, 283);
+            this.tblAerpuertos.TabIndex = 0;
+            this.tblAerpuertos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tblAerpuertos_CellContentClick);
             // 
             // label1
             // 
@@ -70,111 +80,119 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Nombre:";
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(36, 110);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(56, 13);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "Localidad:";
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(36, 162);
+            this.label4.Location = new System.Drawing.Point(36, 113);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(98, 13);
             this.label4.TabIndex = 4;
             this.label4.Text = "Codigo Aeropuerto:";
             // 
-            // button1
+            // btnRegistrar
             // 
-            this.button1.Location = new System.Drawing.Point(563, 16);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Registar";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnRegistrar.Location = new System.Drawing.Point(563, 16);
+            this.btnRegistrar.Name = "btnRegistrar";
+            this.btnRegistrar.Size = new System.Drawing.Size(75, 23);
+            this.btnRegistrar.TabIndex = 5;
+            this.btnRegistrar.Text = "Registar";
+            this.btnRegistrar.UseVisualStyleBackColor = true;
+            this.btnRegistrar.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
+            // btnActualizar
             // 
-            this.button2.Location = new System.Drawing.Point(563, 62);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "Actualizar";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnActualizar.Location = new System.Drawing.Point(563, 62);
+            this.btnActualizar.Name = "btnActualizar";
+            this.btnActualizar.Size = new System.Drawing.Size(75, 23);
+            this.btnActualizar.TabIndex = 6;
+            this.btnActualizar.Text = "Actualizar";
+            this.btnActualizar.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // btnEliminar
             // 
-            this.button3.Location = new System.Drawing.Point(563, 110);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 7;
-            this.button3.Text = "Eliminar";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnEliminar.Location = new System.Drawing.Point(563, 110);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(75, 23);
+            this.btnEliminar.TabIndex = 7;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // btnRegresar
             // 
-            this.button4.Location = new System.Drawing.Point(563, 149);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 8;
-            this.button4.Text = "Regresar";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click_1);
+            this.btnRegresar.Location = new System.Drawing.Point(563, 149);
+            this.btnRegresar.Name = "btnRegresar";
+            this.btnRegresar.Size = new System.Drawing.Size(75, 23);
+            this.btnRegresar.TabIndex = 8;
+            this.btnRegresar.Text = "Regresar";
+            this.btnRegresar.UseVisualStyleBackColor = true;
+            this.btnRegresar.Click += new System.EventHandler(this.button4_Click_1);
             // 
-            // textBox1
+            // txtIdentificador
             // 
-            this.textBox1.Location = new System.Drawing.Point(157, 18);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(339, 20);
-            this.textBox1.TabIndex = 9;
+            this.txtIdentificador.Location = new System.Drawing.Point(157, 18);
+            this.txtIdentificador.Name = "txtIdentificador";
+            this.txtIdentificador.Size = new System.Drawing.Size(339, 20);
+            this.txtIdentificador.TabIndex = 9;
             // 
-            // textBox2
+            // txtNombre
             // 
-            this.textBox2.Location = new System.Drawing.Point(157, 62);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(339, 20);
-            this.textBox2.TabIndex = 10;
+            this.txtNombre.Location = new System.Drawing.Point(157, 62);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(339, 20);
+            this.txtNombre.TabIndex = 10;
             // 
-            // textBox3
+            // txtCodigoAeropuertos
             // 
-            this.textBox3.Location = new System.Drawing.Point(157, 103);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(339, 20);
-            this.textBox3.TabIndex = 11;
+            this.txtCodigoAeropuertos.Location = new System.Drawing.Point(157, 110);
+            this.txtCodigoAeropuertos.Name = "txtCodigoAeropuertos";
+            this.txtCodigoAeropuertos.Size = new System.Drawing.Size(339, 20);
+            this.txtCodigoAeropuertos.TabIndex = 12;
             // 
-            // textBox4
+            // ID
             // 
-            this.textBox4.Location = new System.Drawing.Point(157, 152);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(339, 20);
-            this.textBox4.TabIndex = 12;
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            // 
+            // Identificadores
+            // 
+            this.Identificadores.HeaderText = "Identificador";
+            this.Identificadores.Name = "Identificadores";
+            // 
+            // nombres
+            // 
+            this.nombres.HeaderText = "Nombre";
+            this.nombres.Name = "nombres";
+            // 
+            // ComboLugares
+            // 
+            this.ComboLugares.HeaderText = "Lugares";
+            this.ComboLugares.Name = "ComboLugares";
+            // 
+            // Codigo
+            // 
+            this.Codigo.HeaderText = "Codigo Aeropuerto";
+            this.Codigo.Name = "Codigo";
             // 
             // Crud_Aeropuertos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(765, 492);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.txtCodigoAeropuertos);
+            this.Controls.Add(this.txtNombre);
+            this.Controls.Add(this.txtIdentificador);
+            this.Controls.Add(this.btnRegresar);
+            this.Controls.Add(this.btnEliminar);
+            this.Controls.Add(this.btnActualizar);
+            this.Controls.Add(this.btnRegistrar);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.tblAerpuertos);
             this.Name = "Crud_Aeropuertos";
             this.Text = "Crud_Aeropuertos";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.Aeropuerto_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.tblAerpuertos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -182,18 +200,21 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView tblAerpuertos;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.Button btnRegistrar;
+        private System.Windows.Forms.Button btnActualizar;
+        private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.Button btnRegresar;
+        private System.Windows.Forms.TextBox txtIdentificador;
+        private System.Windows.Forms.TextBox txtNombre;
+        private System.Windows.Forms.TextBox txtCodigoAeropuertos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Identificadores;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombres;
+        private System.Windows.Forms.DataGridViewComboBoxColumn ComboLugares;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Codigo;
     }
 }

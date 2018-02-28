@@ -495,6 +495,7 @@
             // TablaRutas
             // 
             this.TablaRutas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.TablaRutas.Enabled = false;
             this.TablaRutas.Location = new System.Drawing.Point(17, 143);
             this.TablaRutas.Name = "TablaRutas";
             this.TablaRutas.Size = new System.Drawing.Size(764, 302);

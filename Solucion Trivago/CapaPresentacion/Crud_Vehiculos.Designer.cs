@@ -693,6 +693,7 @@
             // TablaVehiculos
             // 
             this.TablaVehiculos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.TablaVehiculos.Enabled = false;
             this.TablaVehiculos.Location = new System.Drawing.Point(8, 150);
             this.TablaVehiculos.Name = "TablaVehiculos";
             this.TablaVehiculos.Size = new System.Drawing.Size(868, 313);

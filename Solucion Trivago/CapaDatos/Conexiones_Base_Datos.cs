@@ -271,7 +271,7 @@ namespace CapaDatos
             Conexion();
             conexion.Open();
 
-            cmd = new NpgsqlCommand("INSERT INTO pais(identificador, nombre , direccion) VALUES ('" + identificador + "', '" + nombre + "', '" + direccion + "')", conexion);
+            cmd = new NpgsqlCommand("INSERT INTO pais (identificador, nombre , direccion) VALUES ('" + identificador + "', '" + nombre + "', '" + direccion + "')", conexion);
 
             cmd.ExecuteNonQuery();
             conexion.Close();

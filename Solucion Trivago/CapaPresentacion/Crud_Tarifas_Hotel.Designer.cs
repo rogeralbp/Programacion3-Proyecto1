@@ -326,6 +326,7 @@
             // TablaTarifasHoteles
             // 
             this.TablaTarifasHoteles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.TablaTarifasHoteles.Enabled = false;
             this.TablaTarifasHoteles.Location = new System.Drawing.Point(10, 99);
             this.TablaTarifasHoteles.Name = "TablaTarifasHoteles";
             this.TablaTarifasHoteles.Size = new System.Drawing.Size(681, 251);

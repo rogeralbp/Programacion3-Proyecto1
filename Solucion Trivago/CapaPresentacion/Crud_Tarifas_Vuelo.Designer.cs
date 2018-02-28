@@ -412,6 +412,7 @@
             // TablaVuelos
             // 
             this.TablaVuelos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.TablaVuelos.Enabled = false;
             this.TablaVuelos.Location = new System.Drawing.Point(8, 127);
             this.TablaVuelos.Name = "TablaVuelos";
             this.TablaVuelos.Size = new System.Drawing.Size(785, 313);
