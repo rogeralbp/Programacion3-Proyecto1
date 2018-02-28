@@ -24,8 +24,11 @@ namespace CapaPresentacion
             this.CenterToScreen();
 
             //Este metodo llena el combo de rutas del TAB de agregar
-            metodo.ComboNombreRuta(comboBoxRuta);
-            metodo.ComboNombreRuta(comboNueaRuta);
+            // metodo.ComboNombreRuta(comboBoxRuta);
+            // metodo.ComboNombreRuta(comboNueaRuta);
+
+            metodo.ComboIDRutas(comboBoxRuta);
+            metodo.ComboIDRutas(comboNueaRuta);
 
             //Este metodo llena el combo de ID de vuelos del TAB de modificar
 
@@ -87,7 +90,7 @@ namespace CapaPresentacion
             else
             {
                 int identificador = int.Parse(txtIdentificador.Text);
-                string ruta = comboBoxRuta.SelectedItem.ToString();
+                int ruta = int.Parse(comboBoxRuta.SelectedItem.ToString()) ;
                 double precio = double.Parse(txtPrecio.Text);
 
                 conectar.InsertarDatosVuelos(identificador, ruta, precio);
@@ -136,10 +139,10 @@ namespace CapaPresentacion
 
         private void btnGuardarCambios_Click(object sender, EventArgs e)
         {
-            string ruta = comboNueaRuta.SelectedItem.ToString();
+            int ruta = int.Parse(comboNueaRuta.SelectedItem.ToString());
             double precio = double.Parse(txtPrecioNuevo.Text);
             int identificador_ruta = int.Parse(comboIDVuelos.SelectedItem.ToString());
-            conectar.ModificarTarifaVuelo(identificador_ruta, ruta, precio);
+           conectar.ModificarTarifaVuelo(identificador_ruta, ruta, precio);
 
             MessageBox.Show("Tarifa vuelo modificada con exito");
 
@@ -169,6 +172,11 @@ namespace CapaPresentacion
             LimpiarCamposEliminar();
             //Actulizamos la tabla de vuelos
             metodo.LlenarDtTarifaVuelo(TablaVuelos);
+
+        }
+
+        private void tabPage2_Click(object sender, EventArgs e)
+        {
 
         }
     }

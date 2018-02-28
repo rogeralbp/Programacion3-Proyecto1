@@ -907,7 +907,7 @@ namespace CapaNegocios
         }
 
         //Metodo que llena el combo de identificadores de vehiculos , en la ventana de modificar vehiculos
-        public void LlenarComboDatagridviewAeropuertos(  DataGridViewComboBoxColumn nombre)
+        public void LlenarComboDatagridviewAeropuertos(DataGridViewComboBoxColumn nombre)
         {
 
             try
@@ -921,8 +921,42 @@ namespace CapaNegocios
                 {
                     while (dr.Read())
                     {
-                        nombre.Items.Add(dr.GetString(0));    
+                        nombre.Items.Add(dr.GetString(0));
 
+
+                    }
+                }
+                conexion.Close();
+
+
+            }
+            catch (Exception error)
+            {
+                Console.WriteLine(error);
+
+            }
+
+        }
+
+
+
+
+        //Metodo que llena el combobox de indentificadores de vuelos
+        public void ComboIDRutas(ComboBox identificador)
+        {
+
+            try
+            {
+                Conexion();
+                conexion.Open();
+                List<String> lista = new List<String>();
+                NpgsqlCommand cmd = new NpgsqlCommand("SELECT identificador_ruta FROM rutas", conexion);
+                NpgsqlDataReader dr = cmd.ExecuteReader();
+                if (dr.HasRows)
+                {
+                    while (dr.Read())
+                    {
+                        identificador.Items.Add(dr.GetInt64(0));
                     }
                 }
                 conexion.Close();
