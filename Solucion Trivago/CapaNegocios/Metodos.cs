@@ -907,7 +907,7 @@ namespace CapaNegocios
         }
 
         //Metodo que llena el combo de identificadores de vehiculos , en la ventana de modificar vehiculos
-        public void LlenarComboDatagridviewAeropuertos(DataGridViewComboBoxColumn nombre)
+        public void LlenarComboDatagridviewAeropuertos( DataGridView dtg , DataGridViewComboBoxColumn nombre)
         {
 
             try
@@ -922,6 +922,13 @@ namespace CapaNegocios
                     while (dr.Read())
                     {
                         nombre.Items.Add(dr.GetString(0));
+
+
+                        dtg.AutoGenerateColumns = false;
+                      
+
+                      
+
                     }
                 }
                 conexion.Close();

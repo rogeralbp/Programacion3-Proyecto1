@@ -165,6 +165,9 @@
             // 
             // ComboLugares
             // 
+            this.ComboLugares.AutoComplete = false;
+            this.ComboLugares.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.ComboLugares.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
             this.ComboLugares.HeaderText = "Lugares";
             this.ComboLugares.Name = "ComboLugares";
             // 

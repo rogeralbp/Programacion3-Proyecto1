@@ -73,7 +73,9 @@ namespace CapaPresentacion
             int identificador = int.Parse(txtIdentificador.Text);
             string nombre = txtNombre.Text;
             int codigo = int.Parse(txtCodigoAeropuertos.Text);
-            string lugar = ComboLugares.Selected.ToString();
+            string lugar = Convert.ToString(this.tblAerpuertos.CurrentRow.Cells[3].Value);
+
+           // ComboLugares.AutoGenerateComlumns = false;
 
 
 
@@ -104,7 +106,7 @@ namespace CapaPresentacion
         private void Aeropuerto_Load(object sender, EventArgs e)
         {
             //Este metodo llena el comobo que esta dentro del DatagridView
-            metodo.LlenarComboDatagridviewAeropuertos(ComboLugares);
+            metodo.LlenarComboDatagridviewAeropuertos( tblAerpuertos,ComboLugares);
         }
     }
 }
