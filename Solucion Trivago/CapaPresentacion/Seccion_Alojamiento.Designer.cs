@@ -41,7 +41,7 @@
             this.label23 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.spinnerPersonasMenoresPais = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.spinnerPersonasAdultasPais = new System.Windows.Forms.NumericUpDown();
             this.spinnerHabitacionesPais = new System.Windows.Forms.NumericUpDown();
             this.btnConfirmarReservacionPais = new System.Windows.Forms.Button();
             this.labelHabitaciones = new System.Windows.Forms.Label();
@@ -63,8 +63,8 @@
             this.panelPersonasCiudad = new System.Windows.Forms.Panel();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
-            this.spinnerPersonasMenores = new System.Windows.Forms.NumericUpDown();
-            this.spinnerAdultosCiudad = new System.Windows.Forms.NumericUpDown();
+            this.spinnerPersonasMenoresCiudad = new System.Windows.Forms.NumericUpDown();
+            this.spinnerPersonasAdultosCiudad = new System.Windows.Forms.NumericUpDown();
             this.btnPersonasCiudad = new System.Windows.Forms.Button();
             this.spinnerHabitacionesCiudad = new System.Windows.Forms.NumericUpDown();
             this.laberlHabitacionesCiudad = new System.Windows.Forms.Label();
@@ -89,8 +89,8 @@
             this.panelPersonasHotel = new System.Windows.Forms.Panel();
             this.label18 = new System.Windows.Forms.Label();
             this.paner = new System.Windows.Forms.Label();
-            this.spinnerPersonasMenoresCiudad = new System.Windows.Forms.NumericUpDown();
-            this.spinnerAdultosHotel = new System.Windows.Forms.NumericUpDown();
+            this.spinnerPersonasMenoresHotel = new System.Windows.Forms.NumericUpDown();
+            this.spinnerPersonasAdultosHotel = new System.Windows.Forms.NumericUpDown();
             this.btnPersonasHotel = new System.Windows.Forms.Button();
             this.spinnerHabitacionesHotel = new System.Windows.Forms.NumericUpDown();
             this.labelHabitacionesH = new System.Windows.Forms.Label();
@@ -102,7 +102,7 @@
             this.labelFechaLlegadaHotel = new System.Windows.Forms.Label();
             this.btnConfirmarReservacionHotel = new System.Windows.Forms.Button();
             this.btnBuscarHotel = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtNombreHotelBuscar = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
@@ -110,19 +110,19 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panelAdultosNiñosPais.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spinnerPersonasMenoresPais)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spinnerPersonasAdultasPais)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spinnerHabitacionesPais)).BeginInit();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.panelPersonasCiudad.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.spinnerPersonasMenores)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.spinnerAdultosCiudad)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spinnerPersonasMenoresCiudad)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spinnerPersonasAdultosCiudad)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spinnerHabitacionesCiudad)).BeginInit();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             this.panelPersonasHotel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.spinnerPersonasMenoresCiudad)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.spinnerAdultosHotel)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spinnerPersonasMenoresHotel)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spinnerPersonasAdultosHotel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spinnerHabitacionesHotel)).BeginInit();
             this.SuspendLayout();
             // 
@@ -236,7 +236,7 @@
             this.panelAdultosNiñosPais.Controls.Add(this.label23);
             this.panelAdultosNiñosPais.Controls.Add(this.label21);
             this.panelAdultosNiñosPais.Controls.Add(this.spinnerPersonasMenoresPais);
-            this.panelAdultosNiñosPais.Controls.Add(this.numericUpDown1);
+            this.panelAdultosNiñosPais.Controls.Add(this.spinnerPersonasAdultasPais);
             this.panelAdultosNiñosPais.Location = new System.Drawing.Point(283, 124);
             this.panelAdultosNiñosPais.Name = "panelAdultosNiñosPais";
             this.panelAdultosNiñosPais.Size = new System.Drawing.Size(127, 60);
@@ -267,21 +267,17 @@
             this.spinnerPersonasMenoresPais.Name = "spinnerPersonasMenoresPais";
             this.spinnerPersonasMenoresPais.Size = new System.Drawing.Size(37, 20);
             this.spinnerPersonasMenoresPais.TabIndex = 44;
-            this.spinnerPersonasMenoresPais.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
             this.spinnerPersonasMenoresPais.ValueChanged += new System.EventHandler(this.numericUpDown8_ValueChanged);
             this.spinnerPersonasMenoresPais.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.numericUpDown8_KeyPress);
             // 
-            // numericUpDown1
+            // spinnerPersonasAdultasPais
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(88, 37);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(37, 20);
-            this.numericUpDown1.TabIndex = 45;
-            this.numericUpDown1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.numericUpDown1_KeyPress);
+            this.spinnerPersonasAdultasPais.Location = new System.Drawing.Point(88, 37);
+            this.spinnerPersonasAdultasPais.Name = "spinnerPersonasAdultasPais";
+            this.spinnerPersonasAdultasPais.Size = new System.Drawing.Size(37, 20);
+            this.spinnerPersonasAdultasPais.TabIndex = 45;
+            this.spinnerPersonasAdultasPais.ValueChanged += new System.EventHandler(this.spinnerPersonasAdultas_ValueChanged);
+            this.spinnerPersonasAdultasPais.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.numericUpDown1_KeyPress);
             // 
             // spinnerHabitacionesPais
             // 
@@ -482,8 +478,8 @@
             // 
             this.panelPersonasCiudad.Controls.Add(this.label16);
             this.panelPersonasCiudad.Controls.Add(this.label17);
-            this.panelPersonasCiudad.Controls.Add(this.spinnerPersonasMenores);
-            this.panelPersonasCiudad.Controls.Add(this.spinnerAdultosCiudad);
+            this.panelPersonasCiudad.Controls.Add(this.spinnerPersonasMenoresCiudad);
+            this.panelPersonasCiudad.Controls.Add(this.spinnerPersonasAdultosCiudad);
             this.panelPersonasCiudad.Location = new System.Drawing.Point(561, 110);
             this.panelPersonasCiudad.Name = "panelPersonasCiudad";
             this.panelPersonasCiudad.Size = new System.Drawing.Size(127, 60);
@@ -508,21 +504,23 @@
             this.label17.TabIndex = 46;
             this.label17.Text = "Menores:";
             // 
-            // spinnerPersonasMenores
+            // spinnerPersonasMenoresCiudad
             // 
-            this.spinnerPersonasMenores.Location = new System.Drawing.Point(88, 3);
-            this.spinnerPersonasMenores.Name = "spinnerPersonasMenores";
-            this.spinnerPersonasMenores.Size = new System.Drawing.Size(37, 20);
-            this.spinnerPersonasMenores.TabIndex = 44;
-            this.spinnerPersonasMenores.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.numericUpDown3_KeyPress);
+            this.spinnerPersonasMenoresCiudad.Location = new System.Drawing.Point(88, 3);
+            this.spinnerPersonasMenoresCiudad.Name = "spinnerPersonasMenoresCiudad";
+            this.spinnerPersonasMenoresCiudad.Size = new System.Drawing.Size(37, 20);
+            this.spinnerPersonasMenoresCiudad.TabIndex = 44;
+            this.spinnerPersonasMenoresCiudad.ValueChanged += new System.EventHandler(this.spinnerPersonasMenores_ValueChanged);
+            this.spinnerPersonasMenoresCiudad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.numericUpDown3_KeyPress);
             // 
-            // spinnerAdultosCiudad
+            // spinnerPersonasAdultosCiudad
             // 
-            this.spinnerAdultosCiudad.Location = new System.Drawing.Point(88, 37);
-            this.spinnerAdultosCiudad.Name = "spinnerAdultosCiudad";
-            this.spinnerAdultosCiudad.Size = new System.Drawing.Size(37, 20);
-            this.spinnerAdultosCiudad.TabIndex = 45;
-            this.spinnerAdultosCiudad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.numericUpDown4_KeyPress);
+            this.spinnerPersonasAdultosCiudad.Location = new System.Drawing.Point(88, 37);
+            this.spinnerPersonasAdultosCiudad.Name = "spinnerPersonasAdultosCiudad";
+            this.spinnerPersonasAdultosCiudad.Size = new System.Drawing.Size(37, 20);
+            this.spinnerPersonasAdultosCiudad.TabIndex = 45;
+            this.spinnerPersonasAdultosCiudad.ValueChanged += new System.EventHandler(this.spinnerPersonasAdultosCiudad_ValueChanged);
+            this.spinnerPersonasAdultosCiudad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.numericUpDown4_KeyPress);
             // 
             // btnPersonasCiudad
             // 
@@ -697,7 +695,7 @@
             this.tabPage3.Controls.Add(this.labelFechaLlegadaHotel);
             this.tabPage3.Controls.Add(this.btnConfirmarReservacionHotel);
             this.tabPage3.Controls.Add(this.btnBuscarHotel);
-            this.tabPage3.Controls.Add(this.textBox1);
+            this.tabPage3.Controls.Add(this.txtNombreHotelBuscar);
             this.tabPage3.Controls.Add(this.label10);
             this.tabPage3.Controls.Add(this.button3);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
@@ -760,8 +758,8 @@
             // 
             this.panelPersonasHotel.Controls.Add(this.label18);
             this.panelPersonasHotel.Controls.Add(this.paner);
-            this.panelPersonasHotel.Controls.Add(this.spinnerPersonasMenoresCiudad);
-            this.panelPersonasHotel.Controls.Add(this.spinnerAdultosHotel);
+            this.panelPersonasHotel.Controls.Add(this.spinnerPersonasMenoresHotel);
+            this.panelPersonasHotel.Controls.Add(this.spinnerPersonasAdultosHotel);
             this.panelPersonasHotel.Location = new System.Drawing.Point(614, 88);
             this.panelPersonasHotel.Name = "panelPersonasHotel";
             this.panelPersonasHotel.Size = new System.Drawing.Size(127, 60);
@@ -786,21 +784,21 @@
             this.paner.TabIndex = 46;
             this.paner.Text = "Menores:";
             // 
-            // spinnerPersonasMenoresCiudad
+            // spinnerPersonasMenoresHotel
             // 
-            this.spinnerPersonasMenoresCiudad.Location = new System.Drawing.Point(88, 3);
-            this.spinnerPersonasMenoresCiudad.Name = "spinnerPersonasMenoresCiudad";
-            this.spinnerPersonasMenoresCiudad.Size = new System.Drawing.Size(37, 20);
-            this.spinnerPersonasMenoresCiudad.TabIndex = 44;
-            this.spinnerPersonasMenoresCiudad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.numericUpDown5_KeyPress);
+            this.spinnerPersonasMenoresHotel.Location = new System.Drawing.Point(88, 3);
+            this.spinnerPersonasMenoresHotel.Name = "spinnerPersonasMenoresHotel";
+            this.spinnerPersonasMenoresHotel.Size = new System.Drawing.Size(37, 20);
+            this.spinnerPersonasMenoresHotel.TabIndex = 44;
+            this.spinnerPersonasMenoresHotel.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.numericUpDown5_KeyPress);
             // 
-            // spinnerAdultosHotel
+            // spinnerPersonasAdultosHotel
             // 
-            this.spinnerAdultosHotel.Location = new System.Drawing.Point(88, 37);
-            this.spinnerAdultosHotel.Name = "spinnerAdultosHotel";
-            this.spinnerAdultosHotel.Size = new System.Drawing.Size(37, 20);
-            this.spinnerAdultosHotel.TabIndex = 45;
-            this.spinnerAdultosHotel.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.numericUpDown6_KeyPress);
+            this.spinnerPersonasAdultosHotel.Location = new System.Drawing.Point(88, 37);
+            this.spinnerPersonasAdultosHotel.Name = "spinnerPersonasAdultosHotel";
+            this.spinnerPersonasAdultosHotel.Size = new System.Drawing.Size(37, 20);
+            this.spinnerPersonasAdultosHotel.TabIndex = 45;
+            this.spinnerPersonasAdultosHotel.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.numericUpDown6_KeyPress);
             // 
             // btnPersonasHotel
             // 
@@ -902,7 +900,7 @@
             // btnConfirmarReservacionHotel
             // 
             this.btnConfirmarReservacionHotel.Enabled = false;
-            this.btnConfirmarReservacionHotel.Location = new System.Drawing.Point(446, 520);
+            this.btnConfirmarReservacionHotel.Location = new System.Drawing.Point(451, 518);
             this.btnConfirmarReservacionHotel.Name = "btnConfirmarReservacionHotel";
             this.btnConfirmarReservacionHotel.Size = new System.Drawing.Size(133, 23);
             this.btnConfirmarReservacionHotel.TabIndex = 20;
@@ -920,13 +918,13 @@
             this.btnBuscarHotel.UseVisualStyleBackColor = true;
             this.btnBuscarHotel.Click += new System.EventHandler(this.btnBuscarHotel_Click);
             // 
-            // textBox1
+            // txtNombreHotelBuscar
             // 
-            this.textBox1.Location = new System.Drawing.Point(232, 23);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(307, 20);
-            this.textBox1.TabIndex = 16;
-            this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
+            this.txtNombreHotelBuscar.Location = new System.Drawing.Point(232, 23);
+            this.txtNombreHotelBuscar.Name = "txtNombreHotelBuscar";
+            this.txtNombreHotelBuscar.Size = new System.Drawing.Size(328, 20);
+            this.txtNombreHotelBuscar.TabIndex = 16;
+            this.txtNombreHotelBuscar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
             // 
             // label10
             // 
@@ -962,23 +960,23 @@
             this.panelAdultosNiñosPais.ResumeLayout(false);
             this.panelAdultosNiñosPais.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spinnerPersonasMenoresPais)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spinnerPersonasAdultasPais)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spinnerHabitacionesPais)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.panelPersonasCiudad.ResumeLayout(false);
             this.panelPersonasCiudad.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.spinnerPersonasMenores)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.spinnerAdultosCiudad)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spinnerPersonasMenoresCiudad)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spinnerPersonasAdultosCiudad)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spinnerHabitacionesCiudad)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             this.panelPersonasHotel.ResumeLayout(false);
             this.panelPersonasHotel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.spinnerPersonasMenoresCiudad)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.spinnerAdultosHotel)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spinnerPersonasMenoresHotel)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spinnerPersonasAdultosHotel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spinnerHabitacionesHotel)).EndInit();
             this.ResumeLayout(false);
 
@@ -1015,7 +1013,7 @@
         private System.Windows.Forms.Label labelCantidadDiasLugar;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button btnBuscarHotel;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtNombreHotelBuscar;
         private System.Windows.Forms.Button btnConfirmarReservacionHotel;
         private System.Windows.Forms.Label labelFechaLlegadaHotel;
         private System.Windows.Forms.DateTimePicker fechaPartidaHotel;
@@ -1023,7 +1021,7 @@
         private System.Windows.Forms.DateTimePicker fechaLlegadaHotel;
         private System.Windows.Forms.Label labelCantidadDiasHotel;
         private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown spinnerPersonasAdultasPais;
         private System.Windows.Forms.NumericUpDown spinnerPersonasMenoresPais;
         private System.Windows.Forms.Label labelHabitaciones;
         private System.Windows.Forms.Label label23;
@@ -1034,8 +1032,8 @@
         private System.Windows.Forms.Panel panelPersonasCiudad;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.NumericUpDown spinnerPersonasMenores;
-        private System.Windows.Forms.NumericUpDown spinnerAdultosCiudad;
+        private System.Windows.Forms.NumericUpDown spinnerPersonasMenoresCiudad;
+        private System.Windows.Forms.NumericUpDown spinnerPersonasAdultosCiudad;
         private System.Windows.Forms.Button btnPersonasCiudad;
         private System.Windows.Forms.NumericUpDown spinnerHabitacionesCiudad;
         private System.Windows.Forms.Label laberlHabitacionesCiudad;
@@ -1044,8 +1042,8 @@
         private System.Windows.Forms.Panel panelPersonasHotel;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label paner;
-        private System.Windows.Forms.NumericUpDown spinnerPersonasMenoresCiudad;
-        private System.Windows.Forms.NumericUpDown spinnerAdultosHotel;
+        private System.Windows.Forms.NumericUpDown spinnerPersonasMenoresHotel;
+        private System.Windows.Forms.NumericUpDown spinnerPersonasAdultosHotel;
         private System.Windows.Forms.Button btnPersonasHotel;
         private System.Windows.Forms.NumericUpDown spinnerHabitacionesHotel;
         private System.Windows.Forms.Label labelHabitacionesH;

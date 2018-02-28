@@ -268,12 +268,41 @@ namespace CapaPresentacion
 
         private void numericUpDown8_ValueChanged(object sender, EventArgs e)
         {
-            if (spinnerPersonasMenoresPais.Value==4) {
+            if ((spinnerPersonasMenoresPais.Value+spinnerPersonasAdultasPais.Value)>4) {
 
                 MessageBox.Show("Una habitacion");
                 spinnerHabitacionesPais.Value =1;
             }
         }
 
+        private void spinnerPersonasAdultas_ValueChanged(object sender, EventArgs e)
+        {
+            if ((spinnerPersonasAdultasPais.Value + spinnerPersonasMenoresPais.Value) > 4)
+            {
+
+                MessageBox.Show("Una habitacion");
+                spinnerHabitacionesPais.Value = 1;
+            }
+        }
+
+        private void spinnerPersonasMenores_ValueChanged(object sender, EventArgs e)
+        {
+            if ((spinnerPersonasMenoresCiudad.Value + spinnerPersonasAdultosCiudad.Value) > 4)
+            {
+
+                MessageBox.Show("Una habitacion");
+                spinnerHabitacionesCiudad.Value = 1;
+            }
+        }
+
+        private void spinnerPersonasAdultosCiudad_ValueChanged(object sender, EventArgs e)
+        {
+            if ((spinnerPersonasAdultosCiudad.Value + spinnerPersonasMenoresCiudad.Value) > 4)
+            {
+
+                MessageBox.Show("Una habitacion");
+                spinnerHabitacionesCiudad.Value = 1;
+            }
+        }
     }
 }

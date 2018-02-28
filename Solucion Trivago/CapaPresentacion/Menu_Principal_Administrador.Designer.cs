@@ -101,7 +101,7 @@
             this.btnCrudRutas.Name = "btnCrudRutas";
             this.btnCrudRutas.Size = new System.Drawing.Size(179, 23);
             this.btnCrudRutas.TabIndex = 6;
-            this.btnCrudRutas.Text = "MantenimientoRutas";
+            this.btnCrudRutas.Text = "Mantenimiento Rutas";
             this.btnCrudRutas.UseVisualStyleBackColor = true;
             this.btnCrudRutas.Click += new System.EventHandler(this.button7_Click);
             // 

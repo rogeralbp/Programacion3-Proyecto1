@@ -179,7 +179,7 @@
             this.comboBoxPaises.Name = "comboBoxPaises";
             this.comboBoxPaises.Size = new System.Drawing.Size(372, 24);
             this.comboBoxPaises.TabIndex = 10;
-            this.comboBoxPaises.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+           
             // 
             // comboBoxLugares
             // 
