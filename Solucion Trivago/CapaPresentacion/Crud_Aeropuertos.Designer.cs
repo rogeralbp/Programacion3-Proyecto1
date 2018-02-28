@@ -39,6 +39,7 @@
             this.txtIdentificador = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.txtCodigoAeropuertos = new System.Windows.Forms.TextBox();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Identificadores = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombres = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ComboLugares = new System.Windows.Forms.DataGridViewComboBoxColumn();
@@ -50,6 +51,7 @@
             // 
             this.tblAerpuertos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.tblAerpuertos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ID,
             this.Identificadores,
             this.nombres,
             this.ComboLugares,
@@ -146,6 +148,11 @@
             this.txtCodigoAeropuertos.Size = new System.Drawing.Size(339, 20);
             this.txtCodigoAeropuertos.TabIndex = 12;
             // 
+            // ID
+            // 
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            // 
             // Identificadores
             // 
             this.Identificadores.HeaderText = "Identificador";
@@ -204,6 +211,7 @@
         private System.Windows.Forms.TextBox txtIdentificador;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.TextBox txtCodigoAeropuertos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Identificadores;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombres;
         private System.Windows.Forms.DataGridViewComboBoxColumn ComboLugares;

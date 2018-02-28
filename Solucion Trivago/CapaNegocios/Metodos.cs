@@ -46,7 +46,7 @@ namespace CapaNegocios
                 Conexion();
                 conexion.Open();
                 DataSet dataset = new DataSet();
-                NpgsqlDataAdapter adapter = new NpgsqlDataAdapter("SELECT identificador_aeropuerto , nombre_aeropuerto, lugar_aeropuerto, codigo_aeropuerto FROM aeropuerto", conexion);
+                NpgsqlDataAdapter adapter = new NpgsqlDataAdapter("SELECT identificador_aeropuerto , nombre_aeropuerto, lugar_aeropuerto, codigo_aeropuerto FROM aeropuerto ORDER BY nombre_aeropuerto ASC", conexion);
                 adapter.Fill(dataset, "aeropuerto");
                 agregar.DataSource = dataset.Tables[0];
                 agregar.Columns[0].HeaderCell.Value = "identificador_aeropuerto";
@@ -72,7 +72,7 @@ namespace CapaNegocios
                 Conexion();
                 conexion.Open();
                 DataSet dataset = new DataSet();
-                NpgsqlDataAdapter adapter = new NpgsqlDataAdapter("SELECT placa , marca , modelo , tipo_vehiculo, precio , cantidad_personas FROM vehiculos", conexion);
+                NpgsqlDataAdapter adapter = new NpgsqlDataAdapter("SELECT placa , marca , modelo , tipo_vehiculo, precio , cantidad_personas FROM vehiculos ORDER BY marca ASC", conexion);
                 adapter.Fill(dataset, "vehiculos");
                 Agregar_Vehiculo.DataSource = dataset.Tables[0];
                 Agregar_Vehiculo.Columns[0].HeaderCell.Value = "placa";
@@ -102,7 +102,7 @@ namespace CapaNegocios
                 Conexion();
                 conexion.Open();
                 DataSet dataset = new DataSet();
-                NpgsqlDataAdapter adapter = new NpgsqlDataAdapter("SELECT identificador_ruta , pais_origen , pais_destino , duracion FROM rutas", conexion);
+                NpgsqlDataAdapter adapter = new NpgsqlDataAdapter("SELECT identificador_ruta , pais_origen , pais_destino , duracion FROM rutas ORDER BY identificador_ruta ASC", conexion);
                 adapter.Fill(dataset, "rutas");
                 agregar_Rutas.DataSource = dataset.Tables[0];
                 agregar_Rutas.Columns[0].HeaderCell.Value = "identificador_ruta";
@@ -128,7 +128,7 @@ namespace CapaNegocios
                 Conexion();
                 conexion.Open();
                 DataSet dataset = new DataSet();
-                NpgsqlDataAdapter adapter = new NpgsqlDataAdapter("SELECT idenficador_lugar , nombre  FROM lugares", conexion);
+                NpgsqlDataAdapter adapter = new NpgsqlDataAdapter("SELECT idenficador_lugar , nombre  FROM lugares ORDER BY nombre ASC", conexion);
                 adapter.Fill(dataset, "lugares");
                 agregar_lugares.DataSource = dataset.Tables[0];
                 agregar_lugares.Columns[0].HeaderCell.Value = "idenficador_lugar";
@@ -154,7 +154,7 @@ namespace CapaNegocios
                 Conexion();
                 conexion.Open();
                 DataSet dataset = new DataSet();
-                NpgsqlDataAdapter adapter = new NpgsqlDataAdapter("SELECT identificador_tarifa , precio_tarifa  FROM tarifas_hoteles", conexion);
+                NpgsqlDataAdapter adapter = new NpgsqlDataAdapter("SELECT identificador_tarifa , precio_tarifa  FROM tarifas_hoteles ORDER BY identificador_tarifa ASC", conexion);
                 adapter.Fill(dataset, "tarifas_hoteles");
                 agregar_tariHotel.DataSource = dataset.Tables[0];
                 agregar_tariHotel.Columns[0].HeaderCell.Value = "identificador_tarifa";
@@ -178,7 +178,7 @@ namespace CapaNegocios
                 Conexion();
                 conexion.Open();
                 DataSet dataset = new DataSet();
-                NpgsqlDataAdapter adapter = new NpgsqlDataAdapter("SELECT identificador_tarifa , ruta ,  precio  FROM tarifas_vuelos", conexion);
+                NpgsqlDataAdapter adapter = new NpgsqlDataAdapter("SELECT identificador_tarifa , ruta ,  precio  FROM tarifas_vuelos ORDER BY ruta ASC", conexion);
                 adapter.Fill(dataset, "tarifas_vuelos");
                 agregar_tariVuelo.DataSource = dataset.Tables[0];
                 agregar_tariVuelo.Columns[0].HeaderCell.Value = "identificador_tarifa";
@@ -206,7 +206,7 @@ namespace CapaNegocios
                 Conexion();
                 conexion.Open();
                 DataSet dataset = new DataSet();
-                NpgsqlDataAdapter adapter = new NpgsqlDataAdapter("SELECT identificador , nombre , foto ,  pais , lugar , habitaciones  FROM hotel", conexion);
+                NpgsqlDataAdapter adapter = new NpgsqlDataAdapter("SELECT identificador , nombre , foto ,  pais , lugar , habitaciones  FROM hotel ORDER BY nombre ASC", conexion);
                 adapter.Fill(dataset, "hotel");
                 agregar_hotel.DataSource = dataset.Tables[0];
                 agregar_hotel.Columns[0].HeaderCell.Value = "identificador";
@@ -240,7 +240,7 @@ namespace CapaNegocios
                 Conexion();
                 conexion.Open();
                 DataSet dataset = new DataSet();
-                NpgsqlDataAdapter adapter = new NpgsqlDataAdapter("SELECT identificador , nombre ,  direccion  FROM paises", conexion);
+                NpgsqlDataAdapter adapter = new NpgsqlDataAdapter("SELECT identificador , nombre ,  direccion  FROM paises ORDER BY nombre ASC", conexion);
                 adapter.Fill(dataset, "paises");
                 agregar_tariVuelo.DataSource = dataset.Tables[0];
                 agregar_tariVuelo.Columns[0].HeaderCell.Value = "identificador";
