@@ -83,6 +83,8 @@
             this.Tabla_Hoteles = new System.Windows.Forms.DataGridView();
             this.button7 = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.label21 = new System.Windows.Forms.Label();
+            this.comboBoxIDSTarifas = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -108,6 +110,8 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.comboBoxIDSTarifas);
+            this.tabPage1.Controls.Add(this.label21);
             this.tabPage1.Controls.Add(this.btnCargar_Foto);
             this.tabPage1.Controls.Add(this.pictureBox1);
             this.tabPage1.Controls.Add(this.button2);
@@ -179,7 +183,6 @@
             this.comboBoxPaises.Name = "comboBoxPaises";
             this.comboBoxPaises.Size = new System.Drawing.Size(372, 24);
             this.comboBoxPaises.TabIndex = 10;
-            this.comboBoxPaises.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
             // comboBoxLugares
             // 
@@ -651,6 +654,24 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(56, 411);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(41, 16);
+            this.label21.TabIndex = 15;
+            this.label21.Text = "Tarifa:";
+            // 
+            // comboBoxIDSTarifas
+            // 
+            this.comboBoxIDSTarifas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxIDSTarifas.FormattingEnabled = true;
+            this.comboBoxIDSTarifas.Location = new System.Drawing.Point(208, 405);
+            this.comboBoxIDSTarifas.Name = "comboBoxIDSTarifas";
+            this.comboBoxIDSTarifas.Size = new System.Drawing.Size(372, 24);
+            this.comboBoxIDSTarifas.TabIndex = 16;
+            // 
             // Crud_Hoteles
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -731,5 +752,7 @@
         private System.Windows.Forms.Button btnCargar_Foto;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.ComboBox comboBoxIDSTarifas;
+        private System.Windows.Forms.Label label21;
     }
 }
