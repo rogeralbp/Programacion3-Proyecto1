@@ -77,7 +77,7 @@
             this.optPrecioMenorCiudad = new System.Windows.Forms.RadioButton();
             this.optPrecioMayorCiudad = new System.Windows.Forms.RadioButton();
             this.btnConfirmarReservacionCiudad = new System.Windows.Forms.Button();
-            this.comboCiudadesCiudades = new System.Windows.Forms.ComboBox();
+            this.comboCiudades = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
@@ -426,7 +426,7 @@
             this.tabPage2.Controls.Add(this.optPrecioMenorCiudad);
             this.tabPage2.Controls.Add(this.optPrecioMayorCiudad);
             this.tabPage2.Controls.Add(this.btnConfirmarReservacionCiudad);
-            this.tabPage2.Controls.Add(this.comboCiudadesCiudades);
+            this.tabPage2.Controls.Add(this.comboCiudades);
             this.tabPage2.Controls.Add(this.label6);
             this.tabPage2.Controls.Add(this.button1);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
@@ -647,15 +647,15 @@
             this.btnConfirmarReservacionCiudad.UseVisualStyleBackColor = true;
             this.btnConfirmarReservacionCiudad.Click += new System.EventHandler(this.btnConfirmarReservacionCiudad_Click);
             // 
-            // comboCiudadesCiudades
+            // comboCiudades
             // 
-            this.comboCiudadesCiudades.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboCiudadesCiudades.FormattingEnabled = true;
-            this.comboCiudadesCiudades.Location = new System.Drawing.Point(294, 30);
-            this.comboCiudadesCiudades.Name = "comboCiudadesCiudades";
-            this.comboCiudadesCiudades.Size = new System.Drawing.Size(326, 21);
-            this.comboCiudadesCiudades.TabIndex = 16;
-            this.comboCiudadesCiudades.SelectedIndexChanged += new System.EventHandler(this.comboCiudadesCiudades_SelectedIndexChanged);
+            this.comboCiudades.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboCiudades.FormattingEnabled = true;
+            this.comboCiudades.Location = new System.Drawing.Point(294, 30);
+            this.comboCiudades.Name = "comboCiudades";
+            this.comboCiudades.Size = new System.Drawing.Size(326, 21);
+            this.comboCiudades.TabIndex = 16;
+            this.comboCiudades.SelectedIndexChanged += new System.EventHandler(this.comboCiudadesCiudades_SelectedIndexChanged);
             // 
             // label6
             // 
@@ -953,6 +953,7 @@
             this.Controls.Add(this.tabControl1);
             this.Name = "Seccion_Alojamiento";
             this.Text = "Seccion_Alojamiento";
+            this.Load += new System.EventHandler(this.Seccion_Alojamiento_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
@@ -1001,7 +1002,7 @@
         private System.Windows.Forms.RadioButton optPrecioMenorPais;
         private System.Windows.Forms.RadioButton optPrecioMayorPais;
         private System.Windows.Forms.Button btnConfirmarReservacionPais;
-        private System.Windows.Forms.ComboBox comboCiudadesCiudades;
+        private System.Windows.Forms.ComboBox comboCiudades;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btnConfirmarReservacionCiudad;
         private System.Windows.Forms.RadioButton optPrecioMenorCiudad;

@@ -30,7 +30,9 @@ namespace CapaPresentacion
             this.CenterToScreen();
 
             //Lleno el combo del TAB de eliminar
+            comboPaisesEliminar.Items.Clear();
             metodos.ComboIDPaises(comboPaisesEliminar);
+            metodos.ComboIDPaises(comboBoxModificarPaises);
 
         }
 

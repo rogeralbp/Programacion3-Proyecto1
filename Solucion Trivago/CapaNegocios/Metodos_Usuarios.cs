@@ -8,7 +8,7 @@ using Npgsql;
 
 namespace CapaNegocios
 {
-    class Metodos_Usuarios
+    public class Metodos_Usuarios
     {
 
         static NpgsqlConnection conexion;

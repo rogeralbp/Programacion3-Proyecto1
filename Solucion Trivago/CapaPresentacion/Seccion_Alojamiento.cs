@@ -14,6 +14,7 @@ namespace CapaPresentacion
     public partial class Seccion_Alojamiento : Form
     {
         Validaciones validaciones = new Validaciones();
+        Metodos_Usuarios metodos = new Metodos_Usuarios();
 
         public Seccion_Alojamiento()
         {
@@ -303,6 +304,12 @@ namespace CapaPresentacion
                 MessageBox.Show("Una habitacion");
                 spinnerHabitacionesCiudad.Value = 1;
             }
+        }
+
+        private void Seccion_Alojamiento_Load(object sender, EventArgs e)
+        {
+            metodos.LlenarNombresPaises(comboPaises);
+            metodos.LlenarNombresLugares(comboCiudades);
         }
     }
 }

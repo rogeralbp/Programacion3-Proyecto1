@@ -109,6 +109,7 @@
             this.txtIdentificador.Name = "txtIdentificador";
             this.txtIdentificador.Size = new System.Drawing.Size(410, 22);
             this.txtIdentificador.TabIndex = 8;
+            this.txtIdentificador.TextChanged += new System.EventHandler(this.txtIdentificador_TextChanged);
             // 
             // txtPrecio
             // 
@@ -119,6 +120,7 @@
             // 
             // comboBoxRuta
             // 
+            this.comboBoxRuta.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxRuta.FormattingEnabled = true;
             this.comboBoxRuta.Location = new System.Drawing.Point(265, 96);
             this.comboBoxRuta.Name = "comboBoxRuta";

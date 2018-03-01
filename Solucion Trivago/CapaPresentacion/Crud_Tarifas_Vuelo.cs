@@ -179,5 +179,10 @@ namespace CapaPresentacion
         {
 
         }
+
+        private void txtIdentificador_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
