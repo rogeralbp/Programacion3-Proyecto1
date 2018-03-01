@@ -206,7 +206,7 @@ namespace CapaNegocios
                 Conexion();
                 conexion.Open();
                 DataSet dataset = new DataSet();
-                NpgsqlDataAdapter adapter = new NpgsqlDataAdapter("SELECT identificador , nombre , foto ,  pais , lugar , habitaciones  FROM hotel ORDER BY nombre ASC", conexion);
+                NpgsqlDataAdapter adapter = new NpgsqlDataAdapter("SELECT identificador , nombre , foto ,  pais , lugar , habitaciones , tarifa_hotel FROM hotel ORDER BY nombre ASC", conexion);
                 adapter.Fill(dataset, "hotel");
                 agregar_hotel.DataSource = dataset.Tables[0];
                 agregar_hotel.Columns[0].HeaderCell.Value = "identificador";
@@ -215,6 +215,7 @@ namespace CapaNegocios
                 agregar_hotel.Columns[3].HeaderCell.Value = "pais";
                 agregar_hotel.Columns[4].HeaderCell.Value = "lugar";
                 agregar_hotel.Columns[5].HeaderCell.Value = "habitaciones";
+                agregar_hotel.Columns[6].HeaderCell.Value = "tarifa_hotel";
 
                 conexion.Close();
 
@@ -875,13 +876,13 @@ namespace CapaNegocios
 
 
 
-        public void MostrarInformacionHoteles(ComboBox identificador_hotel, TextBox nombre, TextBox pais, TextBox lugar, TextBox cantidad)
+        public void MostrarInformacionHoteles(ComboBox identificador_hotel, TextBox nombre, TextBox pais, TextBox lugar, TextBox cantidad , TextBox tarifa_hotel)
         {
             try
             {
                 Conexion();
                 conexion.Open();
-                NpgsqlCommand cmd = new NpgsqlCommand("SELECT nombre , pais , lugar , habitaciones  FROM hotel WHERE identificador = '" + identificador_hotel.SelectedItem.ToString() + "'", conexion);
+                NpgsqlCommand cmd = new NpgsqlCommand("SELECT nombre , pais , lugar , habitaciones , tarifa_hotel FROM hotel WHERE identificador = '" + identificador_hotel.SelectedItem.ToString() + "'", conexion);
                 NpgsqlDataReader leer = cmd.ExecuteReader();
                 if (leer.HasRows)
                 {
@@ -892,6 +893,7 @@ namespace CapaNegocios
                         // foto.Image = leer.Get;
                         lugar.Text = leer.GetString(2);
                         cantidad.Text = leer.GetInt64(3).ToString();
+                        tarifa_hotel.Text = leer.GetDouble(4).ToString();
 
 
                     }
@@ -968,5 +970,41 @@ namespace CapaNegocios
             }
 
         }
+
+
+        //Metodo que llena el combobox de indentificadores de tarifas de hoteles
+        public void ComboPreciosTarifaHoteles(ComboBox precio)
+        {
+
+            try
+            {
+                Conexion();
+                conexion.Open();
+                List<String> lista = new List<String>();
+                NpgsqlCommand cmd = new NpgsqlCommand("SELECT precio_tarifa FROM tarifas_hoteles", conexion);
+                NpgsqlDataReader dr = cmd.ExecuteReader();
+                if (dr.HasRows)
+                {
+                    while (dr.Read())
+                    {
+                        precio.Items.Add(dr.GetDouble(0));
+                    }
+                }
+                conexion.Close();
+
+
+            }
+            catch (Exception error)
+            {
+                Console.WriteLine(error);
+
+            }
+
+
+
+
+        }
     }
-}
+    }
+
+    

@@ -43,6 +43,11 @@ namespace CapaPresentacion
 
             //Metodo que llena el combobox de ID de hoteles
             metodos.ComboIDHoteles(comboBoxModifcarIdentificador);
+
+
+            metodos.ComboPreciosTarifaHoteles(comboBoxPrecioTarifa);
+            metodos.ComboPreciosTarifaHoteles(comboBoxTarifaNueva);
+
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -135,7 +140,9 @@ namespace CapaPresentacion
                 string pais = comboBoxPaises.SelectedItem.ToString();
                 string lugar = comboBoxLugares.SelectedItem.ToString();
                 int habitaciones = int.Parse(txtIdentificador.Text);
-                conectar.InsertarHotel(identificador, nombre, direccion, pais, lugar, habitaciones);
+
+                double precio_tarifa = double.Parse(this.comboBoxPrecioTarifa.SelectedItem.ToString()); 
+                conectar.InsertarHotel(identificador, nombre, direccion, pais, lugar, habitaciones , precio_tarifa);
 
                 MessageBox.Show("Hotel Agregado con Exito");
                 LimpiarCampos();
@@ -167,7 +174,7 @@ namespace CapaPresentacion
         {
             btnGuardarCambios.Enabled = true;
             //Metodo que muestra la informacion del hotel
-            metodos.MostrarInformacionHoteles(comboBoxModifcarIdentificador, txtNombreActual, txtPaisActual, txtLugarActual, txtHabitacionesActuales);
+            metodos.MostrarInformacionHoteles(comboBoxModifcarIdentificador, txtNombreActual, txtPaisActual, txtLugarActual, txtHabitacionesActuales , txtTarifaAc);
         }
         public void LimpiarCamposEliminar()
         {
@@ -183,7 +190,7 @@ namespace CapaPresentacion
         {
             btnEliminarHotel.Enabled = true;
             //Metodo que muestra la informacion del hotel
-            metodos.MostrarInformacionHoteles(comboBoxEliminarIdentificador, textNombreActual, textPaisActual, textLugarActual, textHabitacionesActuales);
+            metodos.MostrarInformacionHoteles(comboBoxEliminarIdentificador, textNombreActual, textPaisActual, textLugarActual, textHabitacionesActuales , txtTarifaActual);
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -246,7 +253,9 @@ namespace CapaPresentacion
             string nuevo_lugar = comboNuevoLugar.SelectedItem.ToString();
             int habitaciones = int.Parse(txtNuevasHabitaciones.Text);
 
-            conectar.ModificarHotel(identificador, nuevo_nombre, nuevo_pais, nuevo_lugar, habitaciones);
+            double tarifa_nueva = int.Parse(this.comboBoxTarifaNueva.SelectedItem.ToString());
+
+            conectar.ModificarHotel(identificador, nuevo_nombre, nuevo_pais, nuevo_lugar, habitaciones , tarifa_nueva );
             MessageBox.Show("Hotel Modificado con Exito");
 
             LimpiarCamposModificar();
@@ -310,6 +319,21 @@ namespace CapaPresentacion
         }
 
         private void textPaisActual_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+        }
+
+        private void txtLugarActual_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Tabla_Hoteles_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void label24_Click(object sender, EventArgs e)
         {
 
         }

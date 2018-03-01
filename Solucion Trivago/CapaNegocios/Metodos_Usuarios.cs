@@ -233,9 +233,9 @@ namespace CapaNegocios
 
         }
 
-   
+
         //Este metodo muestra la informacion del vehiculo seleccionado en el combobox por el usuario
-        public void Combo2Vehiculos(ComboBox placa, TextBox marca, TextBox modelo, TextBox tipo_vehiculo, TextBox precio)
+        public void MostrarInformacionVehiculos(ComboBox placa, TextBox marca, TextBox modelo, TextBox tipo_vehiculo, TextBox precio)
         {
 
             try

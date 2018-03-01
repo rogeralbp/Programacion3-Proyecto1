@@ -301,21 +301,21 @@ namespace CapaDatos
         }
 
 
-        public void InsertarHotel(int identificador, string nombre_hotel, string foto_hotel, string pais, string lugar, int habitaciones)
+        public void InsertarHotel(int identificador, string nombre_hotel, string foto_hotel, string pais, string lugar, int habitaciones , double tarifa_hotel)
         {
             Conexion();
             conexion.Open();
-            cmd = new NpgsqlCommand("INSERT INTO hotel (identificador , nombre, foto , pais, lugar, habitaciones) VALUES ('" +identificador + "', '" + nombre_hotel + "', '" + foto_hotel + "', '" + pais + "', '" + lugar + "', '" + habitaciones + "')", conexion);
+            cmd = new NpgsqlCommand("INSERT INTO hotel (identificador , nombre, foto , pais, lugar, habitaciones , tarifa_hotel) VALUES ('" + identificador + "', '" + nombre_hotel + "', '" + foto_hotel + "', '" + pais + "', '" + lugar + "', '" + habitaciones + "', '" + tarifa_hotel + "')", conexion);
             cmd.ExecuteNonQuery();
             conexion.Close();
         }
 
 
-        public void ModificarHotel(int identificador, string nombre_hotel, string pais, string lugar, int habitaciones)
+        public void ModificarHotel(int identificador, string nombre_hotel, string pais, string lugar, int habitaciones , double tarifa_hotel)
         {
             Conexion();
             conexion.Open();
-            NpgsqlCommand cmd = new NpgsqlCommand("UPDATE hotel SET nombre = '" + nombre_hotel + "', pais = '" + pais + "', lugar ='" + lugar + "', habitaciones = '" + habitaciones +  "' WHERE identificador = '" + identificador + "'", conexion);
+            NpgsqlCommand cmd = new NpgsqlCommand("UPDATE hotel SET nombre = '" + nombre_hotel + "', pais = '" + pais + "', lugar ='" + lugar + "', habitaciones = '" + habitaciones + "', tarifa_hotel = '" + tarifa_hotel +  "' WHERE identificador = '" + identificador + "'", conexion);
             cmd.ExecuteNonQuery();
             conexion.Close();
         }
