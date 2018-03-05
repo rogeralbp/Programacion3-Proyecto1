@@ -32,12 +32,12 @@ namespace CapaPresentacion
 
             //Este metodo llena el combo de ID de vuelos del TAB de modificar
 
-            metodo.ComboIDVuelos(comboIDVuelos);
+            metodo.ComboIDVuelos(comboIDTarifasVuelos);
 
             //Este metodo llena el combo de ID vuelos del TAB de eliminar
-            metodo.ComboIDVuelos(comboboxIndenticadorEliminar);
-
-
+            metodo.ComboIDVuelos(comboInIDTarifaVueloEliminar);
+            metodo.ComboIDSTarifasVuelos(comboIDTarifasVuelos);
+            metodo.ComboIDSTarifasVuelos(comboInIDTarifaVueloEliminar);
         }
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
@@ -114,13 +114,13 @@ namespace CapaPresentacion
         {
             btnGuardarCambios.Enabled = true;
             //Metodo que me muestra la informacion
-            metodo.MostrarInformacionVuelos(comboIDVuelos, txtModificarRuta, txtModificarPrecio);
+            metodo.MostrarInformacionVuelos(comboIDTarifasVuelos, txtModificarRuta, txtModificarPrecio);
         }
 
         private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
         {
             btnEliminarTarifa.Enabled = true;
-            metodo.MostrarInformacionVuelos(comboboxIndenticadorEliminar, txtRutaEliminar, txtPrecioEliminar);
+            metodo.MostrarInformacionVuelos(comboInIDTarifaVueloEliminar, txtRutaEliminar, txtPrecioEliminar);
 
 
         }
@@ -139,9 +139,9 @@ namespace CapaPresentacion
 
         private void btnGuardarCambios_Click(object sender, EventArgs e)
         {
-            int ruta = int.Parse(comboNueaRuta.SelectedItem.ToString());
+            int ruta = Convert.ToInt32(comboNueaRuta.SelectedItem.ToString());
             double precio = double.Parse(txtPrecioNuevo.Text);
-            int identificador_ruta = int.Parse(comboIDVuelos.SelectedItem.ToString());
+            int identificador_ruta = int.Parse(comboIDTarifasVuelos.SelectedItem.ToString());
            conectar.ModificarTarifaVuelo(identificador_ruta, ruta, precio);
 
             MessageBox.Show("Tarifa vuelo modificada con exito");
@@ -165,7 +165,7 @@ namespace CapaPresentacion
 
         private void btnEliminarTarifa_Click(object sender, EventArgs e)
         {
-            int indentificador_eliminar = int.Parse(comboboxIndenticadorEliminar.SelectedItem.ToString());
+            int indentificador_eliminar = int.Parse(comboInIDTarifaVueloEliminar.SelectedItem.ToString());
             conectar.EliminarDatosTarifaVuelos(indentificador_eliminar);
             MessageBox.Show("Tarifa Eliminada con exito");
 

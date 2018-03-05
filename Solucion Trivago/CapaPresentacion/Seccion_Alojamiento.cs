@@ -8,13 +8,25 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CapaNegocios;
+using CapaDatos;
+using System.Collections;
 
 namespace CapaPresentacion
 {
     public partial class Seccion_Alojamiento : Form
     {
         Validaciones validaciones = new Validaciones();
+
         Metodos_Usuarios metodos = new Metodos_Usuarios();
+
+        Conexiones_Base_Datos conexion = new Conexiones_Base_Datos();
+
+        int cantidadDiasHotelPais;
+        int cantidadDiasHotelCiudad;
+        int posicionDTGHotelPais;
+        int cantidadDiasHotel;
+        int posicionDTGHotelCiudad;
+        int posicionDTGHotel;
 
         public Seccion_Alojamiento()
         {
@@ -22,7 +34,7 @@ namespace CapaPresentacion
             this.CenterToScreen();
         }
 
-        
+
         private void button2_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -49,29 +61,51 @@ namespace CapaPresentacion
             DateTime f1 = DateTime.Parse(fechaLlegadaPais.Text);
             DateTime f2 = DateTime.Parse(fechaPartidaPais.Text);
             TimeSpan ts = f2 - f1;
-            int cantidadDias = ts.Days;
-            labelCantidadDias2.Text+=cantidadDias.ToString();
+            cantidadDiasHotelPais = ts.Days;
+            labelCantidadDias2.Text ="Cantidad de dias " +cantidadDiasHotelPais.ToString();
         }
 
 
         private void dateTimePicker2_ValueChanged_1(object sender, EventArgs e)
         {
+
             DateTime f1 = DateTime.Parse(fechaLlegadaCiudad.Text);
             DateTime f2 = DateTime.Parse(FechaPartidaCiudad.Text);
             TimeSpan ts = f2 - f1;
-            int cantidadDias = ts.Days;
-             labelCntidadDias3.Text+=cantidadDias.ToString();
+            cantidadDiasHotelCiudad = ts.Days;
+            labelCntidadDias3.Text = "Cantidad de dias " + cantidadDiasHotelCiudad.ToString();
         }
-   
+
         private void btnBuscarHotel_Click(object sender, EventArgs e)
         {
             ///se consulta los hoteles que esten en el pais en el que se
             ///desea hospedar el cliente
             ///
-            labelFechaLlegadaHotel.Visible = true;
-            labelFechaSalidaHotel.Visible = true;
-            fechaLlegadaHotel.Visible = true;
-            fechaPartidaHotel.Visible = true;
+
+            if (metodos.BanderaHotel(txtNombreHotelBuscar.Text))
+            {
+
+                labelFechaLlegadaHotel.Visible = true;
+                labelFechaSalidaHotel.Visible = true;
+                fechaLlegadaHotel.Enabled = true;
+                fechaPartidaHotel.Enabled = true;
+                btnPersonasHotel.Visible = true;
+                btnHabitacionesHotel.Visible = true;
+                metodos.LlenarDtVistaPreliminarBusquedaHotel(dtgResultadosBusquedad, txtNombreHotelBuscar.Text);
+                btnConfirmarReservacionHotel.Enabled = true;
+                btnGuardarReservacionHotel.Enabled = true;
+            }
+            else {
+                dtgResultadosBusquedad.DataSource = null;
+                MessageBox.Show("No existen Hoteles con ese nombre.");
+                labelFechaLlegadaHotel.Visible =false;
+                labelFechaSalidaHotel.Visible = false;
+                fechaLlegadaHotel.Enabled = false;
+                fechaPartidaHotel.Enabled = false;
+                btnPersonasHotel.Visible = false;
+                btnHabitacionesHotel.Visible = false;
+                btnConfirmarReservacionHotel.Enabled = false;
+            }
         }
 
         private void fechaSalidaHotel_ValueChanged(object sender, EventArgs e)
@@ -79,8 +113,8 @@ namespace CapaPresentacion
             DateTime f1 = DateTime.Parse(fechaLlegadaHotel.Text);
             DateTime f2 = DateTime.Parse(fechaPartidaHotel.Text);
             TimeSpan ts = f2 - f1;
-            int cantidadDias = ts.Days;
-            labelCantidadDias4.Text += cantidadDias.ToString();
+            cantidadDiasHotel = ts.Days;
+            labelCantidadDias4.Text = "Cantidad de dias " + cantidadDiasHotel.ToString();
         }
 
 
@@ -93,6 +127,7 @@ namespace CapaPresentacion
         private void button5_Click_1(object sender, EventArgs e)
         {
             panelAdultosNiñosPais.Visible = true;
+            btnGuardarCantidadPersonasPais.Visible = true;
         }
 
         private void btnHabitacionesHotel_Click(object sender, EventArgs e)
@@ -215,24 +250,84 @@ namespace CapaPresentacion
         {
             ///Hago la reservacion en la tabla 
             ///reservaciones hoteles y luego pido la calificacion del cliente
+            posicionDTGHotelPais = dtgHotelesPaises.CurrentRow.Index;
+            int idHotelPais=Convert.ToInt16(dtgHotelesPaises[0, posicionDTGHotelPais].Value.ToString());
+            string nombreHotelPais = dtgHotelesPaises[1, posicionDTGHotelPais].Value.ToString();
+            int cedulaUsuario = conexion.ConsultarCedulaUsuario(Login.nombreUsuario);
+
+            double precioTotalHospedajeHotelPais = ((Convert.ToDouble(dtgHotelesPaises[4, posicionDTGHotelPais].Value.ToString()))*cantidadDiasHotelPais);
+            metodos.InsertarDatosReservacionHotel(idHotelPais,fechaLlegadaPais.Text,fechaPartidaPais.Text,Convert.ToInt16(spinnerHabitacionesPais.Value), Convert.ToInt16(spinnerPersonasAdultasPais.Value+spinnerPersonasMenoresPais.Value),cedulaUsuario,Convert.ToInt16(spinnerPersonasAdultasPais.Value), Convert.ToInt16(spinnerPersonasMenoresPais.Value),precioTotalHospedajeHotelPais);
+            
             /// ------------------------------------------------
             ///Falta realizar la calificacion que el cliente le da al Hotel 
             ///
-            MessageBox.Show("Has reservado un hotel "+Login.nombreUsuario+ "con "+spinnerHabitacionesPais.GetType());        }
+            MessageBox.Show("La Reservacion se Logro con Exito.");
+            dtgHotelesPaises.DataSource = null;
+            btnVerListaPreeliminarHotelesPais.Enabled = false;
+            fechaLlegadaPais.Enabled = false;
+            fechaPartidaPais.Enabled = false;
+            btnPersonasPais.Enabled = false;
+            btnHabitacionesPais.Visible = false;
+            optPrecioMayorPais.Visible = false;
+            optPrecioMenorPais.Visible = false;
+            panelAdultosNiñosPais.Visible = false;
+            labelHabitaciones.Visible = false;
+            spinnerHabitacionesPais.Visible = false;
+            btnGuardarCantidadPersonasPais.Visible = false;
+            comboPaises.Items.Clear();
+        }
 
         private void btnConfirmarReservacionCiudad_Click(object sender, EventArgs e)
         {
             ///Hago la reservacion en la tabla 
             ///reservaciones hoteles y luego pido la calificacion del cliente
+            posicionDTGHotelCiudad = dtgHotelesCiudades.CurrentRow.Index;
+            int idHotelCiudad = Convert.ToInt16(dtgHotelesCiudades[0, posicionDTGHotelCiudad].Value.ToString());
+            string nombreHotelCiudad = dtgHotelesCiudades[1, posicionDTGHotelCiudad].Value.ToString();
+            int cedulaUsuario = conexion.ConsultarCedulaUsuario(Login.nombreUsuario);
+            double precioTotalHospedajeHotelCiudad = ((Convert.ToDouble(dtgHotelesCiudades[3, posicionDTGHotelCiudad].Value.ToString())) * cantidadDiasHotelCiudad);
+            //metodos.InsertarDatosReservacionHotel(idHotelPais, fechaLlegadaPais.Text, fechaPartidaPais.Text, Convert.ToInt16(spinnerHabitacionesPais.Value), Convert.ToInt16(spinnerPersonasAdultasPais.Value + spinnerPersonasMenoresPais.Value), cedulaUsuario, Convert.ToInt16(spinnerPersonasAdultasPais.Value), Convert.ToInt16(spinnerPersonasMenoresPais.Value), precioTotalHospedajeHotelPais);
+            metodos.InsertarDatosReservacionHotel(idHotelCiudad,fechaLlegadaCiudad.Text,FechaPartidaCiudad.Text, Convert.ToInt16(spinnerHabitacionesCiudad.Value), Convert.ToInt16(spinnerPersonasAdultosCiudad.Value + spinnerPersonasMenoresCiudad.Value), cedulaUsuario, Convert.ToInt16(spinnerPersonasAdultosCiudad.Value), Convert.ToInt16(spinnerPersonasMenoresCiudad.Value), precioTotalHospedajeHotelCiudad);
+            MessageBox.Show("La reservacion se Realizo con Exito.");
+            dtgHotelesCiudades.DataSource = null;
+            btnHabitacionesCiudad.Enabled = false;
+            btnPersonasCiudad.Enabled = false;
+            fechaLlegadaCiudad.Enabled = false;
+            FechaPartidaCiudad.Enabled = false;
+            panelAdultosNiñosPais.Visible = false;
+            labelHabitaciones.Visible = false;
+            spinnerHabitacionesPais.Visible = false;
+            btnGuardarCantidadPersonasPais.Visible = false;
+            comboCiudades.Items.Clear();
             /// ------------------------------------------------
             ///Falta realizar la calificacion que el cliente le da al Hotel 
             ///
+
+
         }
 
         private void btnConfirmarReservacionHotel_Click(object sender, EventArgs e)
         {
             ///Hago la reservacion en la tabla 
             ///reservaciones hoteles y luego pido la calificacion del cliente
+
+            posicionDTGHotel = dtgResultadosBusquedad.CurrentRow.Index;
+            int idHotel = Convert.ToInt16(dtgResultadosBusquedad[0, posicionDTGHotel].Value.ToString());
+            string nombreHotel= dtgResultadosBusquedad[1, posicionDTGHotel].Value.ToString();
+            int cedulaUsuario = conexion.ConsultarCedulaUsuario(Login.nombreUsuario);
+            double precioTotalHospedajeHotel = ((Convert.ToDouble(dtgResultadosBusquedad[5, posicionDTGHotel].Value.ToString())) * cantidadDiasHotel);
+            metodos.InsertarDatosReservacionHotel(idHotel, fechaLlegadaHotel.Text, fechaPartidaHotel.Text, Convert.ToInt16(spinnerHabitacionesHotel.Value), Convert.ToInt16(spinnerPersonasAdultosHotel.Value + spinnerPersonasMenoresHotel.Value), cedulaUsuario, Convert.ToInt16(spinnerPersonasAdultosHotel.Value), Convert.ToInt16(spinnerPersonasMenoresHotel.Value), precioTotalHospedajeHotel);
+            MessageBox.Show("La reservacion se Realizo con Exito.");
+            dtgResultadosBusquedad.DataSource = null;
+            labelFechaLlegadaHotel.Visible = false;
+            labelFechaSalidaHotel.Visible = false;
+            fechaLlegadaHotel.Enabled = false;
+            fechaPartidaHotel.Enabled = false;
+            btnPersonasHotel.Visible = false;
+            btnHabitacionesHotel.Visible = false;
+            btnConfirmarReservacionHotel.Enabled = false;
+            btnGuardarReservacionHotel.Enabled =false;
+
             /// ------------------------------------------------
             ///Falta realizar la calificacion que el cliente le da al Hotel 
             ///
@@ -245,71 +340,443 @@ namespace CapaPresentacion
 
         private void comboCiudadesCiudades_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            btnVerListaPreeliminarHotelesCiudad.Enabled = true;
+            btnHabitacionesCiudad.Enabled = true;
+            btnPersonasCiudad.Enabled = true;
+            fechaLlegadaCiudad.Enabled = true;
+            FechaPartidaCiudad.Enabled = true;
+            optPrecioMayorCiudad.Enabled = true;
+            optPrecioMenorCiudad.Enabled = true;
+            btnGuardarReservacionCiudad.Enabled = true;
+            btnConfirmarReservacionCiudad.Enabled = true;
         }
 
         private void btnGuardarReservacionPais_Click(object sender, EventArgs e)
         {
             //Se debe mostrar nombre, foto, pais, lugar, cantidad de habitaciones en base
             //al pais en el que se desea alojar SELECT * FROM hoteles JOIN pais ON  hoteles.pais = pais.identificador
-            MessageBox.Show("Se ha guardado este reservacion para " + Login.nombreUsuario);
+            posicionDTGHotelPais = dtgHotelesPaises.CurrentRow.Index;
+            int idHotel = Convert.ToInt16(dtgHotelesPaises[0, posicionDTGHotelPais].Value.ToString());
+            string nombreH = dtgHotelesPaises[1, posicionDTGHotelPais].Value.ToString();
+            int cedulaUsuario = conexion.ConsultarCedulaUsuario(Login.nombreUsuario);
+
+            double precioTotalHospedajeHotelPais = ((Convert.ToDouble(dtgHotelesPaises[4, posicionDTGHotelPais].Value.ToString())) * cantidadDiasHotelPais);
+            metodos.InsertarDatosPreReservacionHotel(idHotel, fechaLlegadaPais.Text, fechaPartidaPais.Text, Convert.ToInt16(spinnerHabitacionesPais.Value), Convert.ToInt16(spinnerPersonasAdultasPais.Value + spinnerPersonasMenoresPais.Value), cedulaUsuario, Convert.ToInt16(spinnerPersonasAdultasPais.Value), Convert.ToInt16(spinnerPersonasMenoresPais.Value), precioTotalHospedajeHotelPais);
+            dtgHotelesPaises.DataSource = null;
+            btnVerListaPreeliminarHotelesPais.Enabled = false;
+            fechaLlegadaPais.Enabled = false;
+            fechaPartidaPais.Enabled = false;
+            btnPersonasPais.Enabled = false;
+            btnHabitacionesPais.Visible = false;
+            optPrecioMayorPais.Visible = false;
+            optPrecioMenorPais.Visible = false;
+            panelAdultosNiñosPais.Visible = false;
+            labelHabitaciones.Visible = false;
+            spinnerHabitacionesPais.Visible = false;
+            btnGuardarCantidadPersonasPais.Visible = false;
+            comboPaises.Items.Clear();
+            MessageBox.Show("Se ha guardado este Prereservacion para " + Login.nombreUsuario);
         }
 
         private void btnVerListaPreeliminarHotelesPais_Click(object sender, EventArgs e)
         {
             ///se consulta los hoteles que esten en el pais en el que se
             ///desea hospedar el cliente
+            optPrecioMayorPais.Enabled = true;
+            optPrecioMenorPais.Enabled = true;
+            optPrecioMenorPais.Checked = true;
+            dtgHotelesPaises.DataSource = null;
+            metodos.LlenarDtVistaPreliminarHotelsPaisASC(dtgHotelesPaises, comboPaises.SelectedItem.ToString());
+
+            //ArrayList lista = new ArrayList();
+            //lista = metodos.CargarFotosHotelesPaisASC(comboPaises.SelectedItem.ToString());
+            //Image fotoHP;
+            //for (int i = 0; i < dtgHotelesPaises.RowCount; i++)
+            //{
+            //    fotoHP = Image.FromFile(lista[i].ToString());
+            //    dtgHotelesPaises.Rows[i].Cells["Foto_Hotel"].Value = fotoHP;
+            //}
         }
 
         private void btnVerListaPreeliminarHotelesCiudad_Click(object sender, EventArgs e)
         {
             ///se consulta los hoteles que esten en el pais en el que se
             ///desea hospedar el cliente
+            optPrecioMenorCiudad.Checked = true;
+            metodos.LlenarDtVistaPreliminarHotelsCiudadASC(dtgHotelesCiudades, comboCiudades.SelectedItem.ToString());
+    
         }
 
-        private void numericUpDown8_ValueChanged(object sender, EventArgs e)
-        {
-            if ((spinnerPersonasMenoresPais.Value+spinnerPersonasAdultasPais.Value)>4) {
-
-                MessageBox.Show("Una habitacion");
-                spinnerHabitacionesPais.Value =1;
-            }
-        }
-
-        private void spinnerPersonasAdultas_ValueChanged(object sender, EventArgs e)
-        {
-            if ((spinnerPersonasAdultasPais.Value + spinnerPersonasMenoresPais.Value) > 4)
-            {
-
-                MessageBox.Show("Una habitacion");
-                spinnerHabitacionesPais.Value = 1;
-            }
-        }
-
-        private void spinnerPersonasMenores_ValueChanged(object sender, EventArgs e)
-        {
-            if ((spinnerPersonasMenoresCiudad.Value + spinnerPersonasAdultosCiudad.Value) > 4)
-            {
-
-                MessageBox.Show("Una habitacion");
-                spinnerHabitacionesCiudad.Value = 1;
-            }
-        }
 
         private void spinnerPersonasAdultosCiudad_ValueChanged(object sender, EventArgs e)
         {
-            if ((spinnerPersonasAdultosCiudad.Value + spinnerPersonasMenoresCiudad.Value) > 4)
-            {
-
-                MessageBox.Show("Una habitacion");
-                spinnerHabitacionesCiudad.Value = 1;
-            }
+            btnGuardarCantidadPersonsCiudad.Visible = true;
         }
 
         private void Seccion_Alojamiento_Load(object sender, EventArgs e)
         {
             metodos.LlenarNombresPaises(comboPaises);
             metodos.LlenarNombresLugares(comboCiudades);
+        }
+
+        private void comboPaises_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            btnVerListaPreeliminarHotelesPais.Enabled = true;
+            fechaLlegadaPais.Enabled = true;
+            fechaPartidaPais.Enabled = true;
+            btnPersonasPais.Enabled = true;
+            btnHabitacionesPais.Enabled = true;
+            optPrecioMenorPais.Enabled = true;
+            optPrecioMayorPais.Enabled = true;
+            optPrecioMayorPais.Visible = true;
+            optPrecioMenorPais.Visible = true;
+            btnConfirmarReservacionPais.Enabled = true;
+            btnGuardarReservacionPais.Enabled = true;
+        }
+
+        private void optPrecioMayorPais_Click(object sender, EventArgs e)
+        {
+            metodos.LlenarDtVistaPreliminarHotelsPaisDESC(dtgHotelesPaises, comboPaises.SelectedItem.ToString());
+
+        }
+
+        private void optPrecioMenorPais_Click(object sender, EventArgs e)
+        {
+            metodos.LlenarDtVistaPreliminarHotelsPaisASC(dtgHotelesPaises, comboPaises.SelectedItem.ToString());
+
+        }
+
+        private void btnGuardarCantidadPersonasPais_Click(object sender, EventArgs e)
+        {
+            int cantidadTotalPersonasPais = Convert.ToInt16(spinnerPersonasAdultasPais.Value + spinnerPersonasMenoresPais.Value);
+            
+            if (cantidadTotalPersonasPais <= 4)
+            {
+
+                MessageBox.Show("Una habitacion");
+                spinnerHabitacionesPais.Value = 1;
+            }
+            if ((cantidadTotalPersonasPais > 4) && (cantidadTotalPersonasPais <= 8))
+            {
+                MessageBox.Show("Dos habitaciones");
+                spinnerHabitacionesPais.Value = 2;
+            }
+            if ((cantidadTotalPersonasPais > 8) && (cantidadTotalPersonasPais <= 12))
+            {
+                MessageBox.Show("Tres habitaciones");
+                spinnerHabitacionesPais.Value = 3;
+            }
+            if ((cantidadTotalPersonasPais > 12) && (cantidadTotalPersonasPais <= 16))
+            {
+                MessageBox.Show("Cuatro habitaciones");
+                spinnerHabitacionesPais.Value = 4;
+            }
+            if ((cantidadTotalPersonasPais > 16) && (cantidadTotalPersonasPais <= 20))
+            {
+
+                MessageBox.Show("Cinco habitaciones");
+                spinnerHabitacionesPais.Value = 5;
+            }
+            if ((cantidadTotalPersonasPais > 20) && (cantidadTotalPersonasPais <= 24))
+            {
+
+                MessageBox.Show("Seis habitaciones");
+                spinnerHabitacionesPais.Value = 6;
+            }
+            if ((cantidadTotalPersonasPais > 24) && (cantidadTotalPersonasPais <= 28))
+            {
+
+                MessageBox.Show("Siete habitaciones");
+                spinnerHabitacionesPais.Value = 7;
+            }
+            if ((cantidadTotalPersonasPais > 28) && (cantidadTotalPersonasPais <= 32))
+            {
+
+                MessageBox.Show("Ocho habitaciones");
+                spinnerHabitacionesPais.Value = 8;
+            }
+            if ((cantidadTotalPersonasPais > 32) && (cantidadTotalPersonasPais <= 36))
+            {
+
+                MessageBox.Show("Nueve habitaciones");
+                spinnerHabitacionesPais.Value = 9;
+            }
+            if ((cantidadTotalPersonasPais > 36) && (cantidadTotalPersonasPais <= 40))
+            {
+
+                MessageBox.Show("Diez habitaciones");
+                spinnerHabitacionesPais.Value = 10;
+            }
+            if (cantidadTotalPersonasPais > 40)
+            {
+                MessageBox.Show("Cantidad de Personas Inexsistente");
+            }
+            //if (spinnerHabitacionesPais.Value == 1) {
+
+            //    spinnerPersonasAdultasPais.Value=2;
+            //    spinnerPersonasMenoresPais.Value=2;
+            //}
+            //if (spinnerHabitacionesPais.Value == 2)
+            //{
+
+            //    spinnerPersonasAdultasPais.Value = 4;
+            //    spinnerPersonasMenoresPais.Value = 4;
+            //}
+            //if (spinnerHabitacionesPais.Value == 3)
+            //{
+
+            //    spinnerPersonasAdultasPais.Value = 6;
+            //    spinnerPersonasMenoresPais.Value = 6;
+            //}
+            //if (spinnerHabitacionesPais.Value == 4)
+            //{
+
+            //    spinnerPersonasAdultasPais.Value = 8;
+            //    spinnerPersonasMenoresPais.Value = 8;
+            //}
+            //if (spinnerHabitacionesPais.Value == 5)
+            //{
+
+            //    spinnerPersonasAdultasPais.Value = 10;
+            //    spinnerPersonasMenoresPais.Value = 10;
+            //}
+            //if (spinnerHabitacionesPais.Value == 6)
+            //{
+
+            //    spinnerPersonasAdultasPais.Value = 12;
+            //    spinnerPersonasMenoresPais.Value = 12;
+            //}
+            //if (spinnerHabitacionesPais.Value == 7)
+            //{
+
+            //    spinnerPersonasAdultasPais.Value = 14;
+            //    spinnerPersonasMenoresPais.Value = 14;
+            //}
+        }
+
+        private void btnGuardarCantidadPersonsCiudad_Click(object sender, EventArgs e)
+        {
+            int cantidadTotalPersonasCiudad = Convert.ToInt16(spinnerPersonasAdultosCiudad.Value + spinnerPersonasMenoresCiudad.Value);
+
+
+            if (cantidadTotalPersonasCiudad <= 4)
+            {
+
+                MessageBox.Show("Una habitacion");
+                spinnerHabitacionesCiudad.Value = 1;
+            }
+            if ((cantidadTotalPersonasCiudad > 4) && (cantidadTotalPersonasCiudad <= 8))
+            {
+                MessageBox.Show("Dos habitaciones");
+                spinnerHabitacionesCiudad.Value = 2;
+            }
+            if ((cantidadTotalPersonasCiudad > 8) && (cantidadTotalPersonasCiudad <= 12))
+            {
+                MessageBox.Show("Tres habitaciones");
+                spinnerHabitacionesCiudad.Value = 3;
+            }
+            if ((cantidadTotalPersonasCiudad > 12) && (cantidadTotalPersonasCiudad <= 16))
+            {
+                MessageBox.Show("Cuatro habitaciones");
+                spinnerHabitacionesCiudad.Value = 4;
+            }
+            if ((cantidadTotalPersonasCiudad > 16) && (cantidadTotalPersonasCiudad <= 20))
+            {
+
+                MessageBox.Show("Cinco habitaciones");
+                spinnerHabitacionesCiudad.Value = 5;
+            }
+            if ((cantidadTotalPersonasCiudad > 20) && (cantidadTotalPersonasCiudad <= 24))
+            {
+
+                MessageBox.Show("Seis habitaciones");
+                spinnerHabitacionesCiudad.Value = 6;
+            }
+            if ((cantidadTotalPersonasCiudad > 24) && (cantidadTotalPersonasCiudad <= 28))
+            {
+
+                MessageBox.Show("Siete habitaciones");
+                spinnerHabitacionesCiudad.Value = 7;
+            }
+            if ((cantidadTotalPersonasCiudad > 28) && (cantidadTotalPersonasCiudad <= 32))
+            {
+
+                MessageBox.Show("Ocho habitaciones");
+                spinnerHabitacionesCiudad.Value = 8;
+            }
+            if ((cantidadTotalPersonasCiudad > 32) && (cantidadTotalPersonasCiudad <= 36))
+            {
+
+                MessageBox.Show("Nueve habitaciones");
+                spinnerHabitacionesCiudad.Value = 9;
+            }
+            if ((cantidadTotalPersonasCiudad > 36) && (cantidadTotalPersonasCiudad <= 40))
+            {
+
+                MessageBox.Show("Diez habitaciones");
+                spinnerHabitacionesCiudad.Value = 10;
+            }
+            if (cantidadTotalPersonasCiudad > 40)
+            {
+                MessageBox.Show("Cantidad de Personas Inexsistente");
+            }
+        }
+
+        private void optPrecioMayorCiudad_CheckedChanged(object sender, EventArgs e)
+        {
+            metodos.LlenarDtVistaPreliminarHotelsCiudadDESC(dtgHotelesCiudades, comboCiudades.SelectedItem.ToString());
+        }
+
+        private void optPrecioMenorCiudad_CheckedChanged(object sender, EventArgs e)
+        {
+            metodos.LlenarDtVistaPreliminarHotelsCiudadASC(dtgHotelesCiudades, comboCiudades.SelectedItem.ToString());
+        }
+
+        private void btnGuardarCantidadPersonasHotel_Click(object sender, EventArgs e)
+        {
+            int cantidadTotalPersonasHotel = Convert.ToInt16(spinnerPersonasAdultosHotel.Value + spinnerPersonasMenoresHotel.Value);
+
+
+            if (cantidadTotalPersonasHotel <= 4)
+            {
+
+                MessageBox.Show("Una habitacion");
+                spinnerHabitacionesHotel.Value = 1;
+            }
+            if ((cantidadTotalPersonasHotel > 4) && (cantidadTotalPersonasHotel <= 8))
+            {
+                MessageBox.Show("Dos habitaciones");
+                spinnerHabitacionesHotel.Value = 2;
+            }
+            if ((cantidadTotalPersonasHotel > 8) && (cantidadTotalPersonasHotel <= 12))
+            {
+                MessageBox.Show("Tres habitaciones");
+                spinnerHabitacionesHotel.Value = 3;
+            }
+            if ((cantidadTotalPersonasHotel > 12) && (cantidadTotalPersonasHotel <= 16))
+            {
+                MessageBox.Show("Cuatro habitaciones");
+                spinnerHabitacionesHotel.Value = 4;
+            }
+            if ((cantidadTotalPersonasHotel > 16) && (cantidadTotalPersonasHotel <= 20))
+            {
+
+                MessageBox.Show("Cinco habitaciones");
+                spinnerHabitacionesHotel.Value = 5;
+            }
+            if ((cantidadTotalPersonasHotel > 20) && (cantidadTotalPersonasHotel <= 24))
+            {
+
+                MessageBox.Show("Seis habitaciones");
+                spinnerHabitacionesHotel.Value = 6;
+            }
+            if ((cantidadTotalPersonasHotel > 24) && (cantidadTotalPersonasHotel <= 28))
+            {
+
+                MessageBox.Show("Siete habitaciones");
+                spinnerHabitacionesHotel.Value = 7;
+            }
+            if ((cantidadTotalPersonasHotel > 28) && (cantidadTotalPersonasHotel <= 32))
+            {
+
+                MessageBox.Show("Ocho habitaciones");
+                spinnerHabitacionesHotel.Value = 8;
+            }
+            if ((cantidadTotalPersonasHotel > 32) && (cantidadTotalPersonasHotel <= 36))
+            {
+
+                MessageBox.Show("Nueve habitaciones");
+                spinnerHabitacionesHotel.Value = 9;
+            }
+            if ((cantidadTotalPersonasHotel > 36) && (cantidadTotalPersonasHotel <= 40))
+            {
+
+                MessageBox.Show("Diez habitaciones");
+                spinnerHabitacionesHotel.Value = 10;
+            }
+            if (cantidadTotalPersonasHotel > 40)
+            {
+                MessageBox.Show("Cantidad de Personas Inexsistente");
+            }
+        }
+
+        private void spinnerPersonasAdultosHotel_ValueChanged(object sender, EventArgs e)
+        {
+            btnGuardarCantidadPersonasHotel.Visible = true;
+        }
+
+        private void btnGuardarReservacionCiudad_Click(object sender, EventArgs e)
+        {
+            ///Hago la reservacion en la tabla 
+            ///reservaciones hoteles y luego pido la calificacion del cliente
+            posicionDTGHotelCiudad = dtgHotelesCiudades.CurrentRow.Index;
+            int idHotelCiudad = Convert.ToInt16(dtgHotelesCiudades[0, posicionDTGHotelCiudad].Value.ToString());
+            string nombreHotelCiudad = dtgHotelesCiudades[1, posicionDTGHotelCiudad].Value.ToString();
+            int cedulaUsuario = conexion.ConsultarCedulaUsuario(Login.nombreUsuario);
+            double precioTotalHospedajeHotelCiudad = ((Convert.ToDouble(dtgHotelesCiudades[3, posicionDTGHotelCiudad].Value.ToString())) * cantidadDiasHotelCiudad);
+            //metodos.InsertarDatosReservacionHotel(idHotelPais, fechaLlegadaPais.Text, fechaPartidaPais.Text, Convert.ToInt16(spinnerHabitacionesPais.Value), Convert.ToInt16(spinnerPersonasAdultasPais.Value + spinnerPersonasMenoresPais.Value), cedulaUsuario, Convert.ToInt16(spinnerPersonasAdultasPais.Value), Convert.ToInt16(spinnerPersonasMenoresPais.Value), precioTotalHospedajeHotelPais);
+            metodos.InsertarDatosPreReservacionHotel(idHotelCiudad, fechaLlegadaCiudad.Text, FechaPartidaCiudad.Text, Convert.ToInt16(spinnerHabitacionesCiudad.Value), Convert.ToInt16(spinnerPersonasAdultosCiudad.Value + spinnerPersonasMenoresCiudad.Value), cedulaUsuario, Convert.ToInt16(spinnerPersonasAdultosCiudad.Value), Convert.ToInt16(spinnerPersonasMenoresCiudad.Value), precioTotalHospedajeHotelCiudad); 
+            dtgHotelesCiudades.DataSource = null;
+            btnHabitacionesCiudad.Enabled = false;
+            btnPersonasCiudad.Enabled = false;
+            fechaLlegadaCiudad.Enabled = false;
+            FechaPartidaCiudad.Enabled = false;
+            panelAdultosNiñosPais.Visible = false;
+            labelHabitaciones.Visible = false;
+            spinnerHabitacionesPais.Visible = false;
+            btnGuardarCantidadPersonasPais.Visible = false;
+            comboCiudades.Items.Clear();
+            MessageBox.Show("Se ha guardado este Prereservacion para " + Login.nombreUsuario);
+        }
+
+        private void btnGuardarReservacionHotel_Click(object sender, EventArgs e)
+        {
+            posicionDTGHotel = dtgResultadosBusquedad.CurrentRow.Index;
+            int idHotel = Convert.ToInt16(dtgResultadosBusquedad[0, posicionDTGHotel].Value.ToString());
+            string nombreHotel = dtgResultadosBusquedad[1, posicionDTGHotel].Value.ToString();
+            int cedulaUsuario = conexion.ConsultarCedulaUsuario(Login.nombreUsuario);
+            double precioTotalHospedajeHotel = ((Convert.ToDouble(dtgResultadosBusquedad[5, posicionDTGHotel].Value.ToString())) * cantidadDiasHotel);
+            metodos.InsertarDatosReservacionHotel(idHotel, fechaLlegadaHotel.Text, fechaPartidaHotel.Text, Convert.ToInt16(spinnerHabitacionesHotel.Value), Convert.ToInt16(spinnerPersonasAdultosHotel.Value + spinnerPersonasMenoresHotel.Value), cedulaUsuario, Convert.ToInt16(spinnerPersonasAdultosHotel.Value), Convert.ToInt16(spinnerPersonasMenoresHotel.Value), precioTotalHospedajeHotel);
+            MessageBox.Show("La Prereservacion se Realizo con Exito.");
+            dtgResultadosBusquedad.DataSource = null;
+            labelFechaLlegadaHotel.Visible = false;
+            labelFechaSalidaHotel.Visible = false;
+            fechaLlegadaHotel.Enabled = false;
+            fechaPartidaHotel.Enabled = false;
+            btnPersonasHotel.Visible = false;
+            btnHabitacionesHotel.Visible = false;
+            btnConfirmarReservacionHotel.Enabled = false;
+            btnGuardarReservacionHotel.Enabled = false;
+        }
+
+        private void optPrecioMenorPais_CheckedChanged(object sender, EventArgs e)
+        {
+            //dtgHotelesPaises.DataSource = null;
+            metodos.LlenarDtVistaPreliminarHotelsPaisASC(dtgHotelesPaises, comboPaises.SelectedItem.ToString());
+            //ArrayList lista = new ArrayList();
+            //lista = metodos.CargarFotosHotelesPaisASC(comboPaises.SelectedItem.ToString());
+            //Image fotoHP;
+            //for (int i = 0; i < dtgHotelesPaises.RowCount; i++)
+            //{
+            //    fotoHP = Image.FromFile(lista[i].ToString());
+            //    dtgHotelesPaises.Rows[i].Cells["Foto_Hotel"].Value = fotoHP;
+            //}
+        }
+
+        private void optPrecioMayorPais_CheckedChanged(object sender, EventArgs e)
+        {
+            //dtgHotelesPaises.Columns.Clear();
+            //dtgHotelesPaises.DataSource=null;
+            metodos.LlenarDtVistaPreliminarHotelsPaisDESC(dtgHotelesPaises, comboPaises.SelectedItem.ToString());
+
+            //ArrayList lista = new ArrayList();
+            //lista = metodos.CargarFotosHotelesPaisDESC(comboPaises.SelectedItem.ToString());
+            //Image fotoHP;
+            //for (int i = 0; i < dtgHotelesPaises.RowCount; i++)
+            //{
+            //    fotoHP = Image.FromFile(lista[i].ToString());
+            //    dtgHotelesPaises.Rows[i].Cells["Foto_Hotel"].Value = fotoHP;
+            //}
         }
     }
 }

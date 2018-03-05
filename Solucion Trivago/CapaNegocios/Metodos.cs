@@ -25,7 +25,7 @@ namespace CapaNegocios
 
             string baseDatos = "gestion_vuelos";
 
-            string cadenaConexion = "Server=" + servidor + ";" + "Port=" + puerto + ";" + "User Id=" + usuario + ";" + "Password=" + claveAnthonny + ";" + "Database=" + baseDatos;
+            string cadenaConexion = "Server=" + servidor + ";" + "Port=" + puerto + ";" + "User Id=" + usuario + ";" + "Password=" + claveRoger + ";" + "Database=" + baseDatos;
             conexion = new NpgsqlConnection(cadenaConexion);
 
             if (conexion != null)
@@ -91,8 +91,6 @@ namespace CapaNegocios
             }
 
         }
-
-
 
         public void LlenarDtRutas(DataGridView agregar_Rutas)
         {
@@ -924,20 +922,14 @@ namespace CapaNegocios
                     while (dr.Read())
                     {
                         nombre.Items.Add(dr.GetString(0));
-
-
                     }
                 }
                 conexion.Close();
-
-
             }
             catch (Exception error)
             {
                 Console.WriteLine(error);
-
             }
-
         }
 
 
@@ -1000,8 +992,35 @@ namespace CapaNegocios
 
             }
 
+        }
+
+        //Metodo que llena el combobox de indentificadores de tarifas de vuelos
+        public void ComboIDSTarifasVuelos(ComboBox precio)
+        {
+
+            try
+            {
+                Conexion();
+                conexion.Open();
+                List<String> lista = new List<String>();
+                NpgsqlCommand cmd = new NpgsqlCommand("SELECT identificador FROM tarifas_vuelos", conexion);
+                NpgsqlDataReader dr = cmd.ExecuteReader();
+                if (dr.HasRows)
+                {
+                    while (dr.Read())
+                    {
+                        precio.Items.Add(dr.GetDouble(0));
+                    }
+                }
+                conexion.Close();
 
 
+            }
+            catch (Exception error)
+            {
+                Console.WriteLine(error);
+
+            }
 
         }
     }

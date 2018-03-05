@@ -45,7 +45,7 @@
             this.txtModificarPrecio = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.comboIDVuelos = new System.Windows.Forms.ComboBox();
+            this.comboIDTarifasVuelos = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -54,7 +54,7 @@
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.txtPrecioEliminar = new System.Windows.Forms.TextBox();
             this.txtRutaEliminar = new System.Windows.Forms.TextBox();
-            this.comboboxIndenticadorEliminar = new System.Windows.Forms.ComboBox();
+            this.comboInIDTarifaVueloEliminar = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -81,7 +81,7 @@
             this.tabControl1.Location = new System.Drawing.Point(-3, 1);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(807, 485);
+            this.tabControl1.Size = new System.Drawing.Size(936, 485);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -97,7 +97,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(799, 456);
+            this.tabPage1.Size = new System.Drawing.Size(928, 456);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Agregar Tarifa";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -185,7 +185,7 @@
             this.tabPage2.Controls.Add(this.txtModificarPrecio);
             this.tabPage2.Controls.Add(this.label11);
             this.tabPage2.Controls.Add(this.label10);
-            this.tabPage2.Controls.Add(this.comboIDVuelos);
+            this.tabPage2.Controls.Add(this.comboIDTarifasVuelos);
             this.tabPage2.Controls.Add(this.label8);
             this.tabPage2.Controls.Add(this.label6);
             this.tabPage2.Controls.Add(this.label4);
@@ -194,7 +194,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(799, 456);
+            this.tabPage2.Size = new System.Drawing.Size(928, 456);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Modificar Tarifa";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -250,15 +250,15 @@
             this.label10.TabIndex = 8;
             this.label10.Text = "Ruta Nueva:";
             // 
-            // comboIDVuelos
+            // comboIDTarifasVuelos
             // 
-            this.comboIDVuelos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboIDVuelos.FormattingEnabled = true;
-            this.comboIDVuelos.Location = new System.Drawing.Point(209, 26);
-            this.comboIDVuelos.Name = "comboIDVuelos";
-            this.comboIDVuelos.Size = new System.Drawing.Size(281, 24);
-            this.comboIDVuelos.TabIndex = 7;
-            this.comboIDVuelos.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.comboIDTarifasVuelos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboIDTarifasVuelos.FormattingEnabled = true;
+            this.comboIDTarifasVuelos.Location = new System.Drawing.Point(209, 26);
+            this.comboIDTarifasVuelos.Name = "comboIDTarifasVuelos";
+            this.comboIDTarifasVuelos.Size = new System.Drawing.Size(281, 24);
+            this.comboIDTarifasVuelos.TabIndex = 7;
+            this.comboIDTarifasVuelos.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // label8
             // 
@@ -290,7 +290,7 @@
             // 
             // btnGuardarCambios
             // 
-            this.btnGuardarCambios.Location = new System.Drawing.Point(554, 34);
+            this.btnGuardarCambios.Location = new System.Drawing.Point(672, 17);
             this.btnGuardarCambios.Name = "btnGuardarCambios";
             this.btnGuardarCambios.Size = new System.Drawing.Size(209, 33);
             this.btnGuardarCambios.TabIndex = 3;
@@ -300,7 +300,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(603, 372);
+            this.button3.Location = new System.Drawing.Point(799, 411);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(113, 39);
             this.button3.TabIndex = 2;
@@ -312,7 +312,7 @@
             // 
             this.tabPage3.Controls.Add(this.txtPrecioEliminar);
             this.tabPage3.Controls.Add(this.txtRutaEliminar);
-            this.tabPage3.Controls.Add(this.comboboxIndenticadorEliminar);
+            this.tabPage3.Controls.Add(this.comboInIDTarifaVueloEliminar);
             this.tabPage3.Controls.Add(this.label9);
             this.tabPage3.Controls.Add(this.label7);
             this.tabPage3.Controls.Add(this.label5);
@@ -320,7 +320,7 @@
             this.tabPage3.Controls.Add(this.button4);
             this.tabPage3.Location = new System.Drawing.Point(4, 25);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(799, 456);
+            this.tabPage3.Size = new System.Drawing.Size(938, 456);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Eliminar Tarifa";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -342,15 +342,15 @@
             this.txtRutaEliminar.Size = new System.Drawing.Size(372, 22);
             this.txtRutaEliminar.TabIndex = 12;
             // 
-            // comboboxIndenticadorEliminar
+            // comboInIDTarifaVueloEliminar
             // 
-            this.comboboxIndenticadorEliminar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboboxIndenticadorEliminar.FormattingEnabled = true;
-            this.comboboxIndenticadorEliminar.Location = new System.Drawing.Point(284, 18);
-            this.comboboxIndenticadorEliminar.Name = "comboboxIndenticadorEliminar";
-            this.comboboxIndenticadorEliminar.Size = new System.Drawing.Size(372, 24);
-            this.comboboxIndenticadorEliminar.TabIndex = 8;
-            this.comboboxIndenticadorEliminar.SelectedIndexChanged += new System.EventHandler(this.comboBox3_SelectedIndexChanged);
+            this.comboInIDTarifaVueloEliminar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboInIDTarifaVueloEliminar.FormattingEnabled = true;
+            this.comboInIDTarifaVueloEliminar.Location = new System.Drawing.Point(284, 18);
+            this.comboInIDTarifaVueloEliminar.Name = "comboInIDTarifaVueloEliminar";
+            this.comboInIDTarifaVueloEliminar.Size = new System.Drawing.Size(372, 24);
+            this.comboInIDTarifaVueloEliminar.TabIndex = 8;
+            this.comboInIDTarifaVueloEliminar.SelectedIndexChanged += new System.EventHandler(this.comboBox3_SelectedIndexChanged);
             // 
             // label9
             // 
@@ -407,7 +407,7 @@
             this.tabPage4.Controls.Add(this.button7);
             this.tabPage4.Location = new System.Drawing.Point(4, 25);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(799, 456);
+            this.tabPage4.Size = new System.Drawing.Size(938, 456);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Consultar Tarifas Vuelos";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -435,7 +435,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(806, 493);
+            this.ClientSize = new System.Drawing.Size(945, 493);
             this.Controls.Add(this.tabControl1);
             this.Name = "Crud_Tarifas_Vuelo";
             this.Text = "Crud_Tarifas_Vuelo";
@@ -471,7 +471,7 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.ComboBox comboIDVuelos;
+        private System.Windows.Forms.ComboBox comboIDTarifasVuelos;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label4;
@@ -485,7 +485,7 @@
         private System.Windows.Forms.TextBox txtModificarPrecio;
         private System.Windows.Forms.TextBox txtPrecioEliminar;
         private System.Windows.Forms.TextBox txtRutaEliminar;
-        private System.Windows.Forms.ComboBox comboboxIndenticadorEliminar;
+        private System.Windows.Forms.ComboBox comboInIDTarifaVueloEliminar;
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.DataGridView TablaVuelos;
         private System.Windows.Forms.Button button7;

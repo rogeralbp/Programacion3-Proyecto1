@@ -81,10 +81,7 @@ namespace CapaPresentacion
             string nombre = Convert.ToString(this.tblAerpuertos.CurrentRow.Cells[2].Value);
             string lugar = Convert.ToString(this.tblAerpuertos.CurrentRow.Cells[3].Value);
             int codigo = Convert.ToInt32(this.tblAerpuertos.CurrentRow.Cells[4].Value);
-
             // ComboLugares.AutoGenerateComlumns = false;
-
-
 
             tblAerpuertos.Rows.Add(i + "", identificador, nombre, lugar, codigo);
             i = i + 1;
@@ -151,11 +148,20 @@ namespace CapaPresentacion
         private void tblAerpuertos_MouseClick(object sender, MouseEventArgs e)
         {
           
-
             tblAerpuertos.Columns[1].ReadOnly = true;
             tblAerpuertos.Columns[2].ReadOnly = true;
             tblAerpuertos.Columns[3].ReadOnly = true;
             tblAerpuertos.Columns[4].ReadOnly = true;
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnActualizar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

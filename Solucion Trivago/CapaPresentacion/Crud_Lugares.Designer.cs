@@ -92,7 +92,7 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Agregar Lugar";
             this.tabPage1.UseVisualStyleBackColor = true;
-            this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
+       
             // 
             // txtNombres
             // 
@@ -109,7 +109,7 @@
             this.txtIDLugarNuevo.Name = "txtIDLugarNuevo";
             this.txtIDLugarNuevo.Size = new System.Drawing.Size(445, 22);
             this.txtIDLugarNuevo.TabIndex = 4;
-            this.txtIDLugarNuevo.TextChanged += new System.EventHandler(this.txtIDLugarNuevo_TextChanged);
+   
             this.txtIDLugarNuevo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtIDLugarNuevo_KeyPress);
             // 
             // button2
@@ -184,9 +184,9 @@
             this.comboIdentificador.Size = new System.Drawing.Size(384, 24);
             this.comboIdentificador.TabIndex = 10;
             this.comboIdentificador.DropDown += new System.EventHandler(this.comboIdentificador_SelectionChangeCommitted);
-            this.comboIdentificador.SelectedIndexChanged += new System.EventHandler(this.comboIdentificador_SelectedIndexChanged);
+           
             this.comboIdentificador.SelectionChangeCommitted += new System.EventHandler(this.comboIdentificador_SelectionChangeCommitted);
-            this.comboIdentificador.DropDownStyleChanged += new System.EventHandler(this.comboIdentificador_SelectedIndexChanged);
+            
             // 
             // btnEliminarLugar
             // 
@@ -242,7 +242,7 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Modificar Lugar";
             this.tabPage3.UseVisualStyleBackColor = true;
-            this.tabPage3.Click += new System.EventHandler(this.tabPage3_Click);
+
             // 
             // button5
             // 

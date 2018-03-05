@@ -165,7 +165,10 @@
             this.comboModeloNuevo.FormattingEnabled = true;
             this.comboModeloNuevo.Items.AddRange(new object[] {
             "Sentra",
-            "Tercell"});
+            "Tucson",
+            "Tercel",
+            "Sport",
+            "Vikingo"});
             this.comboModeloNuevo.Location = new System.Drawing.Point(490, 128);
             this.comboModeloNuevo.Name = "comboModeloNuevo";
             this.comboModeloNuevo.Size = new System.Drawing.Size(179, 21);
@@ -190,7 +193,10 @@
             this.ComboMarcaNueva.FormattingEnabled = true;
             this.ComboMarcaNueva.Items.AddRange(new object[] {
             "Nissan",
-            "Toyota"});
+            "Hyundai",
+            "Toyota",
+            "Range Rover",
+            "Hino"});
             this.ComboMarcaNueva.Location = new System.Drawing.Point(485, 73);
             this.ComboMarcaNueva.Name = "ComboMarcaNueva";
             this.ComboMarcaNueva.Size = new System.Drawing.Size(179, 21);
@@ -410,9 +416,11 @@
             this.comboModelo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboModelo.FormattingEnabled = true;
             this.comboModelo.Items.AddRange(new object[] {
-            "Nissan",
-            "Tida",
-            "Ford"});
+            "Sentra",
+            "Tucson",
+            "Tercel",
+            "Sport",
+            "Vikingo"});
             this.comboModelo.Location = new System.Drawing.Point(160, 125);
             this.comboModelo.Name = "comboModelo";
             this.comboModelo.Size = new System.Drawing.Size(269, 23);
@@ -423,10 +431,11 @@
             this.comboMarca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboMarca.FormattingEnabled = true;
             this.comboMarca.Items.AddRange(new object[] {
+            "Nissan",
+            "Hyundai",
             "Toyota",
-            "Galloper",
-            "Tucson",
-            "Honda"});
+            "Range Rover",
+            "Hino"});
             this.comboMarca.Location = new System.Drawing.Point(160, 73);
             this.comboMarca.Name = "comboMarca";
             this.comboMarca.Size = new System.Drawing.Size(269, 23);

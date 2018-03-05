@@ -78,45 +78,6 @@ namespace CapaPresentacion
 
         }
 
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tabPage1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tabPage2_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox4_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tabPage3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox13_TextChanged(object sender, EventArgs e)
-        {
-
-        }
 
         public void LimpiarCampos()
         {
@@ -139,8 +100,7 @@ namespace CapaPresentacion
                 string nombre = txtNombre.Text;
                 string pais = comboBoxPaises.SelectedItem.ToString();
                 string lugar = comboBoxLugares.SelectedItem.ToString();
-                int habitaciones = int.Parse(txtIdentificador.Text);
-
+                int habitaciones = int.Parse(txtHabitaciones.Text);
                 double precio_tarifa = double.Parse(this.comboBoxPrecioTarifa.SelectedItem.ToString()); 
                 conectar.InsertarHotel(identificador, nombre, direccion, pais, lugar, habitaciones , precio_tarifa);
 
@@ -193,18 +153,6 @@ namespace CapaPresentacion
             metodos.MostrarInformacionHoteles(comboBoxEliminarIdentificador, textNombreActual, textPaisActual, textLugarActual, textHabitacionesActuales , txtTarifaActual);
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void btnCargar_Foto_Click(object sender, EventArgs e)
-        {
-
-           
-        }
-
-    
 
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -224,13 +172,6 @@ namespace CapaPresentacion
             {
                 MessageBox.Show("El archivo seleccionado no es un tipo de imagen válido" + ex);
             }
-
-
-        }
-
-        private void textBox10_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void btnEliminarHotel_Click(object sender, EventArgs e)
@@ -241,10 +182,7 @@ namespace CapaPresentacion
             LimpiarCamposEliminar();
             ActualizarTablaHoteles();
         }
-
-
-
-
+        
         private void btnGuardarCambios_Click(object sender, EventArgs e)
         {
             int identificador = int.Parse(this.comboBoxModifcarIdentificador.SelectedItem.ToString());
@@ -273,14 +211,7 @@ namespace CapaPresentacion
 
         private void Crud_Hoteles_Load(object sender, EventArgs e)
         {
-
-
             ActualizarTablaHoteles();
-        }
-
-        private void tabPage4_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void txtIdentificador_KeyPress(object sender, KeyPressEventArgs e)
@@ -316,26 +247,6 @@ namespace CapaPresentacion
         private void textNombreActual_KeyPress(object sender, KeyPressEventArgs e)
         {
             validar.validarSoloLetras(e);
-        }
-
-        private void textPaisActual_KeyPress(object sender, KeyPressEventArgs e)
-        {
-
-        }
-
-        private void txtLugarActual_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Tabla_Hoteles_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void label24_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

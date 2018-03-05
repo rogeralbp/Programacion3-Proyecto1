@@ -20,7 +20,7 @@ namespace CapaDatos
 
             string baseDatos = "gestion_vuelos";
 
-            string cadenaConexion = "Server=" + servidor + ";" + "Port=" + puerto + ";" + "User Id=" + usuario + ";" + "Password=" + claveAnthonny + ";" + "Database=" + baseDatos;
+            string cadenaConexion = "Server=" + servidor + ";" + "Port=" + puerto + ";" + "User Id=" + usuario + ";" + "Password=" + claveRoger + ";" + "Database=" + baseDatos;
             conexion = new NpgsqlConnection(cadenaConexion);
 
             if (conexion != null)
@@ -37,15 +37,26 @@ namespace CapaDatos
 
         public void InsertarDatosUsuarios(int cedula, string nombre, string contraseña, string tipo_usuario)
         {
-            Conexion();
-            conexion.Open();
-            cmd = new NpgsqlCommand("INSERT INTO usuarios (cedula, nombre, contraseña , tipo_usuario) VALUES ('" + cedula + "', '" + nombre + "', '" + contraseña + "', '" + tipo_usuario + "')", conexion);
-            cmd.ExecuteNonQuery();
-            conexion.Close();
+            try
+            {
+
+                Conexion();
+                conexion.Open();
+                cmd = new NpgsqlCommand("INSERT INTO usuarios (cedula, nombre, contraseña , tipo_usuario) VALUES ('" + cedula + "', '" + nombre + "', '" + contraseña + "', '" + tipo_usuario + "')", conexion);
+                cmd.ExecuteNonQuery();
+                conexion.Close();
+            }
+            catch (Exception error)
+            {
+
+                MessageBox.Show("Error--- \n" + error);
+            }
+
         }
 
         public String TipoDeUsuario(String cedula)
         {
+
 
             String tipoUsuario = String.Empty;
 
@@ -92,204 +103,360 @@ namespace CapaDatos
 
         public void InsertarDatosVehiculos(int placa, string marca, string modelo, string tipo_vehiculo, double precio, int cantidad_personas)
         {
-            Conexion();
-            conexion.Open();
-            cmd = new NpgsqlCommand("INSERT INTO vehiculos (placa, marca, modelo , tipo_vehiculo, precio , cantidad_personas) VALUES ('" + placa + "', '" + marca + "', '" + modelo + "', '" + tipo_vehiculo + "', '" + precio + "', '" + cantidad_personas + "')", conexion);
-            cmd.ExecuteNonQuery();
-            conexion.Close();
+            try
+            {
+                Conexion();
+                conexion.Open();
+                cmd = new NpgsqlCommand("INSERT INTO vehiculos (placa, marca, modelo , tipo_vehiculo, precio , cantidad_personas) VALUES ('" + placa + "', '" + marca + "', '" + modelo + "', '" + tipo_vehiculo + "', '" + precio + "', '" + cantidad_personas + "')", conexion);
+                cmd.ExecuteNonQuery();
+                conexion.Close();
+            }
+            catch (Exception error)
+            {
+
+                MessageBox.Show("Error--- \n" + error);
+            }
+
+
         }
 
-        public void ModificarDatosVehiculo(int placa ,string marca, string modelo, string tipo_vehiculo, double precio, int cantidad_personas)
+        public void ModificarDatosVehiculo(int placa, string marca, string modelo, string tipo_vehiculo, double precio, int cantidad_personas)
         {
-            Conexion();
-            conexion.Open();
-            NpgsqlCommand cmd = new NpgsqlCommand("UPDATE vehiculos SET marca = '" + marca + "', modelo = '" + modelo + "', tipo_vehiculo ='" + tipo_vehiculo + "', precio = '" + precio + "', cantidad_personas = '" + cantidad_personas + "' WHERE placa = '" + placa + "'", conexion);
-            cmd.ExecuteNonQuery();
-            conexion.Close();
+            try
+            {
+                Conexion();
+                conexion.Open();
+                NpgsqlCommand cmd = new NpgsqlCommand("UPDATE vehiculos SET marca = '" + marca + "', modelo = '" + modelo + "', tipo_vehiculo ='" + tipo_vehiculo + "', precio = '" + precio + "', cantidad_personas = '" + cantidad_personas + "' WHERE placa = '" + placa + "'", conexion);
+                cmd.ExecuteNonQuery();
+                conexion.Close();
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Error--- \n" + error);
+            }
+
+
         }
 
         public void EliminarDatosVehiculos(int placa)
         {
-            Conexion();
-            conexion.Open();
-            NpgsqlCommand cmd = new NpgsqlCommand("DELETE FROM vehiculos WHERE placa = '" + placa + "'", conexion);
-            cmd.ExecuteNonQuery();
-            conexion.Close();
+            try
+            {
+                Conexion();
+                conexion.Open();
+                NpgsqlCommand cmd = new NpgsqlCommand("DELETE FROM vehiculos WHERE placa = '" + placa + "'", conexion);
+                cmd.ExecuteNonQuery();
+                conexion.Close();
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Error--- \n" + error);
+            }
+
         }
 
 
         public void InsertarDatosAeropuerto(int identificador_aeropuerto, string nombre_aerpuerto, string lugar_aeropuerto, int codigo_aeropuerto)
         {
-            Conexion();
-            conexion.Open();
-            cmd = new NpgsqlCommand("INSERT INTO aeropuerto (identificador_aeropuerto, nombre_aeropuerto, lugar_aeropuerto , codigo_aeropuerto) VALUES ('" + identificador_aeropuerto + "', '" + nombre_aerpuerto + "', '" + lugar_aeropuerto + "', '" + codigo_aeropuerto +"')", conexion);
-            cmd.ExecuteNonQuery();
-            conexion.Close();
+            try
+            {
+                Conexion();
+                conexion.Open();
+                cmd = new NpgsqlCommand("INSERT INTO aeropuerto (identificador_aeropuerto, nombre_aeropuerto, lugar_aeropuerto , codigo_aeropuerto) VALUES ('" + identificador_aeropuerto + "', '" + nombre_aerpuerto + "', '" + lugar_aeropuerto + "', '" + codigo_aeropuerto + "')", conexion);
+                cmd.ExecuteNonQuery();
+                conexion.Close();
+                MessageBox.Show("Se agrego con exito en la DB");
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Error--- \n" + error);
+            }
+
         }
 
         public void ModificarDatosAeropuerto(int identificador_aeropuerto, string nombre_aerpuerto, string lugar_aeropuerto, int codigo_aeropuerto)
         {
-            Conexion();
-            conexion.Open();
-            NpgsqlCommand cmd = new NpgsqlCommand("UPDATE aeropuerto SET nombre_aeropuerto = '" + nombre_aerpuerto  + "', lugar_aeropuerto = '" + lugar_aeropuerto + "', codigo_aeropuerto ='" + codigo_aeropuerto + "' WHERE identificador_aeropuerto = '" + identificador_aeropuerto + "'", conexion);
-            cmd.ExecuteNonQuery();
-            conexion.Close();
+            try
+            {
+                Conexion();
+                conexion.Open();
+                NpgsqlCommand cmd = new NpgsqlCommand("UPDATE aeropuerto SET nombre_aeropuerto = '" + nombre_aerpuerto + "', lugar_aeropuerto = '" + lugar_aeropuerto + "', codigo_aeropuerto ='" + codigo_aeropuerto + "' WHERE identificador_aeropuerto = '" + identificador_aeropuerto + "'", conexion);
+                cmd.ExecuteNonQuery();
+                conexion.Close();
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Error--- \n" + error);
+            }
+
         }
 
 
         public void EliminarDatosAeropuerto(int identificador_aeropuerto)
         {
-            Conexion();
-            conexion.Open();
-            NpgsqlCommand cmd = new NpgsqlCommand("DELETE FROM aeropuerto WHERE identificador_aeropuerto = '" + identificador_aeropuerto + "'", conexion);
-            cmd.ExecuteNonQuery();
-            conexion.Close();
+            try
+            {
+                Conexion();
+                conexion.Open();
+                NpgsqlCommand cmd = new NpgsqlCommand("DELETE FROM aeropuerto WHERE identificador_aeropuerto = '" + identificador_aeropuerto + "'", conexion);
+                cmd.ExecuteNonQuery();
+                conexion.Close();
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Error--- \n" + error);
+            }
+
         }
 
         public void InsertarDatosLugares(int identificador, string nombre)
         {
-            Conexion();
-            conexion.Open();
-            cmd = new NpgsqlCommand("INSERT INTO lugares (idenficador_lugar, nombre) VALUES ('" + identificador + "', '" + nombre +  "')", conexion);
-            cmd.ExecuteNonQuery();
-            conexion.Close();
+            try
+            {
+                Conexion();
+                conexion.Open();
+                cmd = new NpgsqlCommand("INSERT INTO lugares (idenficador_lugar, nombre) VALUES ('" + identificador + "', '" + nombre + "')", conexion);
+                cmd.ExecuteNonQuery();
+                conexion.Close();
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Error--- \n" + error);
+            }
+
         }
 
-        public void ModificarDatosLugar( int identificador , string nombre )
+        public void ModificarDatosLugar(int identificador, string nombre)
         {
-            Conexion();
-            conexion.Open();
-            NpgsqlCommand cmd = new NpgsqlCommand("UPDATE lugares SET nombre = '" + nombre+ "' WHERE idenficador_lugar = '" + identificador + "'", conexion);
-
-            cmd.ExecuteNonQuery();
-            conexion.Close();
-                
-
+            try
+            {
+                Conexion();
+                conexion.Open();
+                NpgsqlCommand cmd = new NpgsqlCommand("UPDATE lugares SET nombre = '" + nombre + "' WHERE idenficador_lugar = '" + identificador + "'", conexion);
+                cmd.ExecuteNonQuery();
+                conexion.Close();
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Error--- \n" + error);
+            }
+            
         }
 
         public void EliminarDatosLugares(int identificador)
         {
-            Conexion();
-            conexion.Open();
-            NpgsqlCommand cmd = new NpgsqlCommand("DELETE FROM lugares WHERE idenficador_lugar = '" + identificador+ "'", conexion);
-            cmd.ExecuteNonQuery();
-            conexion.Close();
-
+            try
+            {
+                Conexion();
+                conexion.Open();
+                NpgsqlCommand cmd = new NpgsqlCommand("DELETE FROM lugares WHERE idenficador_lugar = '" + identificador + "'", conexion);
+                cmd.ExecuteNonQuery();
+                conexion.Close();
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Error--- \n" + error);
+            }
         }
 
-        public void InsertarDatosRutas( int identificador , string pais_origen ,  string pais_destino , int duracion)
+        public void InsertarDatosRutas(int identificador, string pais_origen, string pais_destino, int duracion)
         {
-            Conexion();
-            conexion.Open();
-            cmd = new NpgsqlCommand("INSERT INTO rutas (identificador_ruta, pais_origen , pais_destino , duracion) VALUES ('" + identificador + "', '" + pais_origen +  "', '" + pais_destino + "' ,'" + duracion +  "')", conexion);
-            cmd.ExecuteNonQuery();
-            conexion.Close();
+            try
+            {
+                Conexion();
+                conexion.Open();
+                cmd = new NpgsqlCommand("INSERT INTO rutas (identificador_ruta, pais_origen , pais_destino , duracion) VALUES ('" + identificador + "', '" + pais_origen + "', '" + pais_destino + "' ,'" + duracion + "')", conexion);
+                cmd.ExecuteNonQuery();
+                conexion.Close();
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Error--- \n" + error);
+            }
+
 
         }
 
         public void ModificarDatosRuta(int identificador, string pais_origen, string pais_destino, int duracion)
         {
-            Conexion();
-            conexion.Open();
-            NpgsqlCommand cmd = new NpgsqlCommand("UPDATE rutas SET pais_origen = '" + pais_origen + "', pais_destino = '" + pais_destino + "', duracion ='" + duracion + "' WHERE identificador_ruta = '" + identificador + "'", conexion);
-            cmd.ExecuteNonQuery();
-            conexion.Close();
+            try
+            {
+                Conexion();
+                conexion.Open();
+                NpgsqlCommand cmd = new NpgsqlCommand("UPDATE rutas SET pais_origen = '" + pais_origen + "', pais_destino = '" + pais_destino + "', duracion ='" + duracion + "' WHERE identificador_ruta = '" + identificador + "'", conexion);
+                cmd.ExecuteNonQuery();
+                conexion.Close();
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Error--- \n" + error);
+            }
+
         }
 
         public void EliminarDatosRuta(int identificador_ruta)
         {
-            Conexion();
-            conexion.Open();
-            NpgsqlCommand cmd = new NpgsqlCommand("DELETE FROM rutas WHERE identificador_ruta = '" + identificador_ruta + "'", conexion);
-            cmd.ExecuteNonQuery();
-            conexion.Close();
+            try
+            {
+                Conexion();
+                conexion.Open();
+                NpgsqlCommand cmd = new NpgsqlCommand("DELETE FROM rutas WHERE identificador_ruta = '" + identificador_ruta + "'", conexion);
+                cmd.ExecuteNonQuery();
+                conexion.Close();
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Error--- \n" + error);
+            }
+
 
         }
 
-        public void InsertaTarifaHotel(int identificador_tarifa , double precio_tarifa)
+        public void InsertaTarifaHotel(int identificador_tarifa, double precio_tarifa)
         {
-            Conexion();
-            conexion.Open();
-            cmd = new NpgsqlCommand("INSERT INTO tarifas_hoteles (identificador_tarifa, precio_tarifa) VALUES ('" + identificador_tarifa + "', '" + precio_tarifa + "')", conexion);
-            cmd.ExecuteNonQuery();
-            conexion.Close();
+            try
+            {
+                Conexion();
+                conexion.Open();
+                cmd = new NpgsqlCommand("INSERT INTO tarifas_hoteles (identificador_tarifa, precio_tarifa) VALUES ('" + identificador_tarifa + "', '" + precio_tarifa + "')", conexion);
+                cmd.ExecuteNonQuery();
+                conexion.Close();
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Error--- \n" + error);
+            }
+
 
         }
 
-        public void ModificarTarifaHotel(int identificador,  double precio_tarifa)
+        public void ModificarTarifaHotel(int identificador, double precio_tarifa)
         {
-            Conexion();
-            conexion.Open();
-            NpgsqlCommand cmd = new NpgsqlCommand("UPDATE  tarifas_hoteles SET precio_tarifa = '" + precio_tarifa +"' WHERE identificador_tarifa = '" + identificador +  "'", conexion);
-            cmd.ExecuteNonQuery();
-            conexion.Close();
+            try
+            {
+                Conexion();
+                conexion.Open();
+                NpgsqlCommand cmd = new NpgsqlCommand("UPDATE  tarifas_hoteles SET precio_tarifa = '" + precio_tarifa + "' WHERE identificador_tarifa = '" + identificador + "'", conexion);
+                cmd.ExecuteNonQuery();
+                conexion.Close();
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Error--- \n" + error);
+            }
+
 
         }
 
         public void EliminarDatosTarifa(int identificador)
         {
-            Conexion();
-            conexion.Open();
-            NpgsqlCommand cmd = new NpgsqlCommand("DELETE FROM  tarifas_hoteles WHERE identificador_tarifa  = '" + identificador + "'", conexion);
-            cmd.ExecuteNonQuery();
-            conexion.Close();
+            try
+            {
+                Conexion();
+                conexion.Open();
+                NpgsqlCommand cmd = new NpgsqlCommand("DELETE FROM  tarifas_hoteles WHERE identificador_tarifa  = '" + identificador + "'", conexion);
+                cmd.ExecuteNonQuery();
+                conexion.Close();
+
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Error--- \n" + error);
+            }
 
         }
-        public void InsertarDatosVuelos(int identificador_tarifa, int ruta  , double precio)
+        public void InsertarDatosVuelos(int identificador_tarifa, int ruta, double precio)
         {
-            Conexion();
-            conexion.Open();
-            cmd = new NpgsqlCommand("INSERT INTO tarifas_vuelos (identificador_tarifa, ruta, precio) VALUES ('" + identificador_tarifa + "', '" + ruta + "', '" + precio +  "')", conexion);
-            cmd.ExecuteNonQuery();
-            conexion.Close();
+            try
+            {
+                Conexion();
+                conexion.Open();
+                cmd = new NpgsqlCommand("INSERT INTO tarifas_vuelos (identificador_tarifa, ruta, precio) VALUES ('" + identificador_tarifa + "', '" + ruta + "', '" + precio + "')", conexion);
+                cmd.ExecuteNonQuery();
+                conexion.Close();
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Error--- \n" + error);
+            }
+
         }
 
 
         public void ModificarTarifaVuelo(int identificador_tarifa, int ruta, double precio)
         {
-            Conexion();
-            conexion.Open();
-            NpgsqlCommand cmd = new NpgsqlCommand("UPDATE tarifas_vuelos SET ruta = '" + ruta + "', precio = '" + precio + "' WHERE identificador_tarifa = '" + identificador_tarifa + "'", conexion);
-            cmd.ExecuteNonQuery();
-            conexion.Close();
+            try
+            {
+                Conexion();
+                conexion.Open();
+                NpgsqlCommand cmd = new NpgsqlCommand("UPDATE tarifas_vuelos SET ruta = '" + ruta + "', precio = '" + precio + "' WHERE identificador_tarifa = '" + identificador_tarifa + "'", conexion);
+                cmd.ExecuteNonQuery();
+                conexion.Close();
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Error--- \n" + error);
+            }
+
         }
-
-
 
         public void EliminarDatosTarifaVuelos(int identificador)
         {
-            Conexion();
-            conexion.Open();
-            NpgsqlCommand cmd = new NpgsqlCommand("DELETE FROM  tarifas_vuelos WHERE identificador_tarifa = '" + identificador + "'", conexion);
-            cmd.ExecuteNonQuery();
-            conexion.Close();
+            try
+            {
+                Conexion();
+                conexion.Open();
+                NpgsqlCommand cmd = new NpgsqlCommand("DELETE FROM  tarifas_vuelos WHERE identificador_tarifa = '" + identificador + "'", conexion);
+                cmd.ExecuteNonQuery();
+                conexion.Close();
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Error--- \n" + error);
+            }
+
         }
 
 
-        public void InsertarDatosPaises(int identificador , string nombre , string direccion)
+        public void InsertarDatosPaises(int identificador, string nombre, string direccion)
         {
-            Conexion();
-            conexion.Open();
+            try
+            {
+                Conexion();
+                conexion.Open();
+                cmd = new NpgsqlCommand("INSERT INTO paises (identificador, nombre , direccion) VALUES ('" + identificador + "', '" + nombre + "', '" + direccion + "')", conexion);
+                cmd.ExecuteNonQuery();
+                conexion.Close();
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Error--- \n" + error);
+            }
 
-            cmd = new NpgsqlCommand("INSERT INTO paises (identificador, nombre , direccion) VALUES ('" + identificador + "', '" + nombre + "', '" + direccion + "')", conexion);
-
-            cmd.ExecuteNonQuery();
-            conexion.Close();
         }
 
 
         public void EliminarDatosPaises(int identificador)
         {
-            Conexion();
-            conexion.Open();
-            NpgsqlCommand cmd = new NpgsqlCommand("DELETE FROM  paises WHERE identificador = '" + identificador + "'", conexion);            cmd.ExecuteNonQuery();
-            conexion.Close();
+            try
+            {
+                Conexion();
+                conexion.Open();
+                NpgsqlCommand cmd = new NpgsqlCommand("DELETE FROM  paises WHERE identificador = '" + identificador + "'", conexion); cmd.ExecuteNonQuery();
+                conexion.Close();
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Error--- \n" + error);
+            }
+
         }
 
 
 
         public void ModificarDatosPaises(int identificador, string nombre, string direccion)
         {
+            try
             {
                 Conexion();
                 conexion.Open();
@@ -297,36 +464,64 @@ namespace CapaDatos
                 cmd.ExecuteNonQuery();
                 conexion.Close();
             }
+            catch (Exception error)
+            {
+                MessageBox.Show("Error--- \n" + error);
+            }
 
         }
 
 
-        public void InsertarHotel(int identificador, string nombre_hotel, string foto_hotel, string pais, string lugar, int habitaciones , double tarifa_hotel)
+        public void InsertarHotel(int identificador, string nombre_hotel, string foto_hotel, string pais, string lugar, int habitaciones, double tarifa_hotel)
         {
-            Conexion();
-            conexion.Open();
-            cmd = new NpgsqlCommand("INSERT INTO hotel (identificador , nombre, foto , pais, lugar, habitaciones , tarifa_hotel) VALUES ('" + identificador + "', '" + nombre_hotel + "', '" + foto_hotel + "', '" + pais + "', '" + lugar + "', '" + habitaciones + "', '" + tarifa_hotel + "')", conexion);
-            cmd.ExecuteNonQuery();
-            conexion.Close();
+            try
+            {
+                Conexion();
+                conexion.Open();
+                cmd = new NpgsqlCommand("INSERT INTO hotel (identificador , nombre, foto , pais, lugar, habitaciones , tarifa_hotel) VALUES ('" + identificador + "', '" + nombre_hotel + "', '" + foto_hotel + "', '" + pais + "', '" + lugar + "', '" + habitaciones + "', '" + tarifa_hotel + "')", conexion);
+                cmd.ExecuteNonQuery();
+                conexion.Close();
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Error--- \n" + error);
+            }
+
         }
 
 
-        public void ModificarHotel(int identificador, string nombre_hotel, string pais, string lugar, int habitaciones , double tarifa_hotel)
+        public void ModificarHotel(int identificador, string nombre_hotel, string pais, string lugar, int habitaciones, double tarifa_hotel)
         {
-            Conexion();
-            conexion.Open();
-            NpgsqlCommand cmd = new NpgsqlCommand("UPDATE hotel SET nombre = '" + nombre_hotel + "', pais = '" + pais + "', lugar ='" + lugar + "', habitaciones = '" + habitaciones + "', tarifa_hotel = '" + tarifa_hotel +  "' WHERE identificador = '" + identificador + "'", conexion);
-            cmd.ExecuteNonQuery();
-            conexion.Close();
+            try
+            {
+                Conexion();
+                conexion.Open();
+                NpgsqlCommand cmd = new NpgsqlCommand("UPDATE hotel SET nombre = '" + nombre_hotel + "', pais = '" + pais + "', lugar ='" + lugar + "', habitaciones = '" + habitaciones + "', tarifa_hotel = '" + tarifa_hotel + "' WHERE identificador = '" + identificador + "'", conexion);
+                cmd.ExecuteNonQuery();
+                conexion.Close();
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Error--- \n" + error);
+            }
+
         }
 
         public void EliminarHotel(int identificador)
         {
-            Conexion();
-            conexion.Open();
-            NpgsqlCommand cmd = new NpgsqlCommand("DELETE FROM hotel WHERE identificador = '" + identificador + "'", conexion);
-            cmd.ExecuteNonQuery();
-            conexion.Close();
+            try
+            {
+                Conexion();
+                conexion.Open();
+                NpgsqlCommand cmd = new NpgsqlCommand("DELETE FROM hotel WHERE identificador = '" + identificador + "'", conexion);
+                cmd.ExecuteNonQuery();
+                conexion.Close();
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Error--- \n" + error);
+            }
+
         }
 
 
@@ -367,10 +562,9 @@ namespace CapaDatos
         /// </summary>
         /// <param name="nombre"></param>
         /// <returns> los datos completos cedula[0], nombre[1] y tipo de usuario[3] </returns>
-        public String ConsultarInformacionUsuarioNombre(String nombre)
+        public int ConsultarCedulaUsuario(String nombre)
         {
-
-            String informacionUsuario = String.Empty;
+            int cedulaUsurio=0;
 
             Conexion();
             conexion.Open();
@@ -381,22 +575,31 @@ namespace CapaDatos
                 while (lectorConsulta.Read())
                 {
                     //cedula, nombre y tipo de usuario
-                    informacionUsuario = lectorConsulta.GetString(0) + ";" + lectorConsulta.GetString(1)  + ";"+ lectorConsulta.GetString(3);
-                
+                    //informacionUsuario = lectorConsulta.GetString(0) + ";" + lectorConsulta.GetString(1)  + ";"+ lectorConsulta.GetString(3);
+                    cedulaUsurio = int.Parse(lectorConsulta.GetString(0));
+
                 }
             }
             conexion.Close();
 
-            return informacionUsuario;
+            return cedulaUsurio;
         }
 
         public void InsertarDatosAerolineas(string identificador, string nombre)
         {
-            Conexion();
-            conexion.Open();
-            cmd = new NpgsqlCommand("INSERT INTO aerolineas(identificador, nombre) VALUES ('" + identificador + "', '" + nombre + "')", conexion);
-            cmd.ExecuteNonQuery();
-            conexion.Close();
+            try
+            {
+                Conexion();
+                conexion.Open();
+                cmd = new NpgsqlCommand("INSERT INTO aerolineas(identificador, nombre) VALUES ('" + identificador + "', '" + nombre + "')", conexion);
+                cmd.ExecuteNonQuery();
+                conexion.Close();
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Error--- \n" + error);
+            }
+
         }
 
 
@@ -417,13 +620,11 @@ namespace CapaDatos
                     }
                 }
                 conexion.Close();
-
-
+                
             }
             catch (Exception error)
             {
                 Console.WriteLine(error);
-
             }
 
         }
@@ -457,24 +658,36 @@ namespace CapaDatos
 
         public void ModificarDatosAerolineas(string identificadorAer, string nombreAer)
         {
+            try
             {
-
                 Conexion();
                 conexion.Open();
-                NpgsqlCommand cmd = new NpgsqlCommand("UPDATE aerolineas SET nombre ='"+nombreAer+"' WHERE identificador='"+identificadorAer+"'", conexion);
+                NpgsqlCommand cmd = new NpgsqlCommand("UPDATE aerolineas SET nombre ='" + nombreAer + "' WHERE identificador='" + identificadorAer + "'", conexion);
                 cmd.ExecuteNonQuery();
                 conexion.Close();
             }
-
+            catch (Exception error)
+            {
+                MessageBox.Show("Error--- \n" + error);
+            }
+            
         }
 
         public void EliminarDatosAerolineas(string idAer)
         {
-            Conexion();
-            conexion.Open();
-            NpgsqlCommand cmd = new NpgsqlCommand("DELETE FROM  aerolineas WHERE identificador = '" + idAer + "'", conexion);
-            cmd.ExecuteNonQuery();
-            conexion.Close();
+            try
+            {
+                Conexion();
+                conexion.Open();
+                NpgsqlCommand cmd = new NpgsqlCommand("DELETE FROM  aerolineas WHERE identificador = '" + idAer + "'", conexion);
+                cmd.ExecuteNonQuery();
+                conexion.Close();
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Error--- \n" + error);
+            }
+
         }
 
         public String ConsultarIDPais(String nombrePais)

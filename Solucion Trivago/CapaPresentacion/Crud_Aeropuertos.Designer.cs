@@ -29,6 +29,11 @@
         private void InitializeComponent()
         {
             this.tblAerpuertos = new System.Windows.Forms.DataGridView();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Identificadores = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombres = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ComboLugares = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -39,11 +44,6 @@
             this.txtIdentificador = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.txtCodigoAeropuertos = new System.Windows.Forms.TextBox();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Identificadores = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombres = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ComboLugares = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.tblAerpuertos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -63,6 +63,38 @@
             this.tblAerpuertos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tblAerpuertos_CellContentClick);
             this.tblAerpuertos.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.tblAerpuertos_CellEndEdit);
             this.tblAerpuertos.MouseClick += new System.Windows.Forms.MouseEventHandler(this.tblAerpuertos_MouseClick);
+            // 
+            // ID
+            // 
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            // 
+            // Identificadores
+            // 
+            this.Identificadores.HeaderText = "Identificador";
+            this.Identificadores.Name = "Identificadores";
+            this.Identificadores.ReadOnly = true;
+            // 
+            // nombres
+            // 
+            this.nombres.HeaderText = "Nombre";
+            this.nombres.Name = "nombres";
+            this.nombres.ReadOnly = true;
+            // 
+            // ComboLugares
+            // 
+            this.ComboLugares.AutoComplete = false;
+            this.ComboLugares.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.ComboLugares.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
+            this.ComboLugares.HeaderText = "Lugares";
+            this.ComboLugares.Name = "ComboLugares";
+            // 
+            // Codigo
+            // 
+            this.Codigo.HeaderText = "Codigo Aeropuerto";
+            this.Codigo.Name = "Codigo";
+            this.Codigo.ReadOnly = true;
             // 
             // label1
             // 
@@ -109,6 +141,7 @@
             this.btnActualizar.TabIndex = 6;
             this.btnActualizar.Text = "Actualizar";
             this.btnActualizar.UseVisualStyleBackColor = true;
+            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
             // btnEliminar
             // 
@@ -118,6 +151,7 @@
             this.btnEliminar.TabIndex = 7;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnRegresar
             // 
@@ -149,38 +183,6 @@
             this.txtCodigoAeropuertos.Name = "txtCodigoAeropuertos";
             this.txtCodigoAeropuertos.Size = new System.Drawing.Size(339, 20);
             this.txtCodigoAeropuertos.TabIndex = 12;
-            // 
-            // ID
-            // 
-            this.ID.HeaderText = "ID";
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            // 
-            // Identificadores
-            // 
-            this.Identificadores.HeaderText = "Identificador";
-            this.Identificadores.Name = "Identificadores";
-            this.Identificadores.ReadOnly = true;
-            // 
-            // nombres
-            // 
-            this.nombres.HeaderText = "Nombre";
-            this.nombres.Name = "nombres";
-            this.nombres.ReadOnly = true;
-            // 
-            // ComboLugares
-            // 
-            this.ComboLugares.AutoComplete = false;
-            this.ComboLugares.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.ComboLugares.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
-            this.ComboLugares.HeaderText = "Lugares";
-            this.ComboLugares.Name = "ComboLugares";
-            // 
-            // Codigo
-            // 
-            this.Codigo.HeaderText = "Codigo Aeropuerto";
-            this.Codigo.Name = "Codigo";
-            this.Codigo.ReadOnly = true;
             // 
             // Crud_Aeropuertos
             // 

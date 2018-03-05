@@ -48,6 +48,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.txtTarifaAc = new System.Windows.Forms.TextBox();
+            this.label24 = new System.Windows.Forms.Label();
+            this.comboBoxTarifaNueva = new System.Windows.Forms.ComboBox();
+            this.label22 = new System.Windows.Forms.Label();
             this.btnGuardarCambios = new System.Windows.Forms.Button();
             this.txtNuevasHabitaciones = new System.Windows.Forms.TextBox();
             this.txtNuevoNombre = new System.Windows.Forms.TextBox();
@@ -69,6 +73,8 @@
             this.label7 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.txtTarifaActual = new System.Windows.Forms.TextBox();
+            this.label23 = new System.Windows.Forms.Label();
             this.btnEliminarHotel = new System.Windows.Forms.Button();
             this.textHabitacionesActuales = new System.Windows.Forms.TextBox();
             this.textLugarActual = new System.Windows.Forms.TextBox();
@@ -85,12 +91,6 @@
             this.Tabla_Hoteles = new System.Windows.Forms.DataGridView();
             this.button7 = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.label22 = new System.Windows.Forms.Label();
-            this.comboBoxTarifaNueva = new System.Windows.Forms.ComboBox();
-            this.label23 = new System.Windows.Forms.Label();
-            this.txtTarifaActual = new System.Windows.Forms.TextBox();
-            this.label24 = new System.Windows.Forms.Label();
-            this.txtTarifaAc = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -112,7 +112,6 @@
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(920, 498);
             this.tabControl1.TabIndex = 0;
-            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabPage2_Click);
             // 
             // tabPage1
             // 
@@ -140,7 +139,6 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Agregar Hotel";
             this.tabPage1.UseVisualStyleBackColor = true;
-            this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
             // 
             // comboBoxPrecioTarifa
             // 
@@ -168,8 +166,7 @@
             this.btnCargar_Foto.TabIndex = 14;
             this.btnCargar_Foto.Text = ".........";
             this.btnCargar_Foto.UseVisualStyleBackColor = true;
-            this.btnCargar_Foto.Click += new System.EventHandler(this.btnCargar_Foto_Click);
-            // 
+// 
             // pictureBox1
             // 
             this.pictureBox1.Location = new System.Drawing.Point(208, 137);
@@ -239,7 +236,7 @@
             this.txtIdentificador.Name = "txtIdentificador";
             this.txtIdentificador.Size = new System.Drawing.Size(372, 22);
             this.txtIdentificador.TabIndex = 6;
-            this.txtIdentificador.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+
             this.txtIdentificador.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtIdentificador_KeyPress);
             // 
             // label6
@@ -250,7 +247,6 @@
             this.label6.Size = new System.Drawing.Size(81, 16);
             this.label6.TabIndex = 5;
             this.label6.Text = "Habitaciones:";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // label5
             // 
@@ -260,7 +256,6 @@
             this.label5.Size = new System.Drawing.Size(43, 16);
             this.label5.TabIndex = 4;
             this.label5.Text = "Lugar:";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // label4
             // 
@@ -288,7 +283,6 @@
             this.label2.Size = new System.Drawing.Size(53, 16);
             this.label2.TabIndex = 1;
             this.label2.Text = "Nombre:";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label1
             // 
@@ -333,7 +327,42 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Modificar Hotel";
             this.tabPage2.UseVisualStyleBackColor = true;
-            this.tabPage2.Click += new System.EventHandler(this.tabPage2_Click);
+            // 
+            // txtTarifaAc
+            // 
+            this.txtTarifaAc.Enabled = false;
+            this.txtTarifaAc.Location = new System.Drawing.Point(167, 290);
+            this.txtTarifaAc.Name = "txtTarifaAc";
+            this.txtTarifaAc.Size = new System.Drawing.Size(291, 26);
+            this.txtTarifaAc.TabIndex = 36;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(7, 288);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(91, 20);
+            this.label24.TabIndex = 35;
+            this.label24.Text = "Tarifa Actual:";
+ 
+            // 
+            // comboBoxTarifaNueva
+            // 
+            this.comboBoxTarifaNueva.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxTarifaNueva.FormattingEnabled = true;
+            this.comboBoxTarifaNueva.Location = new System.Drawing.Point(620, 288);
+            this.comboBoxTarifaNueva.Name = "comboBoxTarifaNueva";
+            this.comboBoxTarifaNueva.Size = new System.Drawing.Size(274, 28);
+            this.comboBoxTarifaNueva.TabIndex = 34;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(495, 288);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(90, 20);
+            this.label22.TabIndex = 33;
+            this.label22.Text = "Nueva Tarifa:";
             // 
             // btnGuardarCambios
             // 
@@ -431,8 +460,7 @@
             this.txtLugarActual.Name = "txtLugarActual";
             this.txtLugarActual.Size = new System.Drawing.Size(291, 26);
             this.txtLugarActual.TabIndex = 22;
-            this.txtLugarActual.TextChanged += new System.EventHandler(this.txtLugarActual_TextChanged);
-            // 
+
             // txtPaisActual
             // 
             this.txtPaisActual.Enabled = false;
@@ -448,7 +476,6 @@
             this.txtNombreActual.Name = "txtNombreActual";
             this.txtNombreActual.Size = new System.Drawing.Size(291, 26);
             this.txtNombreActual.TabIndex = 20;
-            this.txtNombreActual.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
             this.txtNombreActual.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombreActual_KeyPress);
             // 
             // comboBoxModifcarIdentificador
@@ -538,7 +565,23 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Eliminar Hotel";
             this.tabPage3.UseVisualStyleBackColor = true;
-            this.tabPage3.Click += new System.EventHandler(this.tabPage3_Click);
+            // 
+            // txtTarifaActual
+            // 
+            this.txtTarifaActual.Enabled = false;
+            this.txtTarifaActual.Location = new System.Drawing.Point(318, 362);
+            this.txtTarifaActual.Name = "txtTarifaActual";
+            this.txtTarifaActual.Size = new System.Drawing.Size(291, 22);
+            this.txtTarifaActual.TabIndex = 27;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(159, 362);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(81, 16);
+            this.label23.TabIndex = 26;
+            this.label23.Text = "Tarifa Actual::";
             // 
             // btnEliminarHotel
             // 
@@ -558,7 +601,6 @@
             this.textHabitacionesActuales.Name = "textHabitacionesActuales";
             this.textHabitacionesActuales.Size = new System.Drawing.Size(291, 22);
             this.textHabitacionesActuales.TabIndex = 24;
-            this.textHabitacionesActuales.TextChanged += new System.EventHandler(this.textBox13_TextChanged);
             // 
             // textLugarActual
             // 
@@ -575,7 +617,7 @@
             this.textPaisActual.Name = "textPaisActual";
             this.textPaisActual.Size = new System.Drawing.Size(291, 22);
             this.textPaisActual.TabIndex = 22;
-            this.textPaisActual.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textPaisActual_KeyPress);
+   
             // 
             // textNombreActual
             // 
@@ -584,7 +626,7 @@
             this.textNombreActual.Name = "textNombreActual";
             this.textNombreActual.Size = new System.Drawing.Size(291, 22);
             this.textNombreActual.TabIndex = 21;
-            this.textNombreActual.TextChanged += new System.EventHandler(this.textBox10_TextChanged);
+
             this.textNombreActual.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textNombreActual_KeyPress);
             // 
             // comboBoxEliminarIdentificador
@@ -662,7 +704,7 @@
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Consultar Hoteles";
             this.tabPage4.UseVisualStyleBackColor = true;
-            this.tabPage4.Click += new System.EventHandler(this.tabPage4_Click);
+
             // 
             // Tabla_Hoteles
             // 
@@ -672,8 +714,7 @@
             this.Tabla_Hoteles.Name = "Tabla_Hoteles";
             this.Tabla_Hoteles.Size = new System.Drawing.Size(797, 336);
             this.Tabla_Hoteles.TabIndex = 1;
-            this.Tabla_Hoteles.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Tabla_Hoteles_CellContentClick);
-            // 
+         
             // button7
             // 
             this.button7.Location = new System.Drawing.Point(671, 25);
@@ -687,59 +728,6 @@
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(495, 288);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(90, 20);
-            this.label22.TabIndex = 33;
-            this.label22.Text = "Nueva Tarifa:";
-            // 
-            // comboBoxTarifaNueva
-            // 
-            this.comboBoxTarifaNueva.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxTarifaNueva.FormattingEnabled = true;
-            this.comboBoxTarifaNueva.Location = new System.Drawing.Point(620, 288);
-            this.comboBoxTarifaNueva.Name = "comboBoxTarifaNueva";
-            this.comboBoxTarifaNueva.Size = new System.Drawing.Size(274, 28);
-            this.comboBoxTarifaNueva.TabIndex = 34;
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(159, 362);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(81, 16);
-            this.label23.TabIndex = 26;
-            this.label23.Text = "Tarifa Actual::";
-            // 
-            // txtTarifaActual
-            // 
-            this.txtTarifaActual.Enabled = false;
-            this.txtTarifaActual.Location = new System.Drawing.Point(318, 362);
-            this.txtTarifaActual.Name = "txtTarifaActual";
-            this.txtTarifaActual.Size = new System.Drawing.Size(291, 22);
-            this.txtTarifaActual.TabIndex = 27;
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(7, 288);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(91, 20);
-            this.label24.TabIndex = 35;
-            this.label24.Text = "Tarifa Actual:";
-            this.label24.Click += new System.EventHandler(this.label24_Click);
-            // 
-            // txtTarifaAc
-            // 
-            this.txtTarifaAc.Enabled = false;
-            this.txtTarifaAc.Location = new System.Drawing.Point(167, 290);
-            this.txtTarifaAc.Name = "txtTarifaAc";
-            this.txtTarifaAc.Size = new System.Drawing.Size(291, 26);
-            this.txtTarifaAc.TabIndex = 36;
             // 
             // Crud_Hoteles
             // 
@@ -820,7 +808,6 @@
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button btnCargar_Foto;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.ComboBox comboBoxPrecioTarifa;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.ComboBox comboBoxTarifaNueva;
@@ -829,5 +816,6 @@
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.TextBox txtTarifaAc;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }

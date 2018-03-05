@@ -134,32 +134,6 @@ namespace CapaPresentacion
 
 
 
-        private void comboIdentificador_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-
-        }
-
-        private void txtIDLugarNuevo_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Tabla_Lugares_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void tabPage3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tabPage1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void comboBoxLugar_SelectedIndexChanged(object sender, EventArgs e)
         {
             metodos.LlenarCombosModificarLugar(comboBoxLugar, txtNombreLugarActual);

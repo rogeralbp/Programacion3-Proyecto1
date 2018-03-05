@@ -135,6 +135,7 @@
             // 
             // comboPaisDestino
             // 
+            this.comboPaisDestino.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboPaisDestino.FormattingEnabled = true;
             this.comboPaisDestino.Location = new System.Drawing.Point(261, 144);
             this.comboPaisDestino.Name = "comboPaisDestino";
@@ -143,6 +144,7 @@
             // 
             // comboPaisOrigen
             // 
+            this.comboPaisOrigen.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboPaisOrigen.FormattingEnabled = true;
             this.comboPaisOrigen.Location = new System.Drawing.Point(261, 74);
             this.comboPaisOrigen.Name = "comboPaisOrigen";
