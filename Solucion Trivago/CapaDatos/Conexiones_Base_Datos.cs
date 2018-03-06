@@ -232,7 +232,7 @@ namespace CapaDatos
             {
                 Conexion();
                 conexion.Open();
-                NpgsqlCommand cmd = new NpgsqlCommand("UPDATE lugares SET id_pais ='"+pais_id+"' , SET nombre_lugar = '" + nombre + "' WHERE identificador_lugar = '" + identificador + "'", conexion);
+                NpgsqlCommand cmd = new NpgsqlCommand("UPDATE lugares SET id_pais ='"+pais_id+"', nombre_lugar = '" + nombre + "' WHERE identificador_lugar = '" + identificador + "'", conexion);
                 cmd.ExecuteNonQuery();
                 conexion.Close();
             }

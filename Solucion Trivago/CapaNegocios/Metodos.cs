@@ -126,7 +126,7 @@ namespace CapaNegocios
                 Conexion();
                 conexion.Open();
                 DataSet dataset = new DataSet();
-                NpgsqlDataAdapter adapter = new NpgsqlDataAdapter("SELECT id_pais,idenficador_lugar , nombre_lugar  FROM lugares ORDER BY nombre ASC", conexion);
+                NpgsqlDataAdapter adapter = new NpgsqlDataAdapter("SELECT id_pais,identificador_lugar , nombre_lugar  FROM lugares ORDER BY nombre ASC", conexion);
                 adapter.Fill(dataset, "lugares");
                 agregar_lugares.DataSource = dataset.Tables[0];
                 agregar_lugares.Columns[0].HeaderCell.Value = "id_pais";
@@ -353,33 +353,26 @@ namespace CapaNegocios
         //Metodo que llena el combo de lugares , en la ventana de modificar lugares
         public void LlenarCombosModificarLugar(ComboBox id_lugar, TextBox nombre_pais, TextBox nombre_lugar)
         {
-
+            try
             {
-
-                try
+                Conexion();
+                conexion.Open();
+                NpgsqlCommand cmd = new NpgsqlCommand("SELECT nombre_lugar,nombre  FROM lugares JOIN paises ON lugares.id_pais=paises.identificador WHERE identificador_lugar='" + id_lugar.SelectedItem.ToString() + "'", conexion);
+                NpgsqlDataReader leer = cmd.ExecuteReader();
+                if (leer.HasRows)
                 {
-                    Conexion();
-                    conexion.Open();
-                    NpgsqlCommand cmd = new NpgsqlCommand("SELECT nombre_lugar,nombre  FROM lugares JOIN paises ON lugares.id_pais=paises.identificador  WHERE idenficador_lugar = '" + id_lugar.SelectedItem + "'", conexion);
-                    NpgsqlDataReader leer = cmd.ExecuteReader();
-                    if (leer.HasRows)
+                    while (leer.Read())
                     {
-                        while (leer.Read())
-                        {
-                            nombre_lugar.Text = leer.GetString(0);
-
-                            nombre_pais.Text = leer.GetString(1);
-                        }
-                        conexion.Close();
-
+                        nombre_lugar.Text = leer.GetString(0);
+                        nombre_pais.Text = leer.GetString(1);
                     }
-
-                }
-                catch (Exception error)
-                {
-                    Console.WriteLine(error);
+                    conexion.Close();
                 }
 
+            }
+            catch (Exception error)
+            {
+                Console.WriteLine(error);
             }
 
         }

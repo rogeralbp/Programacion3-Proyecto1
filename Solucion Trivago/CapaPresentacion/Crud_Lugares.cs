@@ -26,8 +26,7 @@ namespace CapaPresentacion
             InitializeComponent();
             this.CenterToScreen();
             //Llenando el combobox con ID del lugar
-            metodos.ComboLugar(comboIdentificadorLugaresEliminar);
-
+            
             //Llena el combobox de nombres de lugares
             metodos.ComboNombresLugares(comboBoxLugarModificar);
 
@@ -37,8 +36,9 @@ namespace CapaPresentacion
         private void Crud_Lugares_Load(object sender, EventArgs e)
         {
             //Lleno la tabla de lugares en el DataGridview
-            metodos.LlenarDtLugar(dataGridView1);
+            metodos.LlenarDtLugar(dtgLugares);
             metodos.ComboNombresPaises(comboPaisRegistrar);
+            metodos.ComboNombresPaises(comboNuevoPais);
             metodos.ComboLugar(comboIdentificadorLugaresEliminar);
             metodos.ComboLugar(comboBoxLugarModificar);
         }
@@ -47,7 +47,7 @@ namespace CapaPresentacion
         public void ActualizarTablaLugares()
         {
             //Lleno la tabla de lugares en el DataGridview
-            metodos.LlenarDtLugar(dataGridView1);
+            metodos.LlenarDtLugar(dtgLugares);
         }
 
         private void button2_Click(object sender, EventArgs e)
