@@ -28,7 +28,7 @@ namespace CapaPresentacion
 
         private void Menu_Principal_Usuarios_Load(object sender, EventArgs e)
         {
-            nombreCliente.Text = "Bienvenido Cliente,"+Login.nombreUsuario;
+            nomUser.Text = Login.nombreUsuario;
         }
 
         private void button2_Click(object sender, EventArgs e)

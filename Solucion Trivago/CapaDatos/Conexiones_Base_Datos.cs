@@ -209,13 +209,13 @@ namespace CapaDatos
 
         }
 
-        public void InsertarDatosLugares(int identificador, string nombre)
+        public void InsertarDatosLugares(int idPais, int identificador, string nombre)
         {
             try
             {
                 Conexion();
                 conexion.Open();
-                cmd = new NpgsqlCommand("INSERT INTO lugares (idenficador_lugar, nombre) VALUES ('" + identificador + "', '" + nombre + "')", conexion);
+                cmd = new NpgsqlCommand("INSERT INTO lugares (id_pais,identificador_lugar, nombre_lugar) VALUES ('"+idPais+"','" + identificador + "', '" + nombre + "')", conexion);
                 cmd.ExecuteNonQuery();
                 conexion.Close();
             }
@@ -226,13 +226,13 @@ namespace CapaDatos
 
         }
 
-        public void ModificarDatosLugar(int identificador, string nombre)
+        public void ModificarDatosLugar(int identificador, string nombre,int pais_id )
         {
             try
             {
                 Conexion();
                 conexion.Open();
-                NpgsqlCommand cmd = new NpgsqlCommand("UPDATE lugares SET nombre = '" + nombre + "' WHERE idenficador_lugar = '" + identificador + "'", conexion);
+                NpgsqlCommand cmd = new NpgsqlCommand("UPDATE lugares SET id_pais ='"+pais_id+"' , SET nombre_lugar = '" + nombre + "' WHERE identificador_lugar = '" + identificador + "'", conexion);
                 cmd.ExecuteNonQuery();
                 conexion.Close();
             }
@@ -249,7 +249,7 @@ namespace CapaDatos
             {
                 Conexion();
                 conexion.Open();
-                NpgsqlCommand cmd = new NpgsqlCommand("DELETE FROM lugares WHERE idenficador_lugar = '" + identificador + "'", conexion);
+                NpgsqlCommand cmd = new NpgsqlCommand("DELETE FROM lugares WHERE identificador_lugar = '" + identificador + "'", conexion);
                 cmd.ExecuteNonQuery();
                 conexion.Close();
             }

@@ -126,11 +126,12 @@ namespace CapaNegocios
                 Conexion();
                 conexion.Open();
                 DataSet dataset = new DataSet();
-                NpgsqlDataAdapter adapter = new NpgsqlDataAdapter("SELECT idenficador_lugar , nombre  FROM lugares ORDER BY nombre ASC", conexion);
+                NpgsqlDataAdapter adapter = new NpgsqlDataAdapter("SELECT id_pais,idenficador_lugar , nombre_lugar  FROM lugares ORDER BY nombre ASC", conexion);
                 adapter.Fill(dataset, "lugares");
                 agregar_lugares.DataSource = dataset.Tables[0];
-                agregar_lugares.Columns[0].HeaderCell.Value = "idenficador_lugar";
-                agregar_lugares.Columns[1].HeaderCell.Value = "nombre";
+                agregar_lugares.Columns[0].HeaderCell.Value = "id_pais";
+                agregar_lugares.Columns[1].HeaderCell.Value = "idenficador_lugar";
+                agregar_lugares.Columns[2].HeaderCell.Value = "nombre";
                 conexion.Close();
 
 
@@ -260,7 +261,7 @@ namespace CapaNegocios
 
 
         //Metodo que llena el combobox de indentificadores de lugares
-        public void Combo1Lugar(ComboBox identificador)
+        public void ComboLugar(ComboBox identificador)
         {
 
             try
@@ -268,7 +269,7 @@ namespace CapaNegocios
                 Conexion();
                 conexion.Open();
                 List<String> lista = new List<String>();
-                NpgsqlCommand cmd = new NpgsqlCommand("SELECT idenficador_lugar FROM lugares", conexion);
+                NpgsqlCommand cmd = new NpgsqlCommand("SELECT identificador_lugar FROM lugares", conexion);
                 NpgsqlDataReader dr = cmd.ExecuteReader();
                 if (dr.HasRows)
                 {
@@ -289,22 +290,21 @@ namespace CapaNegocios
 
         }
         //Metodo que selecciona un identicador e impreme su imformacion en un texbox
-        public void ComboEliminarLugar(ComboBox agregar, TextBox nombre_lugar)
+        public void ComboEliminarLugar(ComboBox agregar, TextBox nombre_pais, TextBox nombre_lugar)
         {
 
             try
             {
                 Conexion();
                 conexion.Open();
-                NpgsqlCommand cmd = new NpgsqlCommand("SELECT nombre FROM lugares WHERE idenficador_lugar = '" + agregar.SelectedItem.ToString() + "'", conexion);
+                NpgsqlCommand cmd = new NpgsqlCommand("SELECT nombre_lugar,nombre  FROM lugares JOIN paises ON lugares.id_pais=paises.identificador WHERE identificador_lugar='" + agregar.SelectedItem.ToString()+"'", conexion);
                 NpgsqlDataReader leer = cmd.ExecuteReader();
                 if (leer.HasRows)
                 {
                     while (leer.Read())
                     {
                         nombre_lugar.Text = leer.GetString(0);
-
-
+                        nombre_pais.Text = leer.GetString(1);
                     }
                     conexion.Close();
 
@@ -351,7 +351,7 @@ namespace CapaNegocios
 
 
         //Metodo que llena el combo de lugares , en la ventana de modificar lugares
-        public void LlenarCombosModificarLugar(ComboBox id_lugar, TextBox nombre_lugar)
+        public void LlenarCombosModificarLugar(ComboBox id_lugar, TextBox nombre_pais, TextBox nombre_lugar)
         {
 
             {
@@ -360,7 +360,7 @@ namespace CapaNegocios
                 {
                     Conexion();
                     conexion.Open();
-                    NpgsqlCommand cmd = new NpgsqlCommand("SELECT nombre FROM lugares WHERE idenficador_lugar = '" + id_lugar.SelectedItem + "'", conexion);
+                    NpgsqlCommand cmd = new NpgsqlCommand("SELECT nombre_lugar,nombre  FROM lugares JOIN paises ON lugares.id_pais=paises.identificador  WHERE idenficador_lugar = '" + id_lugar.SelectedItem + "'", conexion);
                     NpgsqlDataReader leer = cmd.ExecuteReader();
                     if (leer.HasRows)
                     {
@@ -368,7 +368,7 @@ namespace CapaNegocios
                         {
                             nombre_lugar.Text = leer.GetString(0);
 
-
+                            nombre_pais.Text = leer.GetString(1);
                         }
                         conexion.Close();
 
@@ -874,7 +874,7 @@ namespace CapaNegocios
 
 
 
-        public void MostrarInformacionHoteles(ComboBox identificador_hotel, TextBox nombre, TextBox pais, TextBox lugar, TextBox cantidad , TextBox tarifa_hotel)
+        public void MostrarInformacionHoteles(ComboBox identificador_hotel, TextBox nombre, TextBox pais, TextBox lugar, TextBox cantidad, TextBox tarifa_hotel)
         {
             try
             {
@@ -1023,6 +1023,91 @@ namespace CapaNegocios
             }
 
         }
+
+        public void LlenarNombresPaises(ComboBox nombre_pais)
+        {
+
+            try
+            {
+                Conexion();
+                conexion.Open();
+                List<String> lista = new List<String>();
+                NpgsqlCommand cmd = new NpgsqlCommand("SELECT nombre FROM paises", conexion);
+                NpgsqlDataReader dr = cmd.ExecuteReader();
+                if (dr.HasRows)
+                {
+                    while (dr.Read())
+                    {
+                        nombre_pais.Items.Add(dr.GetString(0));
+
+                    }
+                }
+                conexion.Close();
+
+
+            }
+            catch (Exception error)
+            {
+                Console.WriteLine(error);
+
+            }
+
+        }
+
+        public int RetornarIDPais(String nombre_pais)
+        {
+            int id = 0;
+            try
+            {
+                Conexion();
+                conexion.Open();
+                NpgsqlCommand cmd = new NpgsqlCommand("SELECT identificador FROM paises WHERE nombre='" + nombre_pais + "'", conexion);
+                NpgsqlDataReader dr = cmd.ExecuteReader();
+                if (dr.HasRows)
+                {
+                    while (dr.Read())
+                    {
+                        id = Convert.ToInt16(dr.GetString(0));
+                    }
+                }
+                conexion.Close();
+            }
+            catch (Exception error)
+            {
+                Console.WriteLine(error);
+            }
+
+            return id;
+        }
+
+        public int RetornarNombrePais(String nombre_pais)
+        {
+            int id = 0;
+            try
+            {
+                Conexion();
+                conexion.Open();
+                NpgsqlCommand cmd = new NpgsqlCommand("SELECT nombre FROM paises WHERE nombre='" + nombre_pais + "'", conexion);
+                NpgsqlDataReader dr = cmd.ExecuteReader();
+                if (dr.HasRows)
+                {
+                    while (dr.Read())
+                    {
+                        id = Convert.ToInt16(dr.GetString(0));
+                    }
+                }
+                conexion.Close();
+            }
+            catch (Exception error)
+            {
+                Console.WriteLine(error);
+            }
+
+            return id;
+        }
+
+
+
     }
     }
 

@@ -73,6 +73,11 @@
             this.optTiempoCorto = new System.Windows.Forms.RadioButton();
             this.optMenosEscalas = new System.Windows.Forms.RadioButton();
             this.btnGuardarCantidadPasajeros = new System.Windows.Forms.Button();
+            this.pais_origen = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pais_destino = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.escala_directo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.duracion_vuelo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.precio_vuelo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelAgregarHotel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spinnerCantidadHabitacionesHotel)).BeginInit();
             this.panelAgregarAutomovil.SuspendLayout();
@@ -455,6 +460,12 @@
             this.dtgVistaPreliminarVHA.AllowUserToAddRows = false;
             this.dtgVistaPreliminarVHA.AllowUserToDeleteRows = false;
             this.dtgVistaPreliminarVHA.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgVistaPreliminarVHA.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.pais_origen,
+            this.pais_destino,
+            this.escala_directo,
+            this.duracion_vuelo,
+            this.precio_vuelo});
             this.dtgVistaPreliminarVHA.Location = new System.Drawing.Point(398, 194);
             this.dtgVistaPreliminarVHA.Name = "dtgVistaPreliminarVHA";
             this.dtgVistaPreliminarVHA.ReadOnly = true;
@@ -528,6 +539,36 @@
             this.btnGuardarCantidadPasajeros.UseVisualStyleBackColor = true;
             this.btnGuardarCantidadPasajeros.Visible = false;
             this.btnGuardarCantidadPasajeros.Click += new System.EventHandler(this.btnGuardarCantidadPasajeros_Click);
+            // 
+            // pais_origen
+            // 
+            this.pais_origen.HeaderText = "Pais Origen";
+            this.pais_origen.Name = "pais_origen";
+            this.pais_origen.ReadOnly = true;
+            // 
+            // pais_destino
+            // 
+            this.pais_destino.HeaderText = "Pais Destino";
+            this.pais_destino.Name = "pais_destino";
+            this.pais_destino.ReadOnly = true;
+            // 
+            // escala_directo
+            // 
+            this.escala_directo.HeaderText = "Escala o Directo";
+            this.escala_directo.Name = "escala_directo";
+            this.escala_directo.ReadOnly = true;
+            // 
+            // duracion_vuelo
+            // 
+            this.duracion_vuelo.HeaderText = "Duracion";
+            this.duracion_vuelo.Name = "duracion_vuelo";
+            this.duracion_vuelo.ReadOnly = true;
+            // 
+            // precio_vuelo
+            // 
+            this.precio_vuelo.HeaderText = "Precio Vuelo";
+            this.precio_vuelo.Name = "precio_vuelo";
+            this.precio_vuelo.ReadOnly = true;
             // 
             // Seccion_Vuelos
             // 
@@ -625,5 +666,10 @@
         private System.Windows.Forms.RadioButton optTiempoCorto;
         private System.Windows.Forms.RadioButton optMenosEscalas;
         private System.Windows.Forms.Button btnGuardarCantidadPasajeros;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pais_origen;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pais_destino;
+        private System.Windows.Forms.DataGridViewTextBoxColumn escala_directo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn duracion_vuelo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn precio_vuelo;
     }
 }

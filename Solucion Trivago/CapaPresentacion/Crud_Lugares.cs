@@ -19,16 +19,17 @@ namespace CapaPresentacion
         Conexiones_Base_Datos conectar = new Conexiones_Base_Datos();
         Validaciones validar = new Validaciones();
         Metodos metodos = new Metodos();
+        
 
         public Crud_Lugares()
         {
             InitializeComponent();
             this.CenterToScreen();
             //Llenando el combobox con ID del lugar
-            metodos.Combo1Lugar(comboIdentificador);
+            metodos.ComboLugar(comboIdentificadorLugaresEliminar);
 
             //Llena el combobox de nombres de lugares
-            metodos.ComboNombresLugares(comboBoxLugar);
+            metodos.ComboNombresLugares(comboBoxLugarModificar);
 
 
         }
@@ -37,7 +38,9 @@ namespace CapaPresentacion
         {
             //Lleno la tabla de lugares en el DataGridview
             metodos.LlenarDtLugar(dataGridView1);
-
+            metodos.ComboNombresPaises(comboPaisRegistrar);
+            metodos.ComboLugar(comboIdentificadorLugaresEliminar);
+            metodos.ComboLugar(comboBoxLugarModificar);
         }
 
 
@@ -90,7 +93,7 @@ namespace CapaPresentacion
             {
                 int identificador = int.Parse(txtIDLugarNuevo.Text);
                 string nombre = txtNombres.Text;
-                conectar.InsertarDatosLugares(identificador, nombre);
+                conectar.InsertarDatosLugares(metodos.RetornarIDPais(comboPaisRegistrar.SelectedItem.ToString()), identificador, nombre);
                 MessageBox.Show("Lugar Registrado con exito");
 
                 //Limpiar campos
@@ -117,14 +120,14 @@ namespace CapaPresentacion
 
         public void LimpiarDatos()
         {
-            textBoxNombre.Clear();
+            txtNombreActualEliminar.Clear();
         }
 
 
         private void btnEliminarLugar_Click(object sender, EventArgs e)
         {
 
-            int identificador_eliminar = int.Parse(comboIdentificador.SelectedItem.ToString());
+            int identificador_eliminar = int.Parse(comboIdentificadorLugaresEliminar.SelectedItem.ToString());
             conectar.EliminarDatosLugares(identificador_eliminar);
             MessageBox.Show("Lugar Eliminado");
             LimpiarCampos();
@@ -136,14 +139,14 @@ namespace CapaPresentacion
 
         private void comboBoxLugar_SelectedIndexChanged(object sender, EventArgs e)
         {
-            metodos.LlenarCombosModificarLugar(comboBoxLugar, txtNombreLugarActual);
+            metodos.LlenarCombosModificarLugar(comboBoxLugarModificar, txtPaisActual, txtNombreLugarActual);
             ActualizarTablaLugares();
         }
 
         private void comboIdentificador_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            metodos.ComboEliminarLugar(comboIdentificador, textBoxNombre);
-            ActualizarTablaLugares();
+            //metodos.ComboEliminarLugar(comboIdentificadorLugaresEliminar,txtPaisActualEliminar, textBoxNombre);
+            //ActualizarTablaLugares();
 
         }
     
@@ -157,9 +160,9 @@ namespace CapaPresentacion
 
         private void button5_Click(object sender, EventArgs e)
         {
-            int identificador_modificar = int.Parse(comboBoxLugar.SelectedItem.ToString());
+            int identificador_modificar = int.Parse(comboBoxLugarModificar.SelectedItem.ToString());
             string nombre_lugar = txtNombreLugarActualizar.Text;
-            conectar.ModificarDatosLugar( identificador_modificar , nombre_lugar);
+            conectar.ModificarDatosLugar( identificador_modificar , nombre_lugar,metodos.RetornarIDPais(comboNuevoPais.SelectedItem.ToString()));
             MessageBox.Show("Lugar modificado");
             LimpiarCamposs();
             ActualizarTablaLugares();
@@ -181,6 +184,11 @@ namespace CapaPresentacion
             validar.validarSoloLetras(e);
         }
 
+        private void comboIdentificador_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            metodos.ComboEliminarLugar(comboIdentificadorLugaresEliminar, txtPaisActualEliminar, txtNombreActualEliminar);
+            ActualizarTablaLugares();
+        }
     }
 
 }

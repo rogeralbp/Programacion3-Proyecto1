@@ -210,8 +210,8 @@ namespace CapaPresentacion
             if (metodos.BanderaRutaSinEscala(comboBoxPaisOrigen.SelectedItem.ToString(), comboBoxPaisDestino.SelectedItem.ToString()))
             {
                 MessageBox.Show("SI existe en Vuelo DIRECTO");
-                optPrecioMenorHotel.Checked = true;
-                metodos.LlenarDtVistaPreliminarVuelosASC(dtgVistaPreliminarVHA,comboBoxPaisOrigen.SelectedItem.ToString(),comboBoxPaisDestino.SelectedItem.ToString());
+                //optPrecioMenorHotel.Checked = true;
+                //metodos.LlenarDtVistaPreliminarVuelosASC(dtgVistaPreliminarVHA,comboBoxPaisOrigen.SelectedItem.ToString(),comboBoxPaisDestino.SelectedItem.ToString());
             }
             else {
                 MessageBox.Show("NO existe este Vuelo DIRECTO");

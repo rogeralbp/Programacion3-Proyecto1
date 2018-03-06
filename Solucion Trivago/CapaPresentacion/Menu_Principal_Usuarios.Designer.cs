@@ -35,6 +35,7 @@
             this.button4 = new System.Windows.Forms.Button();
             this.nombreCliente = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.nomUser = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -50,7 +51,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(260, 74);
+            this.button2.Location = new System.Drawing.Point(263, 155);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(197, 23);
             this.button2.TabIndex = 1;
@@ -60,7 +61,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(263, 278);
+            this.button3.Location = new System.Drawing.Point(260, 299);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(197, 23);
             this.button3.TabIndex = 2;
@@ -70,7 +71,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(260, 176);
+            this.button4.Location = new System.Drawing.Point(263, 230);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(197, 23);
             this.button4.TabIndex = 3;
@@ -95,11 +96,21 @@
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
             // 
+            // nomUser
+            // 
+            this.nomUser.AutoSize = true;
+            this.nomUser.Font = new System.Drawing.Font("Arial Unicode MS", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nomUser.Location = new System.Drawing.Point(178, 25);
+            this.nomUser.Name = "nomUser";
+            this.nomUser.Size = new System.Drawing.Size(0, 36);
+            this.nomUser.TabIndex = 6;
+            // 
             // Menu_Principal_Usuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(703, 440);
+            this.Controls.Add(this.nomUser);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.nombreCliente);
             this.Controls.Add(this.button4);
@@ -123,5 +134,6 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label nombreCliente;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label nomUser;
     }
 }
