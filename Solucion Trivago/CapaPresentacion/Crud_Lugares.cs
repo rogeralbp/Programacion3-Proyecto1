@@ -153,13 +153,7 @@ namespace CapaPresentacion
             txtNombreLugarActualizar.Clear();
         }
 
-        private void btnGuardarCambios_Click(object sender, EventArgs e)
-        {
-
-
-
-           
-        }
+ 
 
         private void button5_Click(object sender, EventArgs e)
         {
@@ -170,12 +164,6 @@ namespace CapaPresentacion
             LimpiarCamposs();
             ActualizarTablaLugares();
             
-
-        }
-
-        private void txtNombreLugarActualizar_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void txtIDLugarNuevo_KeyPress(object sender, KeyPressEventArgs e)
@@ -193,10 +181,6 @@ namespace CapaPresentacion
             validar.validarSoloLetras(e);
         }
 
-        private void txtNombres_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 
 }

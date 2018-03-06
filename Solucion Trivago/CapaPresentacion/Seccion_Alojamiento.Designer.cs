@@ -106,6 +106,12 @@
             this.txtNombreHotelBuscar = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
+            this.fotoHotelPais = new System.Windows.Forms.PictureBox();
+            this.fotoHotelCiudad = new System.Windows.Forms.PictureBox();
+            this.fotoHotel = new System.Windows.Forms.PictureBox();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgHotelesPaises)).BeginInit();
@@ -125,6 +131,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.spinnerPersonasMenoresHotel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spinnerPersonasAdultosHotel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spinnerHabitacionesHotel)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fotoHotelPais)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fotoHotelCiudad)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fotoHotel)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -140,6 +149,8 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.button5);
+            this.tabPage1.Controls.Add(this.fotoHotelPais);
             this.tabPage1.Controls.Add(this.btnGuardarCantidadPersonasPais);
             this.tabPage1.Controls.Add(this.labelCantidadDias2);
             this.tabPage1.Controls.Add(this.btnGuardarReservacionPais);
@@ -216,11 +227,11 @@
             this.dtgHotelesPaises.AllowUserToAddRows = false;
             this.dtgHotelesPaises.AllowUserToDeleteRows = false;
             this.dtgHotelesPaises.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgHotelesPaises.Location = new System.Drawing.Point(20, 224);
+            this.dtgHotelesPaises.Location = new System.Drawing.Point(6, 224);
             this.dtgHotelesPaises.Name = "dtgHotelesPaises";
             this.dtgHotelesPaises.ReadOnly = true;
             this.dtgHotelesPaises.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgHotelesPaises.Size = new System.Drawing.Size(816, 263);
+            this.dtgHotelesPaises.Size = new System.Drawing.Size(675, 263);
             this.dtgHotelesPaises.TabIndex = 51;
             // 
             // btnPersonasPais
@@ -333,7 +344,7 @@
             // 
             this.optPrecioMenorPais.AutoSize = true;
             this.optPrecioMenorPais.Enabled = false;
-            this.optPrecioMenorPais.Location = new System.Drawing.Point(516, 201);
+            this.optPrecioMenorPais.Location = new System.Drawing.Point(371, 201);
             this.optPrecioMenorPais.Name = "optPrecioMenorPais";
             this.optPrecioMenorPais.Size = new System.Drawing.Size(88, 17);
             this.optPrecioMenorPais.TabIndex = 27;
@@ -347,7 +358,7 @@
             // 
             this.optPrecioMayorPais.AutoSize = true;
             this.optPrecioMayorPais.Enabled = false;
-            this.optPrecioMayorPais.Location = new System.Drawing.Point(283, 201);
+            this.optPrecioMayorPais.Location = new System.Drawing.Point(170, 201);
             this.optPrecioMayorPais.Name = "optPrecioMayorPais";
             this.optPrecioMayorPais.Size = new System.Drawing.Size(87, 17);
             this.optPrecioMayorPais.TabIndex = 26;
@@ -439,6 +450,8 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.button6);
+            this.tabPage2.Controls.Add(this.fotoHotelCiudad);
             this.tabPage2.Controls.Add(this.btnGuardarCantidadPersonsCiudad);
             this.tabPage2.Controls.Add(this.btnVerListaPreeliminarHotelesCiudad);
             this.tabPage2.Controls.Add(this.btnGuardarReservacionCiudad);
@@ -507,7 +520,7 @@
             this.dtgHotelesCiudades.Location = new System.Drawing.Point(20, 231);
             this.dtgHotelesCiudades.Name = "dtgHotelesCiudades";
             this.dtgHotelesCiudades.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgHotelesCiudades.Size = new System.Drawing.Size(815, 259);
+            this.dtgHotelesCiudades.Size = new System.Drawing.Size(666, 280);
             this.dtgHotelesCiudades.TabIndex = 56;
             // 
             // labelCntidadDias3
@@ -669,7 +682,7 @@
             // 
             this.optPrecioMenorCiudad.AutoSize = true;
             this.optPrecioMenorCiudad.Enabled = false;
-            this.optPrecioMenorCiudad.Location = new System.Drawing.Point(440, 196);
+            this.optPrecioMenorCiudad.Location = new System.Drawing.Point(357, 196);
             this.optPrecioMenorCiudad.Name = "optPrecioMenorCiudad";
             this.optPrecioMenorCiudad.Size = new System.Drawing.Size(88, 17);
             this.optPrecioMenorCiudad.TabIndex = 32;
@@ -682,7 +695,7 @@
             // 
             this.optPrecioMayorCiudad.AutoSize = true;
             this.optPrecioMayorCiudad.Enabled = false;
-            this.optPrecioMayorCiudad.Location = new System.Drawing.Point(270, 196);
+            this.optPrecioMayorCiudad.Location = new System.Drawing.Point(170, 196);
             this.optPrecioMayorCiudad.Name = "optPrecioMayorCiudad";
             this.optPrecioMayorCiudad.Size = new System.Drawing.Size(87, 17);
             this.optPrecioMayorCiudad.TabIndex = 31;
@@ -733,6 +746,8 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.button4);
+            this.tabPage3.Controls.Add(this.fotoHotel);
             this.tabPage3.Controls.Add(this.btnGuardarCantidadPersonasHotel);
             this.tabPage3.Controls.Add(this.dtgResultadosBusquedad);
             this.tabPage3.Controls.Add(this.btnGuardarReservacionHotel);
@@ -775,17 +790,17 @@
             this.dtgResultadosBusquedad.AllowUserToAddRows = false;
             this.dtgResultadosBusquedad.AllowUserToDeleteRows = false;
             this.dtgResultadosBusquedad.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgResultadosBusquedad.Location = new System.Drawing.Point(52, 222);
+            this.dtgResultadosBusquedad.Location = new System.Drawing.Point(6, 198);
             this.dtgResultadosBusquedad.Name = "dtgResultadosBusquedad";
             this.dtgResultadosBusquedad.ReadOnly = true;
             this.dtgResultadosBusquedad.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgResultadosBusquedad.Size = new System.Drawing.Size(757, 280);
+            this.dtgResultadosBusquedad.Size = new System.Drawing.Size(603, 299);
             this.dtgResultadosBusquedad.TabIndex = 59;
             // 
             // btnGuardarReservacionHotel
             // 
             this.btnGuardarReservacionHotel.Enabled = false;
-            this.btnGuardarReservacionHotel.Location = new System.Drawing.Point(300, 518);
+            this.btnGuardarReservacionHotel.Location = new System.Drawing.Point(242, 518);
             this.btnGuardarReservacionHotel.Name = "btnGuardarReservacionHotel";
             this.btnGuardarReservacionHotel.Size = new System.Drawing.Size(130, 23);
             this.btnGuardarReservacionHotel.TabIndex = 58;
@@ -953,7 +968,7 @@
             // btnConfirmarReservacionHotel
             // 
             this.btnConfirmarReservacionHotel.Enabled = false;
-            this.btnConfirmarReservacionHotel.Location = new System.Drawing.Point(451, 518);
+            this.btnConfirmarReservacionHotel.Location = new System.Drawing.Point(412, 518);
             this.btnConfirmarReservacionHotel.Name = "btnConfirmarReservacionHotel";
             this.btnConfirmarReservacionHotel.Size = new System.Drawing.Size(133, 23);
             this.btnConfirmarReservacionHotel.TabIndex = 20;
@@ -998,6 +1013,60 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
+            // fotoHotelPais
+            // 
+            this.fotoHotelPais.Location = new System.Drawing.Point(687, 252);
+            this.fotoHotelPais.Name = "fotoHotelPais";
+            this.fotoHotelPais.Size = new System.Drawing.Size(170, 150);
+            this.fotoHotelPais.TabIndex = 56;
+            this.fotoHotelPais.TabStop = false;
+            // 
+            // fotoHotelCiudad
+            // 
+            this.fotoHotelCiudad.Location = new System.Drawing.Point(693, 285);
+            this.fotoHotelCiudad.Name = "fotoHotelCiudad";
+            this.fotoHotelCiudad.Size = new System.Drawing.Size(168, 131);
+            this.fotoHotelCiudad.TabIndex = 60;
+            this.fotoHotelCiudad.TabStop = false;
+            // 
+            // fotoHotel
+            // 
+            this.fotoHotel.Location = new System.Drawing.Point(615, 245);
+            this.fotoHotel.Name = "fotoHotel";
+            this.fotoHotel.Size = new System.Drawing.Size(231, 189);
+            this.fotoHotel.TabIndex = 61;
+            this.fotoHotel.TabStop = false;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(645, 214);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(164, 23);
+            this.button4.TabIndex = 62;
+            this.button4.Text = "Ver Foto";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(712, 217);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(108, 29);
+            this.button5.TabIndex = 63;
+            this.button5.Text = "Ver Foto";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(692, 256);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(164, 23);
+            this.button6.TabIndex = 63;
+            this.button6.Text = "Ver Foto";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
             // Seccion_Alojamiento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1032,6 +1101,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.spinnerPersonasMenoresHotel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spinnerPersonasAdultosHotel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spinnerHabitacionesHotel)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fotoHotelPais)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fotoHotelCiudad)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fotoHotel)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1115,5 +1187,11 @@
         private System.Windows.Forms.Button btnGuardarCantidadPersonasPais;
         private System.Windows.Forms.Button btnGuardarCantidadPersonsCiudad;
         private System.Windows.Forms.Button btnGuardarCantidadPersonasHotel;
+        private System.Windows.Forms.PictureBox fotoHotelPais;
+        private System.Windows.Forms.PictureBox fotoHotelCiudad;
+        private System.Windows.Forms.PictureBox fotoHotel;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button6;
     }
 }

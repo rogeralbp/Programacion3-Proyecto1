@@ -846,5 +846,26 @@ namespace CapaPresentacion
             //    dtgHotelesPaises.Rows[i].Cells["Foto_Hotel"].Value = fotoHP;
             //}
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            posicionDTGHotelPais = dtgHotelesPaises.CurrentRow.Index;
+            string ruta = dtgHotelesPaises[5, posicionDTGHotelPais].Value.ToString();
+            fotoHotelPais.Image = Image.FromFile(ruta);
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            posicionDTGHotelCiudad = dtgHotelesCiudades.CurrentRow.Index;
+            string ruta = dtgHotelesCiudades[4, posicionDTGHotelCiudad].Value.ToString();
+            fotoHotelCiudad.Image = Image.FromFile(ruta);
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            posicionDTGHotel = dtgResultadosBusquedad.CurrentRow.Index;
+            string ruta = dtgResultadosBusquedad[6, posicionDTGHotel].Value.ToString();
+            fotoHotel.Image = Image.FromFile(ruta);
+        }
     }
 }

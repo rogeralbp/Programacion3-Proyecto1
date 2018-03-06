@@ -245,7 +245,7 @@ namespace CapaNegocios
                 Conexion();
                 conexion.Open();
                 DataSet dataset = new DataSet();
-                NpgsqlDataAdapter adapter = new NpgsqlDataAdapter("SELECT  identificador , nombre, lugar , habitaciones , tarifa_hotel FROM hotel WHERE pais = '" + pais + "' ORDER BY tarifa_hotel ASC", conexion);
+                NpgsqlDataAdapter adapter = new NpgsqlDataAdapter("SELECT  identificador , nombre, lugar , habitaciones , tarifa_hotel,foto FROM hotel WHERE pais = '" + pais + "' ORDER BY tarifa_hotel ASC", conexion);
                 adapter.Fill(dataset, "rutas");
                 agregar_hotels_pais.DataSource = dataset.Tables[0];
                 agregar_hotels_pais.Columns[0].HeaderCell.Value = "identificador";
@@ -253,11 +253,12 @@ namespace CapaNegocios
                 agregar_hotels_pais.Columns[2].HeaderCell.Value = "lugar";
                 agregar_hotels_pais.Columns[3].HeaderCell.Value = "habitaciones";
                 agregar_hotels_pais.Columns[4].HeaderCell.Value = "tarifa_hotel";
+                agregar_hotels_pais.Columns[5].HeaderCell.Value = "foto";
                 //DataGridViewImageColumn imag = new DataGridViewImageColumn();
                 //imag.HeaderText = "Foto_Hotel";
                 //imag.Name = "Foto_Hotel";
                 //dtgVuelosASC.Columns.Add(imag);
-           
+
                 conexion.Close();
 
             }
@@ -318,7 +319,7 @@ namespace CapaNegocios
                 Conexion();
                 conexion.Open();
                 DataSet dataset = new DataSet();
-                NpgsqlDataAdapter adapter = new NpgsqlDataAdapter("SELECT  identificador , nombre, lugar , habitaciones , tarifa_hotel FROM hotel WHERE pais = '" + pais + "' ORDER BY tarifa_hotel DESC", conexion);
+                NpgsqlDataAdapter adapter = new NpgsqlDataAdapter("SELECT  identificador , nombre, lugar , habitaciones , tarifa_hotel,foto FROM hotel WHERE pais = '" + pais + "' ORDER BY tarifa_hotel DESC", conexion);
                 adapter.Fill(dataset, "rutas");
                 agregar_hotels_pais.DataSource = dataset.Tables[0];
                 agregar_hotels_pais.Columns[0].HeaderCell.Value = "identificador";
@@ -326,6 +327,7 @@ namespace CapaNegocios
                 agregar_hotels_pais.Columns[2].HeaderCell.Value = "lugar";
                 agregar_hotels_pais.Columns[3].HeaderCell.Value = "habitaciones";
                 agregar_hotels_pais.Columns[4].HeaderCell.Value = "tarifa_hotel";
+                agregar_hotels_pais.Columns[5].HeaderCell.Value = "foto";
                 //DataGridViewImageColumn imag = new DataGridViewImageColumn();
                 //imag.HeaderText = "Foto_Hotel";
                 //imag.Name = "Foto_Hotel";
@@ -346,13 +348,14 @@ namespace CapaNegocios
                 Conexion();
                 conexion.Open();
                 DataSet dataset = new DataSet();
-                NpgsqlDataAdapter adapter = new NpgsqlDataAdapter("SELECT  identificador , nombre, habitaciones , tarifa_hotel FROM hotel WHERE lugar = '" + lugar + "' ORDER BY tarifa_hotel ASC", conexion);
+                NpgsqlDataAdapter adapter = new NpgsqlDataAdapter("SELECT  identificador , nombre, habitaciones , tarifa_hotel,foto FROM hotel WHERE lugar = '" + lugar + "' ORDER BY tarifa_hotel ASC", conexion);
                 adapter.Fill(dataset, "hotel");
                 agregar_hotels_ciudad.DataSource = dataset.Tables[0];
                 agregar_hotels_ciudad.Columns[0].HeaderCell.Value = "identificador";
                 agregar_hotels_ciudad.Columns[1].HeaderCell.Value = "nombre";
                 agregar_hotels_ciudad.Columns[2].HeaderCell.Value = "habitaciones";
                 agregar_hotels_ciudad.Columns[3].HeaderCell.Value = "tarifa_hotel";
+                agregar_hotels_ciudad.Columns[4].HeaderCell.Value = "foto";
 
                 conexion.Close();
 
@@ -370,14 +373,14 @@ namespace CapaNegocios
                 Conexion();
                 conexion.Open();
                 DataSet dataset = new DataSet();
-                NpgsqlDataAdapter adapter = new NpgsqlDataAdapter("SELECT  identificador , nombre, habitaciones , tarifa_hotel FROM hotel WHERE lugar = '" + lugar + "' ORDER BY tarifa_hotel DESC", conexion);
+                NpgsqlDataAdapter adapter = new NpgsqlDataAdapter("SELECT  identificador , nombre, habitaciones , tarifa_hotel , foto FROM hotel WHERE lugar = '" + lugar + "' ORDER BY tarifa_hotel DESC", conexion);
                 adapter.Fill(dataset, "hotel");
                 agregar_hotels_ciudad.DataSource = dataset.Tables[0];
                 agregar_hotels_ciudad.Columns[0].HeaderCell.Value = "identificador";
                 agregar_hotels_ciudad.Columns[1].HeaderCell.Value = "nombre";
                 agregar_hotels_ciudad.Columns[2].HeaderCell.Value = "habitaciones";
                 agregar_hotels_ciudad.Columns[3].HeaderCell.Value = "tarifa_hotel";
-
+                agregar_hotels_ciudad.Columns[4].HeaderCell.Value = "foto";
                 conexion.Close();
 
             }
@@ -394,7 +397,7 @@ namespace CapaNegocios
                 Conexion();
                 conexion.Open();
                 DataSet dataset = new DataSet();
-                NpgsqlDataAdapter adapter = new NpgsqlDataAdapter("SELECT  identificador , nombre, pais , lugar , habitaciones , tarifa_hotel FROM hotel WHERE nombre = '" + nombreHotel + "'", conexion);
+                NpgsqlDataAdapter adapter = new NpgsqlDataAdapter("SELECT  identificador , nombre, pais , lugar , habitaciones , tarifa_hotel,foto FROM hotel WHERE nombre = '" + nombreHotel + "'", conexion);
                 adapter.Fill(dataset, "hotel");
                 agregar_busqueda_hotel.DataSource = dataset.Tables[0]; 
                 agregar_busqueda_hotel.Columns[0].HeaderCell.Value = "identificador";
@@ -403,6 +406,7 @@ namespace CapaNegocios
                 agregar_busqueda_hotel.Columns[3].HeaderCell.Value = "lugar";
                 agregar_busqueda_hotel.Columns[4].HeaderCell.Value = "habitaciones";
                 agregar_busqueda_hotel.Columns[5].HeaderCell.Value = "tarifa_hotel";
+                agregar_busqueda_hotel.Columns[6].HeaderCell.Value = "foto";
                 conexion.Close();
 
             }

@@ -100,7 +100,7 @@
             this.txtNombres.Name = "txtNombres";
             this.txtNombres.Size = new System.Drawing.Size(445, 22);
             this.txtNombres.TabIndex = 5;
-            this.txtNombres.TextChanged += new System.EventHandler(this.txtNombres_TextChanged);
+
             this.txtNombres.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombres_KeyPress);
             // 
             // txtIDLugarNuevo
@@ -260,7 +260,7 @@
             this.txtNombreLugarActualizar.Name = "txtNombreLugarActualizar";
             this.txtNombreLugarActualizar.Size = new System.Drawing.Size(375, 22);
             this.txtNombreLugarActualizar.TabIndex = 12;
-            this.txtNombreLugarActualizar.TextChanged += new System.EventHandler(this.txtNombreLugarActualizar_TextChanged);
+   
             this.txtNombreLugarActualizar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombreLugarActualizar_KeyPress);
             // 
             // txtNombreLugarActual
