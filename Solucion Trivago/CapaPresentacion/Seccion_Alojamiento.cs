@@ -58,22 +58,28 @@ namespace CapaPresentacion
 
         private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
         {
-            DateTime f1 = DateTime.Parse(fechaLlegadaPais.Text);
-            DateTime f2 = DateTime.Parse(fechaPartidaPais.Text);
-            TimeSpan ts = f2 - f1;
-            cantidadDiasHotelPais = ts.Days;
-            labelCantidadDias2.Text ="Cantidad de dias " +cantidadDiasHotelPais.ToString();
+            if (metodos.DiferenciaDiasFechas(fechaLlegadaPais.Text, fechaPartidaPais.Text) > 0)
+            {
+                labelCantidadDias2.Text = "Cantidad de dias " + metodos.DiferenciaDiasFechas(fechaLlegadaPais.Text, fechaPartidaPais.Text).ToString();
+            }
+            else {
+
+                MessageBox.Show("Debe de Seleccionnar Fechas Validas");
+
+            }
         }
 
 
         private void dateTimePicker2_ValueChanged_1(object sender, EventArgs e)
         {
-
-            DateTime f1 = DateTime.Parse(fechaLlegadaCiudad.Text);
-            DateTime f2 = DateTime.Parse(FechaPartidaCiudad.Text);
-            TimeSpan ts = f2 - f1;
-            cantidadDiasHotelCiudad = ts.Days;
-            labelCntidadDias3.Text = "Cantidad de dias " + cantidadDiasHotelCiudad.ToString();
+            if (metodos.DiferenciaDiasFechas(fechaLlegadaCiudad.Text, FechaPartidaCiudad.Text) > 0)
+            {
+                labelCntidadDias3.Text = "Cantidad de dias " + metodos.DiferenciaDiasFechas(fechaLlegadaCiudad.Text, FechaPartidaCiudad.Text).ToString();
+            }
+            else
+            {
+                MessageBox.Show("Debe de Seleccionnar Fechas Validas");
+            }
         }
 
         private void btnBuscarHotel_Click(object sender, EventArgs e)
@@ -110,11 +116,14 @@ namespace CapaPresentacion
 
         private void fechaSalidaHotel_ValueChanged(object sender, EventArgs e)
         {
-            DateTime f1 = DateTime.Parse(fechaLlegadaHotel.Text);
-            DateTime f2 = DateTime.Parse(fechaPartidaHotel.Text);
-            TimeSpan ts = f2 - f1;
-            cantidadDiasHotel = ts.Days;
-            labelCantidadDias4.Text = "Cantidad de dias " + cantidadDiasHotel.ToString();
+            if (metodos.DiferenciaDiasFechas(fechaLlegadaHotel.Text, fechaPartidaHotel.Text) > 0)
+            {
+                labelCantidadDias4.Text = "Cantidad de dias " + metodos.DiferenciaDiasFechas(fechaLlegadaHotel.Text, fechaPartidaHotel.Text).ToString();
+            }
+            else
+            {
+                MessageBox.Show("Debe de Seleccionnar Fechas Validas");
+            }
         }
 
 
@@ -256,25 +265,39 @@ namespace CapaPresentacion
             int cedulaUsuario = conexion.ConsultarCedulaUsuario(Login.nombreUsuario);
 
             double precioTotalHospedajeHotelPais = ((Convert.ToDouble(dtgHotelesPaises[4, posicionDTGHotelPais].Value.ToString()))*cantidadDiasHotelPais);
-            metodos.InsertarDatosReservacionHotel(idHotelPais,fechaLlegadaPais.Text,fechaPartidaPais.Text,Convert.ToInt16(spinnerHabitacionesPais.Value), Convert.ToInt16(spinnerPersonasAdultasPais.Value+spinnerPersonasMenoresPais.Value),cedulaUsuario,Convert.ToInt16(spinnerPersonasAdultasPais.Value), Convert.ToInt16(spinnerPersonasMenoresPais.Value),precioTotalHospedajeHotelPais);
-            
+            if (metodos.DiferenciaDiasFechas(fechaLlegadaPais.Text, fechaPartidaPais.Text) > 0)
+            {
+                metodos.InsertarDatosReservacionHotel(idHotelPais, fechaLlegadaPais.Text, fechaPartidaPais.Text, Convert.ToInt16(spinnerHabitacionesPais.Value), Convert.ToInt16(spinnerPersonasAdultasPais.Value + spinnerPersonasMenoresPais.Value), cedulaUsuario, Convert.ToInt16(spinnerPersonasAdultasPais.Value), Convert.ToInt16(spinnerPersonasMenoresPais.Value), precioTotalHospedajeHotelPais);
+                MessageBox.Show("La Reservacion se Logro con Exito.");
+                int cantidadActualHabitaciones = Convert.ToInt16(dtgHotelesPaises[3, posicionDTGHotelPais].Value.ToString());
+                int cantidadRestar = Convert.ToInt16(spinnerHabitacionesPais.Value);
+                int resultadoResta =(cantidadActualHabitaciones-cantidadRestar);
+                metodos.ActualizarCantidadHabitacionesHotel(resultadoResta,idHotelPais);
+                dtgHotelesPaises.DataSource = null;
+                btnVerListaPreeliminarHotelesPais.Enabled = false;
+                fechaLlegadaPais.Enabled = false;
+                fechaPartidaPais.Enabled = false;
+                btnPersonasPais.Enabled = false;
+                btnHabitacionesPais.Visible = false;
+                optPrecioMayorPais.Visible = false;
+                optPrecioMenorPais.Visible = false;
+                panelAdultosNiñosPais.Visible = false;
+                labelHabitaciones.Visible = false;
+                spinnerHabitacionesPais.Visible = false;
+                btnGuardarCantidadPersonasPais.Visible = false;
+                comboPaises.Items.Clear();
+                
+            }
+            else
+            {
+
+                MessageBox.Show("Debe de Seleccionar Fechas Correctas.");
+            }
+
             /// ------------------------------------------------
             ///Falta realizar la calificacion que el cliente le da al Hotel 
             ///
-            MessageBox.Show("La Reservacion se Logro con Exito.");
-            dtgHotelesPaises.DataSource = null;
-            btnVerListaPreeliminarHotelesPais.Enabled = false;
-            fechaLlegadaPais.Enabled = false;
-            fechaPartidaPais.Enabled = false;
-            btnPersonasPais.Enabled = false;
-            btnHabitacionesPais.Visible = false;
-            optPrecioMayorPais.Visible = false;
-            optPrecioMenorPais.Visible = false;
-            panelAdultosNiñosPais.Visible = false;
-            labelHabitaciones.Visible = false;
-            spinnerHabitacionesPais.Visible = false;
-            btnGuardarCantidadPersonasPais.Visible = false;
-            comboPaises.Items.Clear();
+            
         }
 
         private void btnConfirmarReservacionCiudad_Click(object sender, EventArgs e)
@@ -287,18 +310,30 @@ namespace CapaPresentacion
             int cedulaUsuario = conexion.ConsultarCedulaUsuario(Login.nombreUsuario);
             double precioTotalHospedajeHotelCiudad = ((Convert.ToDouble(dtgHotelesCiudades[3, posicionDTGHotelCiudad].Value.ToString())) * cantidadDiasHotelCiudad);
             //metodos.InsertarDatosReservacionHotel(idHotelPais, fechaLlegadaPais.Text, fechaPartidaPais.Text, Convert.ToInt16(spinnerHabitacionesPais.Value), Convert.ToInt16(spinnerPersonasAdultasPais.Value + spinnerPersonasMenoresPais.Value), cedulaUsuario, Convert.ToInt16(spinnerPersonasAdultasPais.Value), Convert.ToInt16(spinnerPersonasMenoresPais.Value), precioTotalHospedajeHotelPais);
-            metodos.InsertarDatosReservacionHotel(idHotelCiudad,fechaLlegadaCiudad.Text,FechaPartidaCiudad.Text, Convert.ToInt16(spinnerHabitacionesCiudad.Value), Convert.ToInt16(spinnerPersonasAdultosCiudad.Value + spinnerPersonasMenoresCiudad.Value), cedulaUsuario, Convert.ToInt16(spinnerPersonasAdultosCiudad.Value), Convert.ToInt16(spinnerPersonasMenoresCiudad.Value), precioTotalHospedajeHotelCiudad);
-            MessageBox.Show("La reservacion se Realizo con Exito.");
-            dtgHotelesCiudades.DataSource = null;
-            btnHabitacionesCiudad.Enabled = false;
-            btnPersonasCiudad.Enabled = false;
-            fechaLlegadaCiudad.Enabled = false;
-            FechaPartidaCiudad.Enabled = false;
-            panelAdultosNiñosPais.Visible = false;
-            labelHabitaciones.Visible = false;
-            spinnerHabitacionesPais.Visible = false;
-            btnGuardarCantidadPersonasPais.Visible = false;
-            comboCiudades.Items.Clear();
+
+            if (metodos.DiferenciaDiasFechas(fechaLlegadaCiudad.Text, FechaPartidaCiudad.Text) > 0)
+            {
+                metodos.InsertarDatosReservacionHotel(idHotelCiudad, fechaLlegadaCiudad.Text, FechaPartidaCiudad.Text, Convert.ToInt16(spinnerHabitacionesCiudad.Value), Convert.ToInt16(spinnerPersonasAdultosCiudad.Value + spinnerPersonasMenoresCiudad.Value), cedulaUsuario, Convert.ToInt16(spinnerPersonasAdultosCiudad.Value), Convert.ToInt16(spinnerPersonasMenoresCiudad.Value), precioTotalHospedajeHotelCiudad);
+                MessageBox.Show("La reservacion se Realizo con Exito.");
+                int cantidadActualHabitaciones = Convert.ToInt16(dtgHotelesCiudades[2, posicionDTGHotelCiudad].Value.ToString());
+                int cantidadRestar = Convert.ToInt16(spinnerHabitacionesCiudad.Value);
+                int resultadoResta = (cantidadActualHabitaciones - cantidadRestar);
+                metodos.ActualizarCantidadHabitacionesHotel(resultadoResta, idHotelCiudad);
+                dtgHotelesCiudades.DataSource = null;
+                btnHabitacionesCiudad.Enabled = false;
+                btnPersonasCiudad.Enabled = false;
+                fechaLlegadaCiudad.Enabled = false;
+                FechaPartidaCiudad.Enabled = false;
+                panelAdultosNiñosPais.Visible = false;
+                labelHabitaciones.Visible = false;
+                spinnerHabitacionesPais.Visible = false;
+                btnGuardarCantidadPersonasPais.Visible = false;
+                comboCiudades.Items.Clear();
+            }
+            else {
+                MessageBox.Show("Debe de Ingresar fechas correctas");
+            }
+            
             /// ------------------------------------------------
             ///Falta realizar la calificacion que el cliente le da al Hotel 
             ///
@@ -316,18 +351,28 @@ namespace CapaPresentacion
             string nombreHotel= dtgResultadosBusquedad[1, posicionDTGHotel].Value.ToString();
             int cedulaUsuario = conexion.ConsultarCedulaUsuario(Login.nombreUsuario);
             double precioTotalHospedajeHotel = ((Convert.ToDouble(dtgResultadosBusquedad[5, posicionDTGHotel].Value.ToString())) * cantidadDiasHotel);
-            metodos.InsertarDatosReservacionHotel(idHotel, fechaLlegadaHotel.Text, fechaPartidaHotel.Text, Convert.ToInt16(spinnerHabitacionesHotel.Value), Convert.ToInt16(spinnerPersonasAdultosHotel.Value + spinnerPersonasMenoresHotel.Value), cedulaUsuario, Convert.ToInt16(spinnerPersonasAdultosHotel.Value), Convert.ToInt16(spinnerPersonasMenoresHotel.Value), precioTotalHospedajeHotel);
-            MessageBox.Show("La reservacion se Realizo con Exito.");
-            dtgResultadosBusquedad.DataSource = null;
-            labelFechaLlegadaHotel.Visible = false;
-            labelFechaSalidaHotel.Visible = false;
-            fechaLlegadaHotel.Enabled = false;
-            fechaPartidaHotel.Enabled = false;
-            btnPersonasHotel.Visible = false;
-            btnHabitacionesHotel.Visible = false;
-            btnConfirmarReservacionHotel.Enabled = false;
-            btnGuardarReservacionHotel.Enabled =false;
+            if (metodos.DiferenciaDiasFechas(fechaLlegadaHotel.Text, fechaPartidaHotel.Text) > 0)
+            {
+                metodos.InsertarDatosReservacionHotel(idHotel, fechaLlegadaHotel.Text, fechaPartidaHotel.Text, Convert.ToInt16(spinnerHabitacionesHotel.Value), Convert.ToInt16(spinnerPersonasAdultosHotel.Value + spinnerPersonasMenoresHotel.Value), cedulaUsuario, Convert.ToInt16(spinnerPersonasAdultosHotel.Value), Convert.ToInt16(spinnerPersonasMenoresHotel.Value), precioTotalHospedajeHotel);
+                MessageBox.Show("La reservacion se Realizo con Exito.");
+                int cantidadActualHabitaciones = Convert.ToInt16(dtgResultadosBusquedad[4, posicionDTGHotel].Value.ToString());
+                int cantidadRestar = Convert.ToInt16(spinnerHabitacionesHotel.Value);
+                int resultadoResta = (cantidadActualHabitaciones - cantidadRestar);
+                metodos.ActualizarCantidadHabitacionesHotel(resultadoResta, idHotel);
+                dtgResultadosBusquedad.DataSource = null;
+                labelFechaLlegadaHotel.Visible = false;
+                labelFechaSalidaHotel.Visible = false;
+                fechaLlegadaHotel.Enabled = false;
+                fechaPartidaHotel.Enabled = false;
+                btnPersonasHotel.Visible = false;
+                btnHabitacionesHotel.Visible = false;
+                btnConfirmarReservacionHotel.Enabled = false;
+                btnGuardarReservacionHotel.Enabled = false;
+            }
+            else {
 
+                MessageBox.Show("Debe de Ingresar Fechas Correctas");
+            }
             /// ------------------------------------------------
             ///Falta realizar la calificacion que el cliente le da al Hotel 
             ///
@@ -361,24 +406,33 @@ namespace CapaPresentacion
             int cedulaUsuario = conexion.ConsultarCedulaUsuario(Login.nombreUsuario);
 
             double precioTotalHospedajeHotelPais = ((Convert.ToDouble(dtgHotelesPaises[4, posicionDTGHotelPais].Value.ToString())) * cantidadDiasHotelPais);
-            metodos.InsertarDatosPreReservacionHotel(idHotel, fechaLlegadaPais.Text, fechaPartidaPais.Text, Convert.ToInt16(spinnerHabitacionesPais.Value), Convert.ToInt16(spinnerPersonasAdultasPais.Value + spinnerPersonasMenoresPais.Value), cedulaUsuario, Convert.ToInt16(spinnerPersonasAdultasPais.Value), Convert.ToInt16(spinnerPersonasMenoresPais.Value), precioTotalHospedajeHotelPais);
-            dtgHotelesPaises.DataSource = null;
-            btnVerListaPreeliminarHotelesPais.Enabled = false;
-            fechaLlegadaPais.Enabled = false;
-            fechaPartidaPais.Enabled = false;
-            btnPersonasPais.Enabled = false;
-            btnHabitacionesPais.Visible = false;
-            optPrecioMayorPais.Visible = false;
-            optPrecioMenorPais.Visible = false;
-            panelAdultosNiñosPais.Visible = false;
-            labelHabitaciones.Visible = false;
-            spinnerHabitacionesPais.Visible = false;
-            btnGuardarCantidadPersonasPais.Visible = false;
-            comboPaises.Items.Clear();
-            MessageBox.Show("Se ha guardado este Prereservacion para " + Login.nombreUsuario);
+            if (metodos.DiferenciaDiasFechas(fechaLlegadaPais.Text, fechaPartidaPais.Text) > 0)
+            {
+                metodos.InsertarDatosPreReservacionHotel(idHotel, fechaLlegadaPais.Text, fechaPartidaPais.Text, Convert.ToInt16(spinnerHabitacionesPais.Value), Convert.ToInt16(spinnerPersonasAdultasPais.Value + spinnerPersonasMenoresPais.Value), cedulaUsuario, Convert.ToInt16(spinnerPersonasAdultasPais.Value), Convert.ToInt16(spinnerPersonasMenoresPais.Value), precioTotalHospedajeHotelPais);
+                MessageBox.Show("La Pre Reservacion se Logro con Exito.");
+                dtgHotelesPaises.DataSource = null;
+                btnVerListaPreeliminarHotelesPais.Enabled = false;
+                fechaLlegadaPais.Enabled = false;
+                fechaPartidaPais.Enabled = false;
+                btnPersonasPais.Enabled = false;
+                btnHabitacionesPais.Visible = false;
+                optPrecioMayorPais.Visible = false;
+                optPrecioMenorPais.Visible = false;
+                panelAdultosNiñosPais.Visible = false;
+                labelHabitaciones.Visible = false;
+                spinnerHabitacionesPais.Visible = false;
+                btnGuardarCantidadPersonasPais.Visible = false;
+                comboPaises.Items.Clear();
+
+            }
+            else
+            {
+
+                MessageBox.Show("Debe de Seleccionar Fechas Correctas.");
+            }
         }
 
-        private void btnVerListaPreeliminarHotelesPais_Click(object sender, EventArgs e)
+            private void btnVerListaPreeliminarHotelesPais_Click(object sender, EventArgs e)
         {
             ///se consulta los hoteles que esten en el pais en el que se
             ///desea hospedar el cliente
@@ -713,20 +767,26 @@ namespace CapaPresentacion
             int idHotelCiudad = Convert.ToInt16(dtgHotelesCiudades[0, posicionDTGHotelCiudad].Value.ToString());
             string nombreHotelCiudad = dtgHotelesCiudades[1, posicionDTGHotelCiudad].Value.ToString();
             int cedulaUsuario = conexion.ConsultarCedulaUsuario(Login.nombreUsuario);
-            double precioTotalHospedajeHotelCiudad = ((Convert.ToDouble(dtgHotelesCiudades[3, posicionDTGHotelCiudad].Value.ToString())) * cantidadDiasHotelCiudad);
-            //metodos.InsertarDatosReservacionHotel(idHotelPais, fechaLlegadaPais.Text, fechaPartidaPais.Text, Convert.ToInt16(spinnerHabitacionesPais.Value), Convert.ToInt16(spinnerPersonasAdultasPais.Value + spinnerPersonasMenoresPais.Value), cedulaUsuario, Convert.ToInt16(spinnerPersonasAdultasPais.Value), Convert.ToInt16(spinnerPersonasMenoresPais.Value), precioTotalHospedajeHotelPais);
-            metodos.InsertarDatosPreReservacionHotel(idHotelCiudad, fechaLlegadaCiudad.Text, FechaPartidaCiudad.Text, Convert.ToInt16(spinnerHabitacionesCiudad.Value), Convert.ToInt16(spinnerPersonasAdultosCiudad.Value + spinnerPersonasMenoresCiudad.Value), cedulaUsuario, Convert.ToInt16(spinnerPersonasAdultosCiudad.Value), Convert.ToInt16(spinnerPersonasMenoresCiudad.Value), precioTotalHospedajeHotelCiudad); 
-            dtgHotelesCiudades.DataSource = null;
-            btnHabitacionesCiudad.Enabled = false;
-            btnPersonasCiudad.Enabled = false;
-            fechaLlegadaCiudad.Enabled = false;
-            FechaPartidaCiudad.Enabled = false;
-            panelAdultosNiñosPais.Visible = false;
-            labelHabitaciones.Visible = false;
-            spinnerHabitacionesPais.Visible = false;
-            btnGuardarCantidadPersonasPais.Visible = false;
-            comboCiudades.Items.Clear();
-            MessageBox.Show("Se ha guardado este Prereservacion para " + Login.nombreUsuario);
+            double precioTotalHospedajeHotel = ((Convert.ToDouble(dtgResultadosBusquedad[5, posicionDTGHotel].Value.ToString())) * cantidadDiasHotel);
+            if (metodos.DiferenciaDiasFechas(fechaLlegadaCiudad.Text, FechaPartidaCiudad.Text) > 0)
+            {
+                metodos.InsertarDatosPreReservacionHotel(idHotelCiudad, fechaLlegadaCiudad.Text, FechaPartidaCiudad.Text, Convert.ToInt16(spinnerHabitacionesCiudad.Value), Convert.ToInt16(spinnerPersonasAdultosCiudad.Value + spinnerPersonasMenoresCiudad.Value), cedulaUsuario, Convert.ToInt16(spinnerPersonasAdultosCiudad.Value), Convert.ToInt16(spinnerPersonasMenoresCiudad.Value), precioTotalHospedajeHotel);
+                MessageBox.Show("La Pre Reservacion se Realizo con Exito.");
+                dtgHotelesCiudades.DataSource = null;
+                btnHabitacionesCiudad.Enabled = false;
+                btnPersonasCiudad.Enabled = false;
+                fechaLlegadaCiudad.Enabled = false;
+                FechaPartidaCiudad.Enabled = false;
+                panelAdultosNiñosPais.Visible = false;
+                labelHabitaciones.Visible = false;
+                spinnerHabitacionesPais.Visible = false;
+                btnGuardarCantidadPersonasPais.Visible = false;
+                comboCiudades.Items.Clear();
+            }
+            else
+            {
+                MessageBox.Show("Debe de Ingresar fechas correctas");
+            }
         }
 
         private void btnGuardarReservacionHotel_Click(object sender, EventArgs e)
@@ -736,17 +796,25 @@ namespace CapaPresentacion
             string nombreHotel = dtgResultadosBusquedad[1, posicionDTGHotel].Value.ToString();
             int cedulaUsuario = conexion.ConsultarCedulaUsuario(Login.nombreUsuario);
             double precioTotalHospedajeHotel = ((Convert.ToDouble(dtgResultadosBusquedad[5, posicionDTGHotel].Value.ToString())) * cantidadDiasHotel);
-            metodos.InsertarDatosReservacionHotel(idHotel, fechaLlegadaHotel.Text, fechaPartidaHotel.Text, Convert.ToInt16(spinnerHabitacionesHotel.Value), Convert.ToInt16(spinnerPersonasAdultosHotel.Value + spinnerPersonasMenoresHotel.Value), cedulaUsuario, Convert.ToInt16(spinnerPersonasAdultosHotel.Value), Convert.ToInt16(spinnerPersonasMenoresHotel.Value), precioTotalHospedajeHotel);
-            MessageBox.Show("La Prereservacion se Realizo con Exito.");
-            dtgResultadosBusquedad.DataSource = null;
-            labelFechaLlegadaHotel.Visible = false;
-            labelFechaSalidaHotel.Visible = false;
-            fechaLlegadaHotel.Enabled = false;
-            fechaPartidaHotel.Enabled = false;
-            btnPersonasHotel.Visible = false;
-            btnHabitacionesHotel.Visible = false;
-            btnConfirmarReservacionHotel.Enabled = false;
-            btnGuardarReservacionHotel.Enabled = false;
+            if (metodos.DiferenciaDiasFechas(fechaLlegadaCiudad.Text, FechaPartidaCiudad.Text) > 0)
+            {
+                metodos.InsertarDatosPreReservacionHotel(idHotel, fechaLlegadaCiudad.Text, FechaPartidaCiudad.Text, Convert.ToInt16(spinnerHabitacionesCiudad.Value), Convert.ToInt16(spinnerPersonasAdultosCiudad.Value + spinnerPersonasMenoresCiudad.Value), cedulaUsuario, Convert.ToInt16(spinnerPersonasAdultosCiudad.Value), Convert.ToInt16(spinnerPersonasMenoresCiudad.Value), precioTotalHospedajeHotel);
+                MessageBox.Show("La Pre Reservacion se Realizo con Exito.");
+                dtgHotelesCiudades.DataSource = null;
+                btnHabitacionesCiudad.Enabled = false;
+                btnPersonasCiudad.Enabled = false;
+                fechaLlegadaCiudad.Enabled = false;
+                FechaPartidaCiudad.Enabled = false;
+                panelAdultosNiñosPais.Visible = false;
+                labelHabitaciones.Visible = false;
+                spinnerHabitacionesPais.Visible = false;
+                btnGuardarCantidadPersonasPais.Visible = false;
+                comboCiudades.Items.Clear();
+            }
+            else
+            {
+                MessageBox.Show("Debe de Ingresar fechas correctas");
+            }
         }
 
         private void optPrecioMenorPais_CheckedChanged(object sender, EventArgs e)

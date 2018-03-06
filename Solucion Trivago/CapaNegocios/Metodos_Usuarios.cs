@@ -175,36 +175,7 @@ namespace CapaNegocios
 
 
 
-        //Este metodo llena el comboBox de nombres de hoteles en la seccion de vuelos
-        public void LlenarNombresHoteles(ComboBox hoteles)
-        {
-
-            try
-            {
-                Conexion();
-                conexion.Open();
-                List<String> lista = new List<String>();
-                NpgsqlCommand cmd = new NpgsqlCommand("SELECT nombre FROM hotel", conexion);
-                NpgsqlDataReader dr = cmd.ExecuteReader();
-                if (dr.HasRows)
-                {
-                    while (dr.Read())
-                    {
-                        hoteles.Items.Add(dr.GetString(0));
-
-                    }
-                }
-                conexion.Close();
-
-
-            }
-            catch (Exception error)
-            {
-                Console.WriteLine(error);
-
-            }
-
-        }
+    
 
         //Metodo que llena el combo de identificadores de vehiculos , en la ventana de seccion de vuelo
         public void LlenarVehiculos(ComboBox placa)
@@ -225,13 +196,11 @@ namespace CapaNegocios
                     }
                 }
                 conexion.Close();
-
-
+                
             }
             catch (Exception error)
             {
                 Console.WriteLine(error);
-
             }
 
         }
@@ -287,7 +256,7 @@ namespace CapaNegocios
                 //DataGridViewImageColumn imag = new DataGridViewImageColumn();
                 //imag.HeaderText = "Foto_Hotel";
                 //imag.Name = "Foto_Hotel";
-                //agregar_hotels_pais.Columns.Add(imag);
+                //dtgVuelosASC.Columns.Add(imag);
            
                 conexion.Close();
 
@@ -341,10 +310,6 @@ namespace CapaNegocios
             return v;
         }
 
-        public void InsertarFotoHotelPaisASC(){
-
-            
-        }
 
         public void LlenarDtVistaPreliminarHotelsPaisDESC(DataGridView agregar_hotels_pais, string pais)
         {
@@ -364,7 +329,7 @@ namespace CapaNegocios
                 //DataGridViewImageColumn imag = new DataGridViewImageColumn();
                 //imag.HeaderText = "Foto_Hotel";
                 //imag.Name = "Foto_Hotel";
-                //agregar_hotels_pais.Columns.Add(imag);
+                //dtgVuelosASC.Columns.Add(imag);
                 conexion.Close();
 
             }
@@ -524,7 +489,7 @@ namespace CapaNegocios
             }
 
         }
-
+        
 
         public void LlenarDtVistaPrereservacionesHotelPais(DataGridView agregar_busqueda_hotel, int cedulaUsuario)
         {
@@ -553,7 +518,7 @@ namespace CapaNegocios
                 Console.WriteLine(error);
             }
         }
-
+        
 
         public void EliminarDatosPreReservacionHotel(int idHotel, int cantidadHabitaciones, int cantidadPersonas, int idCliente)
         {
@@ -569,6 +534,150 @@ namespace CapaNegocios
             {   MessageBox.Show("Error--- \n" + error);
             }
         }
+
+        public int DiferenciaDiasFechas(String fechaLlegada,String fechaSalida) {
+
+            int dias=0;
+            DateTime f1 = DateTime.Parse(fechaLlegada);
+            DateTime f2 = DateTime.Parse(fechaSalida);
+            TimeSpan ts = f2 - f1;
+            dias = ts.Days;
+            if (dias < 0)
+            {
+                dias = 0;
+            }          
+            return dias;
+        }
+
+        public void ActualizarCantidadHabitacionesHotel(int nuevaCantidad,int  idHotel)
+        {
+            try
+            {
+                Conexion();
+                conexion.Open();
+                NpgsqlCommand cmd = new NpgsqlCommand("UPDATE hotel SET habitaciones='"+nuevaCantidad+"' WHERE identificador='"+idHotel+"'", conexion);
+                cmd.ExecuteNonQuery();
+                conexion.Close();
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Error--- \n" + error);
+            }
+        }
+
+        //Este metodo llena el comboBox de nombres de paises en la seccion de alojamiento
+        public void LlenarHotelesPaisDestino(ComboBox hotelesPais,string pais)
+        {
+
+            try
+            {
+                Conexion();
+                conexion.Open();
+                List<String> lista = new List<String>();
+                NpgsqlCommand cmd = new NpgsqlCommand("SELECT nombre FROM hotel WHERE pais='"+pais+"'", conexion);
+                NpgsqlDataReader dr = cmd.ExecuteReader();
+                if (dr.HasRows)
+                {
+                    while (dr.Read())
+                    {
+                        hotelesPais.Items.Add(dr.GetString(0));
+
+                    }
+                }
+                conexion.Close();
+
+
+            }
+            catch (Exception error)
+            {
+                Console.WriteLine(error);
+
+            }
+        }
+        
+        public bool BanderaRutaSinEscala(String paisOrigen,String  paisDestino)
+        {
+            bool bandera;
+
+            Conexion();
+            conexion.Open();
+            NpgsqlCommand consulta = new NpgsqlCommand("SELECT pais_origen , pais_destino FROM rutas WHERE pais_origen='" + paisOrigen + "' AND pais_destino='"+paisDestino+"'", conexion);
+            NpgsqlDataReader lectorConsulta = consulta.ExecuteReader();
+            if (lectorConsulta.HasRows)
+            {
+                bandera = true;
+            }
+            else
+            {
+
+                bandera = false;
+            }
+            conexion.Close();
+
+            return bandera;
+        }
+
+        public int ActualCantidadHabitaciones(int idHotel)
+        {
+            int dias = 0;
+            Conexion();
+            conexion.Open();
+            NpgsqlCommand consulta = new NpgsqlCommand("SELECT habitaciones FROM hotel WHERE identificador='" + idHotel + "'", conexion);
+            NpgsqlDataReader lectorConsulta = consulta.ExecuteReader();
+            if (lectorConsulta.HasRows)
+            {
+                dias = Convert.ToInt16(lectorConsulta.GetString(0));
+            }         
+            conexion.Close();
+            return dias;
+        }
+
+        public void LlenarDtVistaPreliminarVuelosASC(DataGridView dtgVuelosASC, string paisOrigen, string paisDestino)
+        {
+            try
+            {
+                Conexion();
+                conexion.Open();
+                DataSet dataset = new DataSet();
+                NpgsqlDataAdapter adapter = new NpgsqlDataAdapter("SELECT identificador_ruta,pais_origen,pais_destino,duracion,precio FROM tarifas_vuelos JOIN rutas ON tarifas_vuelos.ruta=rutas.identificador_ruta WHERE pais_origen='"+paisOrigen+"' AND pais_destino='"+paisDestino+"' ORDER BY precio ASC", conexion);
+                adapter.Fill(dataset, "rutas");
+                dtgVuelosASC.DataSource = dataset.Tables[0];
+                dtgVuelosASC.Columns[0].HeaderCell.Value = "identificador_ruta";
+                dtgVuelosASC.Columns[1].HeaderCell.Value = "pais_origen";
+                dtgVuelosASC.Columns[2].HeaderCell.Value = "pais_pastino";
+                dtgVuelosASC.Columns[3].HeaderCell.Value = "duracion";
+                dtgVuelosASC.Columns[4].HeaderCell.Value = "precio";
+                conexion.Close();
+            }
+            catch (Exception error)
+            {
+                Console.WriteLine(error);
+            }
+        }
+
+        public void LlenarDtVistaPreliminarVuelosDESC(DataGridView dtgVuelosASC, string paisOrigen, string paisDestino)
+        {
+            try
+            {
+                Conexion();
+                conexion.Open();
+                DataSet dataset = new DataSet();
+                NpgsqlDataAdapter adapter = new NpgsqlDataAdapter("SELECT identificador_ruta,pais_origen,pais_destino,duracion,precio FROM tarifas_vuelos JOIN rutas ON tarifas_vuelos.ruta=rutas.identificador_ruta WHERE pais_origen='" + paisOrigen + "' AND pais_destino='" + paisDestino + "' ORDER BY precio DESC", conexion);
+                adapter.Fill(dataset, "rutas");
+                dtgVuelosASC.DataSource = dataset.Tables[0];
+                dtgVuelosASC.Columns[0].HeaderCell.Value = "identificador_ruta";
+                dtgVuelosASC.Columns[1].HeaderCell.Value = "pais_origen";
+                dtgVuelosASC.Columns[2].HeaderCell.Value = "pais_pastino";
+                dtgVuelosASC.Columns[3].HeaderCell.Value = "duracion";
+                dtgVuelosASC.Columns[4].HeaderCell.Value = "precio";
+                conexion.Close();
+            }
+            catch (Exception error)
+            {
+                Console.WriteLine(error);
+            }
+        }
+
     }
     
 }

@@ -389,6 +389,7 @@
             this.fechaPartidaPais.Enabled = false;
             this.fechaPartidaPais.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.fechaPartidaPais.Location = new System.Drawing.Point(581, 76);
+            this.fechaPartidaPais.MinDate = new System.DateTime(2018, 3, 5, 0, 0, 0, 0);
             this.fechaPartidaPais.Name = "fechaPartidaPais";
             this.fechaPartidaPais.Size = new System.Drawing.Size(101, 20);
             this.fechaPartidaPais.TabIndex = 21;
@@ -401,6 +402,7 @@
             this.fechaLlegadaPais.Enabled = false;
             this.fechaLlegadaPais.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.fechaLlegadaPais.Location = new System.Drawing.Point(141, 76);
+            this.fechaLlegadaPais.MinDate = new System.DateTime(2018, 3, 5, 0, 0, 0, 0);
             this.fechaLlegadaPais.Name = "fechaLlegadaPais";
             this.fechaLlegadaPais.Size = new System.Drawing.Size(101, 20);
             this.fechaLlegadaPais.TabIndex = 20;
@@ -626,6 +628,7 @@
             this.FechaPartidaCiudad.Enabled = false;
             this.FechaPartidaCiudad.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.FechaPartidaCiudad.Location = new System.Drawing.Point(587, 72);
+            this.FechaPartidaCiudad.MinDate = new System.DateTime(2018, 3, 5, 0, 0, 0, 0);
             this.FechaPartidaCiudad.Name = "FechaPartidaCiudad";
             this.FechaPartidaCiudad.Size = new System.Drawing.Size(101, 20);
             this.FechaPartidaCiudad.TabIndex = 38;
@@ -647,6 +650,7 @@
             this.fechaLlegadaCiudad.Enabled = false;
             this.fechaLlegadaCiudad.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.fechaLlegadaCiudad.Location = new System.Drawing.Point(193, 72);
+            this.fechaLlegadaCiudad.MinDate = new System.DateTime(2018, 3, 5, 0, 0, 0, 0);
             this.fechaLlegadaCiudad.Name = "fechaLlegadaCiudad";
             this.fechaLlegadaCiudad.Size = new System.Drawing.Size(101, 20);
             this.fechaLlegadaCiudad.TabIndex = 36;
@@ -907,6 +911,7 @@
             this.fechaPartidaHotel.Enabled = false;
             this.fechaPartidaHotel.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.fechaPartidaHotel.Location = new System.Drawing.Point(595, 55);
+            this.fechaPartidaHotel.MinDate = new System.DateTime(2018, 3, 5, 0, 0, 0, 0);
             this.fechaPartidaHotel.Name = "fechaPartidaHotel";
             this.fechaPartidaHotel.Size = new System.Drawing.Size(101, 20);
             this.fechaPartidaHotel.TabIndex = 39;
@@ -929,6 +934,7 @@
             this.fechaLlegadaHotel.Enabled = false;
             this.fechaLlegadaHotel.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.fechaLlegadaHotel.Location = new System.Drawing.Point(157, 67);
+            this.fechaLlegadaHotel.MinDate = new System.DateTime(2018, 3, 5, 0, 0, 0, 0);
             this.fechaLlegadaHotel.Name = "fechaLlegadaHotel";
             this.fechaLlegadaHotel.Size = new System.Drawing.Size(101, 20);
             this.fechaLlegadaHotel.TabIndex = 37;

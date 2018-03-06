@@ -56,6 +56,10 @@ namespace CapaPresentacion
             metodos.InsertarDatosReservacionHotelDesdePrereservacion(idHotel,fechaLlegada,fechaSalida,cantidadHabitaciones,cantidadPersonas,idCliente,cantidadPersonasMenores,cantidadPersonasAdultas,precioHospedajeTotal);
             metodos.EliminarDatosPreReservacionHotel(idHotel, cantidadHabitaciones, cantidadPersonas, idCliente);
             MessageBox.Show("Se ha ejercido la Prereservacion Correctamente.");
+            int cantidadActualHabitaciones = metodos.ActualCantidadHabitaciones(idHotel);
+            int cantidadRestar = cantidadHabitaciones;
+            int resultadoResta = (cantidadActualHabitaciones - cantidadRestar);
+            metodos.ActualizarCantidadHabitacionesHotel(resultadoResta, idHotel);
             dtgPreservaciones.DataSource = null;
         }
 

@@ -14,7 +14,9 @@ namespace CapaPresentacion
     public partial class Seccion_Vuelos : Form
     {
         Validaciones validar = new Validaciones();
-   
+
+        Metodos_Usuarios metodos = new Metodos_Usuarios();
+
         public Seccion_Vuelos()
         {
             InitializeComponent();
@@ -23,6 +25,10 @@ namespace CapaPresentacion
 
         private void Seccion_Vuelos_Load(object sender, EventArgs e)
         {
+            metodos.LlenarNombresPaises(comboBoxPaisOrigen);
+            metodos.LlenarNombresPaises(comboBoxPaisDestino);
+            metodos.LlenarVehiculos(comboBoxVehiculos);
+           
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -112,16 +118,119 @@ namespace CapaPresentacion
 
         private void fechaFinalizacion_ValueChanged(object sender, EventArgs e)
         {
-            DateTime f1 = DateTime.Parse(fechaInicio.Text);
-            DateTime f2 = DateTime.Parse(fechaFinalizacion.Text);
-            TimeSpan ts = f2 - f1;
-            int cantidadDias = ts.Days;
-            labelCantidadDias.Text += cantidadDias.ToString();
+            if (metodos.DiferenciaDiasFechas(fechaInicio.Text, fechaFinalizacion.Text) > 0)
+            {
+                labelCantidadDias.Text = "Cantidad de dias " + metodos.DiferenciaDiasFechas(fechaInicio.Text, fechaFinalizacion.Text).ToString();
+            }
+            else
+            {
+                MessageBox.Show("Debe de Seleccionnar Fechas Validas");
+            }
         }
 
-        private void spinnerCantidadPasajerosNiños_ValueChanged(object sender, EventArgs e)
+        private void btnGuardarCantidadPasajeros_Click(object sender, EventArgs e)
         {
+            int cantidadTotalPersonasPais = Convert.ToInt16(spinnerCantidadPasajerosAdultos.Value + spinnerCantidadPasajerosNiños.Value);
 
+            if (cantidadTotalPersonasPais <= 4)
+            {
+
+                MessageBox.Show("Una habitacion");
+                spinnerCantidadHabitacionesHotel.Value = 1;
+            }
+            if ((cantidadTotalPersonasPais > 4) && (cantidadTotalPersonasPais <= 8))
+            {
+                MessageBox.Show("Dos habitaciones");
+                spinnerCantidadHabitacionesHotel.Value = 2;
+            }
+            if ((cantidadTotalPersonasPais > 8) && (cantidadTotalPersonasPais <= 12))
+            {
+                MessageBox.Show("Tres habitaciones");
+                spinnerCantidadHabitacionesHotel.Value = 3;
+            }
+            if ((cantidadTotalPersonasPais > 12) && (cantidadTotalPersonasPais <= 16))
+            {
+                MessageBox.Show("Cuatro habitaciones");
+                spinnerCantidadHabitacionesHotel.Value = 4;
+            }
+            if ((cantidadTotalPersonasPais > 16) && (cantidadTotalPersonasPais <= 20))
+            {
+
+                MessageBox.Show("Cinco habitaciones");
+                spinnerCantidadHabitacionesHotel.Value = 5;
+            }
+            if ((cantidadTotalPersonasPais > 20) && (cantidadTotalPersonasPais <= 24))
+            {
+
+                MessageBox.Show("Seis habitaciones");
+                 spinnerCantidadHabitacionesHotel.Value = 6;
+            }
+            if ((cantidadTotalPersonasPais > 24) && (cantidadTotalPersonasPais <= 28))
+            {
+
+                MessageBox.Show("Siete habitaciones");
+                 spinnerCantidadHabitacionesHotel.Value = 7;
+            }
+            if ((cantidadTotalPersonasPais > 28) && (cantidadTotalPersonasPais <= 32))
+            {
+
+                MessageBox.Show("Ocho habitaciones");
+                 spinnerCantidadHabitacionesHotel.Value = 8;
+            }
+            if ((cantidadTotalPersonasPais > 32) && (cantidadTotalPersonasPais <= 36))
+            {
+
+                MessageBox.Show("Nueve habitaciones");
+                spinnerCantidadHabitacionesHotel.Value = 9;
+            }
+            if ((cantidadTotalPersonasPais > 36) && (cantidadTotalPersonasPais <= 40))
+            {
+
+                MessageBox.Show("Diez habitaciones");
+                spinnerCantidadHabitacionesHotel.Value = 10;
+            }
+            if (cantidadTotalPersonasPais > 40)
+            {
+                MessageBox.Show("Cantidad de Personas Inexsistente");
+            }
+        }
+
+        private void comboBoxPaisDestino_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            metodos.LlenarHotelesPaisDestino(comboBoxHotelesPasDestino, comboBoxPaisDestino.SelectedItem.ToString());
+        }
+
+        private void comboBoxVehiculos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            metodos.MostrarInformacionVehiculos(comboBoxVehiculos, textBoxMarcaVehiculo, textBoxModeloVehiculo, textBoxTipoVehiculo, textBoxPrecioVehiculo);
+        }
+
+        private void btnVerListaPreeliminarHotelesVuelos_Click(object sender, EventArgs e)
+        {
+            if (metodos.BanderaRutaSinEscala(comboBoxPaisOrigen.SelectedItem.ToString(), comboBoxPaisDestino.SelectedItem.ToString()))
+            {
+                MessageBox.Show("SI existe en Vuelo DIRECTO");
+                optPrecioMenorHotel.Checked = true;
+                metodos.LlenarDtVistaPreliminarVuelosASC(dtgVistaPreliminarVHA,comboBoxPaisOrigen.SelectedItem.ToString(),comboBoxPaisDestino.SelectedItem.ToString());
+            }
+            else {
+                MessageBox.Show("NO existe este Vuelo DIRECTO");
+            }
+        }
+
+        private void spinnerCantidadPasajerosAdultos_ValueChanged(object sender, EventArgs e)
+        {
+            btnGuardarCantidadPasajeros.Visible = true;
+        }
+
+        private void optPrecioMenorHotel_CheckedChanged(object sender, EventArgs e)
+        {
+            metodos.LlenarDtVistaPreliminarVuelosASC(dtgVistaPreliminarVHA, comboBoxPaisOrigen.SelectedItem.ToString(), comboBoxPaisDestino.SelectedItem.ToString());
+        }
+
+        private void optPrecioMayorHotel_CheckedChanged(object sender, EventArgs e)
+        {
+            metodos.LlenarDtVistaPreliminarVuelosDESC(dtgVistaPreliminarVHA, comboBoxPaisOrigen.SelectedItem.ToString(), comboBoxPaisDestino.SelectedItem.ToString());
         }
     }
 }
