@@ -1,6 +1,6 @@
 ﻿namespace CapaPresentacion
 {
-    partial class Seccion_Compra_Reserva
+    partial class Seccion_Compra_Reserva_Hoteles
     {
         /// <summary>
         /// Required designer variable.
@@ -88,7 +88,7 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // Seccion_Compra_Reserva
+            // Seccion_Compra_Reserva_Hoteles
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -98,7 +98,7 @@
             this.Controls.Add(this.dtgPreservaciones);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
-            this.Name = "Seccion_Compra_Reserva";
+            this.Name = "Seccion_Compra_Reserva_Hoteles";
             this.Text = "Seccion_Compra_Reserva";
             this.Load += new System.EventHandler(this.Seccion_Compra_Reserva_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtgPreservaciones)).EndInit();

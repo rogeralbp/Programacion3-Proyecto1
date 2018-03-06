@@ -12,12 +12,12 @@ using CapaDatos;
 
 namespace CapaPresentacion
 {
-    public partial class Seccion_Compra_Reserva : Form
+    public partial class Seccion_Compra_Reserva_Hoteles : Form
     {
         Metodos_Usuarios metodos = new Metodos_Usuarios();
         Conexiones_Base_Datos conexion = new Conexiones_Base_Datos();
         
-        public Seccion_Compra_Reserva()
+        public Seccion_Compra_Reserva_Hoteles()
         {
             InitializeComponent();
             this.CenterToScreen();
@@ -32,7 +32,7 @@ namespace CapaPresentacion
         private void button1_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Menu_Principal_Usuarios v = new Menu_Principal_Usuarios();
+            Principal_Compra_Reserva v = new Principal_Compra_Reserva();
             v.Show();
         }
 

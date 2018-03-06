@@ -41,12 +41,13 @@
             this.nombreUsuarioVer = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button2 = new System.Windows.Forms.Button();
+            this.nomUser = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnCrud_Vehiculos
             // 
-            this.btnCrud_Vehiculos.Location = new System.Drawing.Point(189, 68);
+            this.btnCrud_Vehiculos.Location = new System.Drawing.Point(189, 100);
             this.btnCrud_Vehiculos.Name = "btnCrud_Vehiculos";
             this.btnCrud_Vehiculos.Size = new System.Drawing.Size(173, 23);
             this.btnCrud_Vehiculos.TabIndex = 0;
@@ -56,7 +57,7 @@
             // 
             // btnCrud_Aeropuerto
             // 
-            this.btnCrud_Aeropuerto.Location = new System.Drawing.Point(189, 133);
+            this.btnCrud_Aeropuerto.Location = new System.Drawing.Point(189, 172);
             this.btnCrud_Aeropuerto.Name = "btnCrud_Aeropuerto";
             this.btnCrud_Aeropuerto.Size = new System.Drawing.Size(173, 23);
             this.btnCrud_Aeropuerto.TabIndex = 1;
@@ -66,7 +67,7 @@
             // 
             // btnCrud_Hoteles
             // 
-            this.btnCrud_Hoteles.Location = new System.Drawing.Point(189, 203);
+            this.btnCrud_Hoteles.Location = new System.Drawing.Point(189, 244);
             this.btnCrud_Hoteles.Name = "btnCrud_Hoteles";
             this.btnCrud_Hoteles.Size = new System.Drawing.Size(173, 23);
             this.btnCrud_Hoteles.TabIndex = 2;
@@ -76,7 +77,7 @@
             // 
             // btnCrud_Paises
             // 
-            this.btnCrud_Paises.Location = new System.Drawing.Point(189, 284);
+            this.btnCrud_Paises.Location = new System.Drawing.Point(189, 320);
             this.btnCrud_Paises.Name = "btnCrud_Paises";
             this.btnCrud_Paises.Size = new System.Drawing.Size(173, 23);
             this.btnCrud_Paises.TabIndex = 3;
@@ -86,7 +87,7 @@
             // 
             // btnCrudLugares
             // 
-            this.btnCrudLugares.Location = new System.Drawing.Point(460, 203);
+            this.btnCrudLugares.Location = new System.Drawing.Point(460, 244);
             this.btnCrudLugares.Name = "btnCrudLugares";
             this.btnCrudLugares.Size = new System.Drawing.Size(179, 23);
             this.btnCrudLugares.TabIndex = 4;
@@ -96,7 +97,7 @@
             // 
             // btnCrudRutas
             // 
-            this.btnCrudRutas.Location = new System.Drawing.Point(460, 284);
+            this.btnCrudRutas.Location = new System.Drawing.Point(460, 320);
             this.btnCrudRutas.Name = "btnCrudRutas";
             this.btnCrudRutas.Size = new System.Drawing.Size(179, 23);
             this.btnCrudRutas.TabIndex = 6;
@@ -106,7 +107,7 @@
             // 
             // btnCrud_TarifasH
             // 
-            this.btnCrud_TarifasH.Location = new System.Drawing.Point(460, 133);
+            this.btnCrud_TarifasH.Location = new System.Drawing.Point(460, 172);
             this.btnCrud_TarifasH.Name = "btnCrud_TarifasH";
             this.btnCrud_TarifasH.Size = new System.Drawing.Size(179, 23);
             this.btnCrud_TarifasH.TabIndex = 7;
@@ -116,7 +117,7 @@
             // 
             // btnCrudTarifasV
             // 
-            this.btnCrudTarifasV.Location = new System.Drawing.Point(460, 68);
+            this.btnCrudTarifasV.Location = new System.Drawing.Point(460, 100);
             this.btnCrudTarifasV.Name = "btnCrudTarifasV";
             this.btnCrudTarifasV.Size = new System.Drawing.Size(179, 23);
             this.btnCrudTarifasV.TabIndex = 8;
@@ -153,18 +154,28 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(311, 368);
+            this.button2.Location = new System.Drawing.Point(311, 403);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(179, 23);
             this.button2.TabIndex = 12;
             this.button2.Text = "Reportes";
             this.button2.UseVisualStyleBackColor = true;
             // 
+            // nomUser
+            // 
+            this.nomUser.AutoSize = true;
+            this.nomUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nomUser.Location = new System.Drawing.Point(226, 34);
+            this.nomUser.Name = "nomUser";
+            this.nomUser.Size = new System.Drawing.Size(0, 31);
+            this.nomUser.TabIndex = 13;
+            // 
             // Menu_Principal_Administrador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(822, 487);
+            this.Controls.Add(this.nomUser);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.nombreUsuarioVer);
@@ -200,5 +211,6 @@
         private System.Windows.Forms.Label nombreUsuarioVer;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label nomUser;
     }
 }

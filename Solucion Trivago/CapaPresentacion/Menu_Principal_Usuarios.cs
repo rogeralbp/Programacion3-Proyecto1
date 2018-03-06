@@ -50,7 +50,7 @@ namespace CapaPresentacion
         {
 
             this.Hide();
-            Seccion_Compra_Reserva v = new Seccion_Compra_Reserva();
+            Principal_Compra_Reserva v = new Principal_Compra_Reserva();
             v.Show();
         }
 
