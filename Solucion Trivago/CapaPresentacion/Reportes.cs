@@ -25,7 +25,7 @@ namespace CapaPresentacion
             this.CenterToScreen();
         }
 
-        private void Reportes_Load(object sender, EventArgs e)
+        public void Reporte1()
         {
             cantidad = conectar.Cantidad_Hoteles();
             nombres = conectar.Metodo_Nombres();
@@ -38,6 +38,42 @@ namespace CapaPresentacion
                 serie.Label = cantidad[i].ToString();
                 serie.Points.Add(Convert.ToDouble(cantidad[i]));
             }
+
+        }
+        public void Reporte2()
+        {
+
+        }
+        public void Reporte3()
+        {
+
+        }
+
+        public void Reporte4()
+        {
+
+        }
+        public void Reporte5()
+        {
+
+        }
+
+        public void Reporte6()
+        {
+
+        }
+        public void Reporte7()
+        {
+
+        }
+
+        private void Reportes_Load(object sender, EventArgs e)
+        {
+            //Funcion del reporte 1
+            Reporte1();
+
+
+            
         }
     }
 }
