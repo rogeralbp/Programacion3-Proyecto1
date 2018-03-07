@@ -65,6 +65,12 @@
             this.chart5 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.chart6 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.chart7 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -111,6 +117,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.label2);
             this.tabPage2.Controls.Add(this.chart2);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
@@ -122,6 +129,7 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.label3);
             this.tabPage3.Controls.Add(this.chart3);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
@@ -132,6 +140,7 @@
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.label4);
             this.tabPage4.Controls.Add(this.chart4);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
@@ -142,6 +151,7 @@
             // 
             // tabPage5
             // 
+            this.tabPage5.Controls.Add(this.label5);
             this.tabPage5.Controls.Add(this.chart5);
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
@@ -152,6 +162,7 @@
             // 
             // tabPage6
             // 
+            this.tabPage6.Controls.Add(this.label6);
             this.tabPage6.Controls.Add(this.chart6);
             this.tabPage6.Location = new System.Drawing.Point(4, 22);
             this.tabPage6.Name = "tabPage6";
@@ -162,6 +173,7 @@
             // 
             // tabPage7
             // 
+            this.tabPage7.Controls.Add(this.label7);
             this.tabPage7.Controls.Add(this.chart7);
             this.tabPage7.Location = new System.Drawing.Point(4, 22);
             this.tabPage7.Name = "tabPage7";
@@ -218,7 +230,7 @@
             this.chart3.ChartAreas.Add(chartArea3);
             legend3.Name = "Legend1";
             this.chart3.Legends.Add(legend3);
-            this.chart3.Location = new System.Drawing.Point(28, 24);
+            this.chart3.Location = new System.Drawing.Point(21, 46);
             this.chart3.Name = "chart3";
             series3.ChartArea = "ChartArea1";
             series3.Legend = "Legend1";
@@ -234,7 +246,7 @@
             this.chart4.ChartAreas.Add(chartArea4);
             legend4.Name = "Legend1";
             this.chart4.Legends.Add(legend4);
-            this.chart4.Location = new System.Drawing.Point(28, 24);
+            this.chart4.Location = new System.Drawing.Point(28, 39);
             this.chart4.Name = "chart4";
             series4.ChartArea = "ChartArea1";
             series4.Legend = "Legend1";
@@ -282,7 +294,7 @@
             this.chart7.ChartAreas.Add(chartArea7);
             legend7.Name = "Legend1";
             this.chart7.Legends.Add(legend7);
-            this.chart7.Location = new System.Drawing.Point(28, 24);
+            this.chart7.Location = new System.Drawing.Point(21, 39);
             this.chart7.Name = "chart7";
             series7.ChartArea = "ChartArea1";
             series7.Legend = "Legend1";
@@ -291,6 +303,67 @@
             this.chart7.Size = new System.Drawing.Size(854, 448);
             this.chart7.TabIndex = 2;
             this.chart7.Text = "chart7";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(22, 17);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(339, 13);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Mostrar la cantidad de personas que han estado por hotel.";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(18, 19);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(471, 13);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Mostrar el porcentaje de visita por país. Solo se considera los que tengan visita" +
+    "s.";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(25, 23);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(410, 13);
+            this.label4.TabIndex = 5;
+            this.label4.Text = "Mostrar la cantidad de adultos que han viajado en un rango de fechas.";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(34, 23);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(399, 13);
+            this.label5.TabIndex = 6;
+            this.label5.Text = "Mostrar la cantidad de niños que han viajado en un rango de fechas.";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(63, 8);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(294, 13);
+            this.label6.TabIndex = 7;
+            this.label6.Text = "Mostrar las marcas de los vehículos más rentados.";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(51, 14);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(366, 13);
+            this.label7.TabIndex = 8;
+            this.label7.Text = "Mostrar los nombres de los países en que se ha hecho escala. ";
             // 
             // Reportes
             // 
@@ -305,11 +378,17 @@
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
             this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
             this.tabPage4.ResumeLayout(false);
+            this.tabPage4.PerformLayout();
             this.tabPage5.ResumeLayout(false);
+            this.tabPage5.PerformLayout();
             this.tabPage6.ResumeLayout(false);
+            this.tabPage6.PerformLayout();
             this.tabPage7.ResumeLayout(false);
+            this.tabPage7.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart3)).EndInit();
@@ -339,5 +418,11 @@
         private System.Windows.Forms.DataVisualization.Charting.Chart chart5;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart6;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart7;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
     }
 }
