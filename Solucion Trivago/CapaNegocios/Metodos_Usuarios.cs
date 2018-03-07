@@ -703,6 +703,24 @@ namespace CapaNegocios
             }
         }
 
+        public void InsertarDatosCalifacionHoteles(int idHotel, int calificacionAcutual)
+        {
+            try
+            {
+
+                Conexion();
+                conexion.Open();
+                cmd = new NpgsqlCommand("INSERT INTO ranking_hoteles (id_hotel,calificacion_actual) VALUES ('" + idHotel + "','" + calificacionAcutual + "')", conexion);
+                cmd.ExecuteNonQuery();
+                conexion.Close();
+            }
+            catch (Exception error)
+            {
+
+                MessageBox.Show("Error--- \n" + error);
+            }
+
+        }
     }
     
 }

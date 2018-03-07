@@ -268,7 +268,15 @@ namespace CapaPresentacion
             if (metodos.DiferenciaDiasFechas(fechaLlegadaPais.Text, fechaPartidaPais.Text) > 0)
             {
                 metodos.InsertarDatosReservacionHotel(idHotelPais, fechaLlegadaPais.Text, fechaPartidaPais.Text, Convert.ToInt16(spinnerHabitacionesPais.Value), Convert.ToInt16(spinnerPersonasAdultasPais.Value + spinnerPersonasMenoresPais.Value), cedulaUsuario, Convert.ToInt16(spinnerPersonasAdultasPais.Value), Convert.ToInt16(spinnerPersonasMenoresPais.Value), precioTotalHospedajeHotelPais);
-                MessageBox.Show("La Reservacion se Logro con Exito.");
+     
+                //SECCION DE CALIFICACION DEL HOTEL
+                DialogResult opcion;
+                opcion= MessageBox.Show("La Reservacion se Logro con Exito.\nDesea Calificar el Hotel?","Confirmacion de Reservacion",MessageBoxButtons.OKCancel,MessageBoxIcon.Question);
+                if (opcion == DialogResult.OK)
+                {
+                    int calificacionHotelPais = Convert.ToInt16(Microsoft.VisualBasic.Interaction.InputBox("Digite la Calificacion para el Hotel : "+nombreHotelPais+", en escala de 1 a 10.","Calificacion Hoteles","1",100,100));
+                    metodos.InsertarDatosCalifacionHoteles(idHotelPais,calificacionHotelPais);
+                }
                 int cantidadActualHabitaciones = Convert.ToInt16(dtgHotelesPaises[3, posicionDTGHotelPais].Value.ToString());
                 int cantidadRestar = Convert.ToInt16(spinnerHabitacionesPais.Value);
                 int resultadoResta =(cantidadActualHabitaciones-cantidadRestar);
@@ -314,7 +322,14 @@ namespace CapaPresentacion
             if (metodos.DiferenciaDiasFechas(fechaLlegadaCiudad.Text, FechaPartidaCiudad.Text) > 0)
             {
                 metodos.InsertarDatosReservacionHotel(idHotelCiudad, fechaLlegadaCiudad.Text, FechaPartidaCiudad.Text, Convert.ToInt16(spinnerHabitacionesCiudad.Value), Convert.ToInt16(spinnerPersonasAdultosCiudad.Value + spinnerPersonasMenoresCiudad.Value), cedulaUsuario, Convert.ToInt16(spinnerPersonasAdultosCiudad.Value), Convert.ToInt16(spinnerPersonasMenoresCiudad.Value), precioTotalHospedajeHotelCiudad);
-                MessageBox.Show("La reservacion se Realizo con Exito.");
+                //SECCION DE CALIFICACION DEL HOTEL
+                DialogResult opcion;
+                opcion = MessageBox.Show("La Reservacion se Logro con Exito.\nDesea Calificar el Hotel?", "Confirmacion de Reservacion", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                if (opcion == DialogResult.OK)
+                {
+                    int calificacionHotelCiudad = Convert.ToInt16(Microsoft.VisualBasic.Interaction.InputBox("Digite la Calificacion para el Hotel : " + nombreHotelCiudad + ", en escala de 1 a 10.", "Calificacion Hoteles", "1", 100, 100));
+                    metodos.InsertarDatosCalifacionHoteles(idHotelCiudad, calificacionHotelCiudad);
+                }
                 int cantidadActualHabitaciones = Convert.ToInt16(dtgHotelesCiudades[2, posicionDTGHotelCiudad].Value.ToString());
                 int cantidadRestar = Convert.ToInt16(spinnerHabitacionesCiudad.Value);
                 int resultadoResta = (cantidadActualHabitaciones - cantidadRestar);
@@ -354,7 +369,13 @@ namespace CapaPresentacion
             if (metodos.DiferenciaDiasFechas(fechaLlegadaHotel.Text, fechaPartidaHotel.Text) > 0)
             {
                 metodos.InsertarDatosReservacionHotel(idHotel, fechaLlegadaHotel.Text, fechaPartidaHotel.Text, Convert.ToInt16(spinnerHabitacionesHotel.Value), Convert.ToInt16(spinnerPersonasAdultosHotel.Value + spinnerPersonasMenoresHotel.Value), cedulaUsuario, Convert.ToInt16(spinnerPersonasAdultosHotel.Value), Convert.ToInt16(spinnerPersonasMenoresHotel.Value), precioTotalHospedajeHotel);
-                MessageBox.Show("La reservacion se Realizo con Exito.");
+                DialogResult opcion;
+                opcion = MessageBox.Show("La Reservacion se Logro con Exito.\nDesea Calificar el Hotel?", "Confirmacion de Reservacion", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                if (opcion == DialogResult.OK)
+                {
+                    int calificacionHotel = Convert.ToInt16(Microsoft.VisualBasic.Interaction.InputBox("Digite la Calificacion para el Hotel : " + nombreHotel + ", en escala de 1 a 10.", "Calificacion Hoteles", "1", 100, 100));
+                    metodos.InsertarDatosCalifacionHoteles(idHotel, calificacionHotel);
+                }
                 int cantidadActualHabitaciones = Convert.ToInt16(dtgResultadosBusquedad[4, posicionDTGHotel].Value.ToString());
                 int cantidadRestar = Convert.ToInt16(spinnerHabitacionesHotel.Value);
                 int resultadoResta = (cantidadActualHabitaciones - cantidadRestar);
