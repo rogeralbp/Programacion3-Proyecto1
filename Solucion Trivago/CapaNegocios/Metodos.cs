@@ -800,7 +800,7 @@ namespace CapaNegocios
 
 
 
-        public void ComboLugares(ComboBox nombre_pais)
+        public void ComboLugares(ComboBox lugares, int id_pais)
         {
 
             try
@@ -808,13 +808,13 @@ namespace CapaNegocios
                 Conexion();
                 conexion.Open();
                 List<String> lista = new List<String>();
-                NpgsqlCommand cmd = new NpgsqlCommand("SELECT nombre FROM lugares", conexion);
+                NpgsqlCommand cmd = new NpgsqlCommand("SELECT nombre_lugar FROM lugares JOIN paises ON lugares.id_pais=paises.identificador WHERE id_pais='"+id_pais+"'", conexion);
                 NpgsqlDataReader dr = cmd.ExecuteReader();
                 if (dr.HasRows)
                 {
                     while (dr.Read())
                     {
-                        nombre_pais.Items.Add(dr.GetString(0));
+                        lugares.Items.Add(dr.GetString(0));
 
                     }
                 }

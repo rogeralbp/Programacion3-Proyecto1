@@ -166,7 +166,7 @@
             this.btnCargar_Foto.TabIndex = 14;
             this.btnCargar_Foto.Text = ".........";
             this.btnCargar_Foto.UseVisualStyleBackColor = true;
-// 
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Location = new System.Drawing.Point(208, 137);
@@ -204,6 +204,7 @@
             this.comboBoxPaises.Name = "comboBoxPaises";
             this.comboBoxPaises.Size = new System.Drawing.Size(372, 24);
             this.comboBoxPaises.TabIndex = 10;
+            this.comboBoxPaises.SelectedIndexChanged += new System.EventHandler(this.comboBoxPaises_SelectedIndexChanged);
             // 
             // comboBoxLugares
             // 
@@ -236,7 +237,6 @@
             this.txtIdentificador.Name = "txtIdentificador";
             this.txtIdentificador.Size = new System.Drawing.Size(372, 22);
             this.txtIdentificador.TabIndex = 6;
-
             this.txtIdentificador.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtIdentificador_KeyPress);
             // 
             // label6
@@ -344,7 +344,6 @@
             this.label24.Size = new System.Drawing.Size(91, 20);
             this.label24.TabIndex = 35;
             this.label24.Text = "Tarifa Actual:";
- 
             // 
             // comboBoxTarifaNueva
             // 
@@ -408,6 +407,7 @@
             this.comboNuevoPais.Name = "comboNuevoPais";
             this.comboNuevoPais.Size = new System.Drawing.Size(274, 28);
             this.comboNuevoPais.TabIndex = 28;
+            this.comboNuevoPais.SelectedIndexChanged += new System.EventHandler(this.comboNuevoPais_SelectedIndexChanged);
             // 
             // label15
             // 
@@ -460,7 +460,7 @@
             this.txtLugarActual.Name = "txtLugarActual";
             this.txtLugarActual.Size = new System.Drawing.Size(291, 26);
             this.txtLugarActual.TabIndex = 22;
-
+            // 
             // txtPaisActual
             // 
             this.txtPaisActual.Enabled = false;
@@ -617,7 +617,6 @@
             this.textPaisActual.Name = "textPaisActual";
             this.textPaisActual.Size = new System.Drawing.Size(291, 22);
             this.textPaisActual.TabIndex = 22;
-   
             // 
             // textNombreActual
             // 
@@ -626,7 +625,6 @@
             this.textNombreActual.Name = "textNombreActual";
             this.textNombreActual.Size = new System.Drawing.Size(291, 22);
             this.textNombreActual.TabIndex = 21;
-
             this.textNombreActual.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textNombreActual_KeyPress);
             // 
             // comboBoxEliminarIdentificador
@@ -704,7 +702,6 @@
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Consultar Hoteles";
             this.tabPage4.UseVisualStyleBackColor = true;
-
             // 
             // Tabla_Hoteles
             // 
@@ -714,7 +711,7 @@
             this.Tabla_Hoteles.Name = "Tabla_Hoteles";
             this.Tabla_Hoteles.Size = new System.Drawing.Size(797, 336);
             this.Tabla_Hoteles.TabIndex = 1;
-         
+            // 
             // button7
             // 
             this.button7.Location = new System.Drawing.Point(671, 25);

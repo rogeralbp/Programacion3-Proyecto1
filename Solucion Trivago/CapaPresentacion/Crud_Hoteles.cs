@@ -31,13 +31,11 @@ namespace CapaPresentacion
 
             //Llenando los combobox de paise y lugares
             metodos.ComboNombresPaises(comboBoxPaises);
-            metodos.ComboLugares(comboBoxLugares);
+           
 
             //Llenando los combobox de modificar lugar y pais
-            metodos.ComboNombresPaises(comboNuevoPais);
-            metodos.ComboLugares(comboNuevoLugar);
+            metodos.ComboNombresPaises(comboNuevoPais);           
                 
-
             //Metodo que llena los combobox de ID de hoteles
             metodos.ComboIDHoteles(comboBoxEliminarIdentificador);
 
@@ -68,15 +66,11 @@ namespace CapaPresentacion
 
         private void button2_Click(object sender, EventArgs e)
         {
-
-
-
-
             this.Hide();
             Menu_Principal_Administrador v = new Menu_Principal_Administrador();
             v.Show();
-
         }
+        
 
 
         public void LimpiarCampos()
@@ -143,7 +137,6 @@ namespace CapaPresentacion
             textLugarActual.Clear();
             textHabitacionesActuales.Clear();
             
-
         }
 
         private void comboBox6_SelectedIndexChanged(object sender, EventArgs e)
@@ -247,6 +240,16 @@ namespace CapaPresentacion
         private void textNombreActual_KeyPress(object sender, KeyPressEventArgs e)
         {
             validar.validarSoloLetras(e);
+        }
+
+        private void comboBoxPaises_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            metodos.ComboLugares(comboBoxLugares,metodos.RetornarIDPais(comboBoxPaises.SelectedItem.ToString()));
+        }
+
+        private void comboNuevoPais_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            metodos.ComboLugares(comboNuevoLugar, metodos.RetornarIDPais(comboNuevoPais.SelectedItem.ToString()));
         }
     }
 }

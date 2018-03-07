@@ -41,7 +41,7 @@
             this.btnGuardarSeleccionHotel = new System.Windows.Forms.Button();
             this.spinnerCantidadHabitacionesHotel = new System.Windows.Forms.NumericUpDown();
             this.label9 = new System.Windows.Forms.Label();
-            this.comboBoxHotelesPasDestino = new System.Windows.Forms.ComboBox();
+            this.comboBoxHotelesPaisDestino = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.panelAgregarAutomovil = new System.Windows.Forms.Panel();
             this.btnGuardarSeleccionAutomovil = new System.Windows.Forms.Button();
@@ -78,6 +78,8 @@
             this.escala_directo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.duracion_vuelo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.precio_vuelo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label15 = new System.Windows.Forms.Label();
+            this.txtPrecioHabitacion = new System.Windows.Forms.TextBox();
             this.panelAgregarHotel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spinnerCantidadHabitacionesHotel)).BeginInit();
             this.panelAgregarAutomovil.SuspendLayout();
@@ -176,20 +178,22 @@
             // 
             // panelAgregarHotel
             // 
+            this.panelAgregarHotel.Controls.Add(this.txtPrecioHabitacion);
+            this.panelAgregarHotel.Controls.Add(this.label15);
             this.panelAgregarHotel.Controls.Add(this.btnGuardarSeleccionHotel);
             this.panelAgregarHotel.Controls.Add(this.spinnerCantidadHabitacionesHotel);
             this.panelAgregarHotel.Controls.Add(this.label9);
-            this.panelAgregarHotel.Controls.Add(this.comboBoxHotelesPasDestino);
+            this.panelAgregarHotel.Controls.Add(this.comboBoxHotelesPaisDestino);
             this.panelAgregarHotel.Controls.Add(this.label6);
             this.panelAgregarHotel.Location = new System.Drawing.Point(3, 194);
             this.panelAgregarHotel.Name = "panelAgregarHotel";
-            this.panelAgregarHotel.Size = new System.Drawing.Size(389, 98);
+            this.panelAgregarHotel.Size = new System.Drawing.Size(389, 122);
             this.panelAgregarHotel.TabIndex = 11;
             this.panelAgregarHotel.Visible = false;
             // 
             // btnGuardarSeleccionHotel
             // 
-            this.btnGuardarSeleccionHotel.Location = new System.Drawing.Point(240, 47);
+            this.btnGuardarSeleccionHotel.Location = new System.Drawing.Point(256, 82);
             this.btnGuardarSeleccionHotel.Name = "btnGuardarSeleccionHotel";
             this.btnGuardarSeleccionHotel.Size = new System.Drawing.Size(107, 23);
             this.btnGuardarSeleccionHotel.TabIndex = 9;
@@ -198,7 +202,7 @@
             // 
             // spinnerCantidadHabitacionesHotel
             // 
-            this.spinnerCantidadHabitacionesHotel.Location = new System.Drawing.Point(164, 47);
+            this.spinnerCantidadHabitacionesHotel.Location = new System.Drawing.Point(167, 85);
             this.spinnerCantidadHabitacionesHotel.Name = "spinnerCantidadHabitacionesHotel";
             this.spinnerCantidadHabitacionesHotel.Size = new System.Drawing.Size(47, 20);
             this.spinnerCantidadHabitacionesHotel.TabIndex = 8;
@@ -207,20 +211,21 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(10, 54);
+            this.label9.Location = new System.Drawing.Point(10, 92);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(132, 13);
             this.label9.TabIndex = 7;
             this.label9.Text = "Cantidad de Habitaciones:";
             // 
-            // comboBoxHotelesPasDestino
+            // comboBoxHotelesPaisDestino
             // 
-            this.comboBoxHotelesPasDestino.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxHotelesPasDestino.FormattingEnabled = true;
-            this.comboBoxHotelesPasDestino.Location = new System.Drawing.Point(118, 9);
-            this.comboBoxHotelesPasDestino.Name = "comboBoxHotelesPasDestino";
-            this.comboBoxHotelesPasDestino.Size = new System.Drawing.Size(261, 21);
-            this.comboBoxHotelesPasDestino.TabIndex = 6;
+            this.comboBoxHotelesPaisDestino.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxHotelesPaisDestino.FormattingEnabled = true;
+            this.comboBoxHotelesPaisDestino.Location = new System.Drawing.Point(118, 9);
+            this.comboBoxHotelesPaisDestino.Name = "comboBoxHotelesPaisDestino";
+            this.comboBoxHotelesPaisDestino.Size = new System.Drawing.Size(261, 21);
+            this.comboBoxHotelesPaisDestino.TabIndex = 6;
+            this.comboBoxHotelesPaisDestino.SelectedIndexChanged += new System.EventHandler(this.comboBoxHotelesPasDestino_SelectedIndexChanged);
             // 
             // label6
             // 
@@ -245,7 +250,7 @@
             this.panelAgregarAutomovil.Controls.Add(this.label10);
             this.panelAgregarAutomovil.Controls.Add(this.comboBoxVehiculos);
             this.panelAgregarAutomovil.Controls.Add(this.label7);
-            this.panelAgregarAutomovil.Location = new System.Drawing.Point(3, 298);
+            this.panelAgregarAutomovil.Location = new System.Drawing.Point(6, 336);
             this.panelAgregarAutomovil.Name = "panelAgregarAutomovil";
             this.panelAgregarAutomovil.Size = new System.Drawing.Size(389, 236);
             this.panelAgregarAutomovil.TabIndex = 12;
@@ -263,7 +268,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(194, 42);
+            this.label14.Location = new System.Drawing.Point(197, 33);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(89, 13);
             this.label14.TabIndex = 16;
@@ -313,7 +318,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(69, 184);
+            this.label12.Location = new System.Drawing.Point(60, 185);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(40, 13);
             this.label12.TabIndex = 10;
@@ -376,7 +381,7 @@
             // 
             // btnCofirmarReservacion1
             // 
-            this.btnCofirmarReservacion1.Location = new System.Drawing.Point(657, 501);
+            this.btnCofirmarReservacion1.Location = new System.Drawing.Point(659, 511);
             this.btnCofirmarReservacion1.Name = "btnCofirmarReservacion1";
             this.btnCofirmarReservacion1.Size = new System.Drawing.Size(139, 23);
             this.btnCofirmarReservacion1.TabIndex = 15;
@@ -448,7 +453,7 @@
             // 
             // btnGuardarReservacionPais
             // 
-            this.btnGuardarReservacionPais.Location = new System.Drawing.Point(499, 501);
+            this.btnGuardarReservacionPais.Location = new System.Drawing.Point(499, 511);
             this.btnGuardarReservacionPais.Name = "btnGuardarReservacionPais";
             this.btnGuardarReservacionPais.Size = new System.Drawing.Size(130, 23);
             this.btnGuardarReservacionPais.TabIndex = 54;
@@ -470,7 +475,7 @@
             this.dtgVistaPreliminarVHA.Name = "dtgVistaPreliminarVHA";
             this.dtgVistaPreliminarVHA.ReadOnly = true;
             this.dtgVistaPreliminarVHA.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgVistaPreliminarVHA.Size = new System.Drawing.Size(541, 301);
+            this.dtgVistaPreliminarVHA.Size = new System.Drawing.Size(550, 301);
             this.dtgVistaPreliminarVHA.TabIndex = 55;
             // 
             // optPrecioMayorHotel
@@ -554,13 +559,13 @@
             // 
             // escala_directo
             // 
-            this.escala_directo.HeaderText = "Escala o Directo";
+            this.escala_directo.HeaderText = "Escala o Vuelo Directo";
             this.escala_directo.Name = "escala_directo";
             this.escala_directo.ReadOnly = true;
             // 
             // duracion_vuelo
             // 
-            this.duracion_vuelo.HeaderText = "Duracion";
+            this.duracion_vuelo.HeaderText = "Duracion Total";
             this.duracion_vuelo.Name = "duracion_vuelo";
             this.duracion_vuelo.ReadOnly = true;
             // 
@@ -569,6 +574,23 @@
             this.precio_vuelo.HeaderText = "Precio Vuelo";
             this.precio_vuelo.Name = "precio_vuelo";
             this.precio_vuelo.ReadOnly = true;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(14, 54);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(94, 13);
+            this.label15.TabIndex = 10;
+            this.label15.Text = "Precio Habitacion:";
+            // 
+            // txtPrecioHabitacion
+            // 
+            this.txtPrecioHabitacion.Enabled = false;
+            this.txtPrecioHabitacion.Location = new System.Drawing.Point(118, 51);
+            this.txtPrecioHabitacion.Name = "txtPrecioHabitacion";
+            this.txtPrecioHabitacion.Size = new System.Drawing.Size(261, 20);
+            this.txtPrecioHabitacion.TabIndex = 13;
             // 
             // Seccion_Vuelos
             // 
@@ -635,7 +657,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.NumericUpDown spinnerCantidadPasajerosAdultos;
         private System.Windows.Forms.Button btnCofirmarReservacion1;
-        private System.Windows.Forms.ComboBox comboBoxHotelesPasDestino;
+        private System.Windows.Forms.ComboBox comboBoxHotelesPaisDestino;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.RadioButton optTodosServicios;
         private System.Windows.Forms.RadioButton optHotel;
@@ -671,5 +693,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn escala_directo;
         private System.Windows.Forms.DataGridViewTextBoxColumn duracion_vuelo;
         private System.Windows.Forms.DataGridViewTextBoxColumn precio_vuelo;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.TextBox txtPrecioHabitacion;
     }
 }

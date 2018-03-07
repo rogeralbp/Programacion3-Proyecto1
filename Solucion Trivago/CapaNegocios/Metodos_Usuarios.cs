@@ -227,7 +227,6 @@ namespace CapaNegocios
 
                     }
                     conexion.Close();
-
                 }
 
             }
@@ -577,7 +576,6 @@ namespace CapaNegocios
             {
                 Conexion();
                 conexion.Open();
-                List<String> lista = new List<String>();
                 NpgsqlCommand cmd = new NpgsqlCommand("SELECT nombre FROM hotel WHERE pais='"+pais+"'", conexion);
                 NpgsqlDataReader dr = cmd.ExecuteReader();
                 if (dr.HasRows)
@@ -675,6 +673,29 @@ namespace CapaNegocios
                 dtgVuelosASC.Columns[3].HeaderCell.Value = "duracion";
                 dtgVuelosASC.Columns[4].HeaderCell.Value = "precio";
                 conexion.Close();
+            }
+            catch (Exception error)
+            {
+                Console.WriteLine(error);
+            }
+        }
+
+        public void RetornarPrecioHabitacionesHotel(ComboBox NombreHotel,TextBox precioH) {
+
+            try
+            {
+                Conexion();
+                conexion.Open();
+                NpgsqlCommand cmd = new NpgsqlCommand("SELECT tarifa_hotel FROM hotel WHERE nombre = '" + NombreHotel.SelectedItem.ToString()+"'", conexion);
+                NpgsqlDataReader leer = cmd.ExecuteReader();
+                if (leer.HasRows)
+                {
+                    while (leer.Read())
+                    {
+                        precioH.Text = leer.GetDouble(0).ToString();
+                    }
+                    conexion.Close();
+                }
             }
             catch (Exception error)
             {

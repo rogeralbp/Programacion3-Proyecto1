@@ -197,7 +197,7 @@ namespace CapaPresentacion
 
         private void comboBoxPaisDestino_SelectedIndexChanged(object sender, EventArgs e)
         {
-            metodos.LlenarHotelesPaisDestino(comboBoxHotelesPasDestino, comboBoxPaisDestino.SelectedItem.ToString());
+            metodos.LlenarHotelesPaisDestino(comboBoxHotelesPaisDestino, comboBoxPaisDestino.SelectedItem.ToString());
         }
 
         private void comboBoxVehiculos_SelectedIndexChanged(object sender, EventArgs e)
@@ -231,6 +231,11 @@ namespace CapaPresentacion
         private void optPrecioMayorHotel_CheckedChanged(object sender, EventArgs e)
         {
             metodos.LlenarDtVistaPreliminarVuelosDESC(dtgVistaPreliminarVHA, comboBoxPaisOrigen.SelectedItem.ToString(), comboBoxPaisDestino.SelectedItem.ToString());
+        }
+
+        private void comboBoxHotelesPasDestino_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            metodos.RetornarPrecioHabitacionesHotel(comboBoxHotelesPaisDestino, txtPrecioHabitacion);
         }
     }
 }
