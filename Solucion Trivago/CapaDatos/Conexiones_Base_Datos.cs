@@ -713,6 +713,60 @@ namespace CapaDatos
             return idPais;
         }
 
-    } 
+    
+
+
+    public List<string> Cantidad_Hoteles()
+    {
+        List<String> cantidad_hoteles = new List<string>();
+        Conexion();
+        conexion.Open();
+        NpgsqlCommand cmd = new NpgsqlCommand("SELECT COUNT(r.hotel), h.nombre FROM informacion_reservaciones_hoteles AS r JOIN hotel AS h on h.nombre = r.hotel WHERE r.hotel = h.nombre GROUP BY h.nombre;", conexion);
+        NpgsqlDataReader reader = cmd.ExecuteReader();
+        try
+        {
+            while (reader.Read())
+            {
+                cantidad_hoteles.Add(reader.GetString(0));
+            }
+        }
+        finally
+        {
+            reader.Close();
+            cmd.Dispose();
+
+        }
+
+
+        return cantidad_hoteles;
+    }
+    public List<string> Metodo_Nombres()
+    {
+
+        List<String> nombres = new List<String>();
+        Conexion();
+        conexion.Open();
+        NpgsqlCommand cmd = new NpgsqlCommand("SELECT COUNT(r.hotel), h.nombre FROM informacion_reservaciones_hoteles AS r JOIN hotel AS h on h.nombre = r.hotel WHERE r.hotel = h.nombre GROUP BY h.nombre;", conexion);
+        NpgsqlDataReader reader = cmd.ExecuteReader();
+        try
+        {
+            while (reader.Read())
+            {
+                nombres.Add(reader.GetString(1));
+            }
+        }
+        finally
+        {
+            reader.Close();
+            cmd.Dispose();
+            conexion.Close();
+        }
+
+
+        return nombres;
+    }
 
 }
+}
+
+
