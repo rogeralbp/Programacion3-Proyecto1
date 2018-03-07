@@ -16,7 +16,7 @@ namespace CapaPresentacion
     {
 
         Conexiones_Base_Datos conectar = new Conexiones_Base_Datos();
-        List<string> cantidad = new List<string>();
+        List<String> cantidad = new List<string>();
         List<String> nombres = new List<String>();
 
         public Reportes()
