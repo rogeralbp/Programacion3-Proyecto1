@@ -215,7 +215,7 @@ namespace CapaDatos
             {
                 Conexion();
                 conexion.Open();
-                cmd = new NpgsqlCommand("INSERT INTO lugares (id_pais,identificador_lugar, nombre_lugar) VALUES ('"+idPais+"','" + identificador + "', '" + nombre + "')", conexion);
+                cmd = new NpgsqlCommand("INSERT INTO lugares (id_pais,identificador_lugar, nombre_lugar) VALUES ('" + idPais + "','" + identificador + "', '" + nombre + "')", conexion);
                 cmd.ExecuteNonQuery();
                 conexion.Close();
             }
@@ -226,13 +226,13 @@ namespace CapaDatos
 
         }
 
-        public void ModificarDatosLugar(int identificador, string nombre,int pais_id )
+        public void ModificarDatosLugar(int identificador, string nombre, int pais_id)
         {
             try
             {
                 Conexion();
                 conexion.Open();
-                NpgsqlCommand cmd = new NpgsqlCommand("UPDATE lugares SET id_pais ='"+pais_id+"', nombre_lugar = '" + nombre + "' WHERE identificador_lugar = '" + identificador + "'", conexion);
+                NpgsqlCommand cmd = new NpgsqlCommand("UPDATE lugares SET id_pais ='" + pais_id + "', nombre_lugar = '" + nombre + "' WHERE identificador_lugar = '" + identificador + "'", conexion);
                 cmd.ExecuteNonQuery();
                 conexion.Close();
             }
@@ -240,7 +240,7 @@ namespace CapaDatos
             {
                 MessageBox.Show("Error--- \n" + error);
             }
-            
+
         }
 
         public void EliminarDatosLugares(int identificador)
@@ -564,7 +564,7 @@ namespace CapaDatos
         /// <returns> los datos completos cedula[0], nombre[1] y tipo de usuario[3] </returns>
         public int ConsultarCedulaUsuario(String nombre)
         {
-            int cedulaUsurio=0;
+            int cedulaUsurio = 0;
 
             Conexion();
             conexion.Open();
@@ -620,7 +620,7 @@ namespace CapaDatos
                     }
                 }
                 conexion.Close();
-                
+
             }
             catch (Exception error)
             {
@@ -629,7 +629,7 @@ namespace CapaDatos
 
         }
 
-        public void MostrarInformacionAerolineas(ComboBox id_aerolineas,TextBox idActual, TextBox nombre)
+        public void MostrarInformacionAerolineas(ComboBox id_aerolineas, TextBox idActual, TextBox nombre)
         {
             try
             {
@@ -641,9 +641,9 @@ namespace CapaDatos
                 {
                     while (leer.Read())
                     {
-                        idActual.Text =leer.GetString(0);
+                        idActual.Text = leer.GetString(0);
                         nombre.Text = leer.GetString(1);
-                        
+
                     }
                     conexion.Close();
 
@@ -670,7 +670,7 @@ namespace CapaDatos
             {
                 MessageBox.Show("Error--- \n" + error);
             }
-            
+
         }
 
         public void EliminarDatosAerolineas(string idAer)
@@ -713,6 +713,126 @@ namespace CapaDatos
             return idPais;
         }
 
-    } 
 
-}
+        /// <summary>
+        /// REPORTE 1
+        /// </summary>
+        /// <returns></returns>
+
+        public List<string> Cantidad_Hoteles()
+        {
+            List<String> cantidad_hoteles = new List<string>();
+            Conexion();
+            conexion.Open();
+            NpgsqlCommand cmd = new NpgsqlCommand("SELECT COUNT(r.hotel), h.nombre FROM informacion_reservaciones_hoteles AS r JOIN hotel AS h on h.nombre = r.hotel WHERE r.hotel = h.nombre GROUP BY h.nombre;", conexion);
+            NpgsqlDataReader reader = cmd.ExecuteReader();
+            try
+            {
+                while (reader.Read())
+                {
+                    cantidad_hoteles.Add(reader.GetString(0));
+                }
+            }
+            finally
+            {
+                reader.Close();
+                cmd.Dispose();
+
+            }
+
+
+            return cantidad_hoteles;
+        }
+        public List<string> Metodo_Nombres()
+        {
+
+            List<String> nombres = new List<String>();
+            Conexion();
+            conexion.Open();
+            NpgsqlCommand cmd = new NpgsqlCommand("SELECT COUNT(r.hotel), h.nombre FROM informacion_reservaciones_hoteles AS r JOIN hotel AS h on h.nombre = r.hotel WHERE r.hotel = h.nombre GROUP BY h.nombre;", conexion);
+            NpgsqlDataReader reader = cmd.ExecuteReader();
+            try
+            {
+                while (reader.Read())
+                {
+                    nombres.Add(reader.GetString(1));
+                }
+            }
+            finally
+            {
+                reader.Close();
+                cmd.Dispose();
+                conexion.Close();
+            }
+
+
+            return nombres;
+        }
+
+   
+    /// <summary>
+    /// REPORTE 2
+    /// </summary>
+    /// <returns></returns>
+
+
+        public List<string> Cantidad_Persona()
+        {
+
+            List<String> nombres = new List<String>();
+            Conexion();
+            conexion.Open();
+            NpgsqlCommand cmd = new NpgsqlCommand("SELECT ;", conexion);
+            NpgsqlDataReader reader = cmd.ExecuteReader();
+            try
+            {
+                while (reader.Read())
+                {
+                    nombres.Add(reader.GetString(1));
+                }
+            }
+            finally
+            {
+                reader.Close();
+                cmd.Dispose();
+                conexion.Close();
+            }
+
+
+            return nombres;
+        }
+
+
+
+        public List<string> Hoteles()
+        {
+
+            List<String> nombres = new List<String>();
+            Conexion();
+            conexion.Open();
+            NpgsqlCommand cmd = new NpgsqlCommand("SELECT ;", conexion);
+            NpgsqlDataReader reader = cmd.ExecuteReader();
+            try
+            {
+                while (reader.Read())
+                {
+                    nombres.Add(reader.GetString(1));
+                }
+            }
+            finally
+            {
+                reader.Close();
+                cmd.Dispose();
+                conexion.Close();
+            }
+
+
+            return nombres;
+        }
+
+
+    }
+
+    }
+
+
