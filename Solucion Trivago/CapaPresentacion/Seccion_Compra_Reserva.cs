@@ -55,7 +55,13 @@ namespace CapaPresentacion
             double precioHospedajeTotal = Convert.ToDouble(dtgPreservaciones[8, posicionDTGPrereservaciones].Value.ToString());
             metodos.InsertarDatosReservacionHotelDesdePrereservacion(idHotel,fechaLlegada,fechaSalida,cantidadHabitaciones,cantidadPersonas,idCliente,cantidadPersonasMenores,cantidadPersonasAdultas,precioHospedajeTotal);
             metodos.EliminarDatosPreReservacionHotel(idHotel, cantidadHabitaciones, cantidadPersonas, idCliente);
-            MessageBox.Show("Se ha ejercido la Prereservacion Correctamente.");
+            DialogResult opcion;
+            opcion = MessageBox.Show("La Pre Reservacion se Ejercio con Exito.\nDesea Calificar el Hotel?", "Confirmacion de Reservacion", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (opcion == DialogResult.OK)
+            {
+                int calificacionHotelCiudad = Convert.ToInt16(Microsoft.VisualBasic.Interaction.InputBox("Digite la Calificacion para el Hotel , en escala de 1 a 10.", "Calificacion Hoteles", "1", 100, 100));
+                metodos.InsertarDatosCalifacionHoteles(idHotel, calificacionHotelCiudad);
+            }
             int cantidadActualHabitaciones = metodos.ActualCantidadHabitaciones(idHotel);
             int cantidadRestar = cantidadHabitaciones;
             int resultadoResta = (cantidadActualHabitaciones - cantidadRestar);

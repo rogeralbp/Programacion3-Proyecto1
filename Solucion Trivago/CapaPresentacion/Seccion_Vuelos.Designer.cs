@@ -38,6 +38,8 @@
             this.fechaInicio = new System.Windows.Forms.DateTimePicker();
             this.fechaFinalizacion = new System.Windows.Forms.DateTimePicker();
             this.panelAgregarHotel = new System.Windows.Forms.Panel();
+            this.txtPrecioHabitacion = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
             this.btnGuardarSeleccionHotel = new System.Windows.Forms.Button();
             this.spinnerCantidadHabitacionesHotel = new System.Windows.Forms.NumericUpDown();
             this.label9 = new System.Windows.Forms.Label();
@@ -75,11 +77,9 @@
             this.btnGuardarCantidadPasajeros = new System.Windows.Forms.Button();
             this.pais_origen = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pais_destino = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.escala_directo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.duracion_vuelo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.precio_vuelo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label15 = new System.Windows.Forms.Label();
-            this.txtPrecioHabitacion = new System.Windows.Forms.TextBox();
+            this.escala_directo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelAgregarHotel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spinnerCantidadHabitacionesHotel)).BeginInit();
             this.panelAgregarAutomovil.SuspendLayout();
@@ -190,6 +190,23 @@
             this.panelAgregarHotel.Size = new System.Drawing.Size(389, 122);
             this.panelAgregarHotel.TabIndex = 11;
             this.panelAgregarHotel.Visible = false;
+            // 
+            // txtPrecioHabitacion
+            // 
+            this.txtPrecioHabitacion.Enabled = false;
+            this.txtPrecioHabitacion.Location = new System.Drawing.Point(118, 51);
+            this.txtPrecioHabitacion.Name = "txtPrecioHabitacion";
+            this.txtPrecioHabitacion.Size = new System.Drawing.Size(261, 20);
+            this.txtPrecioHabitacion.TabIndex = 13;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(14, 54);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(94, 13);
+            this.label15.TabIndex = 10;
+            this.label15.Text = "Precio Habitacion:";
             // 
             // btnGuardarSeleccionHotel
             // 
@@ -468,14 +485,14 @@
             this.dtgVistaPreliminarVHA.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.pais_origen,
             this.pais_destino,
-            this.escala_directo,
             this.duracion_vuelo,
-            this.precio_vuelo});
-            this.dtgVistaPreliminarVHA.Location = new System.Drawing.Point(398, 194);
+            this.precio_vuelo,
+            this.escala_directo});
+            this.dtgVistaPreliminarVHA.Location = new System.Drawing.Point(401, 194);
             this.dtgVistaPreliminarVHA.Name = "dtgVistaPreliminarVHA";
             this.dtgVistaPreliminarVHA.ReadOnly = true;
             this.dtgVistaPreliminarVHA.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgVistaPreliminarVHA.Size = new System.Drawing.Size(550, 301);
+            this.dtgVistaPreliminarVHA.Size = new System.Drawing.Size(550, 311);
             this.dtgVistaPreliminarVHA.TabIndex = 55;
             // 
             // optPrecioMayorHotel
@@ -557,12 +574,6 @@
             this.pais_destino.Name = "pais_destino";
             this.pais_destino.ReadOnly = true;
             // 
-            // escala_directo
-            // 
-            this.escala_directo.HeaderText = "Escala o Vuelo Directo";
-            this.escala_directo.Name = "escala_directo";
-            this.escala_directo.ReadOnly = true;
-            // 
             // duracion_vuelo
             // 
             this.duracion_vuelo.HeaderText = "Duracion Total";
@@ -575,22 +586,11 @@
             this.precio_vuelo.Name = "precio_vuelo";
             this.precio_vuelo.ReadOnly = true;
             // 
-            // label15
+            // escala_directo
             // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(14, 54);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(94, 13);
-            this.label15.TabIndex = 10;
-            this.label15.Text = "Precio Habitacion:";
-            // 
-            // txtPrecioHabitacion
-            // 
-            this.txtPrecioHabitacion.Enabled = false;
-            this.txtPrecioHabitacion.Location = new System.Drawing.Point(118, 51);
-            this.txtPrecioHabitacion.Name = "txtPrecioHabitacion";
-            this.txtPrecioHabitacion.Size = new System.Drawing.Size(261, 20);
-            this.txtPrecioHabitacion.TabIndex = 13;
+            this.escala_directo.HeaderText = "Escala o Vuelo Directo";
+            this.escala_directo.Name = "escala_directo";
+            this.escala_directo.ReadOnly = true;
             // 
             // Seccion_Vuelos
             // 
@@ -688,12 +688,12 @@
         private System.Windows.Forms.RadioButton optTiempoCorto;
         private System.Windows.Forms.RadioButton optMenosEscalas;
         private System.Windows.Forms.Button btnGuardarCantidadPasajeros;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pais_origen;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pais_destino;
-        private System.Windows.Forms.DataGridViewTextBoxColumn escala_directo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn duracion_vuelo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn precio_vuelo;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TextBox txtPrecioHabitacion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pais_origen;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pais_destino;
+        private System.Windows.Forms.DataGridViewTextBoxColumn duracion_vuelo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn precio_vuelo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn escala_directo;
     }
 }
