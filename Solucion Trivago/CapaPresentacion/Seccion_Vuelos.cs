@@ -210,19 +210,20 @@ namespace CapaPresentacion
             if (metodos.BanderaRutaSinEscala(comboBoxPaisOrigen.SelectedItem.ToString(), comboBoxPaisDestino.SelectedItem.ToString()))
             {
                 MessageBox.Show("SI existe en Vuelo DIRECTO");
-                //optPrecioMenorHotel.Checked = true;
-                // metodos.LlenarDtVistaPreliminarVuelosASC(dtgVistaPreliminarVHAEscalas,comboBoxPaisOrigen.SelectedItem.ToString(),comboBoxPaisDestino.SelectedItem.ToString());
-                int idVueloDirecto = metodos.RetornarIDVueloDirecto(comboBoxPaisOrigen.SelectedItem.ToString(), comboBoxPaisDestino.SelectedItem.ToString());
-                if (idVueloDirecto != 0)
-                {
-                    int duracion = metodos.RetornarDuracionTotalVueloDirecto(idVueloDirecto);
-                    double precio = metodos.RetornarPrecioTotalVueloDirecto(idVueloDirecto);
-                    dtgVistaPreliminarVHA.Rows.Add(comboBoxPaisOrigen.SelectedItem.ToString(), comboBoxPaisDestino.SelectedItem.ToString(), duracion, "Vuelo Directo", precio);
-                }
+                optPrecioMenorHotel.Checked = true;
+                 metodos.LlenarDtVistaPreliminarVuelosASC(dtgVistaPreliminarVHA,comboBoxPaisOrigen.SelectedItem.ToString(),comboBoxPaisDestino.SelectedItem.ToString());
+                //int idVueloDirecto = metodos.RetornarIDVueloDirecto(comboBoxPaisOrigen.SelectedItem.ToString(), comboBoxPaisDestino.SelectedItem.ToString());
+                //if (idVueloDirecto != 0)
+                //{
+                //    int duracion = metodos.RetornarDuracionTotalVueloDirecto(idVueloDirecto);
+                //    double precio = metodos.RetornarPrecioTotalVueloDirecto(idVueloDirecto);
+                //    dtgVistaPreliminarVHA.Rows.Add("Vuelo Directo");
+                //}
 
             }
             else {
-                MessageBox.Show("NO existe este Vuelo DIRECTO");
+                MessageBox.Show("NO existe este Vuelo DIRECTO, Existen pero con Escalas.");
+
             }
         }
 

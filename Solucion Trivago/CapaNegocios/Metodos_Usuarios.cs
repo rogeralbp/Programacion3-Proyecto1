@@ -649,6 +649,8 @@ namespace CapaNegocios
                 dtgVuelosASC.Columns[2].HeaderCell.Value = "pais_destino";
                 dtgVuelosASC.Columns[3].HeaderCell.Value = "duracion";
                 dtgVuelosASC.Columns[4].HeaderCell.Value = "precio";
+                
+                //dtgVuelosASC.Columns.Add("vueloDirectoEscala", "Vuelo Directo o Escala");
                 conexion.Close();
             }
             catch (Exception error)
