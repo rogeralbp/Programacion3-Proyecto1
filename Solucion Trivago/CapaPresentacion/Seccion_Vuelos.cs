@@ -218,6 +218,7 @@ namespace CapaPresentacion
                 //    int duracion = metodos.RetornarDuracionTotalVueloDirecto(idVueloDirecto);
                 //    double precio = metodos.RetornarPrecioTotalVueloDirecto(idVueloDirecto);
                 //    dtgVistaPreliminarVHA.Rows.Add("Vuelo Directo");
+
                 //}
 
             }
