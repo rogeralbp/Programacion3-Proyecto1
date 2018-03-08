@@ -251,6 +251,11 @@ namespace CapaPresentacion
         {
             metodos.ComboLugares(comboNuevoLugar, metodos.RetornarIDPais(comboNuevoPais.SelectedItem.ToString()));
         }
+
+        private void btnCargar_Foto_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

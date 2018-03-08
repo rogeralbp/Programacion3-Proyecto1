@@ -752,7 +752,7 @@ namespace CapaNegocios
             return IDVuelo;
         }
 
-        public int RetornarDuracionTotalVueloDirecto(int id_ruta)
+        public int RetornarDuracionTotalVueloDirecto(String paisOrigen)
         {
             int duracionVuelo = 0;
 
@@ -760,7 +760,7 @@ namespace CapaNegocios
             {
                 Conexion();
                 conexion.Open();
-                NpgsqlCommand consulta = new NpgsqlCommand("select duracion from tarifas_vuelos join rutas on tarifas_vuelos.ruta=rutas.identificador_ruta where identificador_ruta ='" + id_ruta + "'", conexion);
+                NpgsqlCommand consulta = new NpgsqlCommand("SELECT duracion FROM  rutas  WHERE pais_origen ='" + paisOrigen + "'", conexion);
                 NpgsqlDataReader lectorConsulta = consulta.ExecuteReader();
                 if (lectorConsulta.HasRows)
                 {
@@ -780,29 +780,202 @@ namespace CapaNegocios
             return duracionVuelo;
         }
 
-        public double RetornarPrecioTotalVueloDirecto(int id_ruta)
+        public int RetornarDuracionTotalVueloEscala(string paisOrigen,string paisDestino)
         {
-            double duracionVuelo = 0;
+            int duracionVuelo = 0;
+
             try
             {
                 Conexion();
                 conexion.Open();
-                NpgsqlCommand consulta = new NpgsqlCommand("select precio from tarifas_vuelos join rutas on tarifas_vuelos.ruta=rutas.identificador_ruta where identificador_ruta ='" + id_ruta + "'", conexion);
+                NpgsqlCommand consulta = new NpgsqlCommand("SELECT duracion FROM  rutas  WHERE pais_origen='" + paisOrigen + "' AND pais_destino='"+paisDestino+"'", conexion);
                 NpgsqlDataReader lectorConsulta = consulta.ExecuteReader();
                 if (lectorConsulta.HasRows)
                 {
                     while (lectorConsulta.Read())
                     {
-                        duracionVuelo = lectorConsulta.GetDouble(0);
+                        duracionVuelo = lectorConsulta.GetInt16(0);
                     }
                 }
                 conexion.Close();
             }
             catch (Exception erroe)
             {
+
                 MessageBox.Show("Error \n " + erroe);
             }
+
             return duracionVuelo;
+        }
+
+        public double RetornarPrecioTotalVueloDirecto(int id_ruta)
+        {
+            double precioVuelo=0;
+            try
+            {
+                Conexion();
+                conexion.Open();
+                NpgsqlCommand consulta = new NpgsqlCommand("SELECT precio FROM tarifas_vuelos JOIN rutas ON tarifas_vuelos.ruta=rutas.identificador_ruta WHERE identificador_ruta='" +id_ruta+"'", conexion);
+                NpgsqlDataReader lectorConsulta = consulta.ExecuteReader();
+                if (lectorConsulta.HasRows)
+                {
+                    while (lectorConsulta.Read())
+                    {
+                        precioVuelo = lectorConsulta.GetDouble(0);
+                    }
+                }
+
+                conexion.Close();
+            }
+            catch (Exception erroe)
+            {
+                MessageBox.Show("Error \n " + erroe);
+            }
+
+            return precioVuelo;
+        }
+
+        public ArrayList LlenarDtVistaPreliminarVuelosASCString(string paisO,string paisD)
+        {
+            ArrayList lista = new ArrayList();
+            string datos = string.Empty;
+            try
+            {
+                Conexion();
+                conexion.Open();
+                NpgsqlCommand consulta = new NpgsqlCommand("SELECT pais_origen,pais_destino,duracion,precio FROM tarifas_vuelos  JOIN rutas ON tarifas_vuelos.ruta=rutas.identificador_ruta WHERE pais_origen='"+paisO+"' AND pais_destino='"+paisD+"' ORDER BY precio ASC", conexion);
+                NpgsqlDataReader lectorConsulta = consulta.ExecuteReader();
+                if (lectorConsulta.HasRows)
+                {
+                    while (lectorConsulta.Read())
+                    {
+                        //datos = lectorConsulta.GetDouble(0).ToString();
+                        datos = lectorConsulta.GetString(0)+";"+ lectorConsulta.GetString(1) + ";"+ lectorConsulta.GetInt16(2) + ";"+ lectorConsulta.GetDouble(3);
+                        lista.Add(datos);                   
+                    }
+                }
+
+                //dtgVuelosASC.Columns.Add("vueloDirectoEscala", "Vuelo Directo o Escala");
+                conexion.Close();
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Error \n"+error);
+            }
+            return lista;
+        }
+
+        public ArrayList LlenarDtVistaPreliminarVuelosDESCString(string paisO, string paisD)
+        {
+            ArrayList lista = new ArrayList();
+            string datos = string.Empty;
+            try
+            {
+                Conexion();
+                conexion.Open();
+                NpgsqlCommand consulta = new NpgsqlCommand("SELECT pais_origen,pais_destino,duracion,precio FROM tarifas_vuelos  JOIN rutas ON tarifas_vuelos.ruta=rutas.identificador_ruta WHERE pais_origen='" + paisO + "' AND pais_destino='" + paisD + "' ORDER BY precio DESC", conexion);
+                NpgsqlDataReader lectorConsulta = consulta.ExecuteReader();
+                if (lectorConsulta.HasRows)
+                {
+                    while (lectorConsulta.Read())
+                    {
+                        //datos = lectorConsulta.GetDouble(0).ToString();
+                        datos = lectorConsulta.GetString(0) + ";" + lectorConsulta.GetString(1) + ";" + lectorConsulta.GetInt16(2) + ";" + lectorConsulta.GetDouble(3);
+                        lista.Add(datos);
+                    }
+                }
+
+                //dtgVuelosASC.Columns.Add("vueloDirectoEscala", "Vuelo Directo o Escala");
+                conexion.Close();
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Error \n" + error);
+            }
+            return lista;
+        }
+
+        public String RetornarPaisEscala(String paisDestino)
+        {
+            String paisEscala = string.Empty;
+
+            try
+            {
+                Conexion();
+                conexion.Open();
+                NpgsqlCommand consulta = new NpgsqlCommand("SELECT pais_origen FROM rutas WHERE pais_destino='"+ paisDestino +"'", conexion);
+                NpgsqlDataReader lectorConsulta = consulta.ExecuteReader();
+                if (lectorConsulta.HasRows)
+                {
+                    while (lectorConsulta.Read())
+                    {
+                        paisEscala = lectorConsulta.GetString(0);
+                    }
+                }
+
+                conexion.Close();
+            }
+            catch (Exception erroe)
+            {
+                MessageBox.Show("Error \n " + erroe);
+            }
+
+            return paisEscala;
+        }
+
+
+        public double RetornarPrecioTotalVueloDirectoOrigenEscala(string paisOrigen)
+        {
+            double precioVuelo = 0;
+            try
+            {
+                Conexion();
+                conexion.Open();
+                NpgsqlCommand consulta = new NpgsqlCommand("SELECT precio FROM tarifas_vuelos JOIN rutas ON tarifas_vuelos.ruta=rutas.identificador_ruta WHERE pais_origen='" + paisOrigen + "'", conexion);
+                NpgsqlDataReader lectorConsulta = consulta.ExecuteReader();
+                if (lectorConsulta.HasRows)
+                {
+                    while (lectorConsulta.Read())
+                    {
+                        precioVuelo = lectorConsulta.GetDouble(0);
+                    }
+                }
+
+                conexion.Close();
+            }
+            catch (Exception erroe)
+            {
+                MessageBox.Show("Error \n " + erroe);
+            }
+
+            return precioVuelo;
+        }
+
+        public double RetornarPrecioTotalVueloDirectoOrigenDestinoVueloEscala(string paisOrigen,string paisDestino)
+        {
+            double precioVuelo = 0;
+            try
+            {
+                Conexion();
+                conexion.Open();
+                NpgsqlCommand consulta = new NpgsqlCommand("SELECT precio FROM tarifas_vuelos JOIN rutas ON tarifas_vuelos.ruta=rutas.identificador_ruta WHERE pais_origen='" + paisOrigen + "' AND pais_destino='"+paisDestino+"'", conexion);
+                NpgsqlDataReader lectorConsulta = consulta.ExecuteReader();
+                if (lectorConsulta.HasRows)
+                {
+                    while (lectorConsulta.Read())
+                    {
+                        precioVuelo = lectorConsulta.GetDouble(0);
+                    }
+                }
+
+                conexion.Close();
+            }
+            catch (Exception erroe)
+            {
+                MessageBox.Show("Error \n " + erroe);
+            }
+
+            return precioVuelo;
         }
     }
     

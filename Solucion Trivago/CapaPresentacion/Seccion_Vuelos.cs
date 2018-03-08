@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -211,19 +212,33 @@ namespace CapaPresentacion
             {
                 MessageBox.Show("SI existe en Vuelo DIRECTO");
                 optPrecioMenorHotel.Checked = true;
-                 metodos.LlenarDtVistaPreliminarVuelosASC(dtgVistaPreliminarVHA,comboBoxPaisOrigen.SelectedItem.ToString(),comboBoxPaisDestino.SelectedItem.ToString());
-                //int idVueloDirecto = metodos.RetornarIDVueloDirecto(comboBoxPaisOrigen.SelectedItem.ToString(), comboBoxPaisDestino.SelectedItem.ToString());
-                //if (idVueloDirecto != 0)
-                //{
-                //    int duracion = metodos.RetornarDuracionTotalVueloDirecto(idVueloDirecto);
-                //    double precio = metodos.RetornarPrecioTotalVueloDirecto(idVueloDirecto);
-                //    dtgVistaPreliminarVHA.Rows.Add("Vuelo Directo");
-                //}
+                //metodos.LlenarDtVistaPreliminarVuelosASC(dtgVistaPreliminarVHA,comboBoxPaisOrigen.SelectedItem.ToString(),comboBoxPaisDestino.SelectedItem.ToString());
+                int idVueloDirecto = metodos.RetornarIDVueloDirecto(comboBoxPaisOrigen.SelectedItem.ToString(), comboBoxPaisDestino.SelectedItem.ToString());
+                if (idVueloDirecto != 0)
+                {
+                    //double precio = metodos.RetornarPrecioTotalVueloDirecto(idVueloDirecto); 
+                    ArrayList datos = metodos.LlenarDtVistaPreliminarVuelosASCString(comboBoxPaisOrigen.SelectedItem.ToString(), comboBoxPaisDestino.SelectedItem.ToString());
+                    for (int i = 0; i < datos.Count; i++)
+                    {
+                        string[] info = datos[i].ToString().Split(';');
+                        dtgVistaPreliminarVHA.Rows.Add(info[0],info[1], info[2], info[3], "Vuelo Directo");
+                    }
+                    //dtgVistaPreliminarVHA.Rows.Add(comboBoxPaisOrigen.SelectedItem.ToString(),comboBoxPaisDestino.SelectedItem.ToString(),metodos.RetornarDuracionTotalVueloDirecto(idVueloDirecto),precio, "Vuelo Directo");
+                    //dtgVistaPreliminarVHA.Rows.Add(datos[0], datos[1], datos[2], datos[3], "Vuelo Directo");
 
+                }
             }
             else {
-                MessageBox.Show("NO existe este Vuelo DIRECTO, Existen pero con Escalas.");
 
+                MessageBox.Show("NO existe este Vuelo DIRECTO, Existen pero SI con Escalas.");
+                int duracioVD= metodos.RetornarDuracionTotalVueloDirecto(comboBoxPaisOrigen.SelectedItem.ToString());
+                int duracionVE= metodos.RetornarDuracionTotalVueloEscala(metodos.RetornarPaisEscala(comboBoxPaisDestino.SelectedItem.ToString()), comboBoxPaisDestino.SelectedItem.ToString());
+                int duracionTotal =duracioVD+duracionVE;
+
+                double precio1=metodos.RetornarPrecioTotalVueloDirectoOrigenEscala(comboBoxPaisOrigen.SelectedItem.ToString());
+                double precio2=metodos.RetornarPrecioTotalVueloDirectoOrigenDestinoVueloEscala(metodos.RetornarPaisEscala(comboBoxPaisDestino.SelectedItem.ToString()),comboBoxPaisDestino.SelectedItem.ToString());
+                double precioTotal =precio1+precio2;
+                dtgVistaPreliminarVHA.Rows.Add(comboBoxPaisOrigen.SelectedItem.ToString(),comboBoxPaisDestino.SelectedItem.ToString(),duracionTotal,precioTotal,metodos.RetornarPaisEscala(comboBoxPaisDestino.SelectedItem.ToString()));
             }
         }
 
@@ -234,12 +249,28 @@ namespace CapaPresentacion
 
         private void optPrecioMenorHotel_CheckedChanged(object sender, EventArgs e)
         {
-            metodos.LlenarDtVistaPreliminarVuelosASC(dtgVistaPreliminarVHA, comboBoxPaisOrigen.SelectedItem.ToString(), comboBoxPaisDestino.SelectedItem.ToString());
+            
         }
 
         private void optPrecioMayorHotel_CheckedChanged(object sender, EventArgs e)
         {
-            metodos.LlenarDtVistaPreliminarVuelosDESC(dtgVistaPreliminarVHA, comboBoxPaisOrigen.SelectedItem.ToString(), comboBoxPaisDestino.SelectedItem.ToString());
+            //metodos.LlenarDtVistaPreliminarVuelosDESC(dtgVistaPreliminarVHA, comboBoxPaisOrigen.SelectedItem.ToString(), comboBoxPaisDestino.SelectedItem.ToString());
+            //metodos.LlenarDtVistaPreliminarVuelosASC(dtgVistaPreliminarVHA, comboBoxPaisOrigen.SelectedItem.ToString(), comboBoxPaisDestino.SelectedItem.ToString
+            int idVueloDirecto = metodos.RetornarIDVueloDirecto(comboBoxPaisOrigen.SelectedItem.ToString(), comboBoxPaisDestino.SelectedItem.ToString());
+            if (idVueloDirecto != 0)
+            {
+                //double precio = metodos.RetornarPrecioTotalVueloDirecto(idVueloDirecto);
+                dtgVistaPreliminarVHA.DataSource = null;
+                ArrayList datos = metodos.LlenarDtVistaPreliminarVuelosDESCString(comboBoxPaisOrigen.SelectedItem.ToString(), comboBoxPaisDestino.SelectedItem.ToString());
+                for (int i = 0; i < datos.Count; i++)
+                {
+                    string[] info = datos[i].ToString().Split(';');
+                    dtgVistaPreliminarVHA.Rows.Add(info[0], info[1], info[2], info[3], "Vuelo Directo");
+                }
+                //dtgVistaPreliminarVHA.Rows.Add(comboBoxPaisOrigen.SelectedItem.ToString(),comboBoxPaisDestino.SelectedItem.ToString(),metodos.RetornarDuracionTotalVueloDirecto(idVueloDirecto),precio, "Vuelo Directo");
+                //dtgVistaPreliminarVHA.Rows.Add(datos[0], datos[1], datos[2], datos[3], "Vuelo Directo");
+
+            }
         }
 
         private void comboBoxHotelesPasDestino_SelectedIndexChanged(object sender, EventArgs e)

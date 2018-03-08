@@ -75,6 +75,11 @@
             this.optTiempoCorto = new System.Windows.Forms.RadioButton();
             this.optMenosEscalas = new System.Windows.Forms.RadioButton();
             this.btnGuardarCantidadPasajeros = new System.Windows.Forms.Button();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelAgregarHotel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spinnerCantidadHabitacionesHotel)).BeginInit();
             this.panelAgregarAutomovil.SuspendLayout();
@@ -477,6 +482,12 @@
             this.dtgVistaPreliminarVHA.AllowUserToAddRows = false;
             this.dtgVistaPreliminarVHA.AllowUserToDeleteRows = false;
             this.dtgVistaPreliminarVHA.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgVistaPreliminarVHA.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2,
+            this.Column4,
+            this.Column5,
+            this.Column3});
             this.dtgVistaPreliminarVHA.Location = new System.Drawing.Point(401, 194);
             this.dtgVistaPreliminarVHA.Name = "dtgVistaPreliminarVHA";
             this.dtgVistaPreliminarVHA.ReadOnly = true;
@@ -550,6 +561,36 @@
             this.btnGuardarCantidadPasajeros.UseVisualStyleBackColor = true;
             this.btnGuardarCantidadPasajeros.Visible = false;
             this.btnGuardarCantidadPasajeros.Click += new System.EventHandler(this.btnGuardarCantidadPasajeros_Click);
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Pais Origen";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Pais Destino";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Duracion Total";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Precio Total";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Escala o Vuelo Directo";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
             // 
             // Seccion_Vuelos
             // 
@@ -649,5 +690,10 @@
         private System.Windows.Forms.Button btnGuardarCantidadPasajeros;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TextBox txtPrecioHabitacion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
     }
 }

@@ -166,6 +166,7 @@
             this.btnCargar_Foto.TabIndex = 14;
             this.btnCargar_Foto.Text = ".........";
             this.btnCargar_Foto.UseVisualStyleBackColor = true;
+            this.btnCargar_Foto.Click += new System.EventHandler(this.btnCargar_Foto_Click);
             // 
             // pictureBox1
             // 
