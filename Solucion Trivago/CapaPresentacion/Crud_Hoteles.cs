@@ -28,8 +28,8 @@ namespace CapaPresentacion
 
 
             ActualizarTablaHoteles();
-
-            //Llenando los combobox de paise y lugares
+            
+            //Llenando los combobox de paise y lugaresjj
             metodos.ComboNombresPaises(comboBoxPaises);
            
 
