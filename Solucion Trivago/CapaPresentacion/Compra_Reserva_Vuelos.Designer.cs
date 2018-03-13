@@ -65,6 +65,7 @@
             this.button2.TabIndex = 2;
             this.button2.Text = "Eliminar Reserva";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -74,6 +75,7 @@
             this.button3.TabIndex = 3;
             this.button3.Text = "Ejercer Reserva";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // Compra_Reserva_Vuelos
             // 
@@ -86,6 +88,7 @@
             this.Controls.Add(this.button1);
             this.Name = "Compra_Reserva_Vuelos";
             this.Text = "Compra_Reserva_Vuelos";
+            this.Load += new System.EventHandler(this.Compra_Reserva_Vuelos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtgPreReservacionesVuelos)).EndInit();
             this.ResumeLayout(false);
 

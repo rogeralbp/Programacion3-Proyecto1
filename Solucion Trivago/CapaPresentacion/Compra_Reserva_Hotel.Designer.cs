@@ -99,7 +99,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
             this.Name = "Seccion_Compra_Reserva_Hoteles";
-            this.Text = "Seccion_Compra_Reserva";
+            this.Text = "Compra_Reserva_Hotel";
             this.Load += new System.EventHandler(this.Seccion_Compra_Reserva_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtgPreservaciones)).EndInit();
             this.ResumeLayout(false);

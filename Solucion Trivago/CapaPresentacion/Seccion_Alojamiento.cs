@@ -298,7 +298,6 @@ namespace CapaPresentacion
             }
             else
             {
-
                 MessageBox.Show("Debe de Seleccionar Fechas Correctas.");
             }
 
@@ -870,6 +869,7 @@ namespace CapaPresentacion
 
         private void button5_Click(object sender, EventArgs e)
         {
+            fotoHotel.Visible = true;
             posicionDTGHotelPais = dtgHotelesPaises.CurrentRow.Index;
             string ruta = dtgHotelesPaises[5, posicionDTGHotelPais].Value.ToString();
             fotoHotelPais.Image = Image.FromFile(ruta);
@@ -877,6 +877,7 @@ namespace CapaPresentacion
 
         private void button6_Click(object sender, EventArgs e)
         {
+            fotoHotel.Visible = true;
             posicionDTGHotelCiudad = dtgHotelesCiudades.CurrentRow.Index;
             string ruta = dtgHotelesCiudades[4, posicionDTGHotelCiudad].Value.ToString();
             fotoHotelCiudad.Image = Image.FromFile(ruta);
@@ -884,9 +885,11 @@ namespace CapaPresentacion
 
         private void button4_Click(object sender, EventArgs e)
         {
+            fotoHotel.Visible = true;
             posicionDTGHotel = dtgResultadosBusquedad.CurrentRow.Index;
             string ruta = dtgResultadosBusquedad[6, posicionDTGHotel].Value.ToString();
             fotoHotel.Image = Image.FromFile(ruta);
         }
+
     }
 }

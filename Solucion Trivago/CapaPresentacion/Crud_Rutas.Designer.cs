@@ -43,8 +43,6 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.textNuevoDuracion = new System.Windows.Forms.TextBox();
-            this.textNuevoDestino = new System.Windows.Forms.TextBox();
-            this.textNuevoOrigen = new System.Windows.Forms.TextBox();
             this.textDuracion = new System.Windows.Forms.TextBox();
             this.textDestino = new System.Windows.Forms.TextBox();
             this.textOrigen = new System.Windows.Forms.TextBox();
@@ -71,6 +69,8 @@
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.TablaRutas = new System.Windows.Forms.DataGridView();
             this.button7 = new System.Windows.Forms.Button();
+            this.comboBoxNuevoPaisOrigen = new System.Windows.Forms.ComboBox();
+            this.comboBoxNuevoPaisDestino = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -205,10 +205,10 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.comboBoxNuevoPaisDestino);
+            this.tabPage2.Controls.Add(this.comboBoxNuevoPaisOrigen);
             this.tabPage2.Controls.Add(this.btnGuardar);
             this.tabPage2.Controls.Add(this.textNuevoDuracion);
-            this.tabPage2.Controls.Add(this.textNuevoDestino);
-            this.tabPage2.Controls.Add(this.textNuevoOrigen);
             this.tabPage2.Controls.Add(this.textDuracion);
             this.tabPage2.Controls.Add(this.textDestino);
             this.tabPage2.Controls.Add(this.textOrigen);
@@ -247,21 +247,6 @@
             this.textNuevoDuracion.Name = "textNuevoDuracion";
             this.textNuevoDuracion.Size = new System.Drawing.Size(378, 22);
             this.textNuevoDuracion.TabIndex = 24;
-            // 
-            // textNuevoDestino
-            // 
-            this.textNuevoDestino.Location = new System.Drawing.Point(239, 295);
-            this.textNuevoDestino.Name = "textNuevoDestino";
-            this.textNuevoDestino.Size = new System.Drawing.Size(378, 22);
-            this.textNuevoDestino.TabIndex = 23;
-            this.textNuevoDestino.TextChanged += new System.EventHandler(this.textBox7_TextChanged);
-            // 
-            // textNuevoOrigen
-            // 
-            this.textNuevoOrigen.Location = new System.Drawing.Point(239, 238);
-            this.textNuevoOrigen.Name = "textNuevoOrigen";
-            this.textNuevoOrigen.Size = new System.Drawing.Size(378, 22);
-            this.textNuevoOrigen.TabIndex = 22;
             // 
             // textDuracion
             // 
@@ -513,6 +498,24 @@
             this.button7.UseVisualStyleBackColor = true;
             this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
+            // comboBoxNuevoPaisOrigen
+            // 
+            this.comboBoxNuevoPaisOrigen.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxNuevoPaisOrigen.FormattingEnabled = true;
+            this.comboBoxNuevoPaisOrigen.Location = new System.Drawing.Point(239, 238);
+            this.comboBoxNuevoPaisOrigen.Name = "comboBoxNuevoPaisOrigen";
+            this.comboBoxNuevoPaisOrigen.Size = new System.Drawing.Size(378, 24);
+            this.comboBoxNuevoPaisOrigen.TabIndex = 26;
+            // 
+            // comboBoxNuevoPaisDestino
+            // 
+            this.comboBoxNuevoPaisDestino.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxNuevoPaisDestino.FormattingEnabled = true;
+            this.comboBoxNuevoPaisDestino.Location = new System.Drawing.Point(239, 293);
+            this.comboBoxNuevoPaisDestino.Name = "comboBoxNuevoPaisDestino";
+            this.comboBoxNuevoPaisDestino.Size = new System.Drawing.Size(378, 24);
+            this.comboBoxNuevoPaisDestino.TabIndex = 27;
+            // 
             // Crud_Rutas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -563,8 +566,6 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox textOrigen;
         private System.Windows.Forms.TextBox textNuevoDuracion;
-        private System.Windows.Forms.TextBox textNuevoDestino;
-        private System.Windows.Forms.TextBox textNuevoOrigen;
         private System.Windows.Forms.TextBox textDuracion;
         private System.Windows.Forms.TextBox textDestino;
         private System.Windows.Forms.Button btnGuardar;
@@ -580,5 +581,7 @@
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.DataGridView TablaRutas;
         private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.ComboBox comboBoxNuevoPaisDestino;
+        private System.Windows.Forms.ComboBox comboBoxNuevoPaisOrigen;
     }
 }

@@ -26,6 +26,8 @@ namespace CapaPresentacion
             metodo.ComboNombresPaises(comboPaisOrigen);
             metodo.ComboNombresPaises(comboPaisDestino);
 
+            metodo.ComboNombresPaises(comboBoxNuevoPaisOrigen);
+            metodo.ComboNombresPaises(comboBoxNuevoPaisDestino);
 
             //Metodo que llena el combobox del TAB de eliminar rutas
             metodo.ComboIDRuta(comboIDRutas);
@@ -183,8 +185,8 @@ namespace CapaPresentacion
             txtDestinoActual.Clear();
             txtDuracionActual.Clear();
 
-            textNuevoOrigen.Clear();
-            textNuevoDestino.Clear();
+            comboBoxNuevoPaisOrigen.Items.Clear();
+            comboBoxNuevoPaisDestino.Items.Clear();
             textNuevoDuracion.Clear();
 
 
@@ -192,8 +194,8 @@ namespace CapaPresentacion
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            string origen_nuevo = textNuevoOrigen.Text;
-            string destino_nuevo = textNuevoDestino.Text;
+            string origen_nuevo = comboBoxNuevoPaisOrigen.SelectedItem.ToString();
+            string destino_nuevo = comboBoxNuevoPaisDestino.SelectedItem.ToString();
             int duracion_nuevo = int.Parse(textNuevoDuracion.Text);
             int identificador_modificar = int.Parse(comboboxIDModificar.SelectedItem.ToString());
 

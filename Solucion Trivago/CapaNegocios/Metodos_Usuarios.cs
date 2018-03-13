@@ -27,7 +27,7 @@ namespace CapaNegocios
 
             string baseDatos = "gestion_vuelos";
 
-            string cadenaConexion = "Server=" + servidor + ";" + "Port=" + puerto + ";" + "User Id=" + usuario + ";" + "Password=" + claveRoger + ";" + "Database=" + baseDatos;
+            string cadenaConexion = "Server=" + servidor + ";" + "Port=" + puerto + ";" + "User Id=" + usuario + ";" + "Password=" + claveAnthonny + ";" + "Database=" + baseDatos;
             conexion = new NpgsqlConnection(cadenaConexion);
 
             if (conexion != null)
@@ -245,6 +245,36 @@ namespace CapaNegocios
                 conexion.Open();
                 DataSet dataset = new DataSet();
                 NpgsqlDataAdapter adapter = new NpgsqlDataAdapter("SELECT  identificador , nombre, lugar , habitaciones , tarifa_hotel,foto FROM hotel WHERE pais = '" + pais + "' ORDER BY tarifa_hotel ASC", conexion);
+                adapter.Fill(dataset, "rutas");
+                agregar_hotels_pais.DataSource = dataset.Tables[0];
+                agregar_hotels_pais.Columns[0].HeaderCell.Value = "identificador";
+                agregar_hotels_pais.Columns[1].HeaderCell.Value = "nombre";
+                agregar_hotels_pais.Columns[2].HeaderCell.Value = "lugar";
+                agregar_hotels_pais.Columns[3].HeaderCell.Value = "habitaciones";
+                agregar_hotels_pais.Columns[4].HeaderCell.Value = "tarifa_hotel";
+                agregar_hotels_pais.Columns[5].HeaderCell.Value = "foto";
+                //DataGridViewImageColumn imag = new DataGridViewImageColumn();
+                //imag.HeaderText = "Foto_Hotel";
+                //imag.Name = "Foto_Hotel";
+                //dtgVuelosASC.Columns.Add(imag);
+
+                conexion.Close();
+
+            }
+            catch (Exception error)
+            {
+                Console.WriteLine(error);
+            }
+        }
+
+        public void LlenarDtVistaPreliminarHotelsPaisRanking(DataGridView agregar_hotels_pais, string pais)
+        {
+            try
+            {
+                Conexion();
+                conexion.Open();
+                DataSet dataset = new DataSet();
+                NpgsqlDataAdapter adapter = new NpgsqlDataAdapter("SELECT  identificador , nombre, lugar , habitaciones , tarifa_hotel,foto FROM hotel JOIN ranking_hoteles ON ranking_hoteles.id_hotel=hotel.identificador WHERE pais = '" + pais + "' ORDER BY calificacion ASC", conexion);
                 adapter.Fill(dataset, "rutas");
                 agregar_hotels_pais.DataSource = dataset.Tables[0];
                 agregar_hotels_pais.Columns[0].HeaderCell.Value = "identificador";
@@ -619,6 +649,28 @@ namespace CapaNegocios
             return bandera;
         }
 
+        public bool BanderaRutaConEscalas(String paisDestino)
+        {
+            bool bandera;
+
+            Conexion();
+            conexion.Open();
+            NpgsqlCommand consulta = new NpgsqlCommand("SELECT pais_destino FROM rutas WHERE pais_destino='" + paisDestino + "'", conexion);
+            NpgsqlDataReader lectorConsulta = consulta.ExecuteReader();
+            if (lectorConsulta.HasRows)
+            {
+                bandera = true;
+            }
+            else
+            {
+
+                bandera = false;
+            }
+            conexion.Close();
+
+            return bandera;
+        }
+
         public int ActualCantidadHabitaciones(int idHotel)
         {
             int dias = 0;
@@ -977,6 +1029,203 @@ namespace CapaNegocios
 
             return precioVuelo;
         }
+
+        public ArrayList LlenarDtVistaPreliminarVuelosDuracionASCtring(string paisO, string paisD)
+        {
+            ArrayList lista = new ArrayList();
+            string datos = string.Empty;
+            try
+            {
+                Conexion();
+                conexion.Open();
+                NpgsqlCommand consulta = new NpgsqlCommand("SELECT pais_origen,pais_destino,duracion,precio FROM tarifas_vuelos  JOIN rutas ON tarifas_vuelos.ruta=rutas.identificador_ruta WHERE pais_origen='" + paisO + "' AND pais_destino='" + paisD + "' ORDER BY duracion ASC", conexion);
+                NpgsqlDataReader lectorConsulta = consulta.ExecuteReader();
+                if (lectorConsulta.HasRows)
+                {
+                    while (lectorConsulta.Read())
+                    {
+                        //datos = lectorConsulta.GetDouble(0).ToString();
+                        datos = lectorConsulta.GetString(0) + ";" + lectorConsulta.GetString(1) + ";" + lectorConsulta.GetInt16(2) + ";" + lectorConsulta.GetDouble(3);
+                        lista.Add(datos);
+                    }
+                }
+
+                //dtgVuelosASC.Columns.Add("vueloDirectoEscala", "Vuelo Directo o Escala");
+                conexion.Close();
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Error \n" + error);
+            }
+            return lista;
+        }
+
+        /// <summary>
+        /// Meetodo que Guarda la Informacion de las Reservaciones en la Seccion VUELOS
+        /// </summary>
+        /// <param name="id_Vuelo"></param>
+        /// <param name="id_Hotel"></param>
+        /// <param name="placa_vehiculo"></param>
+        /// <param name="pasajeros_adultos"></param>
+        /// <param name="pasajeros_niños"></param>
+        /// <param name="habitaciones_hotel"></param>
+        /// <param name="fecha_Inicio"></param>
+        /// <param name="fecha_Fin"></param>
+        /// <param name="pais_Origen"></param>
+        /// <param name="pais_Destino"></param>
+        /// <param name="duracion_Total"></param>
+        /// <param name="precio_Total"></param>
+        /// <param name="vuelo_escala"></param>
+        /// <param name="id_Cliente"></param>
+        public void InsertarDatosReservacionesVuelos(Reservaciones_Vuelos reservacion){
+            try
+            {
+                Conexion();
+                conexion.Open();
+                cmd = new NpgsqlCommand("INSERT INTO informacion_reservaciones_vuelos (id_vuelo,id_hotel,placa_vehiculo,pasajeros_adultos,pasajeros_niños,habitaciones_hotel,fecha_inicio,fecha_fin,pais_origen,pais_destino,duracion_total,precio_total,vuelo_escala,id_cliente) VALUES ('" + reservacion.id_vuelo + "','" + reservacion.id_hotel + "','" + reservacion.placa_vehiculo + "','" + reservacion.pasajeros_adultos + "','" + reservacion.pasajeros_niños + "','" + reservacion.habitaciones_hotel + "','" + reservacion.fecha_inicio + "','" + reservacion.fecha_fin + "','" + reservacion.pais_origen + "','" + reservacion.pais_destino + "','" + reservacion.duracion_total + "','" + reservacion.precio_total + "','" + reservacion.vuelo_escala + "','" + reservacion.id_cliente + "')", conexion);
+                cmd.ExecuteNonQuery();
+                conexion.Close();
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Error--- \n" + error);
+            }
+
+            MessageBox.Show("Se ha Registrado la Reservacon Correctamente.");
+        }
+
+
+        /// <summary>
+        /// Meetodo que Guarda la Informacion de las Reservaciones en la Seccion VUELOS
+        /// </summary>
+        /// <param name="id_Vuelo"></param>
+        /// <param name="id_Hotel"></param>
+        /// <param name="placa_vehiculo"></param>
+        /// <param name="pasajeros_adultos"></param>
+        /// <param name="pasajeros_niños"></param>
+        /// <param name="habitaciones_hotel"></param>
+        /// <param name="fecha_Inicio"></param>
+        /// <param name="fecha_Fin"></param>
+        /// <param name="pais_Origen"></param>
+        /// <param name="pais_Destino"></param>
+        /// <param name="duracion_Total"></param>
+        /// <param name="precio_Total"></param>
+        /// <param name="vuelo_escala"></param>
+        /// <param name="id_Cliente"></param>
+        public void InsertarDatosPreReservacionesVuelos(Reservaciones_Vuelos reservacion)
+        {
+            try
+            {
+                Conexion();
+                conexion.Open();
+                cmd = new NpgsqlCommand("INSERT INTO informacion_prereservaciones_vuelos (id_vuelo,id_hotel,placa_vehiculo,pasajeros_adultos,pasajeros_niños,habitaciones_hotel,fecha_inicio,fecha_fin,pais_origen,pais_destino,duracion_total,precio_total,vuelo_escala,id_cliente) VALUES ('" + reservacion.id_vuelo + "','" + reservacion.id_hotel + "','" + reservacion.placa_vehiculo + "','" + reservacion.pasajeros_adultos + "','" + reservacion.pasajeros_niños + "','" + reservacion.habitaciones_hotel + "','" + reservacion.fecha_inicio + "','" + reservacion.fecha_fin + "','" + reservacion.pais_origen + "','" + reservacion.pais_destino + "','" + reservacion.duracion_total + "','" + reservacion.precio_total + "','" + reservacion.vuelo_escala + "','" + reservacion.id_cliente + "')", conexion);
+                cmd.ExecuteNonQuery();
+                conexion.Close();
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Error--- \n" + error);
+            }
+
+            MessageBox.Show("Se ha Registrado la Pre Reservacon Correctamente.");
+        }
+
+        public int ConsultarIDHotel(String nombreHotel)
+        {
+            int IDHotel = 0;
+
+            Conexion();
+            conexion.Open();
+            NpgsqlCommand consulta = new NpgsqlCommand("SELECT identificador FROM hotel WHERE nombre='" + nombreHotel + "'", conexion);
+            NpgsqlDataReader lectorConsulta = consulta.ExecuteReader();
+            if (lectorConsulta.HasRows)
+            {
+                while (lectorConsulta.Read())
+                {
+                    //cedula, nombre y tipo de usuario
+                    //informacionUsuario = lectorConsulta.GetString(0) + ";" + lectorConsulta.GetString(1)  + ";"+ lectorConsulta.GetString(3);
+                    IDHotel = int.Parse(lectorConsulta.GetString(0));
+
+                }
+            }
+            conexion.Close();
+
+            return IDHotel;
+        }
+
+        public void LlenarDtVistaPreReservacionesVuelos(DataGridView datos_reservaciones_vuelos, int cedulaUsuario)
+        {
+            try
+            {
+                Conexion();
+                conexion.Open();
+                DataSet dataset = new DataSet();
+                NpgsqlDataAdapter adapter = new NpgsqlDataAdapter("SELECT id_vuelo,id_hotel,placa_vehiculo,pasajeros_adultos,pasajeros_niños,habitaciones_hotel,fecha_inicio,fecha_fin,pais_origen,pais_destino,duracion_total,precio_total,vuelo_escala,id_cliente FROM informacion_prereservaciones_vuelos WHERE id_cliente = '" + cedulaUsuario + "'", conexion);
+                adapter.Fill(dataset, "rutas");
+                datos_reservaciones_vuelos.DataSource = dataset.Tables[0];
+                datos_reservaciones_vuelos.Columns[0].HeaderCell.Value = "id_vuelo";
+                datos_reservaciones_vuelos.Columns[1].HeaderCell.Value = "id_hotel";
+                datos_reservaciones_vuelos.Columns[2].HeaderCell.Value = "placa_vehiculo";
+                datos_reservaciones_vuelos.Columns[3].HeaderCell.Value = "pasajeros_adultos";
+                datos_reservaciones_vuelos.Columns[4].HeaderCell.Value = "pasajeros_niños";
+                datos_reservaciones_vuelos.Columns[5].HeaderCell.Value = "habitaciones_hotel";
+                datos_reservaciones_vuelos.Columns[6].HeaderCell.Value = "fecha_inicio";
+                datos_reservaciones_vuelos.Columns[7].HeaderCell.Value = "fecha_fin";
+                datos_reservaciones_vuelos.Columns[8].HeaderCell.Value = "pais_origen";
+                datos_reservaciones_vuelos.Columns[9].HeaderCell.Value = "pais_destino";
+                datos_reservaciones_vuelos.Columns[10].HeaderCell.Value = "duracion_total";
+                datos_reservaciones_vuelos.Columns[11].HeaderCell.Value = "precio_total";
+                datos_reservaciones_vuelos.Columns[13].HeaderCell.Value = "vuelo_escala";
+                datos_reservaciones_vuelos.Columns[13].HeaderCell.Value = "id_cliente";
+                conexion.Close();
+
+            }
+            catch (Exception error)
+            {
+                Console.WriteLine(error);
+            }
+        }
+
+        public int ConsultarCantidadHabitacionesHotel(int idHotel)
+        {
+            int habitacionesHotel = 0;
+
+            Conexion();
+            conexion.Open();
+            NpgsqlCommand consulta = new NpgsqlCommand("SELECT habitaciones FROM hotel WHERE identificador='" + idHotel + "'", conexion);
+            NpgsqlDataReader lectorConsulta = consulta.ExecuteReader();
+            if (lectorConsulta.HasRows)
+            {
+                while (lectorConsulta.Read())
+                {
+                    //cedula, nombre y tipo de usuario
+                    //informacionUsuario = lectorConsulta.GetString(0) + ";" + lectorConsulta.GetString(1)  + ";"+ lectorConsulta.GetString(3);
+                    habitacionesHotel = int.Parse(lectorConsulta.GetString(0));
+
+                }
+            }
+            conexion.Close();
+
+            return habitacionesHotel;
+        }
+
+        public void EliminarPreReservacionesVuelos(string pasajeros_Adultos,string pasajeros_Niños,string pais_Origen,string pais_Destino,string id_cliente)
+        {
+            try
+            {
+                Conexion();
+                conexion.Open();
+                NpgsqlCommand cmd = new NpgsqlCommand("DELETE FROM informacion_prereservaciones_vuelos WHERE  pasajeros_adultos= '" + pasajeros_Adultos + "' AND pasajeros_niños='"+pasajeros_Niños+"' AND pais_origen='"+pais_Origen+"' AND pais_destino='"+pais_Destino+"' AND id_cliente='"+id_cliente+"'", conexion);
+                cmd.ExecuteNonQuery();
+                conexion.Close();
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Error--- \n" + error);
+            }
+
+        }
+
     }
     
 }

@@ -31,6 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Seccion_Alojamiento));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.button5 = new System.Windows.Forms.Button();
+            this.fotoHotelPais = new System.Windows.Forms.PictureBox();
             this.btnGuardarCantidadPersonasPais = new System.Windows.Forms.Button();
             this.labelCantidadDias2 = new System.Windows.Forms.Label();
             this.btnGuardarReservacionPais = new System.Windows.Forms.Button();
@@ -57,6 +59,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.button6 = new System.Windows.Forms.Button();
+            this.fotoHotelCiudad = new System.Windows.Forms.PictureBox();
             this.btnGuardarCantidadPersonsCiudad = new System.Windows.Forms.Button();
             this.btnVerListaPreeliminarHotelesCiudad = new System.Windows.Forms.Button();
             this.btnGuardarReservacionCiudad = new System.Windows.Forms.Button();
@@ -83,6 +87,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.button4 = new System.Windows.Forms.Button();
+            this.fotoHotel = new System.Windows.Forms.PictureBox();
             this.btnGuardarCantidadPersonasHotel = new System.Windows.Forms.Button();
             this.dtgResultadosBusquedad = new System.Windows.Forms.DataGridView();
             this.btnGuardarReservacionHotel = new System.Windows.Forms.Button();
@@ -106,34 +112,28 @@
             this.txtNombreHotelBuscar = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
-            this.fotoHotelPais = new System.Windows.Forms.PictureBox();
-            this.fotoHotelCiudad = new System.Windows.Forms.PictureBox();
-            this.fotoHotel = new System.Windows.Forms.PictureBox();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.fotoHotelPais)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgHotelesPaises)).BeginInit();
             this.panelAdultosNiñosPais.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spinnerPersonasMenoresPais)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spinnerPersonasAdultasPais)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spinnerHabitacionesPais)).BeginInit();
             this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.fotoHotelCiudad)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgHotelesCiudades)).BeginInit();
             this.panelPersonasCiudad.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spinnerPersonasMenoresCiudad)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spinnerPersonasAdultosCiudad)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spinnerHabitacionesCiudad)).BeginInit();
             this.tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.fotoHotel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgResultadosBusquedad)).BeginInit();
             this.panelPersonasHotel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spinnerPersonasMenoresHotel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spinnerPersonasAdultosHotel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spinnerHabitacionesHotel)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fotoHotelPais)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fotoHotelCiudad)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fotoHotel)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -179,6 +179,25 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Busqueda Pais";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(712, 217);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(108, 29);
+            this.button5.TabIndex = 63;
+            this.button5.Text = "Ver Foto";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // fotoHotelPais
+            // 
+            this.fotoHotelPais.Location = new System.Drawing.Point(687, 252);
+            this.fotoHotelPais.Name = "fotoHotelPais";
+            this.fotoHotelPais.Size = new System.Drawing.Size(170, 150);
+            this.fotoHotelPais.TabIndex = 56;
+            this.fotoHotelPais.TabStop = false;
+            this.fotoHotelPais.Visible = false;
             // 
             // btnGuardarCantidadPersonasPais
             // 
@@ -481,6 +500,25 @@
             this.tabPage2.Text = "Busqueda Ciudad";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(692, 256);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(164, 23);
+            this.button6.TabIndex = 63;
+            this.button6.Text = "Ver Foto";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // fotoHotelCiudad
+            // 
+            this.fotoHotelCiudad.Location = new System.Drawing.Point(693, 285);
+            this.fotoHotelCiudad.Name = "fotoHotelCiudad";
+            this.fotoHotelCiudad.Size = new System.Drawing.Size(168, 131);
+            this.fotoHotelCiudad.TabIndex = 60;
+            this.fotoHotelCiudad.TabStop = false;
+            this.fotoHotelCiudad.Visible = false;
+            // 
             // btnGuardarCantidadPersonsCiudad
             // 
             this.btnGuardarCantidadPersonsCiudad.Location = new System.Drawing.Point(705, 129);
@@ -774,6 +812,25 @@
             this.tabPage3.Text = "Busqueda de Nombre";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(645, 214);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(164, 23);
+            this.button4.TabIndex = 62;
+            this.button4.Text = "Ver Foto";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // fotoHotel
+            // 
+            this.fotoHotel.Location = new System.Drawing.Point(615, 245);
+            this.fotoHotel.Name = "fotoHotel";
+            this.fotoHotel.Size = new System.Drawing.Size(231, 189);
+            this.fotoHotel.TabIndex = 61;
+            this.fotoHotel.TabStop = false;
+            this.fotoHotel.Visible = false;
+            // 
             // btnGuardarCantidadPersonasHotel
             // 
             this.btnGuardarCantidadPersonasHotel.Location = new System.Drawing.Point(657, 104);
@@ -1013,60 +1070,6 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // fotoHotelPais
-            // 
-            this.fotoHotelPais.Location = new System.Drawing.Point(687, 252);
-            this.fotoHotelPais.Name = "fotoHotelPais";
-            this.fotoHotelPais.Size = new System.Drawing.Size(170, 150);
-            this.fotoHotelPais.TabIndex = 56;
-            this.fotoHotelPais.TabStop = false;
-            // 
-            // fotoHotelCiudad
-            // 
-            this.fotoHotelCiudad.Location = new System.Drawing.Point(693, 285);
-            this.fotoHotelCiudad.Name = "fotoHotelCiudad";
-            this.fotoHotelCiudad.Size = new System.Drawing.Size(168, 131);
-            this.fotoHotelCiudad.TabIndex = 60;
-            this.fotoHotelCiudad.TabStop = false;
-            // 
-            // fotoHotel
-            // 
-            this.fotoHotel.Location = new System.Drawing.Point(615, 245);
-            this.fotoHotel.Name = "fotoHotel";
-            this.fotoHotel.Size = new System.Drawing.Size(231, 189);
-            this.fotoHotel.TabIndex = 61;
-            this.fotoHotel.TabStop = false;
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(645, 214);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(164, 23);
-            this.button4.TabIndex = 62;
-            this.button4.Text = "Ver Foto";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(712, 217);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(108, 29);
-            this.button5.TabIndex = 63;
-            this.button5.Text = "Ver Foto";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
-            // 
-            // button6
-            // 
-            this.button6.Location = new System.Drawing.Point(692, 256);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(164, 23);
-            this.button6.TabIndex = 63;
-            this.button6.Text = "Ver Foto";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
-            // 
             // Seccion_Alojamiento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1079,6 +1082,7 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.fotoHotelPais)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgHotelesPaises)).EndInit();
             this.panelAdultosNiñosPais.ResumeLayout(false);
             this.panelAdultosNiñosPais.PerformLayout();
@@ -1087,6 +1091,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.spinnerHabitacionesPais)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.fotoHotelCiudad)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgHotelesCiudades)).EndInit();
             this.panelPersonasCiudad.ResumeLayout(false);
             this.panelPersonasCiudad.PerformLayout();
@@ -1095,15 +1100,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.spinnerHabitacionesCiudad)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.fotoHotel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgResultadosBusquedad)).EndInit();
             this.panelPersonasHotel.ResumeLayout(false);
             this.panelPersonasHotel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spinnerPersonasMenoresHotel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spinnerPersonasAdultosHotel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spinnerHabitacionesHotel)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fotoHotelPais)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fotoHotelCiudad)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fotoHotel)).EndInit();
             this.ResumeLayout(false);
 
         }
