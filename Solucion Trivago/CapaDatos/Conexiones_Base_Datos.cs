@@ -894,7 +894,7 @@ namespace CapaDatos
         /// 
 
 
-        public List<string> Cantidad_Adultos()
+        public List<string> Cantidad_Adultos(string fechainicio, string fechafin)
         {
             List<string> cantidad = new List<string>();
             Conexion();
@@ -918,7 +918,7 @@ namespace CapaDatos
 
             return cantidad;
         }
-        public List<string> Metodo_Adultos()
+        public List<string> Metodo_Adultos(string fechainicio, string fechafin)
         {
 
             List<string> nombres = new List<string>();
@@ -954,7 +954,7 @@ namespace CapaDatos
 
 
 
-        public List<string> Cantidad_Niños()
+        public List<string> Cantidad_Niños(string fechainicio, string fechafin)
         {
             List<string> cantidad = new List<string>();
             Conexion();
@@ -978,7 +978,7 @@ namespace CapaDatos
 
             return cantidad;
         }
-        public List<string> Metodo_Niños()
+        public List<string> Metodo_Niños(string fechainicio, string fechafin)
         {
 
             List<string> nombres = new List<string>();
@@ -1087,7 +1087,7 @@ namespace CapaDatos
             List<string> cantidad = new List<string>();
             Conexion();
             conexion.Open();
-            NpgsqlCommand cmd = new NpgsqlCommand("", conexion);
+            NpgsqlCommand cmd = new NpgsqlCommand("SELECT vuelo_escala pais_escla FROM informacion_reservaciones_vuelos WHERE vuelo_escala !='Vuelo Directo'", conexion);
             NpgsqlDataReader reader = cmd.ExecuteReader();
             try
             {
@@ -1119,7 +1119,7 @@ namespace CapaDatos
             List<string> nombres = new List<string>();
             Conexion();
             conexion.Open();
-            NpgsqlCommand cmd = new NpgsqlCommand("", conexion);
+            NpgsqlCommand cmd = new NpgsqlCommand("SELECT vuelo_escala pais_escla FROM informacion_reservaciones_vuelos WHERE vuelo_escala !='Vuelo Directo'", conexion);
             NpgsqlDataReader reader = cmd.ExecuteReader();
             try
             {
