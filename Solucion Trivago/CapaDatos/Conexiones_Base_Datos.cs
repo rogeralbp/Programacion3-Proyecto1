@@ -958,7 +958,7 @@ namespace CapaDatos
             ArrayList cantidad = new ArrayList();
             Conexion();
             conexion.Open();
-            NpgsqlCommand cmd = new NpgsqlCommand("SELECT v.marca  as marca FROM informacion_reservaciones_vuelos AS r JOIN vehiculos AS v ON r.placa_vehiculo = v.placa GROUP BY marca ORDER BY marca DESC", conexion);
+            NpgsqlCommand cmd = new NpgsqlCommand("SELECT COUNT(v.marca)  as marca FROM informacion_reservaciones_vuelos AS r JOIN vehiculos AS v ON r.placa_vehiculo = v.placa GROUP BY marca ORDER BY marca DESC", conexion);
             NpgsqlDataReader reader = cmd.ExecuteReader();
             try
             {
@@ -984,13 +984,13 @@ namespace CapaDatos
 
             return cantidad;
         }
-        public List<string> Metodo_Vehiculos()
+        public ArrayList Metodo_Vehiculos()
         {
 
-            List<string> nombres = new List<string>();
+            ArrayList nombres = new ArrayList();
             Conexion();
             conexion.Open();
-            NpgsqlCommand cmd = new NpgsqlCommand("SELECT v.marca  as marca FROM informacion_reservaciones_vuelos AS r JOIN vehiculos AS v ON r.placa_vehiculo = v.placa GROUP BY marca ORDER BY marca DESC", conexion);
+            NpgsqlCommand cmd = new NpgsqlCommand("SELECT COUNT(v.marca)  as marca FROM informacion_reservaciones_vuelos AS r JOIN vehiculos AS v ON r.placa_vehiculo = v.placa GROUP BY marca ORDER BY marca DESC", conexion);
             NpgsqlDataReader reader = cmd.ExecuteReader();
             try
             {
