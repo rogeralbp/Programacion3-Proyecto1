@@ -29,7 +29,6 @@ namespace CapaDatos
             }
             else
             {
-
                 Console.WriteLine("Error en la conexion con la DB");
             }
         }
