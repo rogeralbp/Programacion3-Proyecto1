@@ -23,6 +23,8 @@ namespace CapaPresentacion
 
         ArrayList cantidad_vehiculos = new ArrayList();
 
+        ArrayList cantidad_vehiculos1 = new ArrayList();
+
         public Reportes()
         {
             InitializeComponent();
@@ -149,15 +151,15 @@ namespace CapaPresentacion
         {
 
             cantidad_vehiculos = conectar.Cantidad_Vehiculos();
-            nombres = conectar.Metodo_Vehiculos();
+            cantidad_vehiculos1 = conectar.Metodo_Vehiculos();
             chart6.Palette = ChartColorPalette.Pastel;
             chart6.Titles.Add("CANTIDAD DE VEHICULOS MAS RENTADOS");
 
-            for (int i = 0; i < nombres.Count; i++)
+            for (int i = 0; i < cantidad_vehiculos1.Count; i++)
             {
-                Series serie = chart6.Series.Add(nombres[i].ToString());
-                serie.Label = cantidad[i].ToString();
-                serie.Points.Add(Convert.ToInt32(cantidad[i]));
+                Series serie = chart6.Series.Add(cantidad_vehiculos1[i].ToString());
+                serie.Label = cantidad_vehiculos[i].ToString();
+                serie.Points.Add(Convert.ToDouble(cantidad_vehiculos1[i]));
             }
 
 
