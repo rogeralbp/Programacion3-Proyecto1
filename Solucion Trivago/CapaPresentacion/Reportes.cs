@@ -156,8 +156,8 @@ namespace CapaPresentacion
             for (int i = 0; i < nombres.Count; i++)
             {
                 Series serie = chart6.Series.Add(nombres[i].ToString());
-                serie.Label = cantidad[i].ToString();
-                serie.Points.Add(Convert.ToInt32(cantidad[i]));
+                serie.Label = cantidad_vehiculos[i].ToString();
+                serie.Points.Add(Convert.ToInt32(cantidad_vehiculos[i]));
             }
 
 
