@@ -1017,7 +1017,7 @@ namespace CapaDatos
             List<string> cantidad = new List<string>();
             Conexion();
             conexion.Open();
-            NpgsqlCommand cmd = new NpgsqlCommand("", conexion);
+            NpgsqlCommand cmd = new NpgsqlCommand("SELECT v.marca  as marca FROM informacion_reservaciones_vuelos AS r JOIN vehiculos AS v ON r.placa_vehiculo = v.placa GROUP BY marca ORDER BY marca DESC", conexion);
             NpgsqlDataReader reader = cmd.ExecuteReader();
             try
             {
@@ -1049,7 +1049,7 @@ namespace CapaDatos
             List<string> nombres = new List<string>();
             Conexion();
             conexion.Open();
-            NpgsqlCommand cmd = new NpgsqlCommand("", conexion);
+            NpgsqlCommand cmd = new NpgsqlCommand("SELECT v.marca  as marca FROM informacion_reservaciones_vuelos AS r JOIN vehiculos AS v ON r.placa_vehiculo = v.placa GROUP BY marca ORDER BY marca DESC", conexion);
             NpgsqlDataReader reader = cmd.ExecuteReader();
             try
             {
