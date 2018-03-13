@@ -71,6 +71,18 @@
             this.tabPage7 = new System.Windows.Forms.TabPage();
             this.label7 = new System.Windows.Forms.Label();
             this.chart7 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
+            this.Inicio = new System.Windows.Forms.DateTimePicker();
+            this.Fin = new System.Windows.Forms.DateTimePicker();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.button8 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
@@ -105,6 +117,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.button1);
             this.tabPage1.Controls.Add(this.chart1);
             this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
@@ -144,6 +157,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.button2);
             this.tabPage2.Controls.Add(this.label2);
             this.tabPage2.Controls.Add(this.chart2);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
@@ -182,6 +196,7 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.button3);
             this.tabPage3.Controls.Add(this.label3);
             this.tabPage3.Controls.Add(this.chart3);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
@@ -220,6 +235,12 @@
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.button8);
+            this.tabPage4.Controls.Add(this.label9);
+            this.tabPage4.Controls.Add(this.label8);
+            this.tabPage4.Controls.Add(this.Fin);
+            this.tabPage4.Controls.Add(this.Inicio);
+            this.tabPage4.Controls.Add(this.button4);
             this.tabPage4.Controls.Add(this.label4);
             this.tabPage4.Controls.Add(this.chart4);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
@@ -245,18 +266,19 @@
             this.chart4.ChartAreas.Add(chartArea4);
             legend4.Name = "Legend1";
             this.chart4.Legends.Add(legend4);
-            this.chart4.Location = new System.Drawing.Point(28, 39);
+            this.chart4.Location = new System.Drawing.Point(28, 46);
             this.chart4.Name = "chart4";
             series4.ChartArea = "ChartArea1";
             series4.Legend = "Legend1";
             series4.Name = "Series1";
             this.chart4.Series.Add(series4);
-            this.chart4.Size = new System.Drawing.Size(854, 448);
+            this.chart4.Size = new System.Drawing.Size(872, 448);
             this.chart4.TabIndex = 2;
             this.chart4.Text = "chart4";
             // 
             // tabPage5
             // 
+            this.tabPage5.Controls.Add(this.button5);
             this.tabPage5.Controls.Add(this.label5);
             this.tabPage5.Controls.Add(this.chart5);
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
@@ -294,6 +316,7 @@
             // 
             // tabPage6
             // 
+            this.tabPage6.Controls.Add(this.button6);
             this.tabPage6.Controls.Add(this.label6);
             this.tabPage6.Controls.Add(this.chart6);
             this.tabPage6.Location = new System.Drawing.Point(4, 22);
@@ -331,6 +354,7 @@
             // 
             // tabPage7
             // 
+            this.tabPage7.Controls.Add(this.button7);
             this.tabPage7.Controls.Add(this.label7);
             this.tabPage7.Controls.Add(this.chart7);
             this.tabPage7.Location = new System.Drawing.Point(4, 22);
@@ -365,6 +389,121 @@
             this.chart7.Size = new System.Drawing.Size(854, 448);
             this.chart7.TabIndex = 2;
             this.chart7.Text = "chart7";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(795, 15);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "Menu";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(792, 17);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 4;
+            this.button2.Text = "Menu";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(800, 17);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 5;
+            this.button3.Text = "Menu";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(807, 18);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(75, 23);
+            this.button4.TabIndex = 6;
+            this.button4.Text = "Menu";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(802, 18);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(75, 23);
+            this.button5.TabIndex = 7;
+            this.button5.Text = "Menu";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(776, 8);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(75, 23);
+            this.button6.TabIndex = 8;
+            this.button6.Text = "Menu";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(764, 14);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(75, 23);
+            this.button7.TabIndex = 9;
+            this.button7.Text = "Menu";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
+            // Inicio
+            // 
+            this.Inicio.CustomFormat = "dd/MM/yyyy";
+            this.Inicio.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.Inicio.Location = new System.Drawing.Point(759, 119);
+            this.Inicio.Name = "Inicio";
+            this.Inicio.Size = new System.Drawing.Size(148, 20);
+            this.Inicio.TabIndex = 7;
+            // 
+            // Fin
+            // 
+            this.Fin.CustomFormat = "dd/MM/yyyy";
+            this.Fin.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.Fin.Location = new System.Drawing.Point(759, 193);
+            this.Fin.Name = "Fin";
+            this.Fin.Size = new System.Drawing.Size(148, 20);
+            this.Fin.TabIndex = 8;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(804, 91);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(32, 13);
+            this.label8.TabIndex = 9;
+            this.label8.Text = "Inicio";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(804, 168);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(21, 13);
+            this.label9.TabIndex = 10;
+            this.label9.Text = "Fin";
+            // 
+            // button8
+            // 
+            this.button8.Location = new System.Drawing.Point(786, 248);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(75, 23);
+            this.button8.TabIndex = 11;
+            this.button8.Text = "Buscar";
+            this.button8.UseVisualStyleBackColor = true;
             // 
             // Reportes
             // 
@@ -425,5 +564,17 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.DateTimePicker Fin;
+        private System.Windows.Forms.DateTimePicker Inicio;
+        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label8;
     }
 }

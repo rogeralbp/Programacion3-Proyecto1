@@ -48,25 +48,32 @@ namespace CapaPresentacion
             nombres = conectar.Hoteles();
             chart2.Palette = ChartColorPalette.Pastel;
             chart2.Titles.Add("CANTIDAD DE PERSONAS POR HOTEL");
-            if (nombres.Count <= 0)
-            {
-                MessageBox.Show("No se encuentran Reservaciones en este momento!", "Aviso!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else
-            {
-                for (int i = 0; i < nombres.Count; i++)
-                {
-                    Series serie = chart2.Series.Add(nombres[i].ToString());
-                    serie.Label = cantidad[i].ToString();
-                    serie.Points.Add(Convert.ToInt32(cantidad[i]));
-                }
 
-
+            for (int i = 0; i < nombres.Count; i++)
+            {
+                Series serie = chart2.Series.Add(nombres[i].ToString());
+                serie.Label = cantidad[i].ToString();
+                serie.Points.Add(Convert.ToInt32(cantidad[i]));
             }
+
 
         }
+
+        
             public void Reporte3()
         {
+
+            cantidad = conectar.Cantidad_Porcentaje();
+            nombres = conectar.Metodo_Porcentaje();
+            chart3.Palette = ChartColorPalette.Pastel;
+            chart3.Titles.Add("PORCENTAJE DE VISITA POR PAIS");
+
+            for (int i = 0; i < nombres.Count; i++)
+            {
+                Series serie = chart3.Series.Add(nombres[i].ToString());
+                serie.Label = cantidad[i].ToString();
+                serie.Points.Add(Convert.ToDouble(cantidad[i]));
+            }
 
         }
 
@@ -92,15 +99,65 @@ namespace CapaPresentacion
         {
             //Funcion del reporte 1
             Reporte1();
+            //Funcion del reporte 2
             Reporte2();
+            //Funcion del reporte 3
+            Reporte3();
 
-
-            
         }
 
         private void chart1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Menu_Principal_Administrador a = new Menu_Principal_Administrador();
+            a.Show();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Menu_Principal_Administrador a = new Menu_Principal_Administrador();
+            a.Show();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Menu_Principal_Administrador a = new Menu_Principal_Administrador();
+            a.Show();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Menu_Principal_Administrador a = new Menu_Principal_Administrador();
+            a.Show();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Menu_Principal_Administrador a = new Menu_Principal_Administrador();
+            a.Show();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Menu_Principal_Administrador a = new Menu_Principal_Administrador();
+            a.Show();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Menu_Principal_Administrador a = new Menu_Principal_Administrador();
+            a.Show();
         }
     }
 }
