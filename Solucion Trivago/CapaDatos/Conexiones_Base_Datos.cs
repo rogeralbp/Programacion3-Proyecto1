@@ -924,7 +924,7 @@ namespace CapaDatos
             List<string> nombres = new List<string>();
             Conexion();
             conexion.Open();
-            NpgsqlCommand cmd = new NpgsqlCommand("SELECT COUNT(*) as porcentaje_visitas,pais_destino FROM informacion_reservaciones_vuelos GROUP BY pais_destino", conexion);
+            NpgsqlCommand cmd = new NpgsqlCommand("SELECT SUM(c.pasajeros_adultos) FROM informacion_reservaciones_vuelos as c WHERE to_date(c.fecha_inicio,'DD/MM/YY')  >= '" + fechainicio + "' AND to_date(c.fecha_fin,'DD/MM/YY')  <= '" + fechafin + "'",  conexion);
             NpgsqlDataReader reader = cmd.ExecuteReader();
             try
             {
@@ -959,7 +959,7 @@ namespace CapaDatos
             List<string> cantidad = new List<string>();
             Conexion();
             conexion.Open();
-            NpgsqlCommand cmd = new NpgsqlCommand("SELECT COUNT(*) as porcentaje_visitas,pais_destino FROM informacion_reservaciones_vuelos GROUP BY pais_destino", conexion);
+            NpgsqlCommand cmd = new NpgsqlCommand("SELECT SUM(c.pasajeros_niños) FROM informacion_reservaciones_vuelos as c WHERE to_date(c.fecha_inicio,'DD/MM/YY')  >= '" + fechainicio + "' AND to_date(c.fecha_fin,'DD/MM/YY')  <= '" + fechafin + "'", conexion);
             NpgsqlDataReader reader = cmd.ExecuteReader();
             try
             {

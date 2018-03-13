@@ -129,7 +129,10 @@ namespace CapaPresentacion
             Reporte2();
             //Funcion del reporte 3
             Reporte3();
-
+            //Funcion del reporte 4
+            Reporte5();
+            //Funcion del reporte 5
+            Reporte6();
             //Funcion del reporte 6
             Reporte6();
             //Funcion del reporte 7
