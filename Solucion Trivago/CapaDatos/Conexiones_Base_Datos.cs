@@ -829,17 +829,10 @@ namespace CapaDatos
             return nombres;
         }
 
-
-
-
         /// <summary>
         /// REPORTE 3
         /// </summary>
         /// <returns></returns>
-
-
-
-
         public List<string> Cantidad_Porcentaje()
         {
             List<string> cantidad = new List<string>();
@@ -891,6 +884,205 @@ namespace CapaDatos
         }
 
 
+
+        /// <summary>
+        /// REPORTE 4
+        /// </summary>
+        /// <returns></returns>
+        /// 
+
+
+        public List<string> Cantidad_Adultos(string fechainicio, string fechafin)
+        {
+            List<string> cantidad = new List<string>();
+            Conexion();
+            conexion.Open();
+            NpgsqlCommand cmd = new NpgsqlCommand("SELECT COUNT(*) as porcentaje_visitas,pais_destino FROM informacion_reservaciones_vuelos GROUP BY pais_destino", conexion);
+            NpgsqlDataReader reader = cmd.ExecuteReader();
+            try
+            {
+                while (reader.Read())
+                {
+                    cantidad.Add(reader.GetString(0));
+                }
+            }
+            finally
+            {
+                reader.Close();
+                cmd.Dispose();
+
+            }
+
+
+            return cantidad;
+        }
+       
+        /// <summary>
+        /// REPORTE 5
+        /// </summary>
+        /// <returns></returns>
+        /// 
+
+        public List<string> Cantidad_Niños(string fechainicio, string fechafin)
+        {
+            List<string> cantidad = new List<string>();
+            Conexion();
+            conexion.Open();
+            NpgsqlCommand cmd = new NpgsqlCommand("SELECT SUM(c.pasajeros_niños) FROM informacion_reservaciones_vuelos as c WHERE to_date(c.fecha_inicio,'DD/MM/YY')  >= '" + fechainicio + "' AND to_date(c.fecha_fin,'DD/MM/YY')  <= '" + fechafin + "'", conexion);
+            NpgsqlDataReader reader = cmd.ExecuteReader();
+            try
+            {
+                while (reader.Read())
+                {
+                    cantidad.Add(reader.GetString(0));
+                }
+            }
+            finally
+            {
+                reader.Close();
+                cmd.Dispose();
+
+            }
+
+
+            return cantidad;
+        }
+        /// <summary>
+        /// REPORTE 6
+        /// </summary>
+        /// <returns></returns>
+        /// 
+        public List<string> Cantidad_Vehiculos()
+        {
+            List<string> cantidad = new List<string>();
+            Conexion();
+            conexion.Open();
+            NpgsqlCommand cmd = new NpgsqlCommand("SELECT v.marca  as marca FROM informacion_reservaciones_vuelos AS r JOIN vehiculos AS v ON r.placa_vehiculo = v.placa GROUP BY marca ORDER BY marca DESC", conexion);
+            NpgsqlDataReader reader = cmd.ExecuteReader();
+            try
+            {
+                while (reader.Read())
+                {
+                    cantidad.Add(reader.GetString(0));
+                }
+            }
+            finally
+            {
+                reader.Close();
+                cmd.Dispose();
+                conexion.Close();
+            }
+            for (int i = 0; i < cantidad.Count; i++)
+            {
+                string carros = (string)cantidad[i];
+                carros = carros.Replace(",", "");
+                cantidad[i] = carros;
+            }
+
+
+
+            return cantidad;
+        }
+        public List<string> Metodo_Vehiculos()
+        {
+
+            List<string> nombres = new List<string>();
+            Conexion();
+            conexion.Open();
+            NpgsqlCommand cmd = new NpgsqlCommand("SELECT v.marca  as marca FROM informacion_reservaciones_vuelos AS r JOIN vehiculos AS v ON r.placa_vehiculo = v.placa GROUP BY marca ORDER BY marca DESC", conexion);
+            NpgsqlDataReader reader = cmd.ExecuteReader();
+            try
+            {
+                while (reader.Read())
+                {
+                    nombres.Add(reader.GetString(1));
+                }
+            }
+            finally
+            {
+                reader.Close();
+                cmd.Dispose();
+                conexion.Close();
+            }
+
+            for (int i = 0; i < nombres.Count; i++)
+            {
+                string user = (string)nombres[i];
+                user = user.Replace(",", "");
+                nombres[i] = user;
+            }
+            return nombres;
+        }
+
+
+
+        /// <summary>
+        /// REPORTE 7
+        /// </summary>
+        /// <returns></returns>
+        /// 
+
+        public List<string> Cantidad_Escala()
+        {
+            List<string> cantidad = new List<string>();
+            Conexion();
+            conexion.Open();
+            NpgsqlCommand cmd = new NpgsqlCommand("SELECT vuelo_escala pais_escla FROM informacion_reservaciones_vuelos WHERE vuelo_escala !='Vuelo Directo'", conexion);
+            NpgsqlDataReader reader = cmd.ExecuteReader();
+            try
+            {
+                while (reader.Read())
+                {
+                    cantidad.Add(reader.GetString(0));
+                }
+            }
+            finally
+            {
+                reader.Close();
+                cmd.Dispose();
+                conexion.Close();
+            }
+            for (int i = 0; i < cantidad.Count; i++)
+            {
+                string carros = (string)cantidad[i];
+                carros = carros.Replace(",", "");
+                cantidad[i] = carros;
+            }
+
+
+
+            return cantidad;
+        }
+        public List<string> Metodo_Escala()
+        {
+
+            List<string> nombres = new List<string>();
+            Conexion();
+            conexion.Open();
+            NpgsqlCommand cmd = new NpgsqlCommand("SELECT vuelo_escala pais_escla FROM informacion_reservaciones_vuelos WHERE vuelo_escala !='Vuelo Directo'", conexion);
+            NpgsqlDataReader reader = cmd.ExecuteReader();
+            try
+            {
+                while (reader.Read())
+                {
+                    nombres.Add(reader.GetString(1));
+                }
+            }
+            finally
+            {
+                reader.Close();
+                cmd.Dispose();
+                conexion.Close();
+            }
+
+            for (int i = 0; i < nombres.Count; i++)
+            {
+                string user = (string)nombres[i];
+                user = user.Replace(",", "");
+                nombres[i] = user;
+            }
+            return nombres;
+        }
     }
 
 }
