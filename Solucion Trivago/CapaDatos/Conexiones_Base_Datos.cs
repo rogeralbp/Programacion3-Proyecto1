@@ -918,41 +918,12 @@ namespace CapaDatos
 
             return cantidad;
         }
-        public List<string> Metodo_Adultos(string fechainicio, string fechafin)
-        {
-
-            List<string> nombres = new List<string>();
-            Conexion();
-            conexion.Open();
-            NpgsqlCommand cmd = new NpgsqlCommand("SELECT SUM(c.pasajeros_adultos) FROM informacion_reservaciones_vuelos as c WHERE to_date(c.fecha_inicio,'DD/MM/YY')  >= '" + fechainicio + "' AND to_date(c.fecha_fin,'DD/MM/YY')  <= '" + fechafin + "'",  conexion);
-            NpgsqlDataReader reader = cmd.ExecuteReader();
-            try
-            {
-                while (reader.Read())
-                {
-                    nombres.Add(reader.GetString(1));
-                }
-            }
-            finally
-            {
-                reader.Close();
-                cmd.Dispose();
-                conexion.Close();
-            }
-
-
-            return nombres;
-        }
-
-
-
+       
         /// <summary>
         /// REPORTE 5
         /// </summary>
         /// <returns></returns>
         /// 
-
-
 
         public List<string> Cantidad_Niños(string fechainicio, string fechafin)
         {
@@ -978,32 +949,6 @@ namespace CapaDatos
 
             return cantidad;
         }
-        public List<string> Metodo_Niños(string fechainicio, string fechafin)
-        {
-
-            List<string> nombres = new List<string>();
-            Conexion();
-            conexion.Open();
-            NpgsqlCommand cmd = new NpgsqlCommand("SELECT COUNT(*) as porcentaje_visitas,pais_destino FROM informacion_reservaciones_vuelos GROUP BY pais_destino", conexion);
-            NpgsqlDataReader reader = cmd.ExecuteReader();
-            try
-            {
-                while (reader.Read())
-                {
-                    nombres.Add(reader.GetString(1));
-                }
-            }
-            finally
-            {
-                reader.Close();
-                cmd.Dispose();
-                conexion.Close();
-            }
-
-
-            return nombres;
-        }
-
         /// <summary>
         /// REPORTE 6
         /// </summary>
