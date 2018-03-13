@@ -714,6 +714,7 @@ namespace CapaDatos
         }
 
 
+
         /// <summary>
         /// REPORTE 1
         /// </summary>
@@ -721,16 +722,16 @@ namespace CapaDatos
 
         public List<string> Cantidad_Hoteles()
         {
-            List<String> cantidad_hoteles = new List<string>();
+            List<string> cantidad = new List<string>();
             Conexion();
             conexion.Open();
-            NpgsqlCommand cmd = new NpgsqlCommand("SELECT COUNT(r.hotel), h.nombre FROM informacion_reservaciones_hoteles AS r JOIN hotel AS h on h.nombre = r.hotel WHERE r.hotel = h.nombre GROUP BY h.nombre;", conexion);
+            NpgsqlCommand cmd = new NpgsqlCommand("SELECT COUNT(r.id_hotel) AS reservaciones, h.nombre FROM informacion_reservaciones_hoteles AS r JOIN hotel AS h on r.id_hotel = h.identificador  WHERE r.id_hotel = h.identificador GROUP BY h.nombre ORDER BY reservaciones DESC", conexion);
             NpgsqlDataReader reader = cmd.ExecuteReader();
             try
             {
                 while (reader.Read())
                 {
-                    cantidad_hoteles.Add(reader.GetString(0));
+                    cantidad.Add(reader.GetString(0));
                 }
             }
             finally
@@ -741,15 +742,15 @@ namespace CapaDatos
             }
 
 
-            return cantidad_hoteles;
+            return cantidad;
         }
         public List<string> Metodo_Nombres()
         {
 
-            List<String> nombres = new List<String>();
+            List<string> nombres = new List<string>();
             Conexion();
             conexion.Open();
-            NpgsqlCommand cmd = new NpgsqlCommand("SELECT COUNT(r.hotel), h.nombre FROM informacion_reservaciones_hoteles AS r JOIN hotel AS h on h.nombre = r.hotel WHERE r.hotel = h.nombre GROUP BY h.nombre;", conexion);
+            NpgsqlCommand cmd = new NpgsqlCommand("SELECT COUNT(r.id_hotel) AS reservaciones, h.nombre FROM informacion_reservaciones_hoteles AS r JOIN hotel AS h on r.id_hotel = h.identificador  WHERE r.id_hotel = h.identificador GROUP BY h.nombre ORDER BY reservaciones DESC", conexion);
             NpgsqlDataReader reader = cmd.ExecuteReader();
             try
             {
@@ -769,26 +770,26 @@ namespace CapaDatos
             return nombres;
         }
 
-   
-    /// <summary>
-    /// REPORTE 2
-    /// </summary>
-    /// <returns></returns>
+
+        /// <summary>
+        /// REPORTE 2
+        /// </summary>
+        /// <returns></returns>
 
 
-        public List<string> Cantidad_Persona()
+        public List<int> Cantidad_Persona()
         {
 
-            List<String> nombres = new List<String>();
+            List<int> nombres = new List<int>();
             Conexion();
             conexion.Open();
-            NpgsqlCommand cmd = new NpgsqlCommand("SELECT ;", conexion);
+            NpgsqlCommand cmd = new NpgsqlCommand("SELECT COUNT(r.cantidad_personas) AS personas,h.nombre FROM informacion_reservaciones_hoteles AS r JOIN hotel AS h on r.id_hotel = h.identificador  WHERE r.id_hotel = h.identificador GROUP BY h.nombre  ORDER BY personas DESC", conexion);
             NpgsqlDataReader reader = cmd.ExecuteReader();
             try
             {
                 while (reader.Read())
                 {
-                    nombres.Add(reader.GetString(1));
+                    nombres.Add(reader.GetInt32(0));
                 }
             }
             finally
@@ -810,7 +811,68 @@ namespace CapaDatos
             List<String> nombres = new List<String>();
             Conexion();
             conexion.Open();
-            NpgsqlCommand cmd = new NpgsqlCommand("SELECT ;", conexion);
+            NpgsqlCommand cmd = new NpgsqlCommand("SELECT COUNT(r.cantidad_personas) AS personas,h.nombre FROM informacion_reservaciones_hoteles AS r JOIN hotel AS h on r.id_hotel = h.identificador  WHERE r.id_hotel = h.identificador GROUP BY h.nombre  ORDER BY personas DESC", conexion);
+            NpgsqlDataReader reader = cmd.ExecuteReader();
+            try
+            {
+                while (reader.Read())
+                {
+                    nombres.Add(reader.GetString(1));
+                }
+            }
+            finally
+            {
+                reader.Close();
+                cmd.Dispose();
+                conexion.Close();
+            }
+
+
+            return nombres;
+        }
+
+
+
+
+        /// <summary>
+        /// REPORTE 3
+        /// </summary>
+        /// <returns></returns>
+
+
+
+
+        public List<string> Cantidad_Porcentaje()
+        {
+            List<string> cantidad = new List<string>();
+            Conexion();
+            conexion.Open();
+            NpgsqlCommand cmd = new NpgsqlCommand("SELECT COUNT(*) as porcentaje_visitas,pais_destino FROM informacion_reservaciones_vuelos GROUP BY pais_destino", conexion);
+            NpgsqlDataReader reader = cmd.ExecuteReader();
+            try
+            {
+                while (reader.Read())
+                {
+                    cantidad.Add(reader.GetString(0));
+                }
+            }
+            finally
+            {
+                reader.Close();
+                cmd.Dispose();
+
+            }
+
+
+            return cantidad;
+        }
+        public List<string> Metodo_Porcentaje()
+        {
+
+            List<string> nombres = new List<string>();
+            Conexion();
+            conexion.Open();
+            NpgsqlCommand cmd = new NpgsqlCommand("SELECT COUNT(*) as porcentaje_visitas,pais_destino FROM informacion_reservaciones_vuelos GROUP BY pais_destino", conexion);
             NpgsqlDataReader reader = cmd.ExecuteReader();
             try
             {
@@ -833,6 +895,7 @@ namespace CapaDatos
 
     }
 
-    }
+}
+
 
 
