@@ -89,9 +89,35 @@ namespace CapaPresentacion
         public void Reporte6()
         {
 
+            cantidad = conectar.Cantidad_Vehiculos();
+            nombres = conectar.Metodo_Vehiculos();
+            chart6.Palette = ChartColorPalette.Pastel;
+            chart6.Titles.Add("CANTIDAD DE VEHICULOS MAS RENTADOS");
+
+            for (int i = 0; i < nombres.Count; i++)
+            {
+                Series serie = chart6.Series.Add(nombres[i].ToString());
+                serie.Label = cantidad[i].ToString();
+                serie.Points.Add(Convert.ToDouble(cantidad[i]));
+            }
+
+
         }
         public void Reporte7()
         {
+
+            cantidad = conectar.Cantidad_Escala();
+            nombres = conectar.Metodo_Escala();
+            chart7.Palette = ChartColorPalette.Pastel;
+            chart7.Titles.Add("NOMBRES DE PAISES QUE HAN HECHO ESCALA");
+
+            for (int i = 0; i < nombres.Count; i++)
+            {
+                Series serie = chart7.Series.Add(nombres[i].ToString());
+                serie.Label = cantidad[i].ToString();
+                serie.Points.Add(Convert.ToDouble(cantidad[i]));
+            }
+
 
         }
 
@@ -103,6 +129,12 @@ namespace CapaPresentacion
             Reporte2();
             //Funcion del reporte 3
             Reporte3();
+
+            //Funcion del reporte 6
+            Reporte6();
+            //Funcion del reporte 7
+            Reporte7();
+
 
         }
 
@@ -158,6 +190,11 @@ namespace CapaPresentacion
             this.Hide();
             Menu_Principal_Administrador a = new Menu_Principal_Administrador();
             a.Show();
+        }
+
+        private void tabPage6_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

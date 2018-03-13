@@ -1004,9 +1004,6 @@ namespace CapaDatos
             return nombres;
         }
 
-
-
-
         /// <summary>
         /// REPORTE 6
         /// </summary>
