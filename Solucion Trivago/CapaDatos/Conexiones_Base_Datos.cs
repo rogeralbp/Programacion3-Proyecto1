@@ -20,7 +20,7 @@ namespace CapaDatos
 
             string baseDatos = "gestion_vuelos";
 
-            string cadenaConexion = "Server=" + servidor + ";" + "Port=" + puerto + ";" + "User Id=" + usuario + ";" + "Password=" + claveAnthonny + ";" + "Database=" + baseDatos;
+            string cadenaConexion = "Server=" + servidor + ";" + "Port=" + puerto + ";" + "User Id=" + usuario + ";" + "Password=" + claveRoger + ";" + "Database=" + baseDatos;
             conexion = new NpgsqlConnection(cadenaConexion);
 
             if (conexion != null)
@@ -995,7 +995,7 @@ namespace CapaDatos
             {
                 while (reader.Read())
                 {
-                    nombres.Add(reader.GetString(1));
+                    nombres.Add(reader.GetString(0));
                 }
             }
             finally
