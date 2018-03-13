@@ -953,7 +953,7 @@ namespace CapaDatos
         /// </summary>
         /// <returns></returns>
         /// 
-        public  ArrayList Cantidad_Vehiculos()
+        public ArrayList Cantidad_Vehiculos()
         {
             ArrayList cantidad = new ArrayList();
             Conexion();
@@ -973,15 +973,7 @@ namespace CapaDatos
                 cmd.Dispose();
                 conexion.Close();
             }
-            for (int i = 0; i < cantidad.Count; i++)
-            {
-                string carros = (string)cantidad[i];
-                carros = carros.Replace(",", "");
-                cantidad[i] = carros;
-            }
-
-
-
+            
             return cantidad;
         }
         public ArrayList Metodo_Vehiculos()
@@ -1004,13 +996,6 @@ namespace CapaDatos
                 reader.Close();
                 cmd.Dispose();
                 conexion.Close();
-            }
-
-            for (int i = 0; i < nombres.Count; i++)
-            {
-                string user = (string)nombres[i];
-                user = user.Replace(",", "");
-                nombres[i] = user;
             }
             return nombres;
         }
