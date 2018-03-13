@@ -46,6 +46,7 @@ namespace CapaPresentacion
             this.Hide();
             Menu_Principal_Administrador v = new Menu_Principal_Administrador();
             v.Show();
+
         }
 
         private void button4_Click(object sender, EventArgs e)
