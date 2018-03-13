@@ -1013,7 +1013,7 @@ namespace CapaDatos
             List<string> cantidad = new List<string>();
             Conexion();
             conexion.Open();
-            NpgsqlCommand cmd = new NpgsqlCommand("SELECT COUNT(c.vuelo_escala),trim(trailing 'ABCDEFGHIJKMLNÑOPQRSTUVWXYZ' from c.vuelo_escala) FROM informacion_reservaciones_vuelos AS c WHERE c.vuelo_escala <> 'Vuelo Directo' GROUP By c.vuelo_escala'", conexion);
+            NpgsqlCommand cmd = new NpgsqlCommand("SELECT COUNT(c.vuelo_escala),trim(trailing 'ABCDEFGHIJKMLNÑOPQRSTUVWXYZ' from c.vuelo_escala) FROM informacion_reservaciones_vuelos AS c WHERE c.vuelo_escala <> 'Vuelo Directo' GROUP By c.vuelo_escala ;", conexion);
             NpgsqlDataReader reader = cmd.ExecuteReader();
             try
             {
@@ -1037,7 +1037,7 @@ namespace CapaDatos
             List<string> nombres = new List<string>();
             Conexion();
             conexion.Open();
-            NpgsqlCommand cmd = new NpgsqlCommand("SELECT COUNT(c.vuelo_escala),trim(trailing 'ABCDEFGHIJKMLNÑOPQRSTUVWXYZ' from c.vuelo_escala) FROM informacion_reservaciones_vuelos AS c WHERE c.vuelo_escala <> 'Vuelo Directo' GROUP By c.vuelo_escala ' ", conexion);
+            NpgsqlCommand cmd = new NpgsqlCommand("SELECT COUNT(c.vuelo_escala),trim(trailing 'ABCDEFGHIJKMLNÑOPQRSTUVWXYZ' from c.vuelo_escala) FROM informacion_reservaciones_vuelos AS c WHERE c.vuelo_escala <> 'Vuelo Directo' GROUP By c.vuelo_escala ;", conexion);
             NpgsqlDataReader reader = cmd.ExecuteReader();
             try
             {
