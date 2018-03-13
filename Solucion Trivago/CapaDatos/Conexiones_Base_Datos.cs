@@ -832,6 +832,67 @@ namespace CapaDatos
         }
 
 
+
+
+        /// <summary>
+        /// REPORTE 3
+        /// </summary>
+        /// <returns></returns>
+
+
+
+
+        public List<string> Cantidad_Porcentaje()
+        {
+            List<string> cantidad = new List<string>();
+            Conexion();
+            conexion.Open();
+            NpgsqlCommand cmd = new NpgsqlCommand("SELECT COUNT(*) as porcentaje_visitas,pais_destino FROM informacion_reservaciones_vuelos GROUP BY pais_destino", conexion);
+            NpgsqlDataReader reader = cmd.ExecuteReader();
+            try
+            {
+                while (reader.Read())
+                {
+                    cantidad.Add(reader.GetString(0));
+                }
+            }
+            finally
+            {
+                reader.Close();
+                cmd.Dispose();
+
+            }
+
+
+            return cantidad;
+        }
+        public List<string> Metodo_Porcentaje()
+        {
+
+            List<string> nombres = new List<string>();
+            Conexion();
+            conexion.Open();
+            NpgsqlCommand cmd = new NpgsqlCommand("SELECT COUNT(*) as porcentaje_visitas,pais_destino FROM informacion_reservaciones_vuelos GROUP BY pais_destino", conexion);
+            NpgsqlDataReader reader = cmd.ExecuteReader();
+            try
+            {
+                while (reader.Read())
+                {
+                    nombres.Add(reader.GetString(1));
+                }
+            }
+            finally
+            {
+                reader.Close();
+                cmd.Dispose();
+                conexion.Close();
+            }
+
+
+            return nombres;
+        }
+
+
     }
 
 }
