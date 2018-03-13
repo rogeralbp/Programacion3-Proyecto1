@@ -27,7 +27,6 @@ namespace CapaNegocios
 
             string cadenaConexion = "Server=" + servidor + ";" + "Port=" + puerto + ";" + "User Id=" + usuario + ";" + "Password=" + claveAnthonny + ";" + "Database=" + baseDatos;
             conexion = new NpgsqlConnection(cadenaConexion);
-
             if (conexion != null)
             {
 
