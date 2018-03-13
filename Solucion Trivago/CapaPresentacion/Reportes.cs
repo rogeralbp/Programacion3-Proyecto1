@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,6 +20,8 @@ namespace CapaPresentacion
         List<String> cantidad = new List<String>();
         List<String> nombres = new List<String>();
         List<int> cantidad1 = new List<int>();
+
+        ArrayList cantidad_vehiculos = new ArrayList();
 
         public Reportes()
         {
@@ -145,7 +148,7 @@ namespace CapaPresentacion
         public void Reporte6()
         {
 
-            cantidad = conectar.Cantidad_Vehiculos();
+            cantidad_vehiculos = conectar.Cantidad_Vehiculos();
             nombres = conectar.Metodo_Vehiculos();
             chart6.Palette = ChartColorPalette.Pastel;
             chart6.Titles.Add("CANTIDAD DE VEHICULOS MAS RENTADOS");
@@ -154,7 +157,7 @@ namespace CapaPresentacion
             {
                 Series serie = chart6.Series.Add(nombres[i].ToString());
                 serie.Label = cantidad[i].ToString();
-                serie.Points.Add(Convert.ToDouble(cantidad[i]));
+                serie.Points.Add(Convert.ToInt32(cantidad[i]));
             }
 
 

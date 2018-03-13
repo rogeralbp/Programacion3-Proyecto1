@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using Npgsql;
@@ -20,7 +21,7 @@ namespace CapaDatos
 
             string baseDatos = "gestion_vuelos";
 
-            string cadenaConexion = "Server=" + servidor + ";" + "Port=" + puerto + ";" + "User Id=" + usuario + ";" + "Password=" + claveRoger + ";" + "Database=" + baseDatos;
+            string cadenaConexion = "Server=" + servidor + ";" + "Port=" + puerto + ";" + "User Id=" + usuario + ";" + "Password=" + claveAnthonny + ";" + "Database=" + baseDatos;
             conexion = new NpgsqlConnection(cadenaConexion);
 
             if (conexion != null)
@@ -952,9 +953,9 @@ namespace CapaDatos
         /// </summary>
         /// <returns></returns>
         /// 
-        public List<string> Cantidad_Vehiculos()
+        public  ArrayList Cantidad_Vehiculos()
         {
-            List<string> cantidad = new List<string>();
+            ArrayList cantidad = new ArrayList();
             Conexion();
             conexion.Open();
             NpgsqlCommand cmd = new NpgsqlCommand("SELECT v.marca  as marca FROM informacion_reservaciones_vuelos AS r JOIN vehiculos AS v ON r.placa_vehiculo = v.placa GROUP BY marca ORDER BY marca DESC", conexion);
@@ -1027,7 +1028,7 @@ namespace CapaDatos
             List<string> cantidad = new List<string>();
             Conexion();
             conexion.Open();
-            NpgsqlCommand cmd = new NpgsqlCommand("SELECT vuelo_escala pais_escla FROM informacion_reservaciones_vuelos WHERE vuelo_escala !='Vuelo Directo'", conexion);
+            NpgsqlCommand cmd = new NpgsqlCommand("SELECT vuelo_escala pais_escala FROM informacion_reservaciones_vuelos WHERE vuelo_escala !='Vuelo Directo'", conexion);
             NpgsqlDataReader reader = cmd.ExecuteReader();
             try
             {
@@ -1059,7 +1060,7 @@ namespace CapaDatos
             List<string> nombres = new List<string>();
             Conexion();
             conexion.Open();
-            NpgsqlCommand cmd = new NpgsqlCommand("SELECT vuelo_escala pais_escla FROM informacion_reservaciones_vuelos WHERE vuelo_escala !='Vuelo Directo'", conexion);
+            NpgsqlCommand cmd = new NpgsqlCommand("SELECT vuelo_escala pais_escala FROM informacion_reservaciones_vuelos WHERE vuelo_escala !='Vuelo Directo'", conexion);
             NpgsqlDataReader reader = cmd.ExecuteReader();
             try
             {
