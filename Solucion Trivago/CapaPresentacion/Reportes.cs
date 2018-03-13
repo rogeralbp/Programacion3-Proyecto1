@@ -49,7 +49,7 @@ namespace CapaPresentacion
         public void Reporte2()
         {
 
-            cantidad1 = conectar.Cantidad_Persona();
+            cantidad = conectar.Cantidad_Persona();
             nombres = conectar.Hoteles();
             chart2.Palette = ChartColorPalette.Pastel;
             chart2.Titles.Add("CANTIDAD DE PERSONAS POR HOTEL");
@@ -57,8 +57,8 @@ namespace CapaPresentacion
             for (int i = 0; i < nombres.Count; i++)
             {
                 Series serie = chart2.Series.Add(nombres[i].ToString());
-                serie.Label = cantidad1[i].ToString();
-                serie.Points.Add(Convert.ToInt32(cantidad1[i]));
+                serie.Label = cantidad[i].ToString();
+                serie.Points.Add(Convert.ToDouble(cantidad[i]));
             }
 
 

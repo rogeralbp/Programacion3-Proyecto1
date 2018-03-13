@@ -776,10 +776,10 @@ namespace CapaDatos
         /// <returns></returns>
 
 
-        public List<int> Cantidad_Persona()
+        public List<string> Cantidad_Persona()
         {
 
-            List<int> nombres = new List<int>();
+            List<string> nombres = new List<string>();
             Conexion();
             conexion.Open();
             NpgsqlCommand cmd = new NpgsqlCommand("SELECT COUNT(r.cantidad_personas) AS personas,h.nombre FROM informacion_reservaciones_hoteles AS r JOIN hotel AS h on r.id_hotel = h.identificador  WHERE r.id_hotel = h.identificador GROUP BY h.nombre  ORDER BY personas DESC", conexion);
@@ -788,7 +788,7 @@ namespace CapaDatos
             {
                 while (reader.Read())
                 {
-                    nombres.Add(reader.GetInt32(0));
+                    nombres.Add(reader.GetString(0));
                 }
             }
             finally
@@ -1013,7 +1013,7 @@ namespace CapaDatos
             List<string> cantidad = new List<string>();
             Conexion();
             conexion.Open();
-            NpgsqlCommand cmd = new NpgsqlCommand("SELECT vuelo_escala pais_escala FROM informacion_reservaciones_vuelos WHERE vuelo_escala !='Vuelo Directo'", conexion);
+            NpgsqlCommand cmd = new NpgsqlCommand("SELECT COUNT(c.vuelo_escala),trim(trailing 'ABCDEFGHIJKMLNÑOPQRSTUVWXYZ' from c.vuelo_escala) FROM informacion_reservaciones_vuelos AS c WHERE c.vuelo_escala <> 'Vuelo Directo' GROUP By c.vuelo_escala'", conexion);
             NpgsqlDataReader reader = cmd.ExecuteReader();
             try
             {
@@ -1028,15 +1028,7 @@ namespace CapaDatos
                 cmd.Dispose();
                 conexion.Close();
             }
-            for (int i = 0; i < cantidad.Count; i++)
-            {
-                string carros = (string)cantidad[i];
-                carros = carros.Replace(",", "");
-                cantidad[i] = carros;
-            }
-
-
-
+           
             return cantidad;
         }
         public List<string> Metodo_Escala()
@@ -1045,7 +1037,7 @@ namespace CapaDatos
             List<string> nombres = new List<string>();
             Conexion();
             conexion.Open();
-            NpgsqlCommand cmd = new NpgsqlCommand("SELECT vuelo_escala pais_escala FROM informacion_reservaciones_vuelos WHERE vuelo_escala !='Vuelo Directo'", conexion);
+            NpgsqlCommand cmd = new NpgsqlCommand("SELECT COUNT(c.vuelo_escala),trim(trailing 'ABCDEFGHIJKMLNÑOPQRSTUVWXYZ' from c.vuelo_escala) FROM informacion_reservaciones_vuelos AS c WHERE c.vuelo_escala <> 'Vuelo Directo' GROUP By c.vuelo_escala ' ", conexion);
             NpgsqlDataReader reader = cmd.ExecuteReader();
             try
             {
@@ -1061,12 +1053,7 @@ namespace CapaDatos
                 conexion.Close();
             }
 
-            for (int i = 0; i < nombres.Count; i++)
-            {
-                string user = (string)nombres[i];
-                user = user.Replace(",", "");
-                nombres[i] = user;
-            }
+            
             return nombres;
         }
     }
