@@ -59,8 +59,8 @@ namespace CapaPresentacion
 
         }
 
-        
-            public void Reporte3()
+
+        public void Reporte3()
         {
 
             cantidad = conectar.Cantidad_Porcentaje();
@@ -79,12 +79,68 @@ namespace CapaPresentacion
 
         public void Reporte4()
         {
+            try
+            {
+
+                cantidad = conectar.Cantidad_Adultos(Inicio.Value.ToShortDateString(), Fin.Value.ToShortDateString());
+                if (cantidad.Count == 0)
+                {
+                    MessageBox.Show("No se hay resultados");
+                }
+                else
+                {
+                    chart4.Palette = ChartColorPalette.Pastel;
+                    chart4.Titles.Add("Adultos que han viajado entre " + Inicio.Value.ToShortDateString() + " Y " + Fin.Value.ToShortDateString());
+
+                    for (int i = 0; i < cantidad.Count; i++)
+                    {
+                        Series serie = chart4.Series.Add("Adultos");
+
+                        serie.Label = cantidad[i].ToString();
+
+                        serie.Points.Add(Convert.ToDouble(cantidad[i]));
+                    }
+                }
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("No se ha encontran Resultados");
+            }
 
         }
         public void Reporte5()
         {
+            try
+            {
 
+                cantidad = conectar.Cantidad_Niños(dateTimePicker1.Value.ToShortDateString(), dateTimePicker2.Value.ToShortDateString());
+                if (cantidad.Count == 0)
+                {
+                    MessageBox.Show("No se hay resultados");
+                }
+                else
+                {
+                    chart5.Palette = ChartColorPalette.Pastel;
+                    chart5.Titles.Add("Niños que han viajado entre " + dateTimePicker1.Value.ToShortDateString() + " Y " + dateTimePicker2.Value.ToShortDateString());
+
+                    for (int i = 0; i < cantidad.Count; i++)
+                    {
+                        Series serie = chart5.Series.Add("Niños");
+
+                        serie.Label = cantidad[i].ToString();
+
+                        serie.Points.Add(Convert.ToDouble(cantidad[i]));
+                    }
+                }
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("No se ha encontran Resultados");
+            }
         }
+    
+
+
 
         public void Reporte6()
         {
@@ -129,10 +185,6 @@ namespace CapaPresentacion
             Reporte2();
             //Funcion del reporte 3
             Reporte3();
-            //Funcion del reporte 4
-            Reporte5();
-            //Funcion del reporte 5
-            Reporte6();
             //Funcion del reporte 6
             Reporte6();
             //Funcion del reporte 7
@@ -199,5 +251,28 @@ namespace CapaPresentacion
         {
 
         }
+        /// <summary>
+        /// ESTE BOTON ES EL DE BUSCAR FECHA EN ADULTOS QUE HAN VIAJADO
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button8_Click(object sender, EventArgs e)
+        {
+            Reporte4();
+        }
+
+
+        /// <summary>
+        /// ESTE BOTON ES EL DE BUSCAR FECHA EN NIÑOS QUE HAN VIAJADO
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            Reporte5();
+        }
+
     }
 }
+    
+
