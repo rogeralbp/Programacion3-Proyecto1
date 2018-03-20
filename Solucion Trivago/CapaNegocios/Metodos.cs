@@ -25,7 +25,7 @@ namespace CapaNegocios
 
             string baseDatos = "gestion_vuelos";
 
-            string cadenaConexion = "Server=" + servidor + ";" + "Port=" + puerto + ";" + "User Id=" + usuario + ";" + "Password=" + claveAnthonny + ";" + "Database=" + baseDatos;
+            string cadenaConexion = "Server=" + servidor + ";" + "Port=" + puerto + ";" + "User Id=" + usuario + ";" + "Password=" + claveRoger + ";" + "Database=" + baseDatos;
             conexion = new NpgsqlConnection(cadenaConexion);
             if (conexion != null)
             {
@@ -296,7 +296,7 @@ namespace CapaNegocios
             {
                 Conexion();
                 conexion.Open();
-                NpgsqlCommand cmd = new NpgsqlCommand("SELECT nombre_lugar,nombre  FROM lugares JOIN paises ON lugares.id_pais=paises.identificador WHERE identificador_lugar='" + agregar.SelectedItem.ToString()+"'", conexion);
+                NpgsqlCommand cmd = new NpgsqlCommand("SELECT nombre_lugar,nombre  FROM lugares JOIN paises ON lugares.id_pais=paises.identificador WHERE identificador_lugar='" + agregar.SelectedItem.ToString() + "'", conexion);
                 NpgsqlDataReader leer = cmd.ExecuteReader();
                 if (leer.HasRows)
                 {
@@ -807,7 +807,7 @@ namespace CapaNegocios
                 Conexion();
                 conexion.Open();
                 List<String> lista = new List<String>();
-                NpgsqlCommand cmd = new NpgsqlCommand("SELECT nombre_lugar FROM lugares JOIN paises ON lugares.id_pais=paises.identificador WHERE id_pais='"+id_pais+"'", conexion);
+                NpgsqlCommand cmd = new NpgsqlCommand("SELECT nombre_lugar FROM lugares JOIN paises ON lugares.id_pais=paises.identificador WHERE id_pais='" + id_pais + "'", conexion);
                 NpgsqlDataReader dr = cmd.ExecuteReader();
                 if (dr.HasRows)
                 {
@@ -901,13 +901,12 @@ namespace CapaNegocios
         //Metodo que llena el combo de identificadores de vehiculos , en la ventana de modificar vehiculos
         public void LlenarComboDatagridviewAeropuertos(DataGridViewComboBoxColumn nombre)
         {
-
             try
             {
                 Conexion();
                 conexion.Open();
                 List<String> lista = new List<String>();
-                NpgsqlCommand cmd = new NpgsqlCommand("SELECT nombre FROM lugares", conexion);
+                NpgsqlCommand cmd = new NpgsqlCommand("SELECT nombre_lugar FROM lugares", conexion);
                 NpgsqlDataReader dr = cmd.ExecuteReader();
                 if (dr.HasRows)
                 {
@@ -1098,9 +1097,29 @@ namespace CapaNegocios
             return id;
         }
 
-
-
+        public void MostrarInformacionPaisModificar(ComboBox pais, TextBox nombre)
+        {
+            try
+            {
+                Conexion();
+                conexion.Open();
+                NpgsqlCommand cmd = new NpgsqlCommand("SELECT nombre FROM paises WHERE identificador = '" + pais.SelectedItem.ToString() + "'", conexion);
+                NpgsqlDataReader leer = cmd.ExecuteReader();
+                if (leer.HasRows)
+                {
+                    while (leer.Read())
+                    {
+                        nombre.Text = leer.GetString(0);
+                    }
+                    conexion.Close();
+                }
+            }
+            catch (Exception error)
+            {
+                Console.WriteLine(error);
+            }
+        }
     }
-    }
+}
 
     

@@ -61,6 +61,8 @@
             this.button7 = new System.Windows.Forms.Button();
             this.Tabla_Paises = new System.Windows.Forms.DataGridView();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtNuevoNombrePais = new System.Windows.Forms.TextBox();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.tabPage1.SuspendLayout();
@@ -73,6 +75,8 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.txtNuevoNombrePais);
+            this.tabPage2.Controls.Add(this.label7);
             this.tabPage2.Controls.Add(this.cargar);
             this.tabPage2.Controls.Add(this.pictureBox2);
             this.tabPage2.Controls.Add(this.btnActualizarPais);
@@ -122,7 +126,8 @@
             // 
             // txtNombreModificar
             // 
-            this.txtNombreModificar.Location = new System.Drawing.Point(256, 104);
+            this.txtNombreModificar.Enabled = false;
+            this.txtNombreModificar.Location = new System.Drawing.Point(256, 88);
             this.txtNombreModificar.Name = "txtNombreModificar";
             this.txtNombreModificar.Size = new System.Drawing.Size(374, 22);
             this.txtNombreModificar.TabIndex = 10;
@@ -161,7 +166,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(43, 110);
+            this.label4.Location = new System.Drawing.Point(43, 94);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(78, 16);
             this.label4.TabIndex = 1;
@@ -413,6 +418,23 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(46, 143);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(115, 16);
+            this.label7.TabIndex = 15;
+            this.label7.Text = "Nuevo Nombre Pais:";
+            // 
+            // txtNuevoNombrePais
+            // 
+            this.txtNuevoNombrePais.Location = new System.Drawing.Point(255, 137);
+            this.txtNuevoNombrePais.Name = "txtNuevoNombrePais";
+            this.txtNuevoNombrePais.Size = new System.Drawing.Size(374, 22);
+            this.txtNuevoNombrePais.TabIndex = 16;
+            this.txtNuevoNombrePais.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
+            // 
             // Crud_Paises
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -472,5 +494,7 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Button cargar;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.TextBox txtNuevoNombrePais;
+        private System.Windows.Forms.Label label7;
     }
 }

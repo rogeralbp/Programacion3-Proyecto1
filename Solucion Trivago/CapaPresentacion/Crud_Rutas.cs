@@ -16,7 +16,7 @@ namespace CapaPresentacion
     {
         Conexiones_Base_Datos conectar = new Conexiones_Base_Datos();
         Metodos metodo = new Metodos();
-
+        Validaciones validar = new Validaciones();
         public Crud_Rutas()
         {
             InitializeComponent();
@@ -67,8 +67,8 @@ namespace CapaPresentacion
         {
             txtIdentificador.Clear();
             txtDuracion.Clear();
-           
-            
+            //comboPaisDestino.Items.Clear();
+            //comboPaisOrigen.Items.Clear();
         }
 
         public void Actualizar_Rutas()
@@ -79,8 +79,6 @@ namespace CapaPresentacion
         }
         private void button1_Click(object sender, EventArgs e)
         {
-
-
             if (txtIdentificador.Text.Length == 0 || txtDuracion.Text.Length == 0 || comboPaisOrigen.Text.Length == 0 || comboPaisDestino.Text.Length == 0 || txtDuracion.Text.Length == 0)
             {
                 MessageBox.Show("Debe de llenar todos los datos.");
@@ -91,23 +89,17 @@ namespace CapaPresentacion
                 string origen = comboPaisOrigen.SelectedItem.ToString();
                 string destino = comboPaisDestino.SelectedItem.ToString();
                 int cantidad = int.Parse(txtDuracion.Text);
-
                 conectar.InsertarDatosRutas(indentificadorRuta, origen, destino, cantidad);
                 MessageBox.Show("Ruta ingresada con Exito");
                 limpiarCampos();
                 Actualizar_Rutas();
-
             }
-
         }
-
         private void label8_Click(object sender, EventArgs e)
         {
 
         }
-
         
-
         private void Crud_Rutas_Load(object sender, EventArgs e)
         {
             //Llenamos el datagridview de rutas ingresadas
@@ -146,10 +138,8 @@ namespace CapaPresentacion
         private void comboBox4_SelectedIndexChanged(object sender, EventArgs e)
         {
             btnEliminarRuta.Enabled = true;
-
             //Metodo que muestra la informacion de la ruta 
             metodo.MostrarInformacionRutas(comboIDRutas, txtOrigenActual, txtDestinoActual, txtDuracionActual);
-
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
@@ -170,14 +160,11 @@ namespace CapaPresentacion
         }
         private void btnEliminarRuta_Click(object sender, EventArgs e)
         {
-
-
-            int identificador = int.Parse(comboIDRutas.SelectedItem.ToString() );
+            int identificador = int.Parse(comboIDRutas.SelectedItem.ToString());
             conectar.EliminarDatosRuta(identificador);
             MessageBox.Show("Ruta Eliminada con Exito");
             limpiarCamposEliminar();
             Actualizar_Rutas();
-
         }
 
         public void LimpiarCamposModificar()
@@ -185,33 +172,45 @@ namespace CapaPresentacion
             txtOrigenActual.Clear();
             txtDestinoActual.Clear();
             txtDuracionActual.Clear();
-
             comboBoxNuevoPaisOrigen.Items.Clear();
             comboBoxNuevoPaisDestino.Items.Clear();
-            textNuevoDuracion.Clear();
-
-
+            txtNuevoDuracion.Clear();
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            string origen_nuevo = comboBoxNuevoPaisOrigen.SelectedItem.ToString();
-            string destino_nuevo = comboBoxNuevoPaisDestino.SelectedItem.ToString();
-            int duracion_nuevo = int.Parse(textNuevoDuracion.Text);
-            int identificador_modificar = int.Parse(comboboxIDModificar.SelectedItem.ToString());
-
-            conectar.ModificarDatosRuta(identificador_modificar, origen_nuevo, destino_nuevo, duracion_nuevo);
-            MessageBox.Show("Ruta modificada con exito");
-
-            LimpiarCamposModificar();
-            Actualizar_Rutas();
-
-
+            if (comboBoxNuevoPaisDestino.Text.Length != 0 || comboBoxNuevoPaisOrigen.Text.Length != 0 || txtNuevoDuracion.Text.Length != 0)
+            {
+                string origen_nuevo = comboBoxNuevoPaisOrigen.SelectedItem.ToString();
+                string destino_nuevo = comboBoxNuevoPaisDestino.SelectedItem.ToString();
+                int duracion_nuevo = int.Parse(txtNuevoDuracion.Text);
+                int identificador_modificar = int.Parse(comboboxIDModificar.SelectedItem.ToString());
+                conectar.ModificarDatosRuta(identificador_modificar, origen_nuevo, destino_nuevo, duracion_nuevo);
+                MessageBox.Show("Ruta modificada con exito");
+                LimpiarCamposModificar();
+                Actualizar_Rutas();
+            }
+            else { MessageBox.Show("Debe de Ingresar todos los datos"); }
         }
 
         private void txtIdentificador_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtIdentificador_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            validar.validarSoloNumeros(e);
+        }
+
+        private void txtDuracion_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            validar.validarSoloNumeros(e);
+        }
+
+        private void textNuevoDuracion_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            validar.validarSoloNumeros(e);
         }
     }
 }

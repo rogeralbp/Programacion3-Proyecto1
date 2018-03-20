@@ -201,6 +201,7 @@
             this.txtPaisActualEliminar.Name = "txtPaisActualEliminar";
             this.txtPaisActualEliminar.Size = new System.Drawing.Size(384, 22);
             this.txtPaisActualEliminar.TabIndex = 13;
+            this.txtPaisActualEliminar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPaisActualEliminar_KeyPress);
             // 
             // label9
             // 

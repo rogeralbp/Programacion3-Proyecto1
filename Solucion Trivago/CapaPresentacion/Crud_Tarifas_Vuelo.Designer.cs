@@ -110,6 +110,7 @@
             this.txtIdentificador.Size = new System.Drawing.Size(410, 22);
             this.txtIdentificador.TabIndex = 8;
             this.txtIdentificador.TextChanged += new System.EventHandler(this.txtIdentificador_TextChanged);
+            this.txtIdentificador.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtIdentificador_KeyPress);
             // 
             // txtPrecio
             // 
@@ -117,6 +118,7 @@
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.Size = new System.Drawing.Size(410, 22);
             this.txtPrecio.TabIndex = 7;
+            this.txtPrecio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrecio_KeyPress);
             // 
             // comboBoxRuta
             // 
@@ -215,6 +217,7 @@
             this.txtPrecioNuevo.Name = "txtPrecioNuevo";
             this.txtPrecioNuevo.Size = new System.Drawing.Size(281, 22);
             this.txtPrecioNuevo.TabIndex = 13;
+            this.txtPrecioNuevo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrecioNuevo_KeyPress);
             // 
             // txtModificarRuta
             // 
@@ -290,7 +293,7 @@
             // 
             // btnGuardarCambios
             // 
-            this.btnGuardarCambios.Location = new System.Drawing.Point(672, 17);
+            this.btnGuardarCambios.Location = new System.Drawing.Point(591, 170);
             this.btnGuardarCambios.Name = "btnGuardarCambios";
             this.btnGuardarCambios.Size = new System.Drawing.Size(209, 33);
             this.btnGuardarCambios.TabIndex = 3;
@@ -320,7 +323,7 @@
             this.tabPage3.Controls.Add(this.button4);
             this.tabPage3.Location = new System.Drawing.Point(4, 25);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(938, 456);
+            this.tabPage3.Size = new System.Drawing.Size(928, 456);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Eliminar Tarifa";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -407,7 +410,7 @@
             this.tabPage4.Controls.Add(this.button7);
             this.tabPage4.Location = new System.Drawing.Point(4, 25);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(938, 456);
+            this.tabPage4.Size = new System.Drawing.Size(928, 456);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Consultar Tarifas Vuelos";
             this.tabPage4.UseVisualStyleBackColor = true;

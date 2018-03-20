@@ -21,7 +21,7 @@ namespace CapaDatos
 
             string baseDatos = "gestion_vuelos";
 
-            string cadenaConexion = "Server=" + servidor + ";" + "Port=" + puerto + ";" + "User Id=" + usuario + ";" + "Password=" + claveAnthonny + ";" + "Database=" + baseDatos;
+            string cadenaConexion = "Server=" + servidor + ";" + "Port=" + puerto + ";" + "User Id=" + usuario + ";" + "Password=" + claveRoger + ";" + "Database=" + baseDatos;
             conexion = new NpgsqlConnection(cadenaConexion);
 
             if (conexion != null)
@@ -222,7 +222,6 @@ namespace CapaDatos
             {
                 MessageBox.Show("Error--- \n" + error);
             }
-
         }
 
         public void ModificarDatosLugar(int identificador, string nombre, int pais_id)
@@ -239,7 +238,6 @@ namespace CapaDatos
             {
                 MessageBox.Show("Error--- \n" + error);
             }
-
         }
 
         public void EliminarDatosLugares(int identificador)
@@ -433,8 +431,7 @@ namespace CapaDatos
             }
 
         }
-
-
+        
         public void EliminarDatosPaises(int identificador)
         {
             try
@@ -535,7 +532,7 @@ namespace CapaDatos
         public String ConsultarInformacionUsuarioCedula(String cedula)
         {
 
-            String informacionUsuario = String.Empty;
+            String nombreUsuario = String.Empty;
 
             Conexion();
             conexion.Open();
@@ -545,14 +542,12 @@ namespace CapaDatos
             {
                 while (lectorConsulta.Read())
                 {
-                    //cedula, nombre, contraseña y tipo de usuario
-                    //informacionUsuario = lectorConsulta.GetString(0) + ";" + lectorConsulta.GetString(1) + ";" + lectorConsulta.GetString(2) + ";"+ lectorConsulta.GetString(3);
-                    informacionUsuario = lectorConsulta.GetString(1);
+                    nombreUsuario = lectorConsulta.GetString(1);//aqui el metodo se trae el nombre del usuario
                 }
             }
             conexion.Close();
 
-            return informacionUsuario;
+            return nombreUsuario;
         }
 
         /// <summary>
@@ -782,7 +777,7 @@ namespace CapaDatos
             List<string> nombres = new List<string>();
             Conexion();
             conexion.Open();
-            NpgsqlCommand cmd = new NpgsqlCommand("SELECT COUNT(r.cantidad_personas) AS personas,h.nombre FROM informacion_reservaciones_hoteles AS r JOIN hotel AS h on r.id_hotel = h.identificador  WHERE r.id_hotel = h.identificador GROUP BY h.nombre  ORDER BY personas DESC", conexion);
+            NpgsqlCommand cmd = new NpgsqlCommand("SELECT sum(r.cantidad_personas),h.nombre FROM informacion_reservaciones_hoteles AS r JOIN hotel AS h on r.id_hotel = h.identificador  WHERE r.id_hotel = h.identificador GROUP BY h.nombre ORDER BY SUM(r.cantidad_personas) DESC", conexion);
             NpgsqlDataReader reader = cmd.ExecuteReader();
             try
             {
@@ -810,7 +805,7 @@ namespace CapaDatos
             List<String> nombres = new List<String>();
             Conexion();
             conexion.Open();
-            NpgsqlCommand cmd = new NpgsqlCommand("SELECT COUNT(r.cantidad_personas) AS personas,h.nombre FROM informacion_reservaciones_hoteles AS r JOIN hotel AS h on r.id_hotel = h.identificador  WHERE r.id_hotel = h.identificador GROUP BY h.nombre  ORDER BY personas DESC", conexion);
+            NpgsqlCommand cmd = new NpgsqlCommand("SELECT sum(r.cantidad_personas),h.nombre FROM informacion_reservaciones_hoteles AS r JOIN hotel AS h on r.id_hotel = h.identificador  WHERE r.id_hotel = h.identificador GROUP BY h.nombre ORDER BY SUM(r.cantidad_personas) DESC", conexion);
             NpgsqlDataReader reader = cmd.ExecuteReader();
             try
             {
@@ -898,7 +893,7 @@ namespace CapaDatos
             List<string> cantidad = new List<string>();
             Conexion();
             conexion.Open();
-            NpgsqlCommand cmd = new NpgsqlCommand("SELECT COUNT(*) as porcentaje_visitas,pais_destino FROM informacion_reservaciones_vuelos GROUP BY pais_destino", conexion);
+            NpgsqlCommand cmd = new NpgsqlCommand("SELECT SUM(c.pasajeros_adultos) FROM informacion_reservaciones_vuelos as c WHERE fecha_inicio  BETWEEN'" + fechainicio + "' AND '" + fechafin + "'", conexion);
             NpgsqlDataReader reader = cmd.ExecuteReader();
             try
             {
@@ -929,7 +924,7 @@ namespace CapaDatos
             List<string> cantidad = new List<string>();
             Conexion();
             conexion.Open();
-            NpgsqlCommand cmd = new NpgsqlCommand("SELECT SUM(c.pasajeros_niños) FROM informacion_reservaciones_vuelos as c WHERE to_date(c.fecha_inicio,'DD/MM/YY')  >= '" + fechainicio + "' AND to_date(c.fecha_fin,'DD/MM/YY')  <= '" + fechafin + "'", conexion);
+            NpgsqlCommand cmd = new NpgsqlCommand("SELECT SUM(c.pasajeros_niños) FROM informacion_reservaciones_vuelos as c WHERE fecha_inicio  BETWEEN'" + fechainicio + "' AND '" + fechafin + "'", conexion);
             NpgsqlDataReader reader = cmd.ExecuteReader();
             try
             {
@@ -958,7 +953,7 @@ namespace CapaDatos
             ArrayList cantidad = new ArrayList();
             Conexion();
             conexion.Open();
-            NpgsqlCommand cmd = new NpgsqlCommand("SELECT COUNT(v.marca)  as marca FROM informacion_reservaciones_vuelos AS r JOIN vehiculos AS v ON r.placa_vehiculo = v.placa GROUP BY marca ORDER BY marca DESC", conexion);
+            NpgsqlCommand cmd = new NpgsqlCommand("SELECT COUNT(v.marca) ,v.marca  FROM informacion_reservaciones_vuelos AS r JOIN vehiculos AS v ON r.placa_vehiculo = v.placa GROUP BY v.marca ORDER BY v.marca DESC", conexion);
             NpgsqlDataReader reader = cmd.ExecuteReader();
             try
             {
@@ -982,13 +977,13 @@ namespace CapaDatos
             ArrayList nombres = new ArrayList();
             Conexion();
             conexion.Open();
-            NpgsqlCommand cmd = new NpgsqlCommand("SELECT COUNT(v.marca)  as marca FROM informacion_reservaciones_vuelos AS r JOIN vehiculos AS v ON r.placa_vehiculo = v.placa GROUP BY marca ORDER BY marca DESC", conexion);
+            NpgsqlCommand cmd = new NpgsqlCommand("SELECT COUNT(v.marca) ,v.marca  FROM informacion_reservaciones_vuelos AS r JOIN vehiculos AS v ON r.placa_vehiculo = v.placa GROUP BY v.marca ORDER BY v.marca DESC", conexion);
             NpgsqlDataReader reader = cmd.ExecuteReader();
             try
             {
                 while (reader.Read())
                 {
-                    nombres.Add(reader.GetString(0));
+                    nombres.Add(reader.GetString(1));
                 }
             }
             finally
@@ -1037,7 +1032,7 @@ namespace CapaDatos
             List<string> nombres = new List<string>();
             Conexion();
             conexion.Open();
-            NpgsqlCommand cmd = new NpgsqlCommand("SELECT COUNT(c.vuelo_escala),trim(trailing 'ABCDEFGHIJKMLNÑOPQRSTUVWXYZ' from c.vuelo_escala) FROM informacion_reservaciones_vuelos AS c WHERE c.vuelo_escala <> 'Vuelo Directo' GROUP By c.vuelo_escala ;", conexion);
+            NpgsqlCommand cmd = new NpgsqlCommand("SELECT COUNT(c.vuelo_escala),c.vuelo_escala FROM informacion_reservaciones_vuelos AS c WHERE c.vuelo_escala != 'Vuelo Directo' GROUP By c.vuelo_escala ;", conexion);
             NpgsqlDataReader reader = cmd.ExecuteReader();
             try
             {

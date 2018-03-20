@@ -82,19 +82,11 @@ namespace CapaPresentacion
             string lugar = Convert.ToString(this.tblAerpuertos.CurrentRow.Cells[3].Value);
             int codigo = Convert.ToInt32(this.tblAerpuertos.CurrentRow.Cells[4].Value);
             // ComboLugares.AutoGenerateComlumns = false;
-
             tblAerpuertos.Rows.Add(i + "", identificador, nombre, lugar, codigo);
             i = i + 1;
             conectar.InsertarDatosAeropuerto(identificador, nombre, lugar, codigo);
             MessageBox.Show("Agregado con Exito");
-
             LimpiarDatos();
-
-
-
-
-
-
         }
 
         private void textBox3_TextChanged(object sender, EventArgs e)
@@ -104,7 +96,6 @@ namespace CapaPresentacion
 
         private void tblAerpuertos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
         }
         public void Cargar()
         {
@@ -116,9 +107,7 @@ namespace CapaPresentacion
         {
             //Este metodo llena el comobo que esta dentro del DatagridView
             metodo.LlenarComboDatagridviewAeropuertos(ComboLugares);
-
             // this.tblAerpuertos.EditMode = DataGridViewEditMode.EditOnEnter;
-            
         }
 
         private void tblAerpuertos_CellEndEdit(object sender, DataGridViewCellEventArgs e)
@@ -131,23 +120,16 @@ namespace CapaPresentacion
                     string nombre = Convert.ToString(this.tblAerpuertos.CurrentRow.Cells[2].Value);
                     string lugar = Convert.ToString(this.tblAerpuertos.CurrentRow.Cells[3].Value);
                     int codigo = Convert.ToInt32(this.tblAerpuertos.CurrentRow.Cells[4].Value);
-
-
                 }
-
-                catch (Exception)
+                catch (Exception error)
                 {
-
+                    MessageBox.Show("Error en la Linea \n"+error);
                 }
-
-
             }
-
         }
 
         private void tblAerpuertos_MouseClick(object sender, MouseEventArgs e)
         {
-          
             tblAerpuertos.Columns[1].ReadOnly = true;
             tblAerpuertos.Columns[2].ReadOnly = true;
             tblAerpuertos.Columns[3].ReadOnly = true;
@@ -162,6 +144,21 @@ namespace CapaPresentacion
         private void btnActualizar_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtIdentificador_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            validar.validarSoloNumeros(e);
+        }
+
+        private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            validar.validarSoloLetras(e);
+        }
+
+        private void txtCodigoAeropuertos_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            validar.validarSoloNumeros(e);
         }
     }
 }

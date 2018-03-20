@@ -168,6 +168,7 @@
             // 
             // pictureBox2
             // 
+            this.pictureBox2.BackColor = System.Drawing.Color.LightBlue;
             this.pictureBox2.Image = global::CapaPresentacion.Properties.Resources.r;
             this.pictureBox2.Location = new System.Drawing.Point(205, 6);
             this.pictureBox2.Name = "pictureBox2";
@@ -205,7 +206,7 @@
             // 
             this.btnRegistrarse.Location = new System.Drawing.Point(243, 317);
             this.btnRegistrarse.Name = "btnRegistrarse";
-            this.btnRegistrarse.Size = new System.Drawing.Size(110, 23);
+            this.btnRegistrarse.Size = new System.Drawing.Size(110, 31);
             this.btnRegistrarse.TabIndex = 4;
             this.btnRegistrarse.Text = "Registrarse";
             this.btnRegistrarse.UseVisualStyleBackColor = true;

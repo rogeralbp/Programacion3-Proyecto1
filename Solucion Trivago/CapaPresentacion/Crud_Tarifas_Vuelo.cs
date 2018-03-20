@@ -17,7 +17,7 @@ namespace CapaPresentacion
     {
         Conexiones_Base_Datos conectar = new Conexiones_Base_Datos();
         Metodos metodo = new Metodos();
-
+        Validaciones validar = new Validaciones();
         public Crud_Tarifas_Vuelo()
         {
             InitializeComponent();
@@ -75,31 +75,25 @@ namespace CapaPresentacion
         {
             txtIdentificador.Clear();
             txtPrecio.Clear();
-            txtPrecioNuevo.Clear();
-           
+            txtPrecioNuevo.Clear();  
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-
-
-            if (txtIdentificador.Text.Length == 0 || txtPrecio.Text.Length == 0 || comboBoxRuta.Text.Length == 0 )
+            if (txtIdentificador.Text.Length == 0 || txtPrecio.Text.Length == 0 || comboBoxRuta.Text.Length == 0)
             {
                 MessageBox.Show("Debe de llenar todos los datos.");
             }
             else
             {
                 int identificador = int.Parse(txtIdentificador.Text);
-                int ruta = int.Parse(comboBoxRuta.SelectedItem.ToString()) ;
+                int ruta = int.Parse(comboBoxRuta.SelectedItem.ToString());
                 double precio = double.Parse(txtPrecio.Text);
-
                 conectar.InsertarDatosVuelos(identificador, ruta, precio);
                 MessageBox.Show("Tarifa de vuelo ingresada");
                 LimpiarCampos();
                 //Actulizamos la tabla de vuelos
                 metodo.LlenarDtTarifaVuelo(TablaVuelos);
-
-
             }
         }
 
@@ -121,8 +115,7 @@ namespace CapaPresentacion
         {
             btnEliminarTarifa.Enabled = true;
             metodo.MostrarInformacionVuelos(comboInIDTarifaVueloEliminar, txtRutaEliminar, txtPrecioEliminar);
-
-
+            
         }
 
         private void tabPage1_Click(object sender, EventArgs e)
@@ -139,17 +132,19 @@ namespace CapaPresentacion
 
         private void btnGuardarCambios_Click(object sender, EventArgs e)
         {
-            int ruta = Convert.ToInt32(comboNueaRuta.SelectedItem.ToString());
-            double precio = double.Parse(txtPrecioNuevo.Text);
-            int identificador_ruta = int.Parse(comboIDTarifasVuelos.SelectedItem.ToString());
-           conectar.ModificarTarifaVuelo(identificador_ruta, ruta, precio);
-
-            MessageBox.Show("Tarifa vuelo modificada con exito");
-
-            LimpiarCampos();
-            //Actulizamos la tabla de vuelos
-            metodo.LlenarDtTarifaVuelo(TablaVuelos);
-
+            if (comboNueaRuta.Text.Length != 0 || txtPrecioNuevo.Text.Length != 0)
+            {
+                int ruta = Convert.ToInt32(comboNueaRuta.SelectedItem.ToString());
+                double precio = double.Parse(txtPrecioNuevo.Text);
+                int identificador_ruta = int.Parse(comboIDTarifasVuelos.SelectedItem.ToString());
+                conectar.ModificarTarifaVuelo(identificador_ruta, ruta, precio);
+                MessageBox.Show("Tarifa vuelo modificada con exito");
+                txtModificarPrecio.Text = "";
+                txtModificarRuta.Text = "";
+                txtPrecioNuevo.Text = "";
+                //Actulizamos la tabla de vuelos
+                metodo.LlenarDtTarifaVuelo(TablaVuelos);
+            }
         }
 
         private void tabPage3_Click(object sender, EventArgs e)
@@ -161,6 +156,7 @@ namespace CapaPresentacion
         {
             txtPrecioEliminar.Clear();
             txtRutaEliminar.Clear();
+            comboInIDTarifaVueloEliminar.Items.Clear();
         }
 
         private void btnEliminarTarifa_Click(object sender, EventArgs e)
@@ -168,7 +164,6 @@ namespace CapaPresentacion
             int indentificador_eliminar = int.Parse(comboInIDTarifaVueloEliminar.SelectedItem.ToString());
             conectar.EliminarDatosTarifaVuelos(indentificador_eliminar);
             MessageBox.Show("Tarifa Eliminada con exito");
-
             LimpiarCamposEliminar();
             //Actulizamos la tabla de vuelos
             metodo.LlenarDtTarifaVuelo(TablaVuelos);
@@ -183,6 +178,21 @@ namespace CapaPresentacion
         private void txtIdentificador_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtIdentificador_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            validar.validarSoloNumeros(e);
+        }
+
+        private void txtPrecio_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            validar.validarSoloNumeros(e);
+        }
+
+        private void txtPrecioNuevo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            validar.validarSoloNumeros(e);
         }
     }
 }

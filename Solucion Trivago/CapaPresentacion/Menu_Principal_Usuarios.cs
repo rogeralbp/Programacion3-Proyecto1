@@ -23,7 +23,6 @@ namespace CapaPresentacion
             this.Hide();
             Login v = new Login();
             v.Show();
-            Login.nombreUsuario = String.Empty;
         }
 
         private void Menu_Principal_Usuarios_Load(object sender, EventArgs e)
@@ -57,6 +56,21 @@ namespace CapaPresentacion
         private void button5_Click(object sender, EventArgs e)
         {
           
+        }
+
+        private void button2_MouseHover(object sender, EventArgs e)
+        {
+            MessageBox.Show("En la Seccion de Hoteles podras reservar un hotel\n en un determinado Pais.");
+        }
+
+        private void button4_MouseHover(object sender, EventArgs e)
+        {
+            MessageBox.Show("En la Seccion de Vuelos podras reservar Hotel, Vehiculo y Tiquetes de Avion.");
+        }
+
+        private void button3_MouseHover(object sender, EventArgs e)
+        {
+            MessageBox.Show("En la Seccion Compra  y Reserva estan todas\n tus reservaciones que dejaste para despues.");
         }
     }
 }

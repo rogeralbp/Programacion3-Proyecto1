@@ -108,6 +108,7 @@
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.Size = new System.Drawing.Size(206, 20);
             this.txtPrecio.TabIndex = 4;
+            this.txtPrecio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrecio_KeyPress);
             // 
             // txtIdentificador
             // 
@@ -115,6 +116,7 @@
             this.txtIdentificador.Name = "txtIdentificador";
             this.txtIdentificador.Size = new System.Drawing.Size(206, 20);
             this.txtIdentificador.TabIndex = 3;
+            this.txtIdentificador.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtIdentificador_KeyPress);
             // 
             // label2
             // 
@@ -171,6 +173,7 @@
             this.txtPrecioNuevo.Size = new System.Drawing.Size(271, 20);
             this.txtPrecioNuevo.TabIndex = 8;
             this.txtPrecioNuevo.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
+            this.txtPrecioNuevo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrecioNuevo_KeyPress);
             // 
             // txtTarifaAc
             // 

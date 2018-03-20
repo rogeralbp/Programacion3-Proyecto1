@@ -15,8 +15,6 @@ namespace CapaPresentacion
 {
     public partial class Crud_Vehiculos : Form
     {
-
-
         Conexiones_Base_Datos conectar = new Conexiones_Base_Datos();
         Metodos metodo = new Metodos();
         Validaciones validar = new Validaciones();
@@ -26,14 +24,10 @@ namespace CapaPresentacion
         {
             InitializeComponent();
             this.CenterToScreen();
-
             //Llena el combo con las placas de los vehiculos
             metodo.LlenarCombo1IdentificadorVehiculos(comboVehiculosModificar);
-
             //Llena el combo del TAB de eliminar Vehiculos 
             metodo.LlenarCombo1IdentificadorVehiculos(ComboPlacasEliminar);
-
-
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -78,14 +72,12 @@ namespace CapaPresentacion
 
         private void textBox13_TextChanged(object sender, EventArgs e)
         {
-
         }
          
         private void comboBox5_SelectedIndexChanged(object sender, EventArgs e)
         {
             btnEliminarVehiculo.Enabled = true;
             metodo.Combo2Vehiculos(ComboPlacasEliminar, textBoxMarcaActual, textBoxModeloActual, textBoxTipoActual, textBoxPrecioActual, textBoxCantidadActual);
-
         }
 
         public void LImpiarCampos()
@@ -97,32 +89,24 @@ namespace CapaPresentacion
 
         private void button3_Click(object sender, EventArgs e)
         {
-
-
             //Validando entrada de datos
-            if (txtIdentificador.Text.Length == 0 || comboMarca.Text.Length == 0 || comboModelo.Text.Length == 0 || comboTipo.Text.Length == 0 || txtPrecio.Text.Length == 0 || txtCantidad.Text.Length == 0
-                )
+            if (txtIdentificador.Text.Length == 0 || comboMarca.Text.Length == 0 || comboModelo.Text.Length == 0 || comboTipo.Text.Length == 0 || txtPrecio.Text.Length == 0 || txtCantidad.Text.Length == 0)
             {
                 MessageBox.Show("Debe de llenar todos los datos.");
             }
             else
             {
-
                 int placa = int.Parse(txtIdentificador.Text);
                 string marca = comboMarca.Text;
                 string modelo = comboModelo.Text;
                 string tipo = comboTipo.Text;
                 double precio = double.Parse(txtPrecio.Text);
                 int cantidadP = int.Parse(txtCantidad.Text);
-
                 conectar.InsertarDatosVehiculos(placa, marca, modelo, tipo, precio, cantidadP);
                 MessageBox.Show("Vehiculo Insertado con Exito");
-
                 LImpiarCampos();
                 //Metodo para llenar el DataGridView con informacion de la tabla de vehiculos
                 metodo.LlenarDtVehiculos(TablaVehiculos);
-
-
             }
 
         }
@@ -139,15 +123,25 @@ namespace CapaPresentacion
 
         private void btnGuardarCambios_Click(object sender, EventArgs e)
         {
-            double castear = Convert.ToDouble(this.txtNuevoPrecio.Text);
-            int castear2 = Convert.ToInt16(this.txtNuevaCantidad.Text);
-            int placa = int.Parse(this.comboVehiculosModificar.SelectedItem.ToString());
+            if (ComboMarcaNueva.Text.Length != 0 || comboModeloNuevo.Text.Length != 0 || comboTipoNuevo.Text.Length != 0 || txtNuevoPrecio.Text.Length != 0 || txtNuevaCantidad.Text.Length != 0)
+            {
+                double castear = Convert.ToDouble(this.txtNuevoPrecio.Text);
+                int castear2 = Convert.ToInt16(this.txtNuevaCantidad.Text);
+                int placa = int.Parse(this.comboVehiculosModificar.SelectedItem.ToString());
+                conectar.ModificarDatosVehiculo(placa, ComboMarcaNueva.Text, comboModeloNuevo.Text, comboTipoNuevo.Text, castear, castear2);
+                MessageBox.Show("Vehiculo Modificado");
+                //Metodo para llenar el DataGridView con informacion de la tabla de vehiculos
+                metodo.LlenarDtVehiculos(TablaVehiculos);
 
-            
-            conectar.ModificarDatosVehiculo(placa ,ComboMarcaNueva.Text, comboModeloNuevo.Text, comboTipoNuevo.Text, castear , castear2 );
-            MessageBox.Show("Vehiculo Modificado");
-            //Metodo para llenar el DataGridView con informacion de la tabla de vehiculos
-            metodo.LlenarDtVehiculos(TablaVehiculos);
+                txtMarca.Text = "";
+                txtModelo.Text = "";
+                txtTipo.Text = "";
+                txtPrecio.Text = "";
+                txtCantida.Text = "";
+                txtNuevoPrecio.Text = "";
+                txtNuevaCantidad.Text = "";
+            }
+            else { MessageBox.Show("Debe de Ingresar todos ls datos correspondientes."); }
         }
 
         private void textBox9_TextChanged(object sender, EventArgs e)
@@ -201,6 +195,36 @@ namespace CapaPresentacion
         }
 
         private void comboTipo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtNuevoPrecio_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            validar.validarSoloNumeros(e);
+        }
+
+        private void txtNuevaCantidad_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            validar.validarSoloNumeros(e);
+        }
+
+        private void txtIdentificador_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            validar.validarSoloNumeros(e);
+        }
+
+        private void txtPrecio_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            validar.validarSoloNumeros(e);
+        }
+
+        private void txtCantidad_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            validar.validarSoloNumeros(e);
+        }
+
+        private void txtCantida_TextChanged(object sender, EventArgs e)
         {
 
         }

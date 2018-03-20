@@ -44,7 +44,7 @@ namespace CapaPresentacion
         private void Menu_Principal_Administrador_Load(object sender, EventArgs e)
         {
            nomUser.Text =Login.nombreUsuario;
-            Console.WriteLine("Bienvenido Administrador ," + Login.nombreUsuario);
+           Console.WriteLine("Bienvenido Administrador ," + Login.nombreUsuario);
             
         }
 

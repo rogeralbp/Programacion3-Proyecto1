@@ -149,20 +149,25 @@ namespace CapaPresentacion
 
         public void Reporte6()
         {
-
-            cantidad_vehiculos = conectar.Cantidad_Vehiculos();
-            cantidad_vehiculos1 = conectar.Metodo_Vehiculos();
-            chart6.Palette = ChartColorPalette.Pastel;
-            chart6.Titles.Add("CANTIDAD DE VEHICULOS MAS RENTADOS");
-
-            for (int i = 0; i < cantidad_vehiculos1.Count; i++)
+            try
             {
-                Series serie = chart6.Series.Add(cantidad_vehiculos1[i].ToString());
-                serie.Label = cantidad_vehiculos[i].ToString();
-                serie.Points.Add(Convert.ToDouble(cantidad_vehiculos1[i]));
+                cantidad_vehiculos = conectar.Cantidad_Vehiculos();
+                cantidad_vehiculos1 = conectar.Metodo_Vehiculos();
+                chart6.Palette = ChartColorPalette.Pastel;
+                chart6.Titles.Add("CANTIDAD DE VEHICULOS MAS RENTADOS");
+
+                for (int i = 0; i < cantidad_vehiculos1.Count; i++)
+                {
+                    Series serie = chart6.Series.Add(cantidad_vehiculos1[i].ToString());
+                    serie.Label = cantidad_vehiculos[i].ToString();
+                    serie.Points.Add(Convert.ToDouble(cantidad_vehiculos[i]));
+                }
             }
+            catch (Exception erroe) {
 
-
+                MessageBox.Show("ERROR \n    "+erroe);
+            }
+            
         }
         public void Reporte7()
         {

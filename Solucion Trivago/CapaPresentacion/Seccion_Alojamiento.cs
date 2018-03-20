@@ -585,47 +585,9 @@ namespace CapaPresentacion
             {
                 MessageBox.Show("Cantidad de Personas Inexsistente");
             }
-            //if (spinnerHabitacionesPais.Value == 1) {
-
-            //    spinnerPersonasAdultasPais.Value=2;
-            //    spinnerPersonasMenoresPais.Value=2;
-            //}
-            //if (spinnerHabitacionesPais.Value == 2)
-            //{
-
-            //    spinnerPersonasAdultasPais.Value = 4;
-            //    spinnerPersonasMenoresPais.Value = 4;
-            //}
-            //if (spinnerHabitacionesPais.Value == 3)
-            //{
-
-            //    spinnerPersonasAdultasPais.Value = 6;
-            //    spinnerPersonasMenoresPais.Value = 6;
-            //}
-            //if (spinnerHabitacionesPais.Value == 4)
-            //{
-
-            //    spinnerPersonasAdultasPais.Value = 8;
-            //    spinnerPersonasMenoresPais.Value = 8;
-            //}
-            //if (spinnerHabitacionesPais.Value == 5)
-            //{
-
-            //    spinnerPersonasAdultasPais.Value = 10;
-            //    spinnerPersonasMenoresPais.Value = 10;
-            //}
-            //if (spinnerHabitacionesPais.Value == 6)
-            //{
-
-            //    spinnerPersonasAdultasPais.Value = 12;
-            //    spinnerPersonasMenoresPais.Value = 12;
-            //}
-            //if (spinnerHabitacionesPais.Value == 7)
-            //{
-
-            //    spinnerPersonasAdultasPais.Value = 14;
-            //    spinnerPersonasMenoresPais.Value = 14;
-            //}
+            panelAdultosNiñosPais.Enabled = false;
+            spinnerHabitacionesPais.Enabled = false;
+            btnGuardarCantidadPersonasPais.Enabled = false;
         }
 
         private void btnGuardarCantidadPersonsCiudad_Click(object sender, EventArgs e)
@@ -694,6 +656,10 @@ namespace CapaPresentacion
             {
                 MessageBox.Show("Cantidad de Personas Inexsistente");
             }
+
+            panelPersonasCiudad.Enabled = false;
+            spinnerHabitacionesCiudad.Enabled = false;
+            btnGuardarCantidadPersonsCiudad.Enabled = false;
         }
 
         private void optPrecioMayorCiudad_CheckedChanged(object sender, EventArgs e)
@@ -772,6 +738,9 @@ namespace CapaPresentacion
             {
                 MessageBox.Show("Cantidad de Personas Inexsistente");
             }
+            panelPersonasHotel.Enabled = false;
+            spinnerHabitacionesHotel.Enabled = false;
+            btnGuardarCantidadPersonasHotel.Enabled = false;
         }
 
         private void spinnerPersonasAdultosHotel_ValueChanged(object sender, EventArgs e)
@@ -869,7 +838,7 @@ namespace CapaPresentacion
 
         private void button5_Click(object sender, EventArgs e)
         {
-            fotoHotel.Visible = true;
+            fotoHotelPais.Visible = true;
             posicionDTGHotelPais = dtgHotelesPaises.CurrentRow.Index;
             string ruta = dtgHotelesPaises[5, posicionDTGHotelPais].Value.ToString();
             fotoHotelPais.Image = Image.FromFile(ruta);
@@ -877,7 +846,7 @@ namespace CapaPresentacion
 
         private void button6_Click(object sender, EventArgs e)
         {
-            fotoHotel.Visible = true;
+            fotoHotelCiudad.Visible = true;
             posicionDTGHotelCiudad = dtgHotelesCiudades.CurrentRow.Index;
             string ruta = dtgHotelesCiudades[4, posicionDTGHotelCiudad].Value.ToString();
             fotoHotelCiudad.Image = Image.FromFile(ruta);

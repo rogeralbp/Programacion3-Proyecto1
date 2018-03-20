@@ -73,17 +73,16 @@ namespace CapaPresentacion
 
         private void button5_Click(object sender, EventArgs e)
         {
-            int identificador = int.Parse(this.ComboIDTarifasModifcar.SelectedItem.ToString());
-
-            double precio_nuevo = double.Parse(txtPrecioNuevo.Text);
-
-
-            
-           conectar.ModificarTarifaHotel(identificador , precio_nuevo);
-            MessageBox.Show("Precio de tarifa Hotel modificado con Exito");
-            LimpiarC();
-            //Actualizar tabla 
-            metodos.LlenarDtarifaHotel(TablaTarifasHoteles);
+            if (txtPrecioNuevo.Text.Length != 0)
+            {
+                int identificador = int.Parse(this.ComboIDTarifasModifcar.SelectedItem.ToString());
+                double precio_nuevo = double.Parse(txtPrecioNuevo.Text);
+                conectar.ModificarTarifaHotel(identificador, precio_nuevo);
+                MessageBox.Show("Precio de tarifa Hotel modificado con Exito");
+                LimpiarC();
+                //Actualizar tabla 
+                metodos.LlenarDtarifaHotel(TablaTarifasHoteles);
+            }
         }
 
         public void LimpiarCampos()
@@ -109,8 +108,6 @@ namespace CapaPresentacion
                 //Actualizar tabla 
                 metodos.LlenarDtarifaHotel(TablaTarifasHoteles);
             }
-
-
         }
 
         private void button7_Click(object sender, EventArgs e)
@@ -183,6 +180,21 @@ namespace CapaPresentacion
         private void tabPage1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtIdentificador_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            validar.validarSoloNumeros(e);
+        }
+
+        private void txtPrecio_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            validar.validarSoloNumeros(e);
+        }
+
+        private void txtPrecioNuevo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            validar.validarSoloNumeros(e);
         }
     }
 }

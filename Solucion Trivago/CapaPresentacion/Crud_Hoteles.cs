@@ -78,6 +78,9 @@ namespace CapaPresentacion
             txtIdentificador.Clear();
             txtNombre.Clear();
             txtHabitaciones.Clear();
+            comboBoxPaises.Items.Clear();
+            comboBoxLugares.Items.Clear();
+            comboBoxPrecioTarifa.Items.Clear();
             pictureBox1.Image = null;
         }
 
@@ -97,12 +100,9 @@ namespace CapaPresentacion
                 int habitaciones = int.Parse(txtHabitaciones.Text);
                 double precio_tarifa = double.Parse(this.comboBoxPrecioTarifa.SelectedItem.ToString()); 
                 conectar.InsertarHotel(identificador, nombre, direccion, pais, lugar, habitaciones , precio_tarifa);
-
                 MessageBox.Show("Hotel Agregado con Exito");
                 LimpiarCampos();
                 ActualizarTablaHoteles();
-
-
             }
         }
 
@@ -121,7 +121,9 @@ namespace CapaPresentacion
             txtHabitacionesActuales.Clear();
             txtNuevoNombre.Clear();
             txtNuevasHabitaciones.Clear();
-
+            comboNuevoLugar.Items.Clear();
+            comboNuevoPais.Items.Clear();
+            comboBoxTarifaNueva.Items.Clear();
         }
 
         private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
@@ -178,19 +180,24 @@ namespace CapaPresentacion
         
         private void btnGuardarCambios_Click(object sender, EventArgs e)
         {
-            int identificador = int.Parse(this.comboBoxModifcarIdentificador.SelectedItem.ToString());
-            string nuevo_nombre = txtNuevoNombre.Text;
-            string nuevo_pais = comboNuevoPais.SelectedItem.ToString();
-            string nuevo_lugar = comboNuevoLugar.SelectedItem.ToString();
-            int habitaciones = int.Parse(txtNuevasHabitaciones.Text);
+            if (txtNuevoNombre.Text.Length != 0 || comboNuevoPais.Text.Length != 0 || comboNuevoLugar.Text.Length != 0 || comboBoxTarifaNueva.Text.Length != 0 || txtNuevasHabitaciones.Text.Length != 0)
+            {
 
-            double tarifa_nueva = int.Parse(this.comboBoxTarifaNueva.SelectedItem.ToString());
+                int identificador = int.Parse(this.comboBoxModifcarIdentificador.SelectedItem.ToString());
+                string nuevo_nombre = txtNuevoNombre.Text;
+                string nuevo_pais = comboNuevoPais.SelectedItem.ToString();
+                string nuevo_lugar = comboNuevoLugar.SelectedItem.ToString();
+                int habitaciones = int.Parse(txtNuevasHabitaciones.Text);
+                double tarifa_nueva = int.Parse(this.comboBoxTarifaNueva.SelectedItem.ToString());
+                conectar.ModificarHotel(identificador, nuevo_nombre, nuevo_pais, nuevo_lugar, habitaciones, tarifa_nueva);
+                MessageBox.Show("Hotel Modificado con Exito");
 
-            conectar.ModificarHotel(identificador, nuevo_nombre, nuevo_pais, nuevo_lugar, habitaciones , tarifa_nueva );
-            MessageBox.Show("Hotel Modificado con Exito");
-
-            LimpiarCamposModificar();
-            ActualizarTablaHoteles();
+                LimpiarCamposModificar();
+                ActualizarTablaHoteles();
+            }
+            else {
+                MessageBox.Show("Debe de llenar todos los campos.");
+            }
         }
 
 

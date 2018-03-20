@@ -41,8 +41,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.comboBoxNuevoPaisDestino = new System.Windows.Forms.ComboBox();
+            this.comboBoxNuevoPaisOrigen = new System.Windows.Forms.ComboBox();
             this.btnGuardar = new System.Windows.Forms.Button();
-            this.textNuevoDuracion = new System.Windows.Forms.TextBox();
+            this.txtNuevoDuracion = new System.Windows.Forms.TextBox();
             this.textDuracion = new System.Windows.Forms.TextBox();
             this.textDestino = new System.Windows.Forms.TextBox();
             this.textOrigen = new System.Windows.Forms.TextBox();
@@ -69,8 +71,6 @@
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.TablaRutas = new System.Windows.Forms.DataGridView();
             this.button7 = new System.Windows.Forms.Button();
-            this.comboBoxNuevoPaisOrigen = new System.Windows.Forms.ComboBox();
-            this.comboBoxNuevoPaisDestino = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -158,6 +158,7 @@
             this.txtDuracion.Size = new System.Drawing.Size(378, 22);
             this.txtDuracion.TabIndex = 5;
             this.txtDuracion.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            this.txtDuracion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDuracion_KeyPress);
             // 
             // txtIdentificador
             // 
@@ -166,6 +167,7 @@
             this.txtIdentificador.Size = new System.Drawing.Size(378, 22);
             this.txtIdentificador.TabIndex = 4;
             this.txtIdentificador.TextChanged += new System.EventHandler(this.txtIdentificador_TextChanged);
+            this.txtIdentificador.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtIdentificador_KeyPress);
             // 
             // label4
             // 
@@ -208,7 +210,7 @@
             this.tabPage2.Controls.Add(this.comboBoxNuevoPaisDestino);
             this.tabPage2.Controls.Add(this.comboBoxNuevoPaisOrigen);
             this.tabPage2.Controls.Add(this.btnGuardar);
-            this.tabPage2.Controls.Add(this.textNuevoDuracion);
+            this.tabPage2.Controls.Add(this.txtNuevoDuracion);
             this.tabPage2.Controls.Add(this.textDuracion);
             this.tabPage2.Controls.Add(this.textDestino);
             this.tabPage2.Controls.Add(this.textOrigen);
@@ -230,6 +232,24 @@
             this.tabPage2.UseVisualStyleBackColor = true;
             this.tabPage2.Click += new System.EventHandler(this.tabPage2_Click);
             // 
+            // comboBoxNuevoPaisDestino
+            // 
+            this.comboBoxNuevoPaisDestino.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxNuevoPaisDestino.FormattingEnabled = true;
+            this.comboBoxNuevoPaisDestino.Location = new System.Drawing.Point(239, 293);
+            this.comboBoxNuevoPaisDestino.Name = "comboBoxNuevoPaisDestino";
+            this.comboBoxNuevoPaisDestino.Size = new System.Drawing.Size(378, 24);
+            this.comboBoxNuevoPaisDestino.TabIndex = 27;
+            // 
+            // comboBoxNuevoPaisOrigen
+            // 
+            this.comboBoxNuevoPaisOrigen.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxNuevoPaisOrigen.FormattingEnabled = true;
+            this.comboBoxNuevoPaisOrigen.Location = new System.Drawing.Point(239, 238);
+            this.comboBoxNuevoPaisOrigen.Name = "comboBoxNuevoPaisOrigen";
+            this.comboBoxNuevoPaisOrigen.Size = new System.Drawing.Size(378, 24);
+            this.comboBoxNuevoPaisOrigen.TabIndex = 26;
+            // 
             // btnGuardar
             // 
             this.btnGuardar.Enabled = false;
@@ -241,12 +261,13 @@
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
-            // textNuevoDuracion
+            // txtNuevoDuracion
             // 
-            this.textNuevoDuracion.Location = new System.Drawing.Point(239, 357);
-            this.textNuevoDuracion.Name = "textNuevoDuracion";
-            this.textNuevoDuracion.Size = new System.Drawing.Size(378, 22);
-            this.textNuevoDuracion.TabIndex = 24;
+            this.txtNuevoDuracion.Location = new System.Drawing.Point(239, 357);
+            this.txtNuevoDuracion.Name = "txtNuevoDuracion";
+            this.txtNuevoDuracion.Size = new System.Drawing.Size(378, 22);
+            this.txtNuevoDuracion.TabIndex = 24;
+            this.txtNuevoDuracion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textNuevoDuracion_KeyPress);
             // 
             // textDuracion
             // 
@@ -498,24 +519,6 @@
             this.button7.UseVisualStyleBackColor = true;
             this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
-            // comboBoxNuevoPaisOrigen
-            // 
-            this.comboBoxNuevoPaisOrigen.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxNuevoPaisOrigen.FormattingEnabled = true;
-            this.comboBoxNuevoPaisOrigen.Location = new System.Drawing.Point(239, 238);
-            this.comboBoxNuevoPaisOrigen.Name = "comboBoxNuevoPaisOrigen";
-            this.comboBoxNuevoPaisOrigen.Size = new System.Drawing.Size(378, 24);
-            this.comboBoxNuevoPaisOrigen.TabIndex = 26;
-            // 
-            // comboBoxNuevoPaisDestino
-            // 
-            this.comboBoxNuevoPaisDestino.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxNuevoPaisDestino.FormattingEnabled = true;
-            this.comboBoxNuevoPaisDestino.Location = new System.Drawing.Point(239, 293);
-            this.comboBoxNuevoPaisDestino.Name = "comboBoxNuevoPaisDestino";
-            this.comboBoxNuevoPaisDestino.Size = new System.Drawing.Size(378, 24);
-            this.comboBoxNuevoPaisDestino.TabIndex = 27;
-            // 
             // Crud_Rutas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -565,7 +568,7 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox textOrigen;
-        private System.Windows.Forms.TextBox textNuevoDuracion;
+        private System.Windows.Forms.TextBox txtNuevoDuracion;
         private System.Windows.Forms.TextBox textDuracion;
         private System.Windows.Forms.TextBox textDestino;
         private System.Windows.Forms.Button btnGuardar;

@@ -79,8 +79,6 @@ namespace CapaPresentacion
 
         private void button1_Click(object sender, EventArgs e)
         {
-
-
             if (txtIDPaisNuevo.Text.Length == 0 || txtNombrePaisNuevo.Text.Length == 0 || pictureBox1 == null)
             {
                 MessageBox.Show("Debe de llenar todos los datos.");
@@ -91,15 +89,11 @@ namespace CapaPresentacion
                 string nombre = txtNombrePaisNuevo.Text;
                 conectar.InsertarDatosPaises(identificador, nombre, direccion);
                 MessageBox.Show("Se registro el Pais con exito");
-
-
                 LimpiarCamposAgregar();
                 ActualizarTabla();
             }
         }
-
         
-
         private void button7_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -109,6 +103,7 @@ namespace CapaPresentacion
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            metodos.MostrarInformacionPaisModificar(comboBoxModificarPaises, txtNombreModificar);
             btnActualizarPais.Enabled = true;
         }
 
@@ -123,8 +118,6 @@ namespace CapaPresentacion
             btnEliminarPais.Enabled = true;
             //Metodo para mostrar la informacion del pais , de acuerdo con el ID correspondiente
             metodos.MostrarInformacionPais(comboPaisesEliminar, txtIdentificadorEliminar, txtNombreEliminar);
-         
-
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -152,11 +145,15 @@ namespace CapaPresentacion
 
         private void btnEliminarPais_Click(object sender, EventArgs e)
         {
-            int codigo = int.Parse(this.comboPaisesEliminar.SelectedItem.ToString());
-            conectar.EliminarDatosPaises(codigo);
-            MessageBox.Show("Pais eliminado con exito");
-            LimpiarEliminarCampos();
-            ActualizarTabla();
+            if (comboPaisesEliminar.Text.Length != 0)
+            {
+                int codigo = int.Parse(this.comboPaisesEliminar.SelectedItem.ToString());
+                conectar.EliminarDatosPaises(codigo);
+                MessageBox.Show("Pais eliminado con exito");
+                LimpiarEliminarCampos();
+                ActualizarTabla();
+            }
+            else { MessageBox.Show("Debe de Seleccionar un Pais."); }
         }
 
         private void tabPage1_Click(object sender, EventArgs e)
@@ -166,7 +163,17 @@ namespace CapaPresentacion
 
         private void btnActualizarPais_Click(object sender, EventArgs e)
         {
-
+            if (txtNuevoNombrePais.Text.Length != 0 || direccion.Length != 0)
+            {
+                int identificador = int.Parse(this.comboBoxModificarPaises.SelectedItem.ToString());
+                string nombre = txtNuevoNombrePais.Text;
+                conectar.ModificarDatosPaises(identificador, nombre, direccion);
+                MessageBox.Show("Modificacion con exito");
+                ActualizarTabla();
+            }
+            else {
+                MessageBox.Show("Debes de Propocionar todos los datos.");
+            }
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
@@ -178,7 +185,6 @@ namespace CapaPresentacion
                     string imagen = openFileDialog1.FileName;
                     pictureBox2.Image = Image.FromFile(imagen);
                     direccion = imagen;
-
                 }
             }
             catch (Exception ex)
@@ -195,7 +201,6 @@ namespace CapaPresentacion
         private void Tabla_Load(object sender, EventArgs e)
         {
             ActualizarTabla();
-
         }
 
         private void txtNombreEliminar_KeyPress(object sender, KeyPressEventArgs e)
@@ -226,7 +231,11 @@ namespace CapaPresentacion
         private void txtNombrePaisNuevo_KeyPress(object sender, KeyPressEventArgs e)
         {
             validar.validarSoloLetras(e);
+        }
 
+        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            validar.validarSoloLetras(e);
         }
     }
 }
