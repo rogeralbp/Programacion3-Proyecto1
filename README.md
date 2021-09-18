@@ -18,7 +18,12 @@ Delivery: 13/03/2018 **4 quarter 2018**
 
 **Introduction** 
 
-An  application  was  developed  in  programming  language  C# connected to a database to store information, the application consists of where the user searches for a hotel of his preference to book and stay, where he also chose the country, place of destination among other things, as well You can choose the type of vehicle you prefer and the type of flight** 
+Desktop application developed in programming language C# connected to a database to store information.
+
+The application consists when a user searches for a hotel of his preference to book and stay, where he also chose the country, place of destination among other things.
+
+As well You can choose the type of vehicle you prefer and the type of flight.
+
 
 The beginning of the application the user can register to enjoy the application. 
 
